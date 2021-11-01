@@ -1,0 +1,293 @@
+.main{
+    top: 8vh;
+    /* height: 80vh; */
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+}
+
+.map{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.map__frame{
+  width: 70vw;
+  height: 92vh;
+  /* background: #a66; */
+  overflow: auto;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.map__image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mark{
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.mark_1{background-color: #cff;}
+.mark_2{background-color: #fcf;}
+.mark_3{background-color: #ffc;}
+.mark_4{background-color: #fcc;}
+
+/* Django組み込みでインラインで挿入 */
+#mark_1_1{top: 77%;left: 54.5%;}
+#mark_1_2{top: 19%;left: 44%;}
+#mark_2_1{top: 15.5%;left: 36.5%;}
+#mark_2_2{top: 26%;left: 42.5%;}
+#mark_3_1{top: 73.5%;left: 55%;}
+
+#popup{
+  position: absolute;
+  z-index: 50;
+}
+
+#popup span{
+  padding: 0 4px;
+}
+
+#popup .upblock{
+  display: none;
+  background-color: #fff;
+  border: 1px solid #333;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  flex-flow: column;
+}
+
+.popup__title{
+  display: flex;
+}
+.popup__text{
+  font-size: 12px;
+  text-align: center;
+}
+.popup__link{
+  display: none;
+}
+
+.popup__icon{
+  font-size: 10px;
+  border-radius: 16px;
+  border: solid #ccc 1px;
+  width: max-content;
+  padding: 3px;
+  font-weight: bold;
+  margin-right: 4px;
+}
+.popup__icon-1{background-color: #cff;}
+.popup__icon-2{background-color: #fcf;}
+.popup__icon-3{background-color: #ffc;}
+
+input[type="range"] {
+  display: none;
+}
+
+.tile__frame{
+  width: 30vw;
+  height: 92vh;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-wrap: wrap;
+  /* background-color: #b4ddff; */
+}
+
+.tile{
+  height: 12vw;
+  width: 12vw;
+  border-radius: 12px;
+  cursor: pointer;
+  border: solid 1px #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.tile p{
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: -18px;
+}
+
+.tile img{
+  height: 60%;
+}
+
+.tile-1{background-color: #cff;}
+.tile-2{background-color: #fcf;}
+.tile-3{background-color: #ffc;}
+.tile-4{background-color: #fcc;}
+
+.zoom-mordal{
+  display: none;
+}
+
+@media screen and (max-width:1020px) { 
+  .main{
+    flex-flow: column;
+  }
+  .map{
+    display: flex;
+    align-items: center;
+  }
+  .map__frame{
+    width: 100vw;
+    height: 65vh;
+  }
+
+  .map__image{
+    height: max-content;
+  }
+
+  /* Django組み込みでインラインで挿入 */
+  #mark_1_1{top: 69%;left: 56.5%;}
+  #mark_1_2{top: 28.5%;left: 40%;}
+  #mark_2_1{top: 26%;left: 29%;}
+  #mark_2_2{top: 33%;left: 39%;}
+  #mark_3_1{top: 66%;left: 56.5%;}
+
+  #popup{
+    bottom: 20vh;
+    left: 20vw;
+    right: 20vw;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .popup__icon{
+    font-size: 28px;
+    margin-right: 14px;
+    padding: 4px;
+  }
+  .popup__name{
+    font-size: 36px;
+  }
+  .popup__text{
+    display: none;
+  }
+  .popup__link{
+    display: block;
+    font-size: 32px;
+  }
+
+
+  .tile{
+    max-height: 13vh;
+    height: 20vw;
+    width: 20vw;
+  }
+
+  .tile p{
+    font-size: 26px;
+    margin-bottom: -16px;
+  }
+
+  .tile img{
+    height: 75%;
+  }
+
+  .tile__frame{
+    height: 15vh;
+    /* padding: 1vh 0; */
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .zoom-mordal{
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 200;
+  }
+  .zoom-mordal__window{
+    margin: auto;
+    width: 60vw;
+    height: max-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: solid 8px #000;
+    border-radius: 24px;
+    padding: 32px;
+  }
+  .zoom-mordal__text{
+    font-size: 32px;
+  }
+  .zoom-mordal__button{
+    font-size: 28px;
+    color: #1a0dab;
+    text-align: center;
+    margin: 20px 0px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+
+  input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    height: 12px;
+    width: 70vw;
+    background: #ccc;
+    border-radius: 10px;
+    border: solid 3px #dff1ff;
+    position: fixed;
+    bottom: 17vh;
+    left: 15vw;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #ccc;
+    width: 12px;
+    height: 36px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+  }
+  input[type="range"]::-moz-range-thumb {
+    background: #ccc;
+    width: 12px;
+    height: 36px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+    border: none;
+  }
+  input[type="range"]::-moz-focus-outer {
+    border: 0;
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+  }
+}

@@ -1,6 +1,16 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <h1>Privacypolicy</h1>
-    </head>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<!-- ここに各ページだけで効かせたいCSSを記述 -->
+{% endblock %}
+
+{% block main_panel %}
+<!-- ここに各ページの本体を記述 -->
+<!-- ヘッダー・フッターは自動で入っている -->
+<h1>privacypolicy</h1>
+{% endblock %}
+
+{% block extra_js %}
+<!-- ここに各ページだけで効かせたいJSを記述 -->
+{% endblock %}
