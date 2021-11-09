@@ -1,90 +1,217 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<!-- paramsの命名がarts、restaurants、hotels、catsと仮定 -->
+
 {% block extra_style %}
     <link rel="stylesheet" href="{% static 'css/information.css' %}">
+    <style>
+        #mark_1_1{top: 77%;left: 54.5%;}
+        #mark_1_2{top: 19%;left: 44%;}
+        #mark_2_1{top: 15.5%;left: 36.5%;}
+        #mark_2_2{top: 26%;left: 42.5%;}
+        #mark_3_1{top: 73.5%;left: 55%;}
+
+        /* {% comment %}
+        {% for art in arts %}
+        #mark_1_{{ art.id }}{top:{{ art.coordinate[0] }}%;left:{{ art.coordinate[1] }}%;}
+        {% endfor %}
+        {% for restaurant in restaurants %}
+        #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate[0] }}%;left:{{ restaurantt.coordinate[1] }}%;}
+        {% endfor %}
+        {% for hotel in hotels %}
+        #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate[0] }}%;left:{{ hotel.coordinate[1] }}%;}
+        {% endfor %}
+        {% for cat in cats %}
+        #mark_4_{{ cat.id }}{top:{{ cat.coordinate[0] }}%;left:{{ cat.coordinate[1] }}%;}
+        {% endfor %}
+        {% endcomment %} */
+
+        @media screen and (max-width:1020px) {
+            #mark_1_1{top: 69%;left: 56.5%;}
+            #mark_1_2{top: 28.5%;left: 40%;}
+            #mark_2_1{top: 26%;left: 29%;}
+            #mark_2_2{top: 33%;left: 39%;}
+            #mark_3_1{top: 66%;left: 56.5%;}
+
+            /* {% comment %}
+            {% for art in arts %}
+            #mark_1_{{ art.id }}{top:{{ art.coordinate[2] }}%;left:{{ art.coordinate[3] }}%;}
+            {% endfor %}
+            {% for restaurant in restaurants %}
+            #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate[2] }}%;left:{{ restaurantt.coordinate[3] }}%;}
+            {% endfor %}
+            {% for hotel in hotels %}
+            #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate[2] }}%;left:{{ hotel.coordinate[3] }}%;}
+            {% endfor %}
+            {% for cat in cats %}
+            #mark_4_{{ cat.id }}{top:{{ cat.coordinate[2] }}%;left:{{ cat.coordinate[3] }}%;}
+            {% endfor %}
+            {% endcomment %} */
+
+        }
+    </style>
 {% endblock %}
 
 {% block main_panel %}
     <div class="main">
         <div class="map__frame mousedragscrollable">
-        <div id="map" class="map">
-            <div class="map__wrapper">
-            <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}" style="margin: 24px;height: calc(100% - 48px);width: calc(100% - 48px);">
-            <!-- Djangoの組み込みforでDataBaseから生成 -->
-            <!-- PCならaタグ、mobileならdivタグ -->
-            <div id="mark_1_1" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_1'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_1'))"></div>
-            <div id="mark_1_2" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_2'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_2'))"></div>
-            <div id="mark_2_1" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_1'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_1'))"></div>
-            <div id="mark_2_2" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_2'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_2'))"></div>
-            <div id="mark_3_1" class="mark mark_3" onmouseenter="popupActivate(document.getElementById('popup_3_1'))" onmouseleave="popupDeactivate(document.getElementById('popup_3_1'))"></div>
+            <div id="map" class="map">
+                <div class="map__wrapper">
+                    <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}" style="margin: 24px;height: calc(100% - 48px);width: calc(100% - 48px);">
+                    <div id="mark_1_1" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_1'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_1'))">
+                        <a href=""></a>
+                    </div>
+                    <div id="mark_1_2" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_2'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_2'))">
+                        <a href=""></a>
+                    </div>
+                    <div id="mark_2_1" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_1'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_1'))">
+                        <a href=""></a>
+                    </div>
+                    <div id="mark_2_2" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_2'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_2'))">
+                        <a href=""></a>
+                    </div>
+                    <div id="mark_3_1" class="mark mark_3" onmouseenter="popupActivate(document.getElementById('popup_3_1'))" onmouseleave="popupDeactivate(document.getElementById('popup_3_1'))">
+                        <a href=""></a>
+                    </div>
+
+                    {% comment %}
+
+                    {% for art in arts %}
+                    <!-- <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))" style="top:{{ art.coordinate[0] }}%;left:{{ art.coordinate[1] }}%;@media screen and (max-width:1020px) {top:{{ art.coordinate[2] }}%;left:{{ art.coordinate[3] }}%;}"> -->
+                    <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))">
+                        <a href="{% url 'art' %}?1_{{ art.id }}"></a>
+                    </div>
+                    {% endfor %}
+                    {% for restaurant in restaurants %}
+                    <div id="mark_2_{{ restaurant.id }}" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_{{ restaurant.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_{{ restaurant.id }}'))">
+                        <a href="{% url 'restaurant' %}?1_{{ restaurant.id }}"></a>
+                    </div>
+                    {% endfor %}
+                    {% for art in arts %}
+                    <div id="mark_3_{{ hotel.id }}" class="mark mark_3" onmouseenter="popupActivate(document.getElementById('popup_3_{{ hotel.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_3_{{ hotel.id }}'))">
+                        <a href="{% url 'hotel' %}?1_{{ hotel.id }}"></a>
+                    </div>
+                    {% endfor %}
+                    {% for art in arts %}
+                    <div id="mark_4_{{ cat.id }}" class="mark mark_4" onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))">
+                        <a href="{% url 'cat' %}?1_{{ cat.id }}"></a>
+                    </div>
+                    {% endfor %}
+
+                    {% endcomment %}
+
+                </div>
             </div>
-        </div>
-        <input type="range" name="range" min="1" max="2" value="1" step="0.1">
+            <input type="range" name="range" min="1" max="2" value="1" step="0.1">
         </div>
         <div class="tile__frame">
-        <!-- Djangoの組み込みforでDataBaseから生成 -->
-        <div class="tile tile-1">
-            <p>アート紹介</p>
-            <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
-        </div>
-        <div class="tile tile-2">
-            <p>飲食店紹介</p>
-            <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
-        </div>
-        <div class="tile tile-3">
-            <p>宿泊施設紹介</p>
-            <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
-        </div>
-        <div class="tile tile-4">
-            <p>猫紹介</p>
-            <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
-        </div>
+            <div class="tile tile-1">
+                <p>アート紹介</p>
+                <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
+            </div>
+            <div class="tile tile-2">
+                <p>飲食店紹介</p>
+                <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
+            </div>
+            <div class="tile tile-3">
+                <p>宿泊施設紹介</p>
+                <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
+            </div>
+            <div class="tile tile-4">
+                <p>猫紹介</p>
+                <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
+            </div>
         </div>
     </div>
 
     <div id="popup">
-        <!-- Djangoの組み込みforでDataBaseから生成 -->
         <div class="upblock popup_1" id="popup_1_1">
-        <div class="popup__title">
-            <p class="popup__icon popup__icon-1">アート</p>
-            <p class="popup__name">あいきえん</p>
-        </div>
-        <p class="popup__text">クリックして詳細へ</p>
-        <a href="" class="popup__link">詳細はこちら</a>
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-1">アート</p>
+                <p class="popup__name">あいきえん</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="" class="popup__link">詳細はこちら</a>
         </div>
         <div class="upblock popup_1" id="popup_1_2">
-        <div class="popup__title">
-            <p class="popup__icon popup__icon-1">アート</p>
-            <p class="popup__name">オンバファクトリー</p>
-        </div>
-        <p class="popup__text">クリックして詳細へ</p>
-        <a href="" class="popup__link">詳細はこちら</a>
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-1">アート</p>
+                <p class="popup__name">オンバファクトリー</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="" class="popup__link">詳細はこちら</a>
         </div>
         <div class="upblock popup_2" id="popup_2_1">
-        <div class="popup__title">
-            <p class="popup__icon popup__icon-2">飲食店</p>
-            <p class="popup__name">海征</p>
-        </div>
-        <p class="popup__text">クリックして詳細へ</p>
-        <a href="" class="popup__link">詳細はこちら</a>
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-2">飲食店</p>
+                <p class="popup__name">海征</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="" class="popup__link">詳細はこちら</a>
         </div>
         <div class="upblock popup_2" id="popup_2_2">
-        <div class="popup__title">
-            <p class="popup__icon popup__icon-2">飲食店</p>
-            <p class="popup__name">ogijima ゆくる</p>
-        </div>
-        <p class="popup__text">クリックして詳細へ</p>
-        <a href="" class="popup__link">詳細はこちら</a>
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-2">飲食店</p>
+                <p class="popup__name">ogijima ゆくる</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="" class="popup__link">詳細はこちら</a>
         </div>
         <div class="upblock popup_3" id="popup_3_1">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-3">宿泊施設</p>
+                <p class="popup__name">漁師yado 民宿さくら</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="" class="popup__link">詳細はこちら</a>
+        </div>
+
+        {% comment %}
+
+        {% for art in arts %}
+        <div class="upblock popup_1" id="popup_1_{{ art.id }}">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-1">アート</p>
+                <p class="popup__name">{{ art.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'art' %}?1_{{ art.id }}" class="popup__link">詳細はこちら</a>
+        </div>
+        {% endfor %}
+        {% for restaurant in restaurants %}
+        <div class="upblock popup_2" id="popup_2_{{ restaurant.id }}">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-2">飲食店</p>
+                <p class="popup__name">{{ restaurant.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'restaurant' %}?2_{{ restaurant.id }}" class="popup__link">詳細はこちら</a>
+        </div>
+        {% endfor %}
+        {% for hotel in hotels %}
+        <div class="upblock popup_3" id="popup_3_{{ hotel.id }}">
         <div class="popup__title">
-            <p class="popup__icon popup__icon-3">宿泊施設</p>
-            <p class="popup__name">漁師yado 民宿さくら</p>
+                <p class="popup__icon popup__icon-3">宿泊施設</p>
+                <p class="popup__name">{{ hotel.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'hotel' %}?3_{{ hotel.id }}" class="popup__link">詳細はこちら</a>
         </div>
-        <p class="popup__text">クリックして詳細へ</p>
-        <a href="" class="popup__link">詳細はこちら</a>
+        {% endfor %}
+        {% for cat in cats %}
+        <div class="upblock popup_4" id="popup_4_{{ cat.id }}">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-4">猫</p>
+                <p class="popup__name">{{ cat.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'cat' %}?4_{{ cat.id }}" class="popup__link">詳細はこちら</a>
         </div>
+        {% endfor %}
+
+        {% endcomment %}
+
     </div>
 
     <div id="zoom-mordal" class="zoom-mordal">
@@ -93,6 +220,7 @@
         <p id="zoom-mordal__button" class="zoom-mordal__button">閉じる</p>
         </div>
     </div>
+    
 {% endblock %}
 
 <!-- これでフッターを無しにしている -->
