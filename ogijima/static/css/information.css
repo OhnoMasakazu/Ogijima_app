@@ -1,6 +1,5 @@
 .main{
     top: 8vh;
-    /* height: 80vh; */
     width: 100vw;
     position: fixed;
     display: flex;
@@ -20,9 +19,7 @@
 .map__frame{
   width: 70vw;
   height: 92vh;
-  /* background: #a66; */
   overflow: auto;
-  /* overflow: hidden; */
   position: relative;
 }
 
@@ -36,6 +33,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  pointer-events: none;
 }
 
 .mark{
@@ -44,17 +42,14 @@
   border-radius: 50%;
 }
 
+.mark a{
+  display: none;
+}
+
 .mark_1{background-color: #cff;}
 .mark_2{background-color: #fcf;}
 .mark_3{background-color: #ffc;}
 .mark_4{background-color: #fcc;}
-
-/* Django組み込みでインラインで挿入 */
-#mark_1_1{top: 77%;left: 54.5%;}
-#mark_1_2{top: 19%;left: 44%;}
-#mark_2_1{top: 15.5%;left: 36.5%;}
-#mark_2_2{top: 26%;left: 42.5%;}
-#mark_3_1{top: 73.5%;left: 55%;}
 
 #popup{
   position: absolute;
@@ -111,7 +106,6 @@ input[type="range"] {
   justify-content: space-around;
   align-content: space-around;
   flex-wrap: wrap;
-  /* background-color: #b4ddff; */
 }
 
 .tile{
@@ -135,6 +129,7 @@ input[type="range"] {
 
 .tile img{
   height: 60%;
+  pointer-events: none;
 }
 
 .tile-1{background-color: #cff;}
@@ -163,12 +158,11 @@ input[type="range"] {
     height: max-content;
   }
 
-  /* Django組み込みでインラインで挿入 */
-  #mark_1_1{top: 69%;left: 56.5%;}
-  #mark_1_2{top: 28.5%;left: 40%;}
-  #mark_2_1{top: 26%;left: 29%;}
-  #mark_2_2{top: 33%;left: 39%;}
-  #mark_3_1{top: 66%;left: 56.5%;}
+  .mark a{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 
   #popup{
     bottom: 20vh;
@@ -212,14 +206,12 @@ input[type="range"] {
 
   .tile__frame{
     height: 15vh;
-    /* padding: 1vh 0; */
     width: 100vw;
     position: absolute;
     bottom: 0;
   }
 
   .zoom-mordal{
-    display: block;
     position: absolute;
     width: 100vw;
     height: 100vh;
