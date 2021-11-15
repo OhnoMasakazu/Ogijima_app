@@ -32,8 +32,6 @@
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  pointer-events: none;
 }
 
 .mark{
@@ -156,6 +154,7 @@ input[type="range"] {
 
   .map__image{
     height: max-content;
+    pointer-events: none;
   }
 
   .mark a{
