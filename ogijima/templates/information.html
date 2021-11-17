@@ -39,7 +39,7 @@
         <div class="map__frame mousedragscrollable">
             <div id="map" class="map">
                 <div class="map__wrapper">
-                    <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}" style="margin: 24px;height: calc(100% - 48px);width: calc(100% - 48px);">
+                    <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
 
                     {% for art in arts %}
                     <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))">
@@ -56,7 +56,7 @@
                         <a href="{% url 'ogijima:hotels' %}?1_{{ hotel.id }}"></a>
                     </div>
                     {% endfor %}
-                    {% for art in arts %}
+                    {% for cat in cats %}
                     <div id="mark_4_{{ cat.id }}" class="mark mark_4" onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))">
                         <a href="{% url 'ogijima:cats' %}?1_{{ cat.id }}"></a>
                     </div>

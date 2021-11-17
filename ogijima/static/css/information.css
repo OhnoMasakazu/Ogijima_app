@@ -17,10 +17,12 @@
 }
 
 .map__frame{
-  width: 70vw;
-  height: 92vh;
+  /* 横幅いじったらJSのmapAreaの中身修正しないといけない */
+  width: calc(70vw - 48px);
+  height: calc(92vh - 48px);
   overflow: auto;
   position: relative;
+  margin: 24px;
 }
 
 .map__image{
@@ -32,6 +34,13 @@
   top: 0;
   bottom: 0;
   left: 0;
+  right: 0;
+}
+.map__wrapper{
+  /* width: max-content;
+  height: max-content; */
+  position: relative;
+  margin: auto;
 }
 
 .mark{
@@ -148,8 +157,11 @@ input[type="range"] {
     align-items: center;
   }
   .map__frame{
-    width: 100vw;
-    height: 65vh;
+    width: calc(100vw - 48px);
+    /* ここを65にしているのは、Safariのヘッダー対策。
+    地図はほぼ正方形なので、これくらいの大きさにしておけばいい感じに収まってくれるだろうという数字 */
+    height: calc(65vh - 48px);
+    margin: 24px;
   }
 
   .map__image{
