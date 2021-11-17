@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import (
+    Work, Blog, Gallery, Notification, Profile, Art, Restaurant, Hotel, Cat
+)
 
 # Create your views here.
 def top(request):
     return render(request,'top.html')
 
-def abouts(request):
-    return render(request,'abouts.html')
+def aboutus(request):
+    return render(request,'aboutus.html')
 
 def works(request):
     return render(request,'works.html')
@@ -24,7 +27,17 @@ def profile(request):
     return render(request,'profile.html')
 
 def information(request):
-    return render(request,'information.html')
+    arts = Art.objects.all()
+    restaurants = Restaurant.objects.all()
+    hotels = Hotel.objects.all()
+    cats = Cat.objects.all()
+    params = {
+        'arts': arts,
+        'restaurants': restaurants,
+        'hotels': hotels,
+        'cats': cats,
+    }
+    return render(request,'information.html', params)
 
 def arts(request):
     return render(request,'arts.html')
