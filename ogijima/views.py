@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import (
     Work, Blog, Gallery, Notification, Profile, Art, Restaurant, Hotel, Cat
 )
+from markdown import markdown
 
 # Create your views here.
 def top(request):
@@ -20,8 +21,13 @@ def work_detail(request):
 def reports(request):
     return render(request,'reports.html')
 
-def blog_detail(request):
-    return render(request,'blog_detail.html')
+def blog_detail(request, id):
+    blog = Blog.objects.get(id=id)
+    blog.content = markdown(blog.content)
+    params = {
+        'blog': blog,
+    }
+    return render(request,'blog_detail.html', params)
 
 def profile(request):
     return render(request,'profile.html')
