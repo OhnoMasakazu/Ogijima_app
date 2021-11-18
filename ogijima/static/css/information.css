@@ -1,3 +1,7 @@
+.main-panel{
+  margin: 8vh 0 !important;
+}
+
 .main{
     top: 8vh;
     width: 100vw;
