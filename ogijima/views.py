@@ -22,12 +22,7 @@ def reports(request):
     return render(request,'reports.html')
 
 def blog_detail(request, id):
-    blog = Blog.objects.get(id=id)
-    blog.content = markdown(blog.content)
-    params = {
-        'blog': blog,
-    }
-    return render(request,'blog_detail.html', params)
+    return render(request,'blog_detail.html')
 
 def profile(request):
     return render(request,'profile.html')
