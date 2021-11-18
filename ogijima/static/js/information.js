@@ -126,8 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }else{
     $(function() {
       $(".mark").css({
-          "height": imageSize[1] / 28 + "px",
-          "width": imageSize[1] / 28 + "px",
+          "height": imageSize[1] / 20 + "px",
+          "width": imageSize[1] / 20 + "px",
       });
     });
     // window.addEventListener("DOMContentLoaded", () => {

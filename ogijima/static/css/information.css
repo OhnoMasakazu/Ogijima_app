@@ -187,19 +187,19 @@ input[type="range"] {
   }
 
   .popup__icon{
-    font-size: 28px;
+    font-size: 14px;
     margin-right: 14px;
     padding: 4px;
   }
   .popup__name{
-    font-size: 36px;
+    font-size: 18px;
   }
   .popup__text{
     display: none;
   }
   .popup__link{
     display: block;
-    font-size: 32px;
+    font-size: 12px;
   }
 
 
