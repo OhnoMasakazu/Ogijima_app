@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // どっかのvhから逆算するのが堅い
   let screenHeight = document.querySelector('header').clientHeight * 12.5;
 
+  document.getElementById('zoom-mordal').style.height = screenHeight + 'px';
+
   let mapArea =  mapAreaSize(userAgent, screenWidth, screenHeight);
   let imageSize = aspectCheck(mapArea)
 

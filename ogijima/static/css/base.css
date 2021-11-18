@@ -49,7 +49,8 @@ footer{
 
 .footer__link-text{
     cursor: pointer;
-    color: #1a0dab;
+    /* color: #1a0dab; */
+    color: #ccc;
     text-decoration: underline;
 }
 
@@ -86,4 +87,42 @@ footer{
 
 .footer__copyright{
 
+}
+
+@media screen and (max-width:1020px) {
+    header img{
+        height: 6vh;
+        width: 24vh;
+        margin: 1vh auto;
+        object-fit: cover;
+    }
+    footer{
+        height: max-content;
+        flex-flow: column;
+    }
+    .footer__link-box{
+        width: 80%;
+        margin: 32px 10vw;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .footer__link-list{
+        margin: 0;
+    }
+    .footer__logo{
+        width: 80vw;
+        margin: 0 10vw 32px;
+    }
+    .footer__logo img{
+        margin: 0 10vw;
+        width: 60vw;
+        height: 20vw;
+    }
+    .footer__copyright{
+        text-align: center;
+    }
 }
