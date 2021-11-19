@@ -41,7 +41,7 @@
         <div class="map__frame mousedragscrollable">
             <div id="map" class="map">
                 <div class="map__wrapper">
-                    <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}" style="margin: 24px;height: calc(100% - 48px);width: calc(100% - 48px);">
+                    <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
 
                     {% for art in arts %}
                     <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))">
@@ -58,7 +58,7 @@
                         <a href="{% url 'ogijima:hotels' %}?1_{{ hotel.id }}"></a>
                     </div>
                     {% endfor %}
-                    {% for art in arts %}
+                    {% for cat in cats %}
                     <div id="mark_4_{{ cat.id }}" class="mark mark_4" onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))">
                         <a href="{% url 'ogijima:cats' %}?1_{{ cat.id }}"></a>
                     </div>
@@ -71,19 +71,20 @@
         </div>
         <div class="tile__frame">
             <div class="tile tile-1">
-                <p>アート紹介</p>
+                <!-- レスポンシブの見た目の問題で「紹介」をなくしてみる -->
+                <p>アート<span class="mobile-none">紹介</span></p>
                 <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
             </div>
             <div class="tile tile-2">
-                <p>飲食店紹介</p>
+                <p>飲食店<span class="mobile-none">紹介</span></p>
                 <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
             </div>
             <div class="tile tile-3">
-                <p>宿泊施設紹介</p>
+                <p>宿泊施設<span class="mobile-none">紹介</span></p>
                 <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
             </div>
             <div class="tile tile-4">
-                <p>猫紹介</p>
+                <p>猫<span class="mobile-none">紹介</span></p>
                 <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
             </div>
         </div>
