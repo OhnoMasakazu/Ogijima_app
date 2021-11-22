@@ -33,8 +33,6 @@ class Gallery(models.Model):
     date = models.DateTimeField(default=timezone.now)
     title = models.CharField(max_length=50, null=True)
     photo = models.ImageField(upload_to='images/')
-    def __str__(self):
-        return self.title
 
 class Notification(models.Model):
     date = models.DateTimeField(default=timezone.now)
