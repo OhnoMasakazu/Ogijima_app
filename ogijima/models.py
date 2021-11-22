@@ -32,8 +32,8 @@ class Blog(models.Model):
 class Gallery(models.Model):
     date = models.DateTimeField(default=timezone.now)
     photo = models.ImageField(upload_to='images/')
-    def __str__(self):
-        return self.date
+    # def __str__(self):
+    #     return self.date
 
 class Notification(models.Model):
     date = models.DateTimeField(default=timezone.now)

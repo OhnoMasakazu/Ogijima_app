@@ -2,15 +2,30 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
 <h1>gallery</h1>
+<div class="photo__wrapper">
+    {% for photo in photos %}
+    <!-- <div class="photo__frame"> -->
+        <img id="photo-{{ photo.id }}" src="media/{{ photo.photo }}">
+    <!-- </div> -->
+    {% endfor %}
+</div>
+<div id="photo__popup" class="photo__popup">
+    <i class="fas fa-times" id="popup-close-button"></i>
+    <img id="popup-image" src="">
+</div>
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script>
+    var photoUrlList = []
+    {% for photo in photos %}
+        photoUrlList.push("{{ photo.photo }}")
+    {% endfor %}
+</script>
+<script src="{% static 'js/gallery.js' %}"></script>
 {% endblock %}
