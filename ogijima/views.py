@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import (
-    Work, Blog, Gallery, Notification, Profile, Art, Restaurant, Hotel, Cat
-)
+from .models import *
 from markdown import markdown
 
 # Create your views here.
@@ -13,10 +11,29 @@ def aboutus(request):
     return render(request,'aboutus.html')
 
 def works(request):
-    return render(request,'works.html')
+    all_works = Work.objects.all().order_by("-work_start_date")
+    today = timezone.now().date()
+    now_works = Work.objects.filter(work_start_date__lte=today,work_end_date__gte=today).all()
+    if(now_works.count()==0):
+        now_works = all_works.filter(work_start_date__lte=today).first()
+        if(now_works==None):
+            now_works_date = today
+        else:
+            now_works_date = now_works.work_start_date
+        future_works = all_works.filter(work_start_date__gt=now_works_date)
+    else:
+        future_works = all_works.filter(work_start_date__gt=today)
+    past_works = all_works.filter(work_end_date__lt=today)
+    params = {
+        'now_works':now_works,
+        'future_works':future_works,
+        'past_works':past_works,
+    }
+    return render(request,'works.html',params)
 
-def work_detail(request):
-    return render(request,'work_detail.html')
+def work_detail(request,work_id):
+    work = Work.object.get(pk=work_id)
+    return render(request,'work_detail.html',{'work':work})
 
 def reports(request):
     return render(request,'reports.html')
@@ -41,16 +58,20 @@ def information(request):
     return render(request,'information.html', params)
 
 def arts(request):
-    return render(request,'arts.html')
+    art = Art.objects.all()
+    return render(request,'arts.html',{'art':art})
 
 def restaurants(request):
-    return render(request,'restaurants.html')
+    restaurant = Restaurant.objects.all()
+    return render(request,'restaurants.html',{'restaurant':restaurant})
 
 def hotels(request):
-    return render(request,'hotels.html')
+    hotel = Hotel.objects.all()
+    return render(request,'hotels.html',{'hotel':hotel})
 
 def cats(request):
-    return render(request,'cats.html')
+    cat = Cat.objects.all()
+    return render(request,'cats.html',{'cat':cat})
 
 def gallery(request):
     return render(request,'gallery.html')
