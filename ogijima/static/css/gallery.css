@@ -23,6 +23,7 @@ h1{
     top: 0;
     left: 0;
     display: none;
+    z-index: 200;
 }
 .photo__popup img{
     width: 90vw;
