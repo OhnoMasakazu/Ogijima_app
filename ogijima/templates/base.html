@@ -36,7 +36,8 @@
 
         <!-- 全体CSS -->
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap">
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c"> -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <!-- 各ページCSS -->
         {% block extra_style %}{% endblock %}
@@ -92,20 +93,22 @@
         <!-- フッター -->
         {% block footer %}
         <footer>
-            <div class="footer__link-box">
-                <div class="footer__link-list">
-                    <a class="footer__link-text">プライバシーポリシー</a>
+            <div class="footer__wrapper">
+                <div class="footer__link-box">
+                    <div class="footer__link-list">
+                        <a class="footer__link-text" href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>
+                    </div>
+                    <div class="footer__sns-link">
+                        <a><img src="{% static 'image/sns/instagram_icon.png' %}"></a>
+                        <a><img src="{% static 'image/sns/twitter_icon.png' %}"></a>
+                        <a><img src="{% static 'image/sns/facebook_icon.png' %}"></a>
+                    </div>
                 </div>
-                <div class="footer__sns-link">
-                    <a><img src="{% static 'image/sns/instagram_icon.png' %}"></a>
-                    <a><img src="{% static 'image/sns/twitter_icon.png' %}"></a>
-                    <a><img src="{% static 'image/sns/facebook_icon.png' %}"></a>
+                <div class="footer__logo">
+                    <img src="{% static 'image/logo/ロゴ単体_yoko.png' %}">
+                    <!-- 団体名がついたらここも変えないと -->
+                    <p class="footer__copyright">©️<span id="copyright_year"></span> あいきえん All rights reserved.</p>
                 </div>
-            </div>
-            <div class="footer__logo">
-                <img src="{% static 'image/logo/ロゴ単体_yoko.png' %}">
-                <!-- 団体名がついたらここも変えないと -->
-                <p class="footer__copyright">©️<span id="copyright_year"></span> あいきえん All rights reserved.</p>
             </div>
         </footer>
         {% endblock %}

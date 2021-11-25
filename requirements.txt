@@ -1,3 +1,4 @@
 Django
 markdown
 Pillow
+django-stdimage

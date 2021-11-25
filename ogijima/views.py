@@ -74,7 +74,11 @@ def cats(request):
     return render(request,'cats.html',{'cat':cat})
 
 def gallery(request):
-    return render(request,'gallery.html')
+    photos = Gallery.objects.all()
+    params = {
+        "photos": photos
+    }
+    return render(request,'gallery.html', params)
 
 def notifications(request):
     return render(request,'notifications.html')

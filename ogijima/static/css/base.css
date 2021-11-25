@@ -1,6 +1,7 @@
 *{
     margin: 0;
-    font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Zen Maru Gothic";
+    /* font-family: "M PLUS Rounded 1c", sans-serif; */
 }
 
 h1{font-size: 36px;}
@@ -48,19 +49,29 @@ header img{
 footer{
     bottom: 0;
     height: 36vh;
-    width: 100vw;
+    width: auto;
     background-color: rgb(90, 77, 79);
+    /* display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: flex-start;
+    align-items: flex-start; */
+}
+.footer__wrapper{
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
     -webkit-align-items: flex-start;
     align-items: flex-start;
+    width: 88vw;
+    margin: 0 auto;
 }
 
 .footer__link-box{
-    width: 30%;
-    margin-left: 6vw;
+    width: 30vw;
+    /* margin-left: 6vw; */
 }
 
 .footer__link-list{
@@ -95,8 +106,8 @@ footer{
 }
 
 .footer__logo{
-    width: 30%;
-    margin-right: 6vw;
+    width: 30vw;
+    /* margin-right: 6vw; */
 }
 
 .footer__logo img{
@@ -107,7 +118,7 @@ footer{
 }
 
 .footer__copyright{
-
+    color: rgb(239, 228, 213);
 }
 
 @media screen and (max-width:1020px) {
@@ -123,13 +134,13 @@ footer{
         margin: calc(48px + 8vh) 5vw 64px;
     }
 
-    footer{
+    .footer__wrapper{
         height: max-content;
         flex-flow: column;
     }
     .footer__link-box{
-        width: 80%;
-        margin: 32px 10vw;
+        width: 100%;
+        margin: 32px 0;
         display: -webkit-flex;
         display: flex;
         -webkit-justify-content: space-between;
@@ -141,15 +152,19 @@ footer{
         margin: 0;
     }
     .footer__logo{
-        width: 80vw;
-        margin: 0 10vw 32px;
+        width: 100% ;
+        margin: 0 0 32px;
     }
     .footer__logo img{
-        margin: 0 10vw;
+        margin: 0 auto;
         width: 60vw;
         height: 20vw;
+        left: 0;
+        right: 0;
+        position: absolute;
     }
     .footer__copyright{
         text-align: center;
+        margin-top: 20vw;
     }
 }
