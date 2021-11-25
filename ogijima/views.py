@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from markdown import markdown
 
 # Create your views here.
 def top(request):
     return render(request,'top.html')
 
-def abouts(request):
-    return render(request,'abouts.html')
+def aboutus(request):
+    return render(request,'aboutus.html')
 
 def works(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -37,14 +38,24 @@ def work_detail(request,work_id):
 def reports(request):
     return render(request,'reports.html')
 
-def blog_detail(request):
+def blog_detail(request, id):
     return render(request,'blog_detail.html')
 
 def profile(request):
     return render(request,'profile.html')
 
 def information(request):
-    return render(request,'information.html')
+    arts = Art.objects.all()
+    restaurants = Restaurant.objects.all()
+    hotels = Hotel.objects.all()
+    cats = Cat.objects.all()
+    params = {
+        'arts': arts,
+        'restaurants': restaurants,
+        'hotels': hotels,
+        'cats': cats,
+    }
+    return render(request,'information.html', params)
 
 def arts(request):
     art = Art.objects.all()

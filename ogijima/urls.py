@@ -5,7 +5,7 @@ from .import views
 app_name = 'ogijima'
 urlpatterns = [
     path('',views.top,name="top"),
-    path('abouts',views.abouts,name="abouts"),
+    path('aboutus',views.aboutus,name="aboutus"),
     path('works',views.works,name="works"),
     path('work_detail/<int:workid>',views.work_detail,name="work_detail"),
     path('reports',views.reports,name="reports"),

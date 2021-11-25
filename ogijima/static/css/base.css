@@ -1,6 +1,26 @@
 *{
     margin: 0;
+    font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
 }
+
+h1{font-size: 36px;}
+h2{font-size: 32px;}
+h3{font-size: 28px;}
+h4{font-size: 24px;}
+p{font-size: 18px;}
+/* この2個は見出しというかパンくずなどの細かいところで使う */
+h5{font-size: 16px;}
+h6{font-size: 14px;}
+h1,h2,h3,h4,p{color:rgb(68,58,59);}
+h5,h6{color:rgb(98,82,84);}
+p{line-height: 1.8;}
+a{
+    font-size: 18px;
+    /* color:rgb(); */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 
 html{
     background-color: rgb(239, 228, 213);
@@ -21,7 +41,8 @@ header img{
 }
 
 .main-panel{
-    margin-top: 8vh;
+    margin: calc(48px + 8vh) 15vw 64px;
+    width: 70vw;
 }
 
 footer{
@@ -49,7 +70,8 @@ footer{
 
 .footer__link-text{
     cursor: pointer;
-    color: #1a0dab;
+    /* color: #1a0dab; */
+    color: #ccc;
     text-decoration: underline;
 }
 
@@ -86,4 +108,48 @@ footer{
 
 .footer__copyright{
 
+}
+
+@media screen and (max-width:1020px) {
+    header img{
+        height: 6vh;
+        width: 24vh;
+        margin: 1vh auto;
+        object-fit: cover;
+    }
+
+    .main-panel{
+        width: 90%;
+        margin: calc(48px + 8vh) 5vw 64px;
+    }
+
+    footer{
+        height: max-content;
+        flex-flow: column;
+    }
+    .footer__link-box{
+        width: 80%;
+        margin: 32px 10vw;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .footer__link-list{
+        margin: 0;
+    }
+    .footer__logo{
+        width: 80vw;
+        margin: 0 10vw 32px;
+    }
+    .footer__logo img{
+        margin: 0 10vw;
+        width: 60vw;
+        height: 20vw;
+    }
+    .footer__copyright{
+        text-align: center;
+    }
 }
