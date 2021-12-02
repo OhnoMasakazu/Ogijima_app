@@ -32,7 +32,11 @@ def works(request):
     return render(request,'works.html',params)
 
 def work_detail(request,work_id):
-    work = Work.object.get(pk=work_id)
+    work = Work.objects.get(pk=work_id)
+    # for大野くん
+    # Markdown使うときはこの1行いるみたいやから、ブログのときとか追加しといてほしい！
+    # 確認次第消してOKです！
+    work.content = markdown(work.content)
     return render(request,'work_detail.html',{'work':work})
 
 def reports(request):
