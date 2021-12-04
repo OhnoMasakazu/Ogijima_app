@@ -6,9 +6,26 @@
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1>work detail</h1>
+
+<!-- タイトル -->
+{{ work.title }}
+<br>
+
+<!-- サムネイル -->
+<img src="/media/{{ work.sumbnail }}" style="width: 100%;">
+<br>
+
+<!-- 開始日時 -->
+{{ work.work_start_date }}
+<br>
+<!-- 終了日時 -->
+{{ work.work_end_date }}
+<br>
+<!-- 日時表記の型を変えたかったらとりあえず井ノ本に聞いてください -->
+
+<!-- 本文 -->
+{{ work.content | safe}}
+
 {% endblock %}
 
 {% block extra_js %}

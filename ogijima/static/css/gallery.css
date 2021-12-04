@@ -11,8 +11,9 @@ h1{
     height: 16vw;
     object-fit: cover;
     overflow: hidden;
-    margin: calc(6vw / 8);
+    margin: calc((6vw - 8px) / 8);
     cursor: pointer;
+    border: solid 1px rgb(90, 77, 79);
 }
 
 .photo__popup{
@@ -44,7 +45,7 @@ h1{
     .photo__wrapper img{
         width: 29vw;
         height: 29vw;
-        margin: calc(3vw / 6);
+        margin: calc((3vw - 6px) / 6);
     }
     .photo__popup i{
         top: 24px;
