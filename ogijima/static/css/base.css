@@ -44,6 +44,7 @@ header img{
 .main-panel{
     margin: calc(48px + 8vh) 15vw 64px;
     width: 70vw;
+    min-height: calc(56vh - 112px);
 }
 
 footer{
