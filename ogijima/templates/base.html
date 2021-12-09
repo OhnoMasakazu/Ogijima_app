@@ -18,32 +18,39 @@
         </script>
         <meta charset="utf-8" />
         <title>あいきえん | 男木島倉庫プロジェクト</title>
+        <meta name=”keywords” content=”男木島,倉庫,アート,リノベーション”>
+        <meta content="学生が運営する、廃倉庫をリノベーションしたアートギャラリー兼イベントスペース。男木島の『いま』を残し続け、そして男木島の魅力を伝え、『また来たい』をつくる。" name="description">
+        <meta property="og:title" content="あいきえん | 男木島倉庫プロジェクト" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="学生が運営する、廃倉庫をリノベーションしたアートギャラリー兼イベントスペース。男木島の『いま』を残し続け、そして男木島の魅力を伝え、『また来たい』をつくる。" />
+        <!-- <meta property="og:url" content="" /> -->
+        <!-- <meta property="og:image" content="" />
+        <meta property="twitter:image" content="" />
+        <meta property="fb:app_id" content="" />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content=""> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <!-- <link rel="apple-touch-icon" sizes="76x76" href="" />
+        <link rel="icon" type="image/svg+xml" href="" /> -->
 
         <!-- 全体CSS -->
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap">
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c"> -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <!-- 各ページCSS -->
         {% block extra_style %}{% endblock %}
 
-        {% comment %}
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'myapp/svg/wao_logo_fab.svg' %}" />
-        <link rel="icon" type="image/svg+xml" href="{% static 'myapp/svg/wao_logo_fab.svg' %}" /> -->
-        {% endcomment %}
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149840237-1"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJRD443GX9"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
-            dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-            gtag("config", "UA-149840237-1");
-        </script> -->
+            gtag('config', 'G-BJRD443GX9');
+        </script>
 
     </head>
 
@@ -86,20 +93,22 @@
         <!-- フッター -->
         {% block footer %}
         <footer>
-            <div class="footer__link-box">
-                <div class="footer__link-list">
-                    <a class="footer__link-text">プライバシーポリシー</a>
+            <div class="footer__wrapper">
+                <div class="footer__link-box">
+                    <div class="footer__link-list">
+                        <a class="footer__link-text" href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>
+                    </div>
+                    <div class="footer__sns-link">
+                        <a><img src="{% static 'image/sns/instagram_icon.png' %}"></a>
+                        <a><img src="{% static 'image/sns/twitter_icon.png' %}"></a>
+                        <a><img src="{% static 'image/sns/facebook_icon.png' %}"></a>
+                    </div>
                 </div>
-                <div class="footer__sns-link">
-                    <a><img src="{% static 'image/sns/instagram_icon.png' %}"></a>
-                    <a><img src="{% static 'image/sns/twitter_icon.png' %}"></a>
-                    <a><img src="{% static 'image/sns/facebook_icon.png' %}"></a>
+                <div class="footer__logo">
+                    <img src="{% static 'image/logo/ロゴ単体_yoko.png' %}">
+                    <!-- 団体名がついたらここも変えないと -->
+                    <p class="footer__copyright">©️<span id="copyright_year"></span> あいきえん All rights reserved.</p>
                 </div>
-            </div>
-            <div class="footer__logo">
-                <img src="{% static 'image/logo/ロゴ単体_yoko.png' %}">
-                <!-- 団体名がついたらここも変えないと -->
-                <p class="footer__copyright">©️<span id="copyright_year"></span> あいきえん All rights reserved.</p>
             </div>
         </footer>
         {% endblock %}

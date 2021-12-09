@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from ogijima.forms import ContactForm
 from .models import *
+from markdown import markdown
 
 # Create your views here.
 def top(request):
     return render(request,'top.html')
 
-def abouts(request):
-    return render(request,'abouts.html')
+def aboutus(request):
+    return render(request,'aboutus.html')
 
 def works(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -32,7 +33,8 @@ def works(request):
     return render(request,'works.html',params)
 
 def work_detail(request,work_id):
-    work = Work.object.get(pk=work_id)
+    work = Work.objects.get(pk=work_id)
+    work.content = markdown(work.content)
     return render(request,'work_detail.html',{'work':work})
 
 def reports(request):
@@ -41,6 +43,7 @@ def reports(request):
 
 def blog_detail(request,blog_id):
     blog = Blog.object.get(pk=blog_id)
+    blog.content = markdown(blog.content)
     return render(request,'blog_detail.html',{'blog':blog})
 
 def profile(request):
@@ -48,7 +51,17 @@ def profile(request):
     return render(request,'profile.html',{'profile':profile})
 
 def information(request):
-    return render(request,'information.html')
+    arts = Art.objects.all()
+    restaurants = Restaurant.objects.all()
+    hotels = Hotel.objects.all()
+    cats = Cat.objects.all()
+    params = {
+        'arts': arts,
+        'restaurants': restaurants,
+        'hotels': hotels,
+        'cats': cats,
+    }
+    return render(request,'information.html', params)
 
 def arts(request):
     art = Art.objects.all()
@@ -67,7 +80,11 @@ def cats(request):
     return render(request,'cats.html',{'cat':cat})
 
 def gallery(request):
-    return render(request,'gallery.html')
+    photos = Gallery.objects.all()
+    params = {
+        "photos": photos
+    }
+    return render(request,'gallery.html', params)
 
 def notifications(request):
     notification = Notification.objects.all()
