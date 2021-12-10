@@ -2,9 +2,6 @@
     height: 57.6px;
     display: -webkit-flex;
     display: flex;
-    /* -webkit-justify-content: flex-end;
-    justify-content: flex-end; */
-    /* width: 90vw; */
     width: 0;
     position: absolute;
 }
@@ -16,47 +13,33 @@
     right: 0;
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
-    /* transform: translateX(90vw); */
 }
 .caption-2{
     left: 0;
     -webkit-justify-content: flex-start;
     justify-content: flex-start;
-    /* transform: translateX(-90vw); */
 }
 .caption-part{
     box-sizing: border-box;
-    /* transform: skewX(-12deg); */
     width: 24px;
     height: 100%;
     margin: 0;
-    background-color: rgba(230,95,96,0.3);
+    background-color: rgba(230,95,96,0.7);
 }
 .caption-part-right{transform: skewX(-12deg);}
-.caption-part-right p{
-    /* float: right; */
-}
 .caption-part-left{transform: skewX(12deg);}
 .caption-block{
     width: 75%;
     height: 0px;
-    border-bottom: 57.6px solid rgba(230,95,96,0.3);
+    border-bottom: 57.6px solid rgba(230,95,96,0.7);
     box-sizing: border-box;
-    /* border-left: 12px solid transparent;
-    padding-left: 25%; */
     position: relative;
 }
-.caption-block-right{
-    border-left: 12px solid transparent;
-    /* padding-right: 45%; */
-}
+.caption-block-right{border-left: 12px solid transparent;}
+.caption-block-left{border-right: 12px solid transparent;}
 .caption-block-right p{
     margin-right: 60%;
     float: right;
-}
-.caption-block-left{
-    border-right: 12px solid transparent;
-    /* padding-left: 55%; */
 }
 .caption-block-left p{
     margin-left: 60%;
@@ -67,7 +50,6 @@
     width: 72px;
     text-align: center;
 }
-
 #desire > div > h3{
     font-weight: bold;
     text-align: center;
@@ -80,4 +62,16 @@
 .fadein{
     opacity: 0;
     transition: 1s;
+}
+.mobile-br{display: none;}
+@media screen and (max-width:1020px) {
+    .mobile-br{display: block;}
+    .mobile-delete{display: none;}
+    .desire__text{font-size: 14px;}
+    #desire > div > h3{font-size: 18px;}
+    .caption-block p{font-size: 24px;}
+    .caption{height: 43.2px;}
+    .caption-block{border-bottom: 43.2px solid rgba(230,95,96,0.7);}
+    .caption-block-right{border-left: 9px solid transparent;}
+.caption-block-left{border-right: 9px solid transparent;}
 }
