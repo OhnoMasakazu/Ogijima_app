@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-xn!rrs3t3v=le6m*)$4&+rm(6a)b#l^024a_kqcqpy4gler*g^
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["13.208.234.67"]
 
 
 # Application definition
@@ -81,6 +82,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'aikien_database',
+#         'USER': 'aikien',
+#         'PASSWORD': 'aikien12345',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
 
 
 # Password validation
