@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from ogijima.forms import ContactForm
 from .models import *
 from markdown import markdown
 
@@ -33,20 +34,21 @@ def works(request):
 
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
-    # for大野くん
-    # Markdown使うときはこの1行いるみたいやから、ブログのときとか追加しといてほしい！
-    # 確認次第消してOKです！
     work.content = markdown(work.content)
     return render(request,'work_detail.html',{'work':work})
 
 def reports(request):
-    return render(request,'reports.html')
+    blog = Blog.objects.all()
+    return render(request,'reports.html',{'blog':blog})
 
-def blog_detail(request, id):
-    return render(request,'blog_detail.html')
+def blog_detail(request,blog_id):
+    blog = Blog.object.get(pk=blog_id)
+    blog.content = markdown(blog.content)
+    return render(request,'blog_detail.html',{'blog':blog})
 
 def profile(request):
-    return render(request,'profile.html')
+    profile = Profile.objects.all()
+    return render(request,'profile.html',{'profile':profile})
 
 def information(request):
     arts = Art.objects.all()
@@ -85,10 +87,18 @@ def gallery(request):
     return render(request,'gallery.html', params)
 
 def notifications(request):
-    return render(request,'notifications.html')
+    notification = Notification.objects.all()
+    return render(request,'notifications.html',{'notification':notification})
 
 def contact(request):
-    return render(request,'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact_completed', email=form.email)
+    else:
+        form = ContactForm()
+    return render(request,'contact.html',{'form': form})
 
 def contact_completed(request):
     return render(request,'contact_completed.html')
