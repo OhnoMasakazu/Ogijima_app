@@ -1,0 +1,29 @@
+.sumbnail {
+    margin-top: 48px;
+    height: 21.875vw;
+    object-fit: cover;
+}
+
+.work_title {
+    margin: 24px auto 12px;
+    text-align: center;
+}
+
+.date {
+    text-align: right;
+}
+
+.main_sentence {
+    margin: 12px auto 24px;
+}
+
+.link_wrapper {
+    margin: 24px auto 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.move_allarticles {
+    width: fit-content;
+    margin: 0px auto;
+}
