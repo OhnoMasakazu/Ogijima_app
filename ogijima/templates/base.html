@@ -63,28 +63,28 @@
                 <img src="{% static 'image/logo/logo_header_touka.png' %}">
                 <ul class="header_menu_tags">
                     <li>
-                        <a href="http://127.0.0.1:8000/aboutus">組織</a>
+                        <a href="{% url 'ogijima:aboutus' %}">組織</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/works">企画</a>
+                        <a href="{% url 'ogijima:aboutus' %}">企画</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/reports">活動報告</a>
+                        <a href="{% url 'ogijima:reports' %}">活動報告</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/profile">メンバー</a>
+                        <a href="{% url 'ogijima:profile' %}">メンバー</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/information">島情報</a>
+                        <a href="{% url 'ogijima:information' %}">島情報</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/gallery">ギャラリー</a>
+                        <a href="{% url 'ogijima:gallery' %}">ギャラリー</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/contact">お問い合わせ</a>
+                        <a href="{% url 'ogijima:contact' %}">お問い合わせ</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/sponsor">提供</a>
+                        <a href="{% url 'ogijima:sponsor' %}">提供</a>
                     </li>
                 </ul>
             </nav>
