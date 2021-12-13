@@ -68,14 +68,45 @@
                     <li>
                         <a href="{% url 'ogijima:aboutus' %}">企画</a>
                     </li>
-                    <li>
+                    <li class="sub_menu">
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>
+                        <ul class="sub">
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?1">島暮らしのヤマグッティ<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?2">クラウドファンディング<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?3">寄付サイト<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?4">物販サイト<span>＞</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{% url 'ogijima:profile' %}">メンバー</a>
                     </li>
-                    <li>
+                    <li class="sub_menu">
                         <a href="{% url 'ogijima:information' %}">島情報</a>
+                        <ul class="sub">
+                            <li>
+                                <a href="{% url 'ogijima:information' %}">島内案内マップ<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:arts' %}">アート紹介<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:restaurants' %}">飲食店紹介<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:hotels' %}">宿泊施設紹介<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:cats' %}">猫紹介<span>＞</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{% url 'ogijima:gallery' %}">ギャラリー</a>
