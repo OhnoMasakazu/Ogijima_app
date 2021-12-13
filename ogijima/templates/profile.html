@@ -2,15 +2,34 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1>profile</h1>
+<h1>メンバー紹介</h1>
+<div class="image__wrapper">
+    {% for profile in profile %}
+    <img id="image-{{ profile.id }}" src="media/{{ profile.image }}">
+    {% endfor %}
+</div>
+<div id="popup" class="popup">
+    <i class="fas fa-times" id="popup-close-button"></i>
+    <img id="popup-image" src="">
+    <div class="popup__text-wrapper">
+        <h1 id="popup-name"></h1>
+        <h4 id="popup-roll"></h4>
+        <p id="popup-intro"></p>
+        <a id="popup-link" href="" target="_brank">インタビュー記事はこちら</a>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script>
+    var profileList = []
+    {% for profile in profile %}
+        profileList.push(["{{ profile.image }}","{{ profile.name }}","{{ profile.roll }}","{{ profile.introduction }}","{{ profile.link }}"])
+    {% endfor %}
+</script>
+<script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}

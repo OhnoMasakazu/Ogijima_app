@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-xn!rrs3t3v=le6m*)$4&+rm(6a)b#l^024a_kqcqpy4gler*g^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["13.208.234.67"]
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["13.208.234.67"]
 
 
 # Application definition
@@ -86,6 +87,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'aikien_database',
+#         'USER': 'aikien',
+#         'PASSWORD': 'aikien12345',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -132,3 +144,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Gmail で送信する場合
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ogijima.pj@gmail.com'
+EMAIL_HOST_PASSWORD = 'aikien12345'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

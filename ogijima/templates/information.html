@@ -45,22 +45,22 @@
 
                     {% for art in arts %}
                     <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))">
-                        <a href="{% url 'ogijima:arts' %}?1_{{ art.id }}"></a>
+                        <a href="{% url 'ogijima:arts' %}?{{ art.id }}"></a>
                     </div>
                     {% endfor %}
                     {% for restaurant in restaurants %}
                     <div id="mark_2_{{ restaurant.id }}" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_{{ restaurant.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_{{ restaurant.id }}'))">
-                        <a href="{% url 'ogijima:restaurants' %}?1_{{ restaurant.id }}"></a>
+                        <a href="{% url 'ogijima:restaurants' %}?{{ restaurant.id }}"></a>
                     </div>
                     {% endfor %}
                     {% for hotel in hotels %}
                     <div id="mark_3_{{ hotel.id }}" class="mark mark_3" onmouseenter="popupActivate(document.getElementById('popup_3_{{ hotel.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_3_{{ hotel.id }}'))">
-                        <a href="{% url 'ogijima:hotels' %}?1_{{ hotel.id }}"></a>
+                        <a href="{% url 'ogijima:hotels' %}?{{ hotel.id }}"></a>
                     </div>
                     {% endfor %}
                     {% for cat in cats %}
                     <div id="mark_4_{{ cat.id }}" class="mark mark_4" onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))">
-                        <a href="{% url 'ogijima:cats' %}?1_{{ cat.id }}"></a>
+                        <a href="{% url 'ogijima:cats' %}?{{ cat.id }}"></a>
                     </div>
                     {% endfor %}
 

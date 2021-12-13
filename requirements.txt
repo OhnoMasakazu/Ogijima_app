@@ -2,3 +2,5 @@ Django
 markdown
 Pillow
 django-stdimage
+gunicorn
+psycopg2-binary
