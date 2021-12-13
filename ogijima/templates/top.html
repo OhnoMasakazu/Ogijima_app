@@ -17,6 +17,32 @@
 <h6>h6 h6 h6 h6 h6 あいうえお</h6>
 <p>p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお p p p p p あいうえお</p>
 <a>a a a a a あいうえお</a> -->
+<section id="work">
+    <div class="section-title">
+        <h2>イベント情報</h2>
+        <a>イベント一覧を見る</a>
+    </div>
+    <h3>現在開催中のイベント</h3>
+    {% for now_work in now_works %}
+    <a class="now-work__box work__box" href="">
+        <img  class="sumbnail" src="/media/{{ now_work.sumbnail }}" style="width: 100%;">
+        <h4>{{ now_work.title }}</h4>
+        <p>開催期間 ： {{ now_work.work_start_date }} ～ {{ now_work.work_end_date }}</p>
+        <p>{{ now_work.content | safe }}</p>
+        <p class="work__link-button">もっと見る ＞</p>
+    </a>
+    <hr>
+    {% endfor %}
+    <h3>次に開催するイベント</h3>
+    <a class="future-work__box work__box" href="">
+        <img  class="sumbnail" src="/media/{{ future_work.sumbnail }}" style="width: 100%;">
+        <h4>{{ future_work.title }}</h4>
+        <p>開催期間 ： {{ future_work.work_start_date }} ～ {{ future_work.work_end_date }}</p>
+        <p>{{ future_work.content | safe }}</p>
+        <p class="work__link-button">もっと見る ＞</p>
+    </a>
+</section>
+
 <section id="desire" style="margin-top: 120vh;">
     <h2>想い</h2>
     <div id="caption-1" class="caption caption-1">
