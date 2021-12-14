@@ -20,27 +20,42 @@
 <section id="work">
     <div class="section-title">
         <h2>イベント情報</h2>
-        <a>イベント一覧を見る</a>
+        <a>一覧を見る</a>
     </div>
     <h3>現在開催中のイベント</h3>
-    {% for now_work in now_works %}
-    <a class="now-work__box work__box" href="">
-        <img  class="sumbnail" src="/media/{{ now_work.sumbnail }}" style="width: 100%;">
-        <h4>{{ now_work.title }}</h4>
-        <p>開催期間 ： {{ now_work.work_start_date }} ～ {{ now_work.work_end_date }}</p>
-        <p>{{ now_work.content | safe }}</p>
-        <p class="work__link-button">もっと見る ＞</p>
-    </a>
-    <hr>
-    {% endfor %}
+    {% if now_works %}
+        {% for now_work in now_works %}
+            <a class="now-work__box work__box" href="">
+                <img  class="sumbnail" src="/media/{{ now_work.sumbnail }}">
+                <h4>{{ now_work.title }}</h4>
+                <p class="work__date">
+                    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+                    {{ now_work.work_start_date | date:"Y年m月d日" }} ～ {{ now_work.work_end_date | date:"Y年m月d日" }}
+                </p>
+                <p class="now-work__content work__content">{{ now_work.content | safe }}</p>
+                <p class="work__link-button">もっと見る ＞</p>
+            </a>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p class="no-works">開催中のイベントはありません</p>
+    {% endif %}
     <h3>次に開催するイベント</h3>
-    <a class="future-work__box work__box" href="">
-        <img  class="sumbnail" src="/media/{{ future_work.sumbnail }}" style="width: 100%;">
-        <h4>{{ future_work.title }}</h4>
-        <p>開催期間 ： {{ future_work.work_start_date }} ～ {{ future_work.work_end_date }}</p>
-        <p>{{ future_work.content | safe }}</p>
-        <p class="work__link-button">もっと見る ＞</p>
-    </a>
+    {% if future_work %}
+        <a class="future-work__box work__box" href="">
+            <img  class="sumbnail" src="/media/{{ future_work.sumbnail }}">
+                <h4>{{ future_work.title }}</h4>
+                <p class="work__date">
+                    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+                    {{ future_work.work_start_date | date:"Y年m月d日" }} ～ {{ future_work.work_end_date | date:"Y年m月d日" }}
+                </p>
+                <p class="future-work__content work__content">{{ future_work.content | safe }}</p>
+                <p class="work__link-button">もっと見る ＞</p>
+            </a>
+    {% else %}
+            <p class="no-works">開催予定のイベントはありません</p>
+    {% endif %}
+    <p>一覧では、これから開催するイベントだけでなく、これまでに開催したイベントの情報も見ることができます。<a href="{% url 'ogijima:works' %}">イベントの一覧はこちら</a>。</p>
 </section>
 
 <section id="desire" style="margin-top: 120vh;">
