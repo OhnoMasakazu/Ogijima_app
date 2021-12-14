@@ -2,15 +2,18 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1>contact</h1>
+<h1>お問い合わせ</h1>
+<form action="" method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit">送信</button>
+</form>
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}
