@@ -10,7 +10,12 @@
 <form action="" method="POST">
     {{ form.as_p }}
     {% csrf_token %}
-    <button type="submit">送信</button>
+    <div class="privacypolicy-check__wrapper">
+        <p><a href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>に同意する</p>
+        <input id="privacypolicy-check" type="checkbox"><label for="privacypolicy-check"></label>
+    </div>
+    <button id="submit-button" type="submit" disabled="true">送信</button>
+    <div id="button-cover">送信</div>
 </form>
 {% endblock %}
 
