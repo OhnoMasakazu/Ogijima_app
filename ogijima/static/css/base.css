@@ -214,7 +214,7 @@ footer{
 .footer__logo img{
     width: 20vw;
     height: 7vw;
-    object-fit: cover;
+    object-fit: contain;
     margin: 32px 0 0;
 }
 
