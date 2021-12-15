@@ -66,7 +66,7 @@ def blog_detail(request,blog_id):
     return render(request,'blog_detail.html',{'blog':blog})
 
 def profile(request):
-    profile = Profile.objects.all()
+    profile = Profile.objects.all().order_by('order')
     return render(request,'profile.html',{'profile':profile})
 
 def information(request):

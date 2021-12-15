@@ -43,6 +43,7 @@ class Notification(models.Model):
         return self.content
 
 class Profile(models.Model):
+    order = models.FloatField(default=0)
     image = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=20)
     roll = models.CharField(max_length=50)
