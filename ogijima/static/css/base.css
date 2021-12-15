@@ -54,13 +54,36 @@ header{
 .header_menu_tags > li {
     list-style: none;
     width: 10.25vw;
-    margin-bottom: 2vh;
+    position: relative;
+    display: inline-block;
 }
+
+
+/* hoverでラインが動く仕様 */
+.header_menu_tags > li::after {
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: antiquewhite;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform .3s;
+}
+
+.header_menu_tags > li:hover::after {
+    transform: scale(1, 1);
+}
+/* hoverラインおわり */
 
 .header_menu_tags > li > a{
     color: antiquewhite;
     font-size: 14px;
     text-decoration: none;
+    margin-bottom: 2vh;
+    display: block;
 }
 
 header img{
@@ -70,7 +93,46 @@ header img{
     width: 16vw;
     margin: 1vh;
 }
+
+/* サブメニュー */
+.sub {
+    padding: 0;
+    background-color: rgba(90, 77, 79, 0.85);
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    height: 0;
+    transition: .5s;
+}
+
+.sub_menu:hover .sub{
+    opacity: 1;
+    transition: .5s;
+    height: auto;
+}
+
+.sub > li {
+    list-style: none;
+    height: max-content;
+}
+
+.sub > li > a {
+    color: antiquewhite;
+    text-decoration: none;
+    font-size: 12px;
+    position: relative;
+    margin: 10px auto;
+    display: block;
+}
+
+.sub > li > a > span {
+    margin-right: 0;
+}
+/* サブメニューおわり */
 /* headerおわり */
+
 .main-panel{
     margin: calc(48px + 8vh) 15vw 64px;
     width: 70vw;
