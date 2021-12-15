@@ -7,31 +7,20 @@
 
 {% block main_panel %}
 <h1>イベント情報</h1>
-
-<!-- サムネイル -->
 <img  class="sumbnail" src="/media/{{ work.sumbnail }}" style="width: 100%;">
-
-<!-- タイトル -->
 <h3 class="work_title">{{ work.title }}</h3>
-
-<!-- 開始日時 -->
-<p class="date">{{ work.work_start_date }}</p>
-<!-- 終了日時 -->
-<p class="date">{{ work.work_end_date }}</p>
-<!-- 日時表記の型を変えたかったらとりあえず井ノ本に聞いてください -->
-
-<!-- 本文 -->
+<h4 class="date">
+    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+    {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}
+</h4>
 <p class="main_sentence">{{ work.content | safe}}</p>
-
-<!-- 前後の記事への移動のリンク -->
 <div class="link_wrapper">
-<a href="{% url 'ogijima:work_detail' work.id %}">前の記事へ</a>
-<a href="{% url 'ogijima:work_detail' work.id %}">後の記事へ</a>
+    <a href="{% url 'ogijima:work_detail' work.id %}">前の記事へ</a>
+    <a href="{% url 'ogijima:work_detail' work.id %}">後の記事へ</a>
 </div>
-
-<!-- 記事の一覧への移動のリンク -->
-<div class="move_allarticles"><a href="{% url 'ogijima:works' %}">一覧を見る</a></div>
-
+<div class="move_allarticles">
+    <a href="{% url 'ogijima:works' %}">一覧を見る</a>
+</div>
 {% endblock %}
 
 {% block extra_js %}

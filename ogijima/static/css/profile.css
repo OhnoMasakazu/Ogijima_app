@@ -27,9 +27,10 @@ h1{
     z-index: 200;
 }
 .popup__text-wrapper{
-    margin: 10vh 10vw auto 0;
-    height: 90vh;
+    height: max-content;
     overflow: auto;
+    max-height: 80vh;
+    margin: auto 10vw auto 0;
 }
 .popup__text-wrapper > h1,
 .popup__text-wrapper > h4,

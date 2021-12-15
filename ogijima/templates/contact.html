@@ -2,15 +2,23 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1>contact</h1>
+<h1>お問い合わせ</h1>
+<form action="" method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <div class="privacypolicy-check__wrapper">
+        <p><a href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>に同意する</p>
+        <input id="privacypolicy-check" type="checkbox"><label for="privacypolicy-check"></label>
+    </div>
+    <button id="submit-button" type="submit" disabled="true">送信</button>
+    <div id="button-cover">送信</div>
+</form>
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}

@@ -3,10 +3,29 @@ from django.http import HttpResponse
 from ogijima.forms import ContactForm
 from .models import *
 from markdown import markdown
+import re
 
-# Create your views here.
 def top(request):
-    return render(request,'top.html')
+    all_works = Work.objects.all().order_by("-work_start_date")
+    today = timezone.now().date()
+    now_works = Work.objects.filter(work_start_date__lte=today,work_end_date__gte=today).all()
+    future_works = all_works.filter(work_start_date__gt=today)
+    p = re.compile(r"<[^>]*?>")
+    if now_works:
+        now_works = now_works.order_by("work_start_date")
+        for now_work in now_works:
+            now_work.content = p.sub("", markdown(now_work.content))
+    if future_works:
+        future_works = future_works.order_by("work_start_date")
+        future_work = future_works[0]
+        future_work.content = p.sub("", markdown(future_work.content))
+    else:
+        future_work = []
+    params = {
+        'now_works': now_works,
+        'future_work': future_work,
+    }
+    return render(request,'top.html', params)
 
 def aboutus(request):
     return render(request,'aboutus.html')

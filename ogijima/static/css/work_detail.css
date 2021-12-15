@@ -9,9 +9,9 @@
     text-align: center;
 }
 
-.date {
+/* .date {
     text-align: right;
-}
+} */
 
 .main_sentence {
     margin: 12px auto 24px;
@@ -26,4 +26,10 @@
 .move_allarticles {
     width: fit-content;
     margin: 0px auto;
+}
+.mobile-br{display: none;}
+
+@media screen and (max-width:1020px) {
+    .mobile-br{display: block;}
+    .mobile-delete{display: none;}
 }
