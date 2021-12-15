@@ -20,23 +20,23 @@
         <title>あいきえん | 男木島倉庫プロジェクト</title>
         <meta name=”keywords” content=”男木島,倉庫,アート,リノベーション”>
         <meta content="学生が運営する、廃倉庫をリノベーションしたアートギャラリー兼イベントスペース。男木島の『いま』を残し続け、そして男木島の魅力を伝え、『また来たい』をつくる。" name="description">
-        <meta property="og:title" content="あいきえん | 男木島倉庫プロジェクト" />
+        <meta property="og:title" content="男木島倉庫プロジェクト あいきえん" />
         <meta property="og:type" content="website" />
+        <!-- <meta property="og:url" content="ページのURL" /> -->
         <meta property="og:description" content="学生が運営する、廃倉庫をリノベーションしたアートギャラリー兼イベントスペース。男木島の『いま』を残し続け、そして男木島の魅力を伝え、『また来たい』をつくる。" />
-        <!-- <meta property="og:url" content="" /> -->
-        <!-- <meta property="og:image" content="" /> -->
-        <!-- <meta property="twitter:image" content="" /> -->
-        <!-- <meta property="fb:app_id" content="" /> -->
-        <!-- <meta name="twitter:card" content="summary"> -->
-        <!-- <meta name="twitter:site" content=""> -->
+        <meta property="og:site_name" content="あいきえん | 男木島倉庫プロジェクト" />
+        <meta property="og:image" content="{% static 'image/logo/ロゴ単体_tate.png' %}" />
+        <meta property="fb:app_id" content="@aikien.ogijimaproject" />
+        <meta name="twitter:card" content="summary">
+        <meta property="twitter:image" content="{% static 'image/logo/ロゴ単体_tate.png' %}" />
+        <meta name="twitter:site" content="@ogijima_project">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <!-- <link rel="apple-touch-icon" sizes="76x76" href="" /> -->
-        <!-- <link rel="icon" type="image/svg+xml" href="" /> -->
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'image/logo/ロゴ単体_tate.png' %}" />
+        <link rel="icon" type="image/svg+xml" href="{% static 'image/logo/ロゴ単体_tate.png' %}" />
 
         <!-- 全体CSS -->
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c"> -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <!-- 各ページCSS -->
@@ -63,28 +63,59 @@
                 <img src="{% static 'image/logo/logo_header_touka.png' %}">
                 <ul class="header_menu_tags">
                     <li>
-                        <a href="http://127.0.0.1:8000/aboutus">組織</a>
+                        <a href="{% url 'ogijima:aboutus' %}">組織</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/works">企画</a>
+                        <a href="{% url 'ogijima:aboutus' %}">企画</a>
+                    </li>
+                    <li class="sub_menu">
+                        <a href="{% url 'ogijima:reports' %}">活動報告</a>
+                        <ul class="sub">
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?1">島暮らしのヤマグッティ<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?2">クラウドファンディング<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?3">寄付サイト<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:reports' %}?4">物販サイト<span>＞</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/reports">活動報告</a>
+                        <a href="{% url 'ogijima:profile' %}">メンバー</a>
+                    </li>
+                    <li class="sub_menu">
+                        <a href="{% url 'ogijima:information' %}">島情報</a>
+                        <ul class="sub">
+                            <li>
+                                <a href="{% url 'ogijima:information' %}">島内案内マップ<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:arts' %}">アート紹介<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:restaurants' %}">飲食店紹介<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:hotels' %}">宿泊施設紹介<span>＞</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:cats' %}">猫紹介<span>＞</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/profile">メンバー</a>
+                        <a href="{% url 'ogijima:gallery' %}">ギャラリー</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/information">島情報</a>
+                        <a href="{% url 'ogijima:contact' %}">お問い合わせ</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:8000/gallery">ギャラリー</a>
-                    </li>
-                    <li>
-                        <a href="http://127.0.0.1:8000/contact">お問い合わせ</a>
-                    </li>
-                    <li>
-                        <a href="http://127.0.0.1:8000/sponsor">提供</a>
+                        <a href="{% url 'ogijima:sponsor' %}">提供</a>
                     </li>
                 </ul>
             </nav>
