@@ -64,35 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let mapArea =  mapAreaSize(userAgent, screenWidth, screenHeight);
   let imageSize = aspectCheck(mapArea)
 
-  // if(userAgent == "pc"){
-  //   let mapArea = [
-  //     // 横幅変更したらここも変えないといけない。点の座標ずれる
-  //     screenWidth * 0.7 - 48, //横
-  //     screenHeight * 0.92 - 48 //縦
-  //   ]
-  // }else{
-  //   let mapArea = [
-  //     // 横幅変更したらここも変えないといけない。点の座標ずれる
-  //     screenWidth - 48, //横
-  //     screenHeight * 0.65 - 48 //縦
-  //   ]
-  // }
- 
-  // // 地図の画像が変更された場合、ここの指数は変更する必要がある
-  // // 画像のアスペクト比よりも横長の場合
-  // if(mapArea[0] / mapArea[1] > 1.098){
-  //   let imageHeight = mapArea[0];
-  //   let imageWidth = mapArea[0] * 1.098;
-  //   document.querySelector('.map__image').style.height = mapArea[0] + "px";
-  //   document.querySelector('.map__image').style.width = "max-content";
-  // }
-  // else{
-  //   let imageHeight = mapArea[1] * 0.911;
-  //   let imageWidth = mapArea[1];
-  //   document.querySelector('.map__image').style.height = 'max-content';
-  //   document.querySelector('.map__image').style.width = mapArea[1] + "px";
-  // }
-
   if(userAgent == "pc"){
     $(function() {
       $(".mark").css({
@@ -152,58 +123,3 @@ document.body.addEventListener("touchmove", function(e){
 document.getElementById('zoom-mordal__button').addEventListener('click', ()=>{
   document.getElementById('zoom-mordal').style.display = "none";
 })
-
-// // const readFile = (file) => {
-// //   let reader = new FileReader();
-// //   // 画像をオブジェクトからURLに書きかえる
-// //   reader.readAsDataURL(file);
-// //   const promise = new Promise((resolve, reject) => {
-// //     reader.onload = (event) => {
-// //       // 画像表示を投稿されたものに変更
-// //       // srcとするならURLをとる必要がある。（オブジェクトではだめ）
-// //       // とれたのがここなので、いったんここで実装
-// //       document.querySelector('.image img').src = event.target.result;
-// //       resolve(event.target.result.replace(/^data:image\/(png|jpeg);base64,/, ''));
-// //     };
-// //   })
-// //   return promise;
-// // };
-
-// const mapAreaSize = (userAgent) => {
-//   if(userAgent == "pc"){
-//     let mapArea = [
-//       // 横幅変更したらここも変えないといけない。点の座標ずれる
-//       screenWidth * 0.7 - 48, //横
-//       screenHeight * 0.92 - 48 //縦
-//     ]
-//   }else{
-//     let mapArea = [
-//       // 横幅変更したらここも変えないといけない。点の座標ずれる
-//       screenWidth - 48, //横
-//       screenHeight * 0.65 - 48 //縦
-//     ]
-//   }
-//   return mapArea 
-// }
-
-// const aspectCheck = (mapArea) => {
-//   if(mapArea[0] / mapArea[1] > 1.098){
-//     let imageHeight = mapArea[0];
-//     let imageWidth = mapArea[0] * 1.098;
-//     document.querySelector('.map__image').style.height = mapArea[0] + "px";
-//     document.querySelector('.map__image').style.width = "max-content";
-//   }
-//   else{
-//     let imageHeight = mapArea[1] * 0.911;
-//     let imageWidth = mapArea[1];
-//     document.querySelector('.map__image').style.height = 'max-content';
-//     document.querySelector('.map__image').style.width = mapArea[1] + "px";
-//   }
-//   return [imageHeight, imageWidth]
-// }
-
-// function mapSize(userAgent){
-//   return Promise.resolve(userAgent)
-//     .then(mapAreaSize)
-//     .then(aspectCheck)
-// }

@@ -127,6 +127,116 @@ hr{
     color: rgb(68,58,59);
 }
 
+#information{
+    margin-top: 64px;
+}
+.map{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.map__frame{
+    /* 横幅いじったらJSのmapAreaの中身修正しないといけない */
+    width: 70vw;
+    height: calc(92vh - 48px);
+    overflow: auto;
+    position: relative;
+    margin: 24px 0;
+}
+
+.map__image{
+    width: 70vw;
+    height: calc(92vh - 48px);
+    object-fit: contain;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.map__wrapper{
+    width: 70vw;
+    height: calc(92vh - 48px);
+    position: relative;
+    margin: auto;
+}
+
+.mark{
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.mark a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mark_1{background-color: #cff;}
+.mark_2{background-color: #fcf;}
+.mark_3{background-color: #ffc;}
+.mark_4{background-color: #fcc;}
+
+#popup{
+    position: absolute;
+    z-index: 50;
+}
+
+#popup span{
+    padding: 0 4px;
+}
+
+#popup .upblock{
+    display: none;
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    flex-flow: column;
+}
+
+.popup__title{
+    display: flex;
+}
+.popup__text{
+    font-size: 12px;
+    text-align: center;
+}
+.popup__link{
+    display: none;
+}
+
+.popup__icon{
+    font-size: 10px;
+    border-radius: 16px;
+    border: solid #ccc 1px;
+    width: max-content;
+    padding: 3px;
+    font-weight: bold;
+    margin-right: 4px;
+}
+.popup__icon-1{background-color: #cff;}
+.popup__icon-2{background-color: #fcf;}
+.popup__icon-3{background-color: #ffc;}
+
+#map-expansor{
+    display: none;
+}
+
+.zoom-mordal{
+    display: none;
+}
+
+
 @media screen and (max-width:1020px) {
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
@@ -142,4 +252,136 @@ hr{
     .work__date{line-height: 1.2;}
     .work__link-button{font-size: 12px;}
     hr{width: 60vw;}
+
+    #information{
+        position: relative;
+        padding-bottom: 112px;
+    }
+    .map{
+        display: flex;
+        align-items: center;
+    }
+    .map__frame{
+        width: calc(100vw - 48px);
+        /* ここを65にしているのは、Safariのヘッダー対策。
+        地図はほぼ正方形なので、これくらいの大きさにしておけばいい感じに収まってくれるだろうという数字 */
+        height: calc(65vh - 48px);
+        margin: 24px;
+        transform: translateX(-5vw);
+    }
+
+    .map__image{
+        height: max-content;
+        pointer-events: none;
+    }
+
+    .mark a{
+        /* display: block;
+        width: 100%;
+        height: 100%; */
+        display: none;
+    }
+
+    #popup{
+        bottom: 6vh;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .popup__icon{
+        font-size: 14px;
+        margin-right: 14px;
+        padding: 4px;
+    }
+    .popup__name{
+        font-size: 18px;
+    }
+    .popup__text{
+        display: none;
+    }
+    .popup__link{
+        display: block;
+        font-size: 12px;
+    }
+
+    .mobile-none{
+        display: none;
+    }
+
+    .zoom-mordal{
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        /* height: 100vh; */
+        background-color: rgba(0,0,0,0.4);
+        z-index: 200;
+    }
+    .zoom-mordal__window{
+        margin: auto;
+        width: 60vw;
+        height: max-content;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: solid 4px #000;
+        border-radius: 24px;
+        padding: 32px;
+    }
+    .zoom-mordal__text{
+        font-size: 16px;
+    }
+    .zoom-mordal__button{
+        font-size: 16px;
+        color: #1a0dab;
+        text-align: center;
+        margin: 20px 0 0;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+
+    #map-expansor{
+        display: block;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        outline: none;
+        height: 12px;
+        width: 70vw;
+        background: #ccc;
+        border-radius: 10px;
+        border: solid 3px #dff1ff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    #map-expansor::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: #ccc;
+        width: 12px;
+        height: 36px;
+        border-radius: 6px;
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+    }
+    #map-expansor::-moz-range-thumb {
+        background: #ccc;
+        width: 12px;
+        height: 36px;
+        border-radius: 6px;
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+        border: none;
+    }
+    #map-expansor::-moz-focus-outer {
+        border: 0;
+    }
+    #map-expansor:active::-webkit-slider-thumb {
+        box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+    }
 }

@@ -3,6 +3,35 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="{% static 'css/top.css' %}">
+<style>
+    {% for art in arts %}
+    #mark_1_{{ art.id }}{top:{{ art.coordinate1 }}%;left:{{ art.coordinate2 }}%;}
+    {% endfor %}
+    {% for restaurant in restaurants %}
+    #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate1 }}%;left:{{ restaurant.coordinate2 }}%;}
+    {% endfor %}
+    {% for hotel in hotels %}
+    #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate1 }}%;left:{{ hotel.coordinate2 }}%;}
+    {% endfor %}
+    {% for cat in cats %}
+    #mark_4_{{ cat.id }}{top:{{ cat.coordinate1 }}%;left:{{ cat.coordinate2 }}%;}
+    {% endfor %}
+
+    @media screen and (max-width:1020px) {
+        {% for art in arts %}
+        #mark_1_{{ art.id }}{top:{{ art.coordinate3 }}%;left:{{ art.coordinate4 }}%;}
+        {% endfor %}
+        {% for restaurant in restaurants %}
+        #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate3 }}%;left:{{ restaurant.coordinate4 }}%;}
+        {% endfor %}
+        {% for hotel in hotels %}
+        #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate3 }}%;left:{{ hotel.coordinate4 }}%;}
+        {% endfor %}
+        {% for cat in cats %}
+        #mark_4_{{ cat.id }}{top:{{ cat.coordinate3 }}%;left:{{ cat.coordinate4 }}%;}
+        {% endfor %}
+    }
+</style>
 {% endblock %}
 
 {% block main_panel %}
@@ -56,6 +85,93 @@
             <p class="no-works">開催予定のイベントはありません</p>
     {% endif %}
     <p>一覧では、これから開催するイベントだけでなく、これまでに開催したイベントの情報も見ることができます。<a href="{% url 'ogijima:works' %}">イベントの一覧はこちら</a>。</p>
+</section>
+
+<section id="information">
+    <div class="section-title">
+        <h2>島内マップ</h2>
+        <a>島情報を見る</a>
+    </div>
+    <div class="map__frame mousedragscrollable">
+        <div id="map" class="map">
+            <div class="map__wrapper">
+                <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
+
+                {% for art in arts %}
+                <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))">
+                    <a href="{% url 'ogijima:arts' %}?{{ art.id }}"></a>
+                </div>
+                {% endfor %}
+                {% for restaurant in restaurants %}
+                <div id="mark_2_{{ restaurant.id }}" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_{{ restaurant.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_{{ restaurant.id }}'))">
+                    <a href="{% url 'ogijima:restaurants' %}?{{ restaurant.id }}"></a>
+                </div>
+                {% endfor %}
+                {% for hotel in hotels %}
+                <div id="mark_3_{{ hotel.id }}" class="mark mark_3" onmouseenter="popupActivate(document.getElementById('popup_3_{{ hotel.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_3_{{ hotel.id }}'))">
+                    <a href="{% url 'ogijima:hotels' %}?{{ hotel.id }}"></a>
+                </div>
+                {% endfor %}
+                {% for cat in cats %}
+                <div id="mark_4_{{ cat.id }}" class="mark mark_4" onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))">
+                    <a href="{% url 'ogijima:cats' %}?{{ cat.id }}"></a>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+    <input id="map-expansor" type="range" name="range" min="1" max="2" value="1" step="0.1">
+    <div id="popup">
+        {% for art in arts %}
+        <div class="upblock popup_1" id="popup_1_{{ art.id }}">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-1">アート</p>
+                <p class="popup__name">{{ art.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'ogijima:arts' %}?1_{{ art.id }}" class="popup__link">詳細はこちら</a>
+        </div>
+        {% endfor %}
+        {% for restaurant in restaurants %}
+        <div class="upblock popup_2" id="popup_2_{{ restaurant.id }}">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-2">飲食店</p>
+                <p class="popup__name">{{ restaurant.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'ogijima:restaurants' %}?2_{{ restaurant.id }}" class="popup__link">詳細はこちら</a>
+        </div>
+        {% endfor %}
+        {% for hotel in hotels %}
+        <div class="upblock popup_3" id="popup_3_{{ hotel.id }}">
+        <div class="popup__title">
+                <p class="popup__icon popup__icon-3">宿泊施設</p>
+                <p class="popup__name">{{ hotel.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'ogijima:hotels' %}?3_{{ hotel.id }}" class="popup__link">詳細はこちら</a>
+        </div>
+        {% endfor %}
+        {% for cat in cats %}
+        <div class="upblock popup_4" id="popup_4_{{ cat.id }}">
+            <div class="popup__title">
+                <p class="popup__icon popup__icon-4">猫</p>
+                <p class="popup__name">{{ cat.name }}</p>
+            </div>
+            <p class="popup__text">クリックして詳細へ</p>
+            <a href="{% url 'ogijima:cats' %}?4_{{ cat.id }}" class="popup__link">詳細はこちら</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="zoom-mordal" class="zoom-mordal">
+        <div class="zoom-mordal__window">
+        <p class="zoom-mordal__text">この地図は二本指での拡大はできません。地図の下のゲージで拡大してください。</p>
+        <p id="zoom-mordal__button" class="zoom-mordal__button">閉じる</p>
+        </div>
+    </div>
 </section>
 
 <section id="desire" style="margin-top: 120vh;">

@@ -21,9 +21,19 @@ def top(request):
         future_work.content = p.sub("", markdown(future_work.content))
     else:
         future_work = []
+    
+    arts = Art.objects.all()
+    restaurants = Restaurant.objects.all()
+    hotels = Hotel.objects.all()
+    cats = Cat.objects.all()
+
     params = {
         'now_works': now_works,
         'future_work': future_work,
+        'arts': arts,
+        'restaurants': restaurants,
+        'hotels': hotels,
+        'cats': cats
     }
     return render(request,'top.html', params)
 
