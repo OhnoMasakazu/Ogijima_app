@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/errorpage.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<h1>404 Not Found</h1>
+<p>お探しのページが見つかりませんでした。URLに誤りがあるか、お探しのページは移動もしくは削除された可能性があります。</p>
+<a class="return-button" href="{% url 'ogijima:top' %}">トップページへ戻る</a>
+{% endblock %}

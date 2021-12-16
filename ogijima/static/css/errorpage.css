@@ -1,0 +1,10 @@
+.return-button{
+    padding: 12px 24px;
+    background-color: rgb(90, 77, 79);
+    border-radius: 12px;
+    color: rgb(239, 228, 213);
+    text-decoration: none;
+    margin: 48px auto 0;
+    display: block;
+    width: max-content;
+}

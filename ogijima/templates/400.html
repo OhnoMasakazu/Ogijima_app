@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/errorpage.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<h1>400 Bad Request</h1>
+<p>リクエストされた内容をサーバーが理解できませんでした。ブラウザのキャッシュやCookieを削除すると解消される場合があります。</p>
+<a class="return-button" href="{% url 'ogijima:top' %}">トップページへ戻る</a>
+{% endblock %}

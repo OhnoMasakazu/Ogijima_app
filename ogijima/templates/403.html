@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/errorpage.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<h1>403 Forbidden</h1>
+<p>指定されたURLへのアクセス権限がありません。</p>
+<a class="return-button" href="{% url 'ogijima:top' %}">トップページへ戻る</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/errorpage.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<h1>503 Service Unavailable</h1>
+<p>サーバーが混雑しており、一時的にアクセスできません。お手数をおかけしますが、再度時間をおいてアクセスしてください。</p>
+<a class="return-button" href="{% url 'ogijima:top' %}">トップページへ戻る</a>
+{% endblock %}

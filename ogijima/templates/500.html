@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/errorpage.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<h1>500 Internal Server Error</h1>
+<p>
+    サーバーエラーが発生しました。サーバーの問題でお探しのページを表示することができません。お手数をおかけしますが、再度時間をおいてアクセスしてください。
+</p>
+<a class="return-button" href="{% url 'ogijima:top' %}">トップページへ戻る</a>
+{% endblock %}
