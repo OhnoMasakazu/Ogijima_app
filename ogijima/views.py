@@ -61,6 +61,22 @@ def works(request):
     }
     return render(request,'works.html',params)
 
+def planed_works(request):
+    today = timezone.now().date()
+    future_works = Work.objects.all().filter(work_end_date__gt=today)
+    future_works = future_works.order_by("work_start_date")
+    for work in future_works:
+        work.content = markdown(work.content)
+    return render(request,'planed_works.html', {'future_works': future_works,})
+
+def held_works(request):
+    today = timezone.now().date()
+    past_works = Work.objects.all().filter(work_end_date__lt=today)
+    past_works = past_works.order_by("-work_start_date")
+    for work in past_works:
+        work.content = markdown(work.content)
+    return render(request,'held_works.html', {'past_works':past_works,})
+
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
     work.content = markdown(work.content)

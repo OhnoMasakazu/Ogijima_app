@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/held_works.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<h1>これまでに開催したイベント</h1>
+{% for work in past_works %}
+    <img  class="sumbnail" src="/media/{{ work.sumbnail }}" style="width: 100%;">
+    <p>{{ work.title }}</p>
+    <p>{{ work.work_start_date | date:"Y年m月d日" }}</p>
+    <p>{{ work.work_end_date | date:"Y年m月d日" }}</p>
+    <p>{{ work.content | safe}}</p>
+{% endfor %}
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
