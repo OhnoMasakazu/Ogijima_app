@@ -29,7 +29,7 @@ html{
 /* header */
 header{
     top: 0;
-    height: 8vh;
+    height: 10vh;
     width: 100vw;
     text-align: center;
     position: fixed;
@@ -87,9 +87,8 @@ header{
 }
 
 header img{
-    background-color: antiquewhite;
-    object-fit: cover;
-    height: 6vh;
+    object-fit: contain;
+    height: 8vh;
     width: 16vw;
     margin: 1vh;
 }
