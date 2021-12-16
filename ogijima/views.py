@@ -129,7 +129,7 @@ def contact(request):
         form = ContactForm()
     return render(request,'contact.html',{'form': form})
 
-def contact_completed(request):
+def contact_completed(request,email):
     return render(request,'contact_completed.html')
 
 def sponsor(request):
