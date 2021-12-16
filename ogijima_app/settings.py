@@ -128,3 +128,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Gmail で送信する場合
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ogijima.pj@gmail.com'
+EMAIL_HOST_PASSWORD = 'aikien12345'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

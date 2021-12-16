@@ -8,16 +8,16 @@ h1{font-size: 36px;}
 h2{font-size: 32px;}
 h3{font-size: 28px;}
 h4{font-size: 24px;}
-p{font-size: 18px;}
+p{font-size: 16px;}
 /* この2個は見出しというかパンくずなどの細かいところで使う */
 h5{font-size: 16px;}
 h6{font-size: 14px;}
-h1,h2,h3,h4,p{color:rgb(68,58,59);}
-h5,h6{color:rgb(98,82,84);}
+h1,h2,h3,h4,h5,h6,p{color:rgb(68,58,59);}
+/* h5,h6{color:rgb(98,82,84);} */
 p{line-height: 1.8;}
 a{
-    font-size: 18px;
-    /* color:rgb(); */
+    font-size: 16px;
+    color:rgb(0,112,192);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -27,6 +27,7 @@ html{
     background-color: rgb(239, 228, 213);
 }
 
+/* header */
 header{
     top: 0;
     height: 8vh;
@@ -34,16 +35,47 @@ header{
     text-align: center;
     position: fixed;
     background-color: rgb(90, 77, 79);
+    z-index: 100;
+}
+
+.header_menu {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.header_menu_tags {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto 0 0;
+    padding: 0;
+}
+
+.header_menu_tags > li {
+    list-style: none;
+    width: 10.25vw;
+    margin-bottom: 2vh;
+}
+
+.header_menu_tags > li > a{
+    color: antiquewhite;
+    font-size: 14px;
+    text-decoration: none;
 }
 
 header img{
+    background-color: antiquewhite;
+    object-fit: cover;
     height: 6vh;
-    margin: 1vh 0;
+    width: 16vw;
+    margin: 1vh;
 }
-
+/* headerおわり */
 .main-panel{
     margin: calc(48px + 8vh) 15vw 64px;
     width: 70vw;
+    min-height: calc(56vh - 112px);
 }
 
 footer{
@@ -124,8 +156,8 @@ footer{
 @media screen and (max-width:1020px) {
     header img{
         height: 6vh;
-        width: 24vh;
-        margin: 1vh auto;
+        width: 18vh;
+        margin: 1vh 1vw;
         object-fit: cover;
     }
 
