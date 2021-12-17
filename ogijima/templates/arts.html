@@ -9,6 +9,71 @@
 <!-- ここに各ページの本体を記述 -->
 <!-- ヘッダー・フッターは自動で入っている -->
 <h1>arts</h1>
+
+<!-- ここからページネーション -->
+{% if pages.has_other_pages %}
+<nav class="pagination__nav">
+    <ul class="pagination">
+        {% if pages.has_previous %}
+        <li>
+            <a class="page-link text-primary d-inline-block" href="?page={{ pages.previous_page_number }}">
+                前<span class="pagination__mobile-delete">のページ</span>へ
+            </a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <p class="pagination__disabled-prev">
+                前<span class="pagination__mobile-delete">のページ</span>へ
+            </p>
+        </li>
+        {% endif %}
+
+        {% if pages.has_previous %}
+        {% if pages.previous_page_number != 1 %}
+        <li>
+            <a href="?page=1">1</a>
+        </li>
+        <li>…</li>
+        {% endif %}
+        <li>
+            <a href="?page={{ pages.previous_page_number }}">
+                {{ pages.previous_page_number }}
+            </a>
+        </li>
+        {% endif %}
+        <li class="disabled">
+            <p class="pagination__disabled">{{ pages.number }}</p>
+        </li>
+        {% if pages.has_next %}
+        <li>
+            <a href="?page={{ pages.next_page_number }}">
+                {{ pages.next_page_number }}
+            </a>
+        </li>
+        {% if pages.next_page_number != pages.paginator.num_pages %}
+        <li>…</li>
+        <li>
+            <a href="?page={{ pages.paginator.num_pages }}">
+                {{ pages.paginator.num_pages }}
+            </a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% if pages.has_next %}
+        <li>
+            <a href="?page={{ pages.next_page_number }}">
+                次<span class="pagination__mobile-delete">のページ</span>へ
+            </a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <p class="pagination__disabled-next">次<span class="pagination__mobile-delete">のページ</span>へ</p>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+<!-- ここまでページネーション -->
 {% endblock %}
 
 {% block extra_js %}
