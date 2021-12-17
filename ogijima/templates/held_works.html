@@ -2,17 +2,25 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/held_works.css' %}">
+<link rel="stylesheet" href="{% static 'css/works_list.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<h1>これまでに開催したイベント</h1>
+<div class="title">
+    <h1>これまでに開催したイベント</h1>
+    <a href="{% url 'ogijima:planed_works' %}">これから開催するイベント一覧はこちら</a>
+</div>
 {% for work in past_works %}
-    <img  class="sumbnail" src="/media/{{ work.sumbnail }}" style="width: 100%;">
-    <p>{{ work.title }}</p>
-    <p>{{ work.work_start_date | date:"Y年m月d日" }}</p>
-    <p>{{ work.work_end_date | date:"Y年m月d日" }}</p>
-    <p>{{ work.content | safe}}</p>
+    <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
+        <img  class="sumbnail" src="/media/{{ work.sumbnail }}">
+        <div class="work__text">
+            <h4>{{ work.title }}</h4>
+            <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
+            <p class="work__content">{{ work.content | safe }}</p>
+            <p class="work__link-button">もっと見る ＞</p>
+        </div>
+    </a>
+    <hr>
 {% endfor %}
 {% endblock %}
 
