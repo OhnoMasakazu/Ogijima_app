@@ -16,6 +16,7 @@ urlpatterns = [
     path('information',views.information,name="information"),
     path('arts',views.arts,name="arts"),
     path('restaurants',views.restaurants,name="restaurants"),
+    path('restaurant_detail/<int:id>',views.restaurant_detail,name="restaurant_detail"),
     path('hotels',views.hotels,name="hotels"),
     path('cats',views.cats,name="cats"),
     path('gallery',views.gallery,name="gallery"),
@@ -24,4 +25,6 @@ urlpatterns = [
     path('contact_completed/<str:email>',views.contact_completed,name="contact_completed"),
     path('sponsor',views.sponsor,name="sponsor"),
     path('privacypolicy',views.privacypolicy,name="privacypolicy"),
+    path('restaurants_sample',views.restaurants_sample,name="restaurants_sample"),
+    path('restaurant_detail_sample/<int:id>',views.restaurant_detail_sample,name="restaurant_detail_sample"),
 ]

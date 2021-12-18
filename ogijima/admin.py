@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Work,Blog,Gallery,Notification,Profile,Art,Restaurant,Hotel,Cat
+from .models import *
 
 class profileAdmin(admin.ModelAdmin):
     list_display = ('order', 'name', 'roll')
@@ -13,3 +13,4 @@ admin.site.register(Art)
 admin.site.register(Restaurant)
 admin.site.register(Hotel)
 admin.site.register(Cat)
+admin.site.register(Restaurant_sample)

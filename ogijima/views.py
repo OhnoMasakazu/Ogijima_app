@@ -5,7 +5,6 @@ from .models import *
 from markdown import markdown
 import re
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import pprint
 
 def top(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -174,6 +173,34 @@ def restaurants(request):
         'pages': pages,
     }
     return render(request,'restaurants.html', params)
+
+def restaurant_detail(request, id):
+    restaurant = Restaurant.objects.get(pk=id)
+    restaurant.document = markdown(restaurant.document)
+    restaurant.businessHour = markdown(restaurant.businessHour)
+    return render(request,'restaurant_detail.html',{'restaurant':restaurant})
+
+def restaurants_sample(request):
+    restaurant = Restaurant_sample.objects.all()
+    paginator = Paginator(restaurant, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'restaurants_sample.html', params)
+
+def restaurant_detail_sample(request, id):
+    restaurant = Restaurant_sample.objects.get(pk=id)
+    restaurant.document = markdown(restaurant.document)
+    restaurant.businessHour = markdown(restaurant.businessHour)
+    return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})
+
 
 def hotels(request):
     hotel = Hotel.objects.all()

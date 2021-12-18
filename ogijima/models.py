@@ -64,14 +64,24 @@ class Art(models.Model):
         return self.name
 
 class Restaurant(models.Model):
-    image = models.ImageField(upload_to='images/')
+    sumbnail = models.ImageField(upload_to='images/',default="../media/images/profile_default.jpeg")
+    image = models.CharField(max_length=1000)
     name = models.CharField(max_length=50)
-    comment = models.CharField(max_length=100)
-    link = models.CharField(max_length=100,null=True)
+    introduction = models.TextField(max_length=300,default="null")
+    businessHour = models.TextField(max_length=200,default="null")
+    document = models.TextField(max_length=4000,default="null")
+    homepage = models.CharField(max_length=100,null=True)
+    telephone = models.CharField(max_length=100,null=True)
+    instagram = models.CharField(max_length=100,null=True)
+    twiter = models.CharField(max_length=100,null=True)
+    facebook = models.CharField(max_length=100,null=True)
     coordinate1 = models.FloatField()
     coordinate2 = models.FloatField()
     coordinate3 = models.FloatField()
     coordinate4 = models.FloatField()
+    def get_markdown_text_as_html(self):
+        """MarkDown記法で書かれたtextをHTML形式に変換して返す"""
+        return markdown(self.text)
     def __str__(self):
         return self.name
 
@@ -95,5 +105,28 @@ class Cat(models.Model):
     coordinate2 = models.FloatField()
     coordinate3 = models.FloatField()
     coordinate4 = models.FloatField()
+    def __str__(self):
+        return self.name
+
+
+class Restaurant_sample(models.Model):
+    sumbnail = models.CharField(max_length=100)
+    image = models.CharField(max_length=1000)
+    name = models.CharField(max_length=50)
+    introduction = models.TextField(max_length=300,default="null")
+    businessHour = models.TextField(max_length=200,default="null")
+    document = models.TextField(max_length=4000,default="null")
+    homepage = models.CharField(max_length=100,null=True)
+    telephone = models.CharField(max_length=100,null=True)
+    instagram = models.CharField(max_length=100,null=True)
+    twiter = models.CharField(max_length=100,null=True)
+    facebook = models.CharField(max_length=100,null=True)
+    coordinate1 = models.FloatField()
+    coordinate2 = models.FloatField()
+    coordinate3 = models.FloatField()
+    coordinate4 = models.FloatField()
+    def get_markdown_text_as_html(self):
+        """MarkDown記法で書かれたtextをHTML形式に変換して返す"""
+        return markdown(self.text)
     def __str__(self):
         return self.name

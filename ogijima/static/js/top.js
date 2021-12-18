@@ -1,3 +1,11 @@
+let mySwiper = new Swiper('.swiper', {
+  autoplay: {
+    delay: 5000,
+  },
+  effect: 'fade',
+  speed: 1000,
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     var screenHeight = window.screen.height;
     var fadein_1_1 = document.getElementById('fadein1-1').offsetTop

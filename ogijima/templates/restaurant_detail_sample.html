@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/resturant_detail_sample.css' %}">
+{% endblock %}
+
+{% block main_panel %}
+<!-- <img  class="sumbnail" src="/media/{{ restaurant.sumbnail }}" style="width: 100%;"> -->
+<div class="top">
+    <div class="top__imagebox">
+        <img id="top__image" class="top__image" src="">
+        <div id="image-list" class="image-list"></div>
+    </div>
+    <div class="top__textbox">
+        <h3>{{ restaurant.name }}</h3>
+        <p class="top__introduction">{{ restaurant.introduction | safe }}</p>
+        <h5 class="top__textbox-subtitle">営業時間</h5>
+        <div class="businessHour">
+            {{ restaurant.businessHour | safe }}
+        </div>
+        <p class="top__textbox-subtitle">
+            ホームページ　
+            <a href="{{ restaurant.homepage }}" target="_blank">{{ restaurant.homepage }}</a>
+        </p>
+        <p>
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a>
+        </p>
+        <div class="sns-list">
+            <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
+            <a href="{{ restaurant.twitter }}" class="sns-list__twitter" target="twitter"><img src="{% static 'image/sns/2021 Twitter logo - white.png' %}"></a>
+            <a href="{{ restaurant.facebook }}" class="sns-list__facebook" target="facebook"><img src="{% static 'image/sns/f_logo_RGB-White_100.png' %}"></a>
+        </div>
+    </div>
+</div>
+<div class="document">
+    {{ restaurant.document | safe }}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    var imageList="{{ restaurant.image }}";
+    imageList = imageList.split(',');
+    document.getElementById("top__image").src = imageList[0];
+    for(let i = 0; i < imageList.length; i++){
+        let smallImage = document.createElement('img');
+        smallImage.src = imageList[i];
+        smallImage.id = "image-" + i;
+        // smallImage.onclick = "imageChange(this)";
+        document.getElementById('image-list').appendChild(smallImage);
+        document.getElementById('image-' + i).addEventListener('click', () => {
+            document.getElementById("top__image").src = imageList[i];     
+
+        })
+    }
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     for(let )
+    //     unction imageChange(node){
+    //         var id = node.id.split('/')[1];
+    //         console.log(id);
+    //         document.getElementById("top__image").src = imageList[id];     
+    //     }
+    // })
+</script>
+{% endblock %}
