@@ -1,3 +1,6 @@
+.businessHour > *:not(ul, li), .document > *:not(ul, li){
+    white-space: pre-wrap;
+}
 .top{
     display: -webkit-flex;
     display: flex;
@@ -93,7 +96,7 @@
   height: 60vh;
   overflow: auto;
   position: relative;
-  margin: 24px;
+  margin: 24px 0;
 }
 
 .map__image{
@@ -109,7 +112,7 @@
 }
 .map__wrapper{
   position: relative;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .mark{
@@ -128,6 +131,7 @@
 
 .map__text{
     margin-top: 24px;
+    width: 30vw;
 }
 .map__text p{
     line-height: 1.2;
@@ -175,7 +179,7 @@
         height: max-content;
         pointer-events: none;
     }
-
+    .map__text{width: 90vw;}
     .mark a{
         /* display: block;
         width: 100%;

@@ -6,30 +6,30 @@
 <link rel="stylesheet" href="{% static 'css/top.css' %}">
 <style>
     {% for art in arts %}
-    #mark_1_{{ art.id }}{top:{{ art.coordinate1 }}%;left:{{ art.coordinate2 }}%;}
+    #mark_1_{{ art.id }}{top:{{ art.coordinate_pc_top }}%;left:{{ art.coordinate_pc_left }}%;}
     {% endfor %}
     {% for restaurant in restaurants %}
-    #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate1 }}%;left:{{ restaurant.coordinate2 }}%;}
+    #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate_pc_top }}%;left:{{ restaurant.coordinate_pc_left }}%;}
     {% endfor %}
     {% for hotel in hotels %}
-    #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate1 }}%;left:{{ hotel.coordinate2 }}%;}
+    #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate_pc_top }}%;left:{{ hotel.coordinate_pc_left }}%;}
     {% endfor %}
     {% for cat in cats %}
-    #mark_4_{{ cat.id }}{top:{{ cat.coordinate1 }}%;left:{{ cat.coordinate2 }}%;}
+    #mark_4_{{ cat.id }}{top:{{ cat.coordinate_pc_top }}%;left:{{ cat.coordinate_pc_left }}%;}
     {% endfor %}
 
     @media screen and (max-width:1020px) {
         {% for art in arts %}
-        #mark_1_{{ art.id }}{top:{{ art.coordinate3 }}%;left:{{ art.coordinate4 }}%;}
+        #mark_1_{{ art.id }}{top:{{ art.coordinate_mobile_top }}%;left:{{ art.coordinate_mobile_left }}%;}
         {% endfor %}
         {% for restaurant in restaurants %}
-        #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate3 }}%;left:{{ restaurant.coordinate4 }}%;}
+        #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate_mobile_top }}%;left:{{ restaurant.coordinate_mobile_left }}%;}
         {% endfor %}
         {% for hotel in hotels %}
-        #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate3 }}%;left:{{ hotel.coordinate4 }}%;}
+        #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate_mobile_top }}%;left:{{ hotel.coordinate_mobile_left }}%;}
         {% endfor %}
         {% for cat in cats %}
-        #mark_4_{{ cat.id }}{top:{{ cat.coordinate3 }}%;left:{{ cat.coordinate4 }}%;}
+        #mark_4_{{ cat.id }}{top:{{ cat.coordinate_mobile_top }}%;left:{{ cat.coordinate_mobile_left }}%;}
         {% endfor %}
     }
 </style>
@@ -37,67 +37,13 @@
 
 {% block main_panel %}
 <div class="swiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-1.jpg' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-2.jpg' %}" alt=""></div>
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-3.jpg' %}" alt=""></div> -->
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-4.jpg' %}" alt=""></div>
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-5.jpg' %}" alt=""></div> -->
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-6.jpg' %}" alt=""></div> -->
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-7.jpg' %}" alt=""></div> -->
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-8.jpg' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-9.jpg' %}" alt=""></div>
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-10.jpg' %}" alt=""></div> -->
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-11.jpg' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-12.jpg' %}" alt=""></div>
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-13.jpg' %}" alt=""></div> -->
-        <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-14.jpg' %}" alt=""></div>
-        <!-- <div class="swiper-slide"><img src="{% static 'image/slideshow/slide-15.jpg' %}" alt=""></div> -->
-    </div>
+    <div id="swiper-wrapper" class="swiper-wrapper"></div>
 </div>
-<div class="swiper swiper-mask"></div>
-<div class="swiper-hide-mask"></div>
+<div id="swiper-mask" class="swiper swiper-mask"></div>
+<div id="swiper-hide-mask" class="swiper-hide-mask"></div>
+
 <section id="top"></section>
-<section id="work">
-    <div class="section-title">
-        <h2>イベント情報</h2>
-        <a>一覧を見る</a>
-    </div>
-    <h3>現在開催中のイベント</h3>
-    {% if now_works %}
-        {% for now_work in now_works %}
-            <a class="now-work__box work__box" href="">
-                <img  class="sumbnail" src="/media/{{ now_work.sumbnail }}">
-                <h4>{{ now_work.title }}</h4>
-                <p class="work__date">
-                    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
-                    {{ now_work.work_start_date | date:"Y年m月d日" }} ～ {{ now_work.work_end_date | date:"Y年m月d日" }}
-                </p>
-                <p class="now-work__content work__content">{{ now_work.content | safe }}</p>
-                <p class="work__link-button">もっと見る ＞</p>
-            </a>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <p class="no-works">開催中のイベントはありません</p>
-    {% endif %}
-    <h3>次に開催するイベント</h3>
-    {% if future_work %}
-        <a class="future-work__box work__box" href="">
-            <img  class="sumbnail" src="/media/{{ future_work.sumbnail }}">
-                <h4>{{ future_work.title }}</h4>
-                <p class="work__date">
-                    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
-                    {{ future_work.work_start_date | date:"Y年m月d日" }} ～ {{ future_work.work_end_date | date:"Y年m月d日" }}
-                </p>
-                <p class="future-work__content work__content">{{ future_work.content | safe }}</p>
-                <p class="work__link-button">もっと見る ＞</p>
-            </a>
-    {% else %}
-            <p class="no-works">開催予定のイベントはありません</p>
-    {% endif %}
-    <p>一覧では、これから開催するイベントだけでなく、これまでに開催したイベントの情報も見ることができます。<a href="{% url 'ogijima:works' %}">イベントの一覧はこちら</a>。</p>
-</section>
+<section id="news"></section>
 
 <section id="information">
     <div class="section-title">
@@ -184,6 +130,47 @@
         <p id="zoom-mordal__button" class="zoom-mordal__button">閉じる</p>
         </div>
     </div>
+</section>
+
+<section id="work">
+    <div class="section-title">
+        <h2>イベント情報</h2>
+        <a>一覧を見る</a>
+    </div>
+    <h3>現在開催中のイベント</h3>
+    {% if now_works %}
+        {% for now_work in now_works %}
+            <a class="now-work__box work__box" href="">
+                <img  class="sumbnail" src="{{ now_work.sumbnail }}">
+                <h4>{{ now_work.title }}</h4>
+                <p class="work__date">
+                    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+                    {{ now_work.work_start_date | date:"Y年m月d日" }} ～ {{ now_work.work_end_date | date:"Y年m月d日" }}
+                </p>
+                <p class="now-work__content work__content">{{ now_work.content | safe }}</p>
+                <p class="work__link-button">もっと見る ＞</p>
+            </a>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p class="no-works">開催中のイベントはありません</p>
+    {% endif %}
+    <h3>次に開催するイベント</h3>
+    {% if future_work %}
+        <a class="future-work__box work__box" href="">
+            <img  class="sumbnail" src="{{ future_work.sumbnail }}">
+                <h4>{{ future_work.title }}</h4>
+                <p class="work__date">
+                    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+                    {{ future_work.work_start_date | date:"Y年m月d日" }} ～ {{ future_work.work_end_date | date:"Y年m月d日" }}
+                </p>
+                <p class="future-work__content work__content">{{ future_work.content | safe }}</p>
+                <p class="work__link-button">もっと見る ＞</p>
+            </a>
+    {% else %}
+            <p class="no-works">開催予定のイベントはありません</p>
+    {% endif %}
+    <p>一覧では、これから開催するイベントだけでなく、これまでに開催したイベントの情報も見ることができます。<a href="{% url 'ogijima:works' %}">イベントの一覧はこちら</a>。</p>
 </section>
 
 <section id="desire" style="margin-top: 120vh;">
@@ -279,6 +266,27 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+    if(userAgent == "sp"){
+        {% for image in slideshow_mobile %}
+        var slideimagewrap = document.createElement('div');
+        slideimagewrap.className = "swiper-slide";
+        var slideimage = document.createElement('img');
+        slideimage.src = "{{ image.image }}";
+        slideimagewrap.appendChild(slideimage);
+        document.getElementById('swiper-wrapper').appendChild(slideimagewrap);
+        {% endfor %}
+    }else{
+        {% for image in slideshow_pc %}
+        var slideimagewrap = document.createElement('div');
+        slideimagewrap.className = "swiper-slide";
+        var slideimage = document.createElement('img');
+        slideimage.src = "{{ image.image }}";
+        slideimagewrap.appendChild(slideimage);
+        document.getElementById('swiper-wrapper').appendChild(slideimagewrap);
+        {% endfor %}
+    }
+</script>
 <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{% static 'js/top.js' %}"></script>

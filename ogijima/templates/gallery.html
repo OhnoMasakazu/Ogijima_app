@@ -9,7 +9,7 @@
 <h1>ギャラリー</h1>
 <div class="photo__wrapper">
     {% for photo in pages %}
-        <img id="photo-{{ photo.id }}" src="media/{{ photo.photo }}">
+        <img id="photo-{{ photo.id }}" src="{{ photo.photo }}">
     {% endfor %}
 </div>
 

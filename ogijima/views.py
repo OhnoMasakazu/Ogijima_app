@@ -28,13 +28,18 @@ def top(request):
     hotels = Hotel.objects.all()
     cats = Cat.objects.all()
 
+    slideshow_pc = Slideshow_pc.objects.all().order_by("order")
+    slideshow_mobile = Slideshow_mobile.objects.all().order_by("order")
+
     params = {
         'now_works': now_works,
         'future_work': future_work,
         'arts': arts,
         'restaurants': restaurants,
         'hotels': hotels,
-        'cats': cats
+        'cats': cats,
+        'slideshow_pc': slideshow_pc,
+        'slideshow_mobile': slideshow_mobile,
     }
     return render(request,'top.html', params)
 
@@ -159,6 +164,11 @@ def arts(request):
     }
     return render(request,'arts.html', params)
 
+def art_detail(request, id):
+    art = Art.objects.get(pk=id)
+    art.document = markdown(art.document)
+    return render(request,'art_detail.html',{'art':art})
+
 def restaurants(request):
     restaurant = Restaurant.objects.all()
     paginator = Paginator(restaurant, 12)
@@ -180,28 +190,6 @@ def restaurant_detail(request, id):
     restaurant.businessHour = markdown(restaurant.businessHour)
     return render(request,'restaurant_detail.html',{'restaurant':restaurant})
 
-def restaurants_sample(request):
-    restaurant = Restaurant_sample.objects.all()
-    paginator = Paginator(restaurant, 12)
-    page = request.GET.get('page', 3)
-    try:
-    	pages = paginator.page(page)
-    except PageNotAnInteger:
-    	pages = paginator.page(1)
-    except EmptyPage:
-    	pages = paginator.page(1)
-    params = {
-        'pages': pages,
-    }
-    return render(request,'restaurants_sample.html', params)
-
-def restaurant_detail_sample(request, id):
-    restaurant = Restaurant_sample.objects.get(pk=id)
-    restaurant.document = markdown(restaurant.document)
-    restaurant.businessHour = markdown(restaurant.businessHour)
-    return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})
-
-
 def hotels(request):
     hotel = Hotel.objects.all()
     paginator = Paginator(hotel, 12)
@@ -217,6 +205,12 @@ def hotels(request):
     }
     return render(request,'hotels.html', params)
 
+def hotel_detail(request, id):
+    hotel = Hotel.objects.get(pk=id)
+    hotel.document = markdown(hotel.document)
+    hotel.businessHour = markdown(hotel.businessHour)
+    return render(request,'hotel_detail.html',{'hotel':hotel})
+
 def cats(request):
     cat = Cat.objects.all()
     paginator = Paginator(cat, 12)
@@ -231,6 +225,11 @@ def cats(request):
         'pages': pages,
     }
     return render(request,'cats.html', params)
+
+def cat_detail(request, id):
+    cat = Cat.objects.get(pk=id)
+    cat.document = markdown(cat.document)
+    return render(request,'cat_detail.html',{'cat':cat})
 
 def gallery(request):
     photos = Gallery.objects.all()
@@ -276,7 +275,35 @@ def contact_completed(request,email):
     return render(request,'contact_completed.html')
 
 def sponsor(request):
-    return render(request,'sponsor.html')
+    names = Sponsor_name.objects.all().order_by('order')
+    banners = Sponsor_banner.objects.all().order_by('order')
+    params = {
+        'names': names,
+        'banners': banners,
+    }
+    return render(request,'sponsor.html', params)
 
 def privacypolicy(request):
     return render(request,'privacypolicy.html')
+
+# 営業資料用サンプル
+def restaurants_sample(request):
+    restaurant = Restaurant_sample.objects.all()
+    paginator = Paginator(restaurant, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'restaurants_sample.html', params)
+
+def restaurant_detail_sample(request, id):
+    restaurant = Restaurant_sample.objects.get(pk=id)
+    restaurant.document = markdown(restaurant.document)
+    restaurant.businessHour = markdown(restaurant.businessHour)
+    return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})

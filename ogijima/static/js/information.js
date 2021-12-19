@@ -16,6 +16,11 @@ function popupDeactivate(elem) {
     elem.style.display = "none";
 }
 
+function modalDeactivate(){
+    document.getElementById('detail-modal').style.display = "none";
+}
+
+
 function mapAreaSize(userAgent, screenWidth, screenHeight) {
     if (userAgent == "pc") {
         var mapArea = [

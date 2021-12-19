@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/resturant_detail_sample.css' %}">
+<link rel="stylesheet" href="{% static 'css/restaurant_detail.css' %}">
 <style>
     #mark{
-        top:{{ restaurant.coordinate1 }}%;
-        left:{{ restaurant.coordinate2 }}%;
+        top:{{ restaurant.coordinate_pc_top }}%;
+        left:{{ restaurant.coordinate_pc_left }}%;
     }
     @media screen and (max-width:1020px) {
         #mark{
-            top:{{ restaurant.coordinate3 }}%;
-            left:{{ restaurant.coordinate4 }}%;
+            top:{{ restaurant.coordinate_mobile_top }}%;
+            left:{{ restaurant.coordinate_mobile_left }}%;
         }
     }
 </style>
@@ -33,17 +33,20 @@
         <h5 class="top__textbox-subtitle">関連情報</h5>
         {% if restaurant.homepage %}
         <p>
-            ホームページ　
+            ホームページ：
             <a href="{{ restaurant.homepage }}" target="_blank">{{ restaurant.homepage }}</a>
         </p>
         {% endif %}
         {% if restaurant.telephone %}
         <p>
-            <i class="fas fa-phone-alt"></i>
+            電話番号：
             <a href="tel:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a>
         </p>
         {% endif %}
-        <p>位置情報は<a href="#locationinfo">こちら</a></p>
+        <p>
+            住所：
+            <a href="#locationinfo">{{ restaurant.address }}</a>
+        </p>
         <div class="sns-list">
             {% if restaurant.instagram %}
             <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
@@ -75,8 +78,8 @@
     <div class="map__text">
         <p>{{ restaurant.address }}</p>
         <p><a href="{{ restaurant.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
-        <p><a href="{{ restaurant.googlemaplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
-        <p><a href="{{ restaurant.googlemaplink }}" class="map-link-pc" target="map">地図を開く</a></p>
+        <p><a href="{{ restaurant.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
+        <p><a href="{{ restaurant.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
     </div>
 </div>
 {% endblock %}

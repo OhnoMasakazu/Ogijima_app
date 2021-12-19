@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/resturants_sample.css' %}">
+<link rel="stylesheet" href="{% static 'css/restaurants.css' %}">
 {% endblock %}
 
 {% block main_panel %}
 <h1>飲食店</h1>
 <div class="list__wrapper">
     {% for restaurant in pages %}
-    <a href="{% url 'ogijima:restaurant_detail_sample' restaurant.id %}">
+    <a href="{% url 'ogijima:restaurant_detail' restaurant.id %}">
         <img src="{{ restaurant.sumbnail }}">
         <h4>{{ restaurant.name }}</h4>
     </a>

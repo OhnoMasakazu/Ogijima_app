@@ -2,13 +2,19 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/arts.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1>arts</h1>
+<h1>アート</h1>
+<div class="list__wrapper">
+    {% for art in pages %}
+    <a href="{% url 'ogijima:art_detail' art.id %}">
+        <img src="{{ art.sumbnail }}">
+        <h4>{{ art.name }}</h4>
+    </a>
+    {% endfor %}
+</div>
 
 <!-- ここからページネーション -->
 {% if pages.has_other_pages %}
@@ -77,5 +83,4 @@
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
 {% endblock %}

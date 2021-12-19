@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/restaurant_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/art_detail.css' %}">
 <style>
     #mark{
-        top:{{ restaurant.coordinate_pc_top }}%;
-        left:{{ restaurant.coordinate_pc_left }}%;
+        top:{{ art.coordinate_pc_top }}%;
+        left:{{ art.coordinate_pc_left }}%;
     }
     @media screen and (max-width:1020px) {
         #mark{
-            top:{{ restaurant.coordinate_mobile_top }}%;
-            left:{{ restaurant.coordinate_mobile_left }}%;
+            top:{{ art.coordinate_mobile_top }}%;
+            left:{{ art.coordinate_mobile_left }}%;
         }
     }
 </style>
@@ -24,45 +24,14 @@
         <div id="image-list" class="image-list"></div>
     </div>
     <div class="top__textbox">
-        <h3>{{ restaurant.name }}</h3>
-        <p class="top__introduction">{{ restaurant.introduction | safe }}</p>
-        <h5 class="top__textbox-subtitle">営業時間</h5>
-        <div class="businessHour">
-            {{ restaurant.businessHour | safe }}
-        </div>
-        <h5 class="top__textbox-subtitle">関連情報</h5>
-        {% if restaurant.homepage %}
-        <p>
-            ホームページ：
-            <a href="{{ restaurant.homepage }}" target="_blank">{{ restaurant.homepage }}</a>
-        </p>
-        {% endif %}
-        {% if restaurant.telephone %}
-        <p>
-            電話番号：
-            <a href="tel:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a>
-        </p>
-        {% endif %}
-        <p>
-            住所：
-            <a href="#locationinfo">{{ restaurant.address }}</a>
-        </p>
-        <div class="sns-list">
-            {% if restaurant.instagram %}
-            <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
-            {% endif %}
-            {% if restaurant.twitter %}
-            <a href="{{ restaurant.twitter }}" class="sns-list__twitter" target="twitter"><img src="{% static 'image/sns/2021 Twitter logo - white.png' %}"></a>
-            {% endif %}
-            {% if restaurant.facebook %}
-            <a href="{{ restaurant.facebook }}" class="sns-list__facebook" target="facebook"><img src="{% static 'image/sns/f_logo_RGB-White_100.png' %}"></a>
-            {% endif %}
-        </div>
+        <h3>{{ art.name }}</h3>
+        <p class="top__introduction">{{ art.introduction | safe }}</p>
+        <p>位置情報は<a href="#locationinfo">こちら</a></p>
     </div>
 </div>
-{% if restaurant.document %}
+{% if art.document %}
 <div class="document">
-    {{ restaurant.document | safe }}
+    {{ art.document | safe }}
 </div>
 {% endif %}
 <h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
@@ -76,17 +45,16 @@
         </div>
     </div>
     <div class="map__text">
-        <p>{{ restaurant.address }}</p>
-        <p><a href="{{ restaurant.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
-        <p><a href="{{ restaurant.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
-        <p><a href="{{ restaurant.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
+        <p><a href="{{ art.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
+        <p><a href="{{ art.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
+        <p><a href="{{ art.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-    var imageList="{{ restaurant.image }}";
+    var imageList="{{ art.image }}";
     imageList = imageList.split(',');
     document.getElementById("top__image").src = imageList[0];
     for(let i = 0; i < imageList.length; i++){

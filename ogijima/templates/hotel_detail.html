@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/restaurant_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/hotel_detail.css' %}">
 <style>
     #mark{
-        top:{{ restaurant.coordinate_pc_top }}%;
-        left:{{ restaurant.coordinate_pc_left }}%;
+        top:{{ hotel.coordinate_pc_top }}%;
+        left:{{ hotel.coordinate_pc_left }}%;
     }
     @media screen and (max-width:1020px) {
         #mark{
-            top:{{ restaurant.coordinate_mobile_top }}%;
-            left:{{ restaurant.coordinate_mobile_left }}%;
+            top:{{ hotel.coordinate_mobile_top }}%;
+            left:{{ hotel.coordinate_mobile_left }}%;
         }
     }
 </style>
@@ -24,45 +24,45 @@
         <div id="image-list" class="image-list"></div>
     </div>
     <div class="top__textbox">
-        <h3>{{ restaurant.name }}</h3>
-        <p class="top__introduction">{{ restaurant.introduction | safe }}</p>
+        <h3>{{ hotel.name }}</h3>
+        <p class="top__introduction">{{ hotel.introduction | safe }}</p>
         <h5 class="top__textbox-subtitle">営業時間</h5>
         <div class="businessHour">
-            {{ restaurant.businessHour | safe }}
+            {{ hotel.businessHour | safe }}
         </div>
         <h5 class="top__textbox-subtitle">関連情報</h5>
-        {% if restaurant.homepage %}
+        {% if hotel.homepage %}
         <p>
             ホームページ：
-            <a href="{{ restaurant.homepage }}" target="_blank">{{ restaurant.homepage }}</a>
+            <a href="{{ hotel.homepage }}" target="_blank">{{ hotel.homepage }}</a>
         </p>
         {% endif %}
-        {% if restaurant.telephone %}
+        {% if hotel.telephone %}
         <p>
             電話番号：
-            <a href="tel:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a>
+            <a href="tel:{{ hotel.telephone }}">{{ hotel.telephone }}</a>
         </p>
         {% endif %}
         <p>
             住所：
-            <a href="#locationinfo">{{ restaurant.address }}</a>
+            <a href="#locationinfo">{{ hotel.address }}</a>
         </p>
         <div class="sns-list">
-            {% if restaurant.instagram %}
-            <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
+            {% if hotel.instagram %}
+            <a href="{{ hotel.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
             {% endif %}
-            {% if restaurant.twitter %}
-            <a href="{{ restaurant.twitter }}" class="sns-list__twitter" target="twitter"><img src="{% static 'image/sns/2021 Twitter logo - white.png' %}"></a>
+            {% if hotel.twitter %}
+            <a href="{{ hotel.twitter }}" class="sns-list__twitter" target="twitter"><img src="{% static 'image/sns/2021 Twitter logo - white.png' %}"></a>
             {% endif %}
-            {% if restaurant.facebook %}
-            <a href="{{ restaurant.facebook }}" class="sns-list__facebook" target="facebook"><img src="{% static 'image/sns/f_logo_RGB-White_100.png' %}"></a>
+            {% if hotel.facebook %}
+            <a href="{{ hotel.facebook }}" class="sns-list__facebook" target="facebook"><img src="{% static 'image/sns/f_logo_RGB-White_100.png' %}"></a>
             {% endif %}
         </div>
     </div>
 </div>
-{% if restaurant.document %}
+{% if hotel.document %}
 <div class="document">
-    {{ restaurant.document | safe }}
+    {{ hotel.document | safe }}
 </div>
 {% endif %}
 <h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
@@ -76,17 +76,17 @@
         </div>
     </div>
     <div class="map__text">
-        <p>{{ restaurant.address }}</p>
-        <p><a href="{{ restaurant.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
-        <p><a href="{{ restaurant.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
-        <p><a href="{{ restaurant.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
+        <p>{{ hotel.address }}</p>
+        <p><a href="{{ hotel.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
+        <p><a href="{{ hotel.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
+        <p><a href="{{ hotel.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-    var imageList="{{ restaurant.image }}";
+    var imageList="{{ hotel.image }}";
     imageList = imageList.split(',');
     document.getElementById("top__image").src = imageList[0];
     for(let i = 0; i < imageList.length; i++){
