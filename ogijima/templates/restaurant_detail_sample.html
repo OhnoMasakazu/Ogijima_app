@@ -57,9 +57,11 @@
         </div>
     </div>
 </div>
+{% if restaurant.document %}
 <div class="document">
     {{ restaurant.document | safe }}
 </div>
+{% endif %}
 <h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
 <div class="locationinfo">
     <div class="map__frame mousedragscrollable">
@@ -72,7 +74,9 @@
     </div>
     <div class="map__text">
         <p>{{ restaurant.address }}</p>
-        <a href="https://g.page/yuurin-an?share" target="map">地図アプリで開く</a>
+        <p><a href="{{ restaurant.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
+        <p><a href="{{ restaurant.googlemaplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
+        <p><a href="{{ restaurant.googlemaplink }}" class="map-link-pc" target="map">地図を開く</a></p>
     </div>
 </div>
 {% endblock %}
@@ -86,7 +90,6 @@
         let smallImage = document.createElement('img');
         smallImage.src = imageList[i];
         smallImage.id = "image-" + i;
-        // smallImage.onclick = "imageChange(this)";
         document.getElementById('image-list').appendChild(smallImage);
         document.getElementById('image-' + i).addEventListener('click', () => {
             document.getElementById("top__image").src = imageList[i];     
@@ -95,6 +98,21 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
+        var ua = navigator.userAgent;
+        if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPod") > 0 || ua.indexOf("iPad") > 0) {
+            document.querySelector('.map-link-apple').style.display = "inline";
+            document.querySelector('.map-link-google').style.display = "inline";
+            document.querySelector('.map-link-pc').style.display = "none";
+        } else if (ua.indexOf("Android") > 0) {
+            document.querySelector('.map-link-apple').style.display = "none";
+            document.querySelector('.map-link-google').style.display = "inline";
+            document.querySelector('.map-link-pc').style.display = "none";
+        } else {
+            document.querySelector('.map-link-apple').style.display = "none";
+            document.querySelector('.map-link-google').style.display = "none";
+            document.querySelector('.map-link-pc').style.display = "inline";
+        }
+
         let screenWidth = window.screen.availWidth;
         let screenHeight = document.querySelector('header').clientHeight * 10;
         let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
@@ -143,5 +161,7 @@
         document.querySelector('.map__wrapper').style.height = imageHeight + "px";
         return [imageHeight, imageWidth]
     }
+
+
 </script>
 {% endblock %}
