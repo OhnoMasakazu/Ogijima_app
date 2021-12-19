@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // let imageHeight = document.querySelector('.map__image').clientHeight;
   let screenWidth = window.screen.availWidth;
   // どっかのvhから逆算するのが堅い
-  let screenHeight = document.querySelector('header').clientHeight * 12.5;
+  let screenHeight = document.querySelector('header').clientHeight * 10;
 
   document.getElementById('zoom-mordal').style.height = screenHeight + 'px';
 

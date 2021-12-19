@@ -3,10 +3,21 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="{% static 'css/resturant_detail_sample.css' %}">
+<style>
+    #mark{
+        top:{{ restaurant.coordinate1 }}%;
+        left:{{ restaurant.coordinate2 }}%;
+    }
+    @media screen and (max-width:1020px) {
+        #mark{
+            top:{{ restaurant.coordinate3 }}%;
+            left:{{ restaurant.coordinate4 }}%;
+        }
+    }
+</style>
 {% endblock %}
 
 {% block main_panel %}
-<!-- <img  class="sumbnail" src="/media/{{ restaurant.sumbnail }}" style="width: 100%;"> -->
 <div class="top">
     <div class="top__imagebox">
         <img id="top__image" class="top__image" src="">
@@ -19,23 +30,50 @@
         <div class="businessHour">
             {{ restaurant.businessHour | safe }}
         </div>
-        <p class="top__textbox-subtitle">
+        <h5 class="top__textbox-subtitle">関連情報</h5>
+        {% if restaurant.homepage %}
+        <p>
             ホームページ　
             <a href="{{ restaurant.homepage }}" target="_blank">{{ restaurant.homepage }}</a>
         </p>
+        {% endif %}
+        {% if restaurant.telephone %}
         <p>
             <i class="fas fa-phone-alt"></i>
             <a href="tel:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a>
         </p>
+        {% endif %}
+        <p>位置情報は<a href="#locationinfo">こちら</a></p>
         <div class="sns-list">
+            {% if restaurant.instagram %}
             <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
+            {% endif %}
+            {% if restaurant.twitter %}
             <a href="{{ restaurant.twitter }}" class="sns-list__twitter" target="twitter"><img src="{% static 'image/sns/2021 Twitter logo - white.png' %}"></a>
+            {% endif %}
+            {% if restaurant.facebook %}
             <a href="{{ restaurant.facebook }}" class="sns-list__facebook" target="facebook"><img src="{% static 'image/sns/f_logo_RGB-White_100.png' %}"></a>
+            {% endif %}
         </div>
     </div>
 </div>
 <div class="document">
     {{ restaurant.document | safe }}
+</div>
+<h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
+<div class="locationinfo">
+    <div class="map__frame mousedragscrollable">
+        <div id="map" class="map">
+            <div class="map__wrapper">
+                <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
+                <div id="mark" class="mark"></div>
+            </div>
+        </div>
+    </div>
+    <div class="map__text">
+        <p>{{ restaurant.address }}</p>
+        <a href="https://g.page/yuurin-an?share" target="map">地図アプリで開く</a>
+    </div>
 </div>
 {% endblock %}
 
@@ -55,13 +93,55 @@
 
         })
     }
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     for(let )
-    //     unction imageChange(node){
-    //         var id = node.id.split('/')[1];
-    //         console.log(id);
-    //         document.getElementById("top__image").src = imageList[id];     
-    //     }
-    // })
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let screenWidth = window.screen.availWidth;
+        let screenHeight = document.querySelector('header').clientHeight * 10;
+        let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
+        let imageSize = aspectCheck(mapArea);
+        if (userAgent == "pc") {
+            document.getElementById('mark').style.height = imageSize[1] / 30 + "px";
+            document.getElementById('mark').style.width = imageSize[1] / 30 + "px";
+        } else {
+            document.getElementById('mark').style.height = imageSize[1] / 20 + "px";
+            document.getElementById('mark').style.width = imageSize[1] / 20 + "px";
+        };
+    })
+
+    function mapAreaSize(userAgent, screenWidth, screenHeight) {
+        if (userAgent == "pc") {
+            var mapArea = [
+                // 横幅変更したらここも変えないといけない。点の座標ずれる
+                screenWidth * 0.4, //横
+                screenHeight * 0.6 //縦
+            ]
+        } else {
+            var mapArea = [
+                // 横幅変更したらここも変えないといけない。点の座標ずれる
+                screenWidth - 48, //横
+                screenHeight * 0.65 - 48 //縦
+            ]
+        }
+        return mapArea
+    }
+
+    function aspectCheck(mapArea) {
+        // 地図の画像が変更された場合、ここの指数は変更する必要がある
+        // 画像のアスペクト比よりも横長の場合
+        if (mapArea[0] / mapArea[1] > 1.098) {
+            var imageWidth = mapArea[1] * 1.097;
+            // 12px小さくしているのは、計算誤差や思わぬヘッダーなどでスクロールが発生するのを防ぐため
+            var imageHeight = mapArea[1] - 12;
+        }
+        else {
+            var imageWidth = mapArea[0] - 12;
+            var imageHeight = mapArea[0] * 0.91;
+        }
+        document.querySelector('.map__image').style.width = imageWidth + "px";
+        document.querySelector('.map__image').style.height = imageHeight + "px";
+        document.querySelector('.map__wrapper').style.width = imageWidth + "px";
+        document.querySelector('.map__wrapper').style.height = imageHeight + "px";
+        return [imageHeight, imageWidth]
+    }
 </script>
 {% endblock %}
