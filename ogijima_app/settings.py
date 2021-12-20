@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-xn!rrs3t3v=le6m*)$4&+rm(6a)b#l^024a_kqcqpy4gler*g^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ["13.208.234.67"]
-
+ALLOWED_HOSTS = ['13.208.106.166']
 
 # Application definition
 
@@ -76,23 +74,23 @@ WSGI_APPLICATION = 'ogijima_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'aikien_database',
+        'USER': 'aikien',
+        'PASSWORD': 'aikien12345',
+        'HOST': '',
+        'PORT': '',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'aikien_database',
-#         'USER': 'aikien',
-#         'PASSWORD': 'aikien12345',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
 
 
 # Password validation
