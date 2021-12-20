@@ -1,11 +1,40 @@
+h2, h3{
+    font-family: "MS Pゴシック",sans-serif;;
+}
 #top{
-    height: 100vh;
-    width: 70vw;
+    height: 90vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 0;
+    top: 10vh;
+    left: 0;
+}
+.titletext-1{
+    position: absolute;
+    top: 7vh;
+    width: 21vw;
+    left: 5vw;
+}
+.titletext-2{
+    width: 60vw;
+    position: absolute;
+    bottom: 10vh;
+    right: 5vw;
+}
+.titlescroll{
+    position: absolute;
+    bottom: 0;
+    width: 5vw;
+    margin: auto;
+    left: 0;
+    right: 0;
 }
 #news{
-    height: 120vh;
+    margin-top: 150vh;
 }
-
+#news, #work, #information, #desire{
+    z-index: 50;
+}
 /* h2{margin-bottom: 24px;} */
 h3{margin-bottom: 12px;}
 .caption{

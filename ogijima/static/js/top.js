@@ -11,6 +11,10 @@ let mySwiper = new Swiper('.swiper', {
 window.addEventListener('scroll', () => {
     if(window.pageYOffset < screenHeight){
         document.getElementById('swiper-mask').style.opacity = (window.pageYOffset / screenHeight) * 0.7;
+        document.getElementById('top').style.opacity = 1 - (window.pageYOffset / screenHeight) * 1.8;
+    }else{
+        document.getElementById('swiper-mask').style.opacity = 0.7;
+        document.getElementById('top').style.opacity = 0;
     }
 })
 
