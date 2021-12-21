@@ -9,6 +9,30 @@
 <!-- ここに各ページの本体を記述 -->
 <!-- ヘッダー・フッターは自動で入っている -->
 <h1>works</h1>
+
+{% for work in now_works %}
+    {{ work.title }}
+    {{ work.work_start_date | date:"Y年m月d日" }}
+    {{ work.work_end_date | date:"Y年m月d日" }}
+    {{ work.content | safe}}
+{% endfor %}
+
+{% for work in future_works %}
+    {{ work.title }}
+    {{ work.work_start_date | date:"Y年m月d日" }}
+    {{ work.work_end_date | date:"Y年m月d日" }}
+    {{ work.content | safe}}
+    <!-- imgのsrc -->
+    {{ work.smbnail }}
+{% endfor %}
+
+{% for work in past_works %}
+    {{ work.title }}
+    {{ work.work_start_date | date:"Y年m月d日" }}
+    {{ work.work_end_date | date:"Y年m月d日" }}
+    {{ work.content | safe}}
+{% endfor %}
+
 {% endblock %}
 
 {% block extra_js %}

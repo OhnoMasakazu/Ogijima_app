@@ -9,6 +9,18 @@
 <!-- ここに各ページの本体を記述 -->
 <!-- ヘッダー・フッターは自動で入っている -->
 <h1>sponsor</h1>
+
+<!-- 表示だけさせておきます -->
+{% for banner in banners %}
+    {{ banner.name }}
+    <!-- imgのsrc -->
+    {{ banner.image }}
+{% endfor %}
+
+{% for name in names %}
+    {{ name.name }}
+{% endfor %}
+
 {% endblock %}
 
 {% block extra_js %}

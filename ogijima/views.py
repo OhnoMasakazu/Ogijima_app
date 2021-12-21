@@ -63,6 +63,13 @@ def works(request):
     else:
         future_works = all_works.filter(work_start_date__gt=today)
     past_works = all_works.filter(work_end_date__lt=today)
+    p = re.compile(r"<[^>]*?>")
+    for work in now_works:
+        work.content = p.sub("", markdown(work.content))
+    for work in future_works:
+        work.content = p.sub("", markdown(work.content))
+    for work in past_works:
+        work.content = p.sub("", markdown(work.content))
     params = {
         'now_works':now_works,
         'future_works':future_works,
@@ -117,7 +124,8 @@ def work_detail(request,work_id):
 
 def reports(request):
     blog = Blog.objects.all()
-    paginator = Paginator(blog, 10)
+    paginator = Paginator(blog, 5)
+    # paginator = Paginator(blog, 10)
     page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
@@ -125,6 +133,9 @@ def reports(request):
     	pages = paginator.page(1)
     except EmptyPage:
     	pages = paginator.page(1)
+    p = re.compile(r"<[^>]*?>")
+    for blog in pages:
+        blog.content = p.sub("", markdown(blog.content))
     params = {
         'pages': pages,
     }

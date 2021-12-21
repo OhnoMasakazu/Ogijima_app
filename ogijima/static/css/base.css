@@ -87,10 +87,10 @@ header{
 }
 
 header img{
-    object-fit: contain;
-    height: 8vh;
-    width: 16vw;
-    margin: 1vh;
+    object-fit: cover;
+    height: 9vh;
+    width: 15.5vw;
+    margin: 0.5vh 1vw 0.5vh 1.5vw;
 }
 
 /* サブメニュー */
