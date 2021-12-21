@@ -48,14 +48,22 @@
     <img class="titlescroll" src="https://coco-factory.jp/ugokuweb/wp-content/uploads/2021/01/scroll1.svg">
 </section>
 <section id="news">
-    <h2>おしらせ</h2>
-    <p>ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。ここにお知らせが来るんですが、まだそこまで作れてないので、暫定でもじだけ入れてみました。</p>
+    <div class="section-title">
+        <h2>おしらせ</h2>
+        <a href="{% url 'ogijima:notifications' %}">おしらせ一覧を見る</a>
+    </div>
+    {% for notification in notifications %}
+        <a class="notification__wrap" href="{{ notification.link }}">
+            <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
+            <p class="notification__content">{{ notification.content }}</p>
+        </a>
+    {% endfor %}
 </section>
 
 <section id="information">
     <div class="section-title">
         <h2>島内マップ</h2>
-        <a>島情報を見る</a>
+        <a href="{% url 'ogijima:information' %}">島情報を見る</a>
     </div>
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
@@ -142,12 +150,12 @@
 <section id="work">
     <div class="section-title">
         <h2>イベント情報</h2>
-        <a>一覧を見る</a>
+        <a href="{% url 'ogijima:works' %}">一覧を見る</a>
     </div>
     <h3>現在開催中のイベント</h3>
     {% if now_works %}
         {% for now_work in now_works %}
-            <a class="now-work__box work__box" href="">
+            <a class="now-work__box work__box" href="{% url 'ogijima:work_detail' now_work.id %}">
                 <img  class="sumbnail" src="{{ now_work.sumbnail }}">
                 <h4>{{ now_work.title }}</h4>
                 <p class="work__date">
@@ -164,7 +172,7 @@
     {% endif %}
     <h3>次に開催するイベント</h3>
     {% if future_work %}
-        <a class="future-work__box work__box" href="">
+        <a class="future-work__box work__box" href="{% url 'ogijima:work_detail' future_work.id %}">
             <img  class="sumbnail" src="{{ future_work.sumbnail }}">
                 <h4>{{ future_work.title }}</h4>
                 <p class="work__date">

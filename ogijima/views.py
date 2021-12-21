@@ -31,6 +31,8 @@ def top(request):
     slideshow_pc = Slideshow_pc.objects.all().order_by("order")
     slideshow_mobile = Slideshow_mobile.objects.all().order_by("order")
 
+    notifications = Notification.objects.all().order_by("-date")[0:5]
+
     params = {
         'now_works': now_works,
         'future_work': future_work,
@@ -40,6 +42,7 @@ def top(request):
         'cats': cats,
         'slideshow_pc': slideshow_pc,
         'slideshow_mobile': slideshow_mobile,
+        'notifications': notifications,
     }
     return render(request,'top.html', params)
 
@@ -150,7 +153,7 @@ def information(request):
     return render(request,'information.html', params)
 
 def arts(request):
-    art = Art.objects.all()
+    art = Art.objects.all().order_by('id')
     paginator = Paginator(art, 12)
     page = request.GET.get('page', 3)
     try:
@@ -170,7 +173,7 @@ def art_detail(request, id):
     return render(request,'art_detail.html',{'art':art})
 
 def restaurants(request):
-    restaurant = Restaurant.objects.all()
+    restaurant = Restaurant.objects.all().order_by('id')
     paginator = Paginator(restaurant, 12)
     page = request.GET.get('page', 3)
     try:
@@ -191,7 +194,7 @@ def restaurant_detail(request, id):
     return render(request,'restaurant_detail.html',{'restaurant':restaurant})
 
 def hotels(request):
-    hotel = Hotel.objects.all()
+    hotel = Hotel.objects.all().order_by('id')
     paginator = Paginator(hotel, 12)
     page = request.GET.get('page', 3)
     try:
@@ -212,7 +215,7 @@ def hotel_detail(request, id):
     return render(request,'hotel_detail.html',{'hotel':hotel})
 
 def cats(request):
-    cat = Cat.objects.all()
+    cat = Cat.objects.all().order_by('id')
     paginator = Paginator(cat, 12)
     page = request.GET.get('page', 3)
     try:
@@ -232,7 +235,7 @@ def cat_detail(request, id):
     return render(request,'cat_detail.html',{'cat':cat})
 
 def gallery(request):
-    photos = Gallery.objects.all()
+    photos = Gallery.objects.all().order_by("-date")
     paginator = Paginator(photos, 12)
     page = request.GET.get('page', 3)
     try:

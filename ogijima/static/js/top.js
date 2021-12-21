@@ -55,6 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
+// ブラウザバックしたときにもともと表示されていたポップアップが出たままになるエラーを修正
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        let popupwindow = document.querySelectorAll('.upblock');
+        for(let i = 0; i < popupwindow.length; i++){
+            popupwindow[i].style.display = "none";
+        }
+    }
+};
+
 document.getElementById('map-expansor').addEventListener('input', () => {
     let ratio = document.getElementById('map-expansor').value;
     // document.querySelector('.map__image').style.transform = "scale(" + ratio + ", " + ratio + ")";
