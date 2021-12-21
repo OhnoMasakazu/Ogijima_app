@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>宿泊施設</h1>
+<h1 class="pagetitle">宿泊施設</h1>
 <div class="list__wrapper">
     {% for hotel in pages %}
     <a href="{% url 'ogijima:hotel_detail' hotel.id %}">

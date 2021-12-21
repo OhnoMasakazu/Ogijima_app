@@ -7,6 +7,7 @@ let mySwiper = new Swiper('.swiper', {
     effect: 'fade',
     speed: 1000,
 });
+var hidemaskTop = document.getElementById('information').offsetTop;
 
 window.addEventListener('scroll', () => {
     if(window.pageYOffset < screenHeight){
@@ -16,13 +17,22 @@ window.addEventListener('scroll', () => {
         document.getElementById('swiper-mask').style.opacity = 0.7;
         document.getElementById('top').style.opacity = 0;
     }
+
+    if(window.pageYOffset > hidemaskTop){
+        document.getElementById('swiper').style.opacity = 0;
+    }else{
+        document.getElementById('swiper').style.opacity = 1;
+    }
 })
 
 document.addEventListener("DOMContentLoaded", () => {
+    var desireHeight = document.querySelector('.desire__wrapper').clientHeight;
+    document.querySelector('.desire__linktext').style.marginTop = desireHeight + 48 + "px";
+
     var hidemaskTop = document.getElementById('information').offsetTop;
     var hidemaskBottom = document.getElementById('footer').offsetTop;
-    document.getElementById('swiper-hide-mask').style.top = hidemaskTop - 32 + "px";
-    document.getElementById('swiper-hide-mask').style.height = hidemaskBottom - hidemaskTop + 32 + "px";
+    document.getElementById('swiper-hide-mask').style.top = hidemaskTop - 60 + "px";
+    document.getElementById('swiper-hide-mask').style.height = hidemaskBottom - hidemaskTop + 60 + "px";
 
     // var screenHeight = window.screen.height;
     var fadein_1_1 = document.getElementById('fadein1-1').offsetTop;

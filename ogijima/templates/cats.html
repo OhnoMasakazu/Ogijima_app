@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>島猫紹介</h1>
+<h1 class="pagetitle">島猫紹介</h1>
 <div class="list__wrapper">
     {% for cat in pages %}
     <a href="{% url 'ogijima:cat_detail' cat.id %}">

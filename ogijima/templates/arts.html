@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>アート</h1>
+<h1 class="pagetitle">アート</h1>
 <div class="list__wrapper">
     {% for art in pages %}
     <a href="{% url 'ogijima:art_detail' art.id %}">

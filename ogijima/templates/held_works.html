@@ -7,7 +7,7 @@
 
 {% block main_panel %}
 <div class="title">
-    <h1>これまでに開催したイベント</h1>
+    <h1 class="pagetitle">これまでに開催したイベント</h1>
     <a href="{% url 'ogijima:planed_works' %}">これから開催するイベント一覧はこちら</a>
 </div>
 {% for work in past_works %}

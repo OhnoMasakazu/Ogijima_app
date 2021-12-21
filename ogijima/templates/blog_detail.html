@@ -7,11 +7,9 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>イベント情報</h1>
-<img  class="sumbnail" src="{{ blog.sumbnail }}" style="width: 100%;">
 <!-- ここに各ページの本体を記述 -->
 <!-- ヘッダー・フッターは自動で入っている -->
-<h1>blog detail</h1>
+<h1 class="pagetitle">blog detail</h1>
 <h1>{{ blog.title }}</h1>
 <p>{{ blog.date }}</p>
 {{ blog.content | safe}}

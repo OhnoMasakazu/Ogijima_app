@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>飲食店</h1>
+<h1 class="pagetitle">飲食店</h1>
 <div class="list__wrapper">
     {% for restaurant in pages %}
     <a href="{% url 'ogijima:restaurant_detail' restaurant.id %}">

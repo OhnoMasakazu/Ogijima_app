@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>ギャラリー</h1>
+<h1 class="pagetitle">ギャラリー</h1>
 <div class="photo__wrapper">
     {% for photo in pages %}
         <img id="photo-{{ photo.id }}" src="{{ photo.photo }}">

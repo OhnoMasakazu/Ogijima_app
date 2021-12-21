@@ -1,7 +1,10 @@
 *{
     margin: 0;
     font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Zen Maru Gothic";
-    /* font-family: "M PLUS Rounded 1c", sans-serif; */
+}
+@font-face {
+    font-family: 'ロンド B';
+    src: url(../font/Ronde-B_square.otf);
 }
 
 h1{font-size: 36px;}
@@ -20,7 +23,10 @@ a{
     text-decoration: underline;
     cursor: pointer;
 }
-
+.pagetitle{
+    font-family: 'ロンド B';
+    src: url(../font/Ronde-B_square.otf);
+}
 
 html{
     background-color: rgb(239, 228, 213);
@@ -39,7 +45,9 @@ header{
 
 .header_menu {
     width: fit-content;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: space-between;
     justify-content: space-between;
 }
 
@@ -143,12 +151,6 @@ footer{
     height: 36vh;
     width: auto;
     background-color: rgb(90, 77, 79);
-    /* display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    -webkit-align-items: flex-start;
-    align-items: flex-start; */
     border-bottom: solid 10px rgb(90, 77, 79);
 }
 .footer__wrapper{

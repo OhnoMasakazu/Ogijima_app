@@ -1,9 +1,19 @@
 h2, h3{
-    font-family: "MS Pゴシック",sans-serif;;
+    font-family: 'ロンド B';
 }
-/* #news, #work, #information, #desire{
-    z-index: 50;
-} */
+h3{margin-bottom: 24px;}
+section{
+    margin-top: 120px;
+}
+.mobile-br{display: none;}
+.section-title{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
 #top{
     height: 90vh;
     width: 100vw;
@@ -11,6 +21,7 @@ h2, h3{
     z-index: -1;
     top: 10vh;
     left: 0;
+    margin-top: 0;
 }
 .titletext-1{
     position: absolute;
@@ -50,83 +61,6 @@ h2, h3{
 }
 .notification__content{
     width: 38vw;
-}
-/* h2{margin-bottom: 24px;} */
-h3{margin-bottom: 24px;}
-.caption{
-    height: 57.6px;
-    display: -webkit-flex;
-    display: flex;
-    width: 0;
-    position: absolute;
-}
-.caption-1, .caption-2, .caption-3{
-    opacity: 0;
-    transition: .8s;
-}
-.caption-1, .caption-3{
-    right: 0;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
-}
-.caption-2{
-    left: 0;
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-}
-.caption-part{
-    box-sizing: border-box;
-    width: 24px;
-    height: 100%;
-    margin: 0;
-    background-color: rgba(230,95,96,0.7);
-}
-.caption-part-right{transform: skewX(-12deg);}
-.caption-part-left{transform: skewX(12deg);}
-.caption-block{
-    width: 75%;
-    height: 0px;
-    border-bottom: 57.6px solid rgba(230,95,96,0.7);
-    box-sizing: border-box;
-    position: relative;
-}
-.caption-block-right{border-left: 12px solid transparent;}
-.caption-block-left{border-right: 12px solid transparent;}
-.caption-block-right p{
-    margin-right: 60%;
-    float: right;
-}
-.caption-block-left p{
-    margin-left: 60%;
-}
-.caption-block p{
-    font-size: 32px;
-    font-weight: bold;
-    width: 72px;
-    text-align: center;
-}
-#desire > div > h3{
-    font-weight: bold;
-    text-align: center;
-    margin: auto auto 24px;
-}
-.desire__text{
-    text-align: center;
-    margin: 12px auto 48px;
-}
-.fadein{
-    opacity: 0;
-    transition: 1s;
-}
-.mobile-br{display: none;}
-
-.section-title{
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 24px;
 }
 .work__box{
     width: 50vw;
@@ -180,9 +114,6 @@ hr{
     color: rgb(90, 77, 79);
 }
 
-#information{
-    margin-top: 64px;
-}
 .map{
     height: 100%;
     width: 100%;
@@ -300,11 +231,6 @@ hr{
     height: 90vh;
     z-index: -4;
 }
-section{
-    z-index: 10;
-    /* position: relative; */
-    
-}
 .swiper-mask{
     background-color: rgb(239, 228, 213);
     opacity: 0;
@@ -316,9 +242,6 @@ section{
     position: absolute;
     left: 0;
     right: 0;
-    /* height: 563vh;
-    top: 303vh; */
-    /* ↑ここはJSで入れる */
 }
 .swiper-slide img{
     width: 100%;
@@ -326,11 +249,37 @@ section{
     object-fit: cover;
 }
 
+#desire{
+    margin-bottom: 200px;
+}
+.desire__wrapper{
+    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    position: absolute;
+    margin-top: 24px;
+    left: 0;
+    right: 0;
+    padding: 48px 15vw;
+    background-color: rgb(230,95,96);
+}
+.desire__list{
+    width: 22vw;
+}
+.caption{
+    color: rgb(239, 228, 213);
+}
+.desire__text{
+    font-size: 20px;
+    margin: 12px 0;
+    color: rgb(239, 228, 213);
+}
+
 @media screen and (max-width:1020px) {
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
-    .desire__text{font-size: 14px;}
-    #desire > div > h3{font-size: 18px;}
     .caption-block p{font-size: 24px;}
     .caption{height: 43.2px;}
     .caption-block{border-bottom: 43.2px solid rgba(230,95,96,0.7);}
@@ -472,5 +421,18 @@ section{
     }
     #map-expansor:active::-webkit-slider-thumb {
         box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    .desire__wrapper{
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        padding: 48px 5vw;
+    }
+    .desire__list{
+        width: auto;
+        margin-bottom: 24px;
+    }
+    .caption{
+        margin-bottom: 12px;
     }
 }
