@@ -78,7 +78,7 @@ def planed_works(request):
     for work in future_works:
         work.content = p.sub("", markdown(work.content))
     paginator = Paginator(future_works, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -98,7 +98,7 @@ def held_works(request):
     for work in past_works:
         work.content = p.sub("", markdown(work.content))
     paginator = Paginator(past_works, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -118,7 +118,7 @@ def work_detail(request,work_id):
 def reports(request):
     blog = Blog.objects.all()
     paginator = Paginator(blog, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -155,7 +155,7 @@ def information(request):
 def arts(request):
     art = Art.objects.all().order_by('id')
     paginator = Paginator(art, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -175,7 +175,7 @@ def art_detail(request, id):
 def restaurants(request):
     restaurant = Restaurant.objects.all().order_by('id')
     paginator = Paginator(restaurant, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -196,7 +196,7 @@ def restaurant_detail(request, id):
 def hotels(request):
     hotel = Hotel.objects.all().order_by('id')
     paginator = Paginator(hotel, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -217,7 +217,7 @@ def hotel_detail(request, id):
 def cats(request):
     cat = Cat.objects.all().order_by('id')
     paginator = Paginator(cat, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -237,7 +237,7 @@ def cat_detail(request, id):
 def gallery(request):
     photos = Gallery.objects.all().order_by("-date")
     paginator = Paginator(photos, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -252,7 +252,7 @@ def gallery(request):
 def notifications(request):
     notification = Notification.objects.all()
     paginator = Paginator(notification, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -293,7 +293,7 @@ def privacypolicy(request):
 def restaurants_sample(request):
     restaurant = Restaurant_sample.objects.all()
     paginator = Paginator(restaurant, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
