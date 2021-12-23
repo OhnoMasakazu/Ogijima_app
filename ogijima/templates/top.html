@@ -36,20 +36,22 @@
 {% endblock %}
 
 {% block main_panel %}
-<div class="swiper" id="swiper">
+<div class="swiper delay" id="swiper">
     <div id="swiper-wrapper" class="swiper-wrapper"></div>
 </div>
 <div id="swiper-mask" class="swiper swiper-mask"></div>
 <div id="swiper-hide-mask" class="swiper-hide-mask"></div>
 
-<section id="top">
+<section id="top" class="delay">
     <img class="titletext-1" src="https://photosku.com/images_file/small_images/s007_595.png">
     <img class="titletext-2" src="{% static 'image/titletext1.png' %}">
-    <img class="titlescroll" src="https://coco-factory.jp/ugokuweb/wp-content/uploads/2021/01/scroll1.svg">
+    <!-- <img class="titlescroll" src="https://coco-factory.jp/ugokuweb/wp-content/uploads/2021/01/scroll1.svg"> -->
+    <a class="scrollicon"><span></span><span></span><span></span>Scroll</a>
 </section>
 <section id="news">
     <div class="section-title">
         <h2>おしらせ</h2>
+        <!-- <h2><span>おしらせ</span></h2> -->
         <a href="{% url 'ogijima:notifications' %}">おしらせ一覧を見る</a>
     </div>
     {% for notification in notifications %}
@@ -62,6 +64,7 @@
 
 <section id="information">
     <div class="section-title">
+        <!-- <h2><span>島内マップ</span></h2> -->
         <h2>島内マップ</h2>
         <a href="{% url 'ogijima:information' %}">島情報を見る</a>
     </div>
@@ -148,11 +151,11 @@
 </section>
 
 <section id="work">
-    <div class="section-title">
-        <h2>イベント情報</h2>
+    <div id="work-1" class="section-title">
+        <!-- <h2><span>現在開催中のイベント</span></h2> -->
+        <h2>現在開催中のイベント</h2>
         <a href="{% url 'ogijima:works' %}">一覧を見る</a>
     </div>
-    <h3>現在開催中のイベント</h3>
     {% if now_works %}
         {% for now_work in now_works %}
             <a class="now-work__box work__box" href="{% url 'ogijima:work_detail' now_work.id %}">
@@ -165,12 +168,16 @@
                 <p class="now-work__content work__content">{{ now_work.content | safe }}</p>
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
-            <hr>
+            <hr class="separator">
         {% endfor %}
     {% else %}
         <p class="no-works">開催中のイベントはありません</p>
-    {% endif %}
-    <h3>次に開催するイベント</h3>
+    {% endif %}  
+    <div id="work-2" class="section-title">
+        <!-- <h2><span>次に開催するイベント</span></h2> -->
+        <h2>次に開催するイベント</h2>
+        <a href="{% url 'ogijima:works' %}">一覧を見る</a>
+    </div>
     {% if future_work %}
         <a class="future-work__box work__box" href="{% url 'ogijima:work_detail' future_work.id %}">
             <img  class="sumbnail" src="{{ future_work.sumbnail }}">
@@ -189,6 +196,7 @@
 </section>
 
 <section id="desire">
+    <!-- <h2><span>想い</span></h2> -->
     <h2>想い</h2>
     <div class="desire__wrapper">
         <div class="desire__list">

@@ -1,31 +1,94 @@
 var screenHeight = window.screen.height;
 
+var newsOffset = document.getElementById('news').offsetTop;
+var informationOffset = document.getElementById('information').offsetTop;
+var work1Offset = document.getElementById('work-1').offsetTop;
+var work2Offset = document.getElementById('work-2').offsetTop;
+var desireOffset = document.getElementById('desire').offsetTop;
+
 let mySwiper = new Swiper('.swiper', {
     autoplay: {
         delay: 5000,
     },
     effect: 'fade',
     speed: 1000,
+    loop: true,
 });
 var hidemaskTop = document.getElementById('information').offsetTop;
 
 window.addEventListener('scroll', () => {
-    if(window.pageYOffset < screenHeight){
-        document.getElementById('swiper-mask').style.opacity = (window.pageYOffset / screenHeight) * 0.7;
-        document.getElementById('top').style.opacity = 1 - (window.pageYOffset / screenHeight) * 1.8;
+    var scrollY = window.pageYOffset;
+    if(scrollY < screenHeight){
+        document.getElementById('swiper-mask').style.opacity = (scrollY / screenHeight) * 0.7;
+        document.getElementById('top').style.opacity = 1 - (scrollY / screenHeight) * 1.8;
     }else{
         document.getElementById('swiper-mask').style.opacity = 0.7;
         document.getElementById('top').style.opacity = 0;
     }
 
-    if(window.pageYOffset > hidemaskTop){
+    if(scrollY > hidemaskTop){
         document.getElementById('swiper').style.opacity = 0;
     }else{
         document.getElementById('swiper').style.opacity = 1;
     }
+
+    if(scrollY > desireOffset - screenHeight * 0.6){
+        document.querySelector('#desire h2').classList.add('titlelinein');
+    }
+    else if(scrollY > work2Offset - screenHeight * 0.6){
+        document.querySelector('#work-2 h2').classList.add('titlelinein');
+    }
+    else if(scrollY > work1Offset - screenHeight * 0.6){
+        document.querySelector('#work-1 h2').classList.add('titlelinein');
+    }
+    else if(scrollY > informationOffset - screenHeight * 0.6){
+        document.querySelector('#information .section-title h2').classList.add('titlelinein');
+    }
+    else if(scrollY > newsOffset - screenHeight * 0.6){
+        document.querySelector('#news .section-title h2').classList.add('titlelinein');
+    }
+
+    // if(scrollY > desireOffset - screenHeight * 0.6){
+    //     document.querySelector('#desire h2 span').style.transform = "translateX(0)";
+    // }
+    // else if(scrollY > workOffset - screenHeight * 0.6){
+    //     document.querySelector('#work .section-title h2 span').style.transform = "translateX(0)";
+    // }
+    // else if(scrollY > informationOffset - screenHeight * 0.6){
+    //     document.querySelector('#information .section-title h2 span').style.transform = "translateX(0)";
+    // }
+    // else if(scrollY > newsOffset - screenHeight * 0.6){
+    //     document.querySelector('#news .section-title h2 span').style.transform = "translateX(0)";
+    // }
+
+    // if(scrollY > desireOffset - screenHeight * 0.6){
+    //     document.querySelector('#desire h2 span').style.transform = "translateX(0)";
+    // }
+    // else if(scrollY > workOffset - screenHeight * 0.6){
+    //     document.querySelector('#work .section-title h2 span').style.transform = "translateX(0)";
+    // }
+    // else if(scrollY > informationOffset - screenHeight * 0.6){
+    //     document.querySelector('#information .section-title h2 span').style.transform = "translateX(0)";
+    // }
+    // else if(scrollY > newsOffset - screenHeight * 0.6){
+    // if(scrollY > newsOffset - screenHeight * 0.6){
+    //     document.querySelector('#news .section-title h2 span').style.transform = "translateY(0)";
+    //     document.querySelector('#news .section-title h2 span').classList.add('h2mask');
+    //     window.setTimeout(() => {
+    //         document.querySelector('#news .section-title h2 span').classList.remove('h2mask');
+    //     }, 300);    
+    // }
 })
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('top').style.opacity = 1;
+    document.getElementById('swiper').style.opacity = 1;
+
+    window.setTimeout(() => {
+        document.getElementById('top').classList.remove('delay');
+        document.getElementById('swiper').classList.remove('delay');
+    }, 500);
+
     var desireHeight = document.querySelector('.desire__wrapper').clientHeight;
     document.querySelector('.desire__linktext').style.marginTop = desireHeight + 48 + "px";
 
@@ -34,35 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('swiper-hide-mask').style.top = hidemaskTop - 60 + "px";
     document.getElementById('swiper-hide-mask').style.height = hidemaskBottom - hidemaskTop + 60 + "px";
 
-    // var screenHeight = window.screen.height;
-    var fadein_1_1 = document.getElementById('fadein1-1').offsetTop;
-    var fadein_2_1 = document.getElementById('fadein2-1').offsetTop;
-    var fadein_3_1 = document.getElementById('fadein3-1').offsetTop;
-    var fadein_3_2 = document.getElementById('fadein3-2').offsetTop;
-    var fadein_3_3 = document.getElementById('fadein3-3').offsetTop;
-    var caption_1 = document.getElementById('caption-1').offsetTop;
-    var caption_2 = document.getElementById('caption-2').offsetTop;
-    var caption_3 = document.getElementById('caption-3').offsetTop;
-    window.addEventListener('scroll', () => {
-        var scrollHeight = window.pageYOffset;
-        if (scrollHeight + screenHeight * 0.6 > fadein_1_1) { document.getElementById('fadein1-1').style.opacity = 1; }
-        if (scrollHeight + screenHeight * 0.6 > fadein_2_1) { document.getElementById('fadein2-1').style.opacity = 1; }
-        if (scrollHeight + screenHeight * 0.6 > fadein_3_1) { document.getElementById('fadein3-1').style.opacity = 1; }
-        if (scrollHeight + screenHeight * 0.6 > fadein_3_2) { document.getElementById('fadein3-2').style.opacity = 1; }
-        if (scrollHeight + screenHeight * 0.6 > fadein_3_3) { document.getElementById('fadein3-3').style.opacity = 1; }
-        if (scrollHeight + screenHeight * 0.6 > caption_1) {
-            document.getElementById('caption-1').style.width = "90vw";
-            document.getElementById('caption-1').style.opacity = 1;
-        }
-        if (scrollHeight + screenHeight * 0.6 > caption_2) {
-            document.getElementById('caption-2').style.width = "90vw";
-            document.getElementById('caption-2').style.opacity = 1;
-        }
-        if (scrollHeight + screenHeight * 0.6 > caption_3) {
-            document.getElementById('caption-3').style.width = "90vw";
-            document.getElementById('caption-3').style.opacity = 1;
-        }
-    })
+    var separatorList = document.querySelectorAll('.separator');
+    separatorList[separatorList.length - 1].style.display = "none";
 })
 
 // ブラウザバックしたときにもともと表示されていたポップアップが出たままになるエラーを修正

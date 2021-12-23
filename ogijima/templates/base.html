@@ -62,13 +62,15 @@
         {% block header %}
         <header>
             <nav class="header_menu">
-                <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}">
+                <a href="{% url 'ogijima:top' %}" class="header_image_link">
+                    <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}">
+                </a>
                 <ul class="header_menu_tags">
                     <li>
                         <a href="{% url 'ogijima:aboutus' %}">組織</a>
                     </li>
                     <li>
-                        <a href="{% url 'ogijima:aboutus' %}">企画</a>
+                        <a href="{% url 'ogijima:works' %}">企画</a>
                     </li>
                     <li class="sub_menu">
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>
