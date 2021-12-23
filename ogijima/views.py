@@ -64,7 +64,17 @@ def works(request):
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
     work.content = markdown(work.content)
-    return render(request,'work_detail.html',{'work':work})
+    prev_id = work_id-1
+    if work_id+1==Work.objects.all().count():
+        next_id = -1
+    else:
+        next_id = work_id+1
+    params = {
+        'work':work,
+        'prev_id':prev_id,
+        'next_id':next_id
+    }
+    return render(request,'work_detail.html',params)
 
 def reports(request):
     blog = Blog.objects.all()
@@ -73,7 +83,17 @@ def reports(request):
 def blog_detail(request,blog_id):
     blog = Blog.object.get(pk=blog_id)
     blog.content = markdown(blog.content)
-    return render(request,'blog_detail.html',{'blog':blog})
+    prev_id = blog_id-1
+    if blog_id+1==Work.objects.all().count():
+        next_id = -1
+    else:
+        next_id = blog_id+1
+    params = {
+        'blog':blog,
+        'prev_id':prev_id,
+        'next_id':next_id
+    }
+    return render(request,'blog_detail.html',params)
 
 def profile(request):
     profile = Profile.objects.all().order_by('order')
