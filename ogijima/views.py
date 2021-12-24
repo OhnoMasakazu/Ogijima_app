@@ -87,11 +87,11 @@ def planed_works(request):
     paginator = Paginator(future_works, 10)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -107,11 +107,11 @@ def held_works(request):
     paginator = Paginator(past_works, 10)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -138,11 +138,11 @@ def reports(request):
     # paginator = Paginator(blog, 10)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     p = re.compile(r"<[^>]*?>")
     for blog in pages:
         blog.content = p.sub("", markdown(blog.content))
@@ -188,11 +188,11 @@ def arts(request):
     paginator = Paginator(art, 12)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -208,11 +208,11 @@ def restaurants(request):
     paginator = Paginator(restaurant, 12)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -229,11 +229,11 @@ def hotels(request):
     paginator = Paginator(hotel, 12)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -250,11 +250,11 @@ def cats(request):
     paginator = Paginator(cat, 12)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -270,11 +270,11 @@ def gallery(request):
     paginator = Paginator(photos, 12)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -285,11 +285,11 @@ def notifications(request):
     paginator = Paginator(notification, 10)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
@@ -326,11 +326,11 @@ def restaurants_sample(request):
     paginator = Paginator(restaurant, 12)
     page = request.GET.get('page', 1)
     try:
-    	pages = paginator.page(page)
+        pages = paginator.page(page)
     except PageNotAnInteger:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     except EmptyPage:
-    	pages = paginator.page(1)
+        pages = paginator.page(1)
     params = {
         'pages': pages,
     }
