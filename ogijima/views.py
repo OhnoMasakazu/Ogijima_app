@@ -66,7 +66,7 @@ def work_detail(request,work_id):
     work.content = markdown(work.content)
     prev_id = work_id-1
     if work_id+1==Work.objects.all().count():
-        next_id = -1
+        next_id = 0
     else:
         next_id = work_id+1
     params = {
@@ -81,11 +81,11 @@ def reports(request):
     return render(request,'reports.html',{'blog':blog})
 
 def blog_detail(request,blog_id):
-    blog = Blog.object.get(pk=blog_id)
+    blog = Blog.objects.get(pk=blog_id)
     blog.content = markdown(blog.content)
     prev_id = blog_id-1
     if blog_id+1==Work.objects.all().count():
-        next_id = -1
+        next_id = 0
     else:
         next_id = blog_id+1
     params = {
