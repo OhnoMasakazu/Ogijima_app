@@ -4,6 +4,8 @@ from ogijima.forms import ContactForm
 from .models import *
 from markdown import markdown
 import re
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import pprint
 
 def top(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -61,6 +63,46 @@ def works(request):
     }
     return render(request,'works.html',params)
 
+def planed_works(request):
+    today = timezone.now().date()
+    future_works = Work.objects.all().filter(work_end_date__gt=today)
+    future_works = future_works.order_by("work_start_date")
+    p = re.compile(r"<[^>]*?>")
+    for work in future_works:
+        work.content = p.sub("", markdown(work.content))
+    paginator = Paginator(future_works, 10)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'planed_works.html', params)
+
+def held_works(request):
+    today = timezone.now().date()
+    past_works = Work.objects.all().filter(work_end_date__lt=today)
+    past_works = past_works.order_by("-work_start_date")
+    p = re.compile(r"<[^>]*?>")
+    for work in past_works:
+        work.content = p.sub("", markdown(work.content))
+    paginator = Paginator(past_works, 10)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'held_works.html', params)
+
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
     work.content = markdown(work.content)
@@ -78,7 +120,18 @@ def work_detail(request,work_id):
 
 def reports(request):
     blog = Blog.objects.all()
-    return render(request,'reports.html',{'blog':blog})
+    paginator = Paginator(blog, 10)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'reports.html', params)
 
 def blog_detail(request,blog_id):
     blog = Blog.objects.get(pk=blog_id)
@@ -114,30 +167,93 @@ def information(request):
 
 def arts(request):
     art = Art.objects.all()
-    return render(request,'arts.html',{'art':art})
+    paginator = Paginator(art, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'arts.html', params)
 
 def restaurants(request):
     restaurant = Restaurant.objects.all()
-    return render(request,'restaurants.html',{'restaurant':restaurant})
+    paginator = Paginator(restaurant, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'restaurants.html', params)
 
 def hotels(request):
     hotel = Hotel.objects.all()
-    return render(request,'hotels.html',{'hotel':hotel})
+    paginator = Paginator(hotel, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'hotels.html', params)
 
 def cats(request):
     cat = Cat.objects.all()
-    return render(request,'cats.html',{'cat':cat})
+    paginator = Paginator(cat, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'cats.html', params)
 
 def gallery(request):
     photos = Gallery.objects.all()
+    paginator = Paginator(photos, 12)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
     params = {
-        "photos": photos
+        'pages': pages,
     }
     return render(request,'gallery.html', params)
 
 def notifications(request):
     notification = Notification.objects.all()
-    return render(request,'notifications.html',{'notification':notification})
+    paginator = Paginator(notification, 10)
+    page = request.GET.get('page', 3)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'notifications.html', params)
 
 def contact(request):
     if request.method == 'POST':
