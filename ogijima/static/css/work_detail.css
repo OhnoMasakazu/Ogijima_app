@@ -16,6 +16,9 @@
 .main_sentence {
     margin: 12px auto 24px;
 }
+.main_sentence > *:not(ul, li){
+    white-space: pre-wrap;
+}
 
 .link_wrapper {
     margin: 24px auto 12px;

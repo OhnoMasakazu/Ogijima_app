@@ -5,7 +5,6 @@ from .models import *
 from markdown import markdown
 import re
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import pprint
 
 def top(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -29,13 +28,21 @@ def top(request):
     hotels = Hotel.objects.all()
     cats = Cat.objects.all()
 
+    slideshow_pc = Slideshow_pc.objects.all().order_by("order")
+    slideshow_mobile = Slideshow_mobile.objects.all().order_by("order")
+
+    notifications = Notification.objects.all().order_by("-date")[0:5]
+
     params = {
         'now_works': now_works,
         'future_work': future_work,
         'arts': arts,
         'restaurants': restaurants,
         'hotels': hotels,
-        'cats': cats
+        'cats': cats,
+        'slideshow_pc': slideshow_pc,
+        'slideshow_mobile': slideshow_mobile,
+        'notifications': notifications,
     }
     return render(request,'top.html', params)
 
@@ -56,6 +63,13 @@ def works(request):
     else:
         future_works = all_works.filter(work_start_date__gt=today)
     past_works = all_works.filter(work_end_date__lt=today)
+    p = re.compile(r"<[^>]*?>")
+    for work in now_works:
+        work.content = p.sub("", markdown(work.content))
+    for work in future_works:
+        work.content = p.sub("", markdown(work.content))
+    for work in past_works:
+        work.content = p.sub("", markdown(work.content))
     params = {
         'now_works':now_works,
         'future_works':future_works,
@@ -71,7 +85,7 @@ def planed_works(request):
     for work in future_works:
         work.content = p.sub("", markdown(work.content))
     paginator = Paginator(future_works, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -91,7 +105,7 @@ def held_works(request):
     for work in past_works:
         work.content = p.sub("", markdown(work.content))
     paginator = Paginator(past_works, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -120,14 +134,18 @@ def work_detail(request,work_id):
 
 def reports(request):
     blog = Blog.objects.all()
-    paginator = Paginator(blog, 10)
-    page = request.GET.get('page', 3)
+    paginator = Paginator(blog, 5)
+    # paginator = Paginator(blog, 10)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
     	pages = paginator.page(1)
     except EmptyPage:
     	pages = paginator.page(1)
+    p = re.compile(r"<[^>]*?>")
+    for blog in pages:
+        blog.content = p.sub("", markdown(blog.content))
     params = {
         'pages': pages,
     }
@@ -166,9 +184,9 @@ def information(request):
     return render(request,'information.html', params)
 
 def arts(request):
-    art = Art.objects.all()
+    art = Art.objects.all().order_by('id')
     paginator = Paginator(art, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -180,10 +198,15 @@ def arts(request):
     }
     return render(request,'arts.html', params)
 
+def art_detail(request, id):
+    art = Art.objects.get(pk=id)
+    art.document = markdown(art.document)
+    return render(request,'art_detail.html',{'art':art})
+
 def restaurants(request):
-    restaurant = Restaurant.objects.all()
+    restaurant = Restaurant.objects.all().order_by('id')
     paginator = Paginator(restaurant, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -195,10 +218,16 @@ def restaurants(request):
     }
     return render(request,'restaurants.html', params)
 
+def restaurant_detail(request, id):
+    restaurant = Restaurant.objects.get(pk=id)
+    restaurant.document = markdown(restaurant.document)
+    restaurant.businessHour = markdown(restaurant.businessHour)
+    return render(request,'restaurant_detail.html',{'restaurant':restaurant})
+
 def hotels(request):
-    hotel = Hotel.objects.all()
+    hotel = Hotel.objects.all().order_by('id')
     paginator = Paginator(hotel, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -210,10 +239,16 @@ def hotels(request):
     }
     return render(request,'hotels.html', params)
 
+def hotel_detail(request, id):
+    hotel = Hotel.objects.get(pk=id)
+    hotel.document = markdown(hotel.document)
+    hotel.businessHour = markdown(hotel.businessHour)
+    return render(request,'hotel_detail.html',{'hotel':hotel})
+
 def cats(request):
-    cat = Cat.objects.all()
+    cat = Cat.objects.all().order_by('id')
     paginator = Paginator(cat, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -225,10 +260,15 @@ def cats(request):
     }
     return render(request,'cats.html', params)
 
+def cat_detail(request, id):
+    cat = Cat.objects.get(pk=id)
+    cat.document = markdown(cat.document)
+    return render(request,'cat_detail.html',{'cat':cat})
+
 def gallery(request):
-    photos = Gallery.objects.all()
+    photos = Gallery.objects.all().order_by("-date")
     paginator = Paginator(photos, 12)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -243,7 +283,7 @@ def gallery(request):
 def notifications(request):
     notification = Notification.objects.all()
     paginator = Paginator(notification, 10)
-    page = request.GET.get('page', 3)
+    page = request.GET.get('page', 1)
     try:
     	pages = paginator.page(page)
     except PageNotAnInteger:
@@ -269,7 +309,35 @@ def contact_completed(request,email):
     return render(request,'contact_completed.html')
 
 def sponsor(request):
-    return render(request,'sponsor.html')
+    names = Sponsor_name.objects.all().order_by('order')
+    banners = Sponsor_banner.objects.all().order_by('order')
+    params = {
+        'names': names,
+        'banners': banners,
+    }
+    return render(request,'sponsor.html', params)
 
 def privacypolicy(request):
     return render(request,'privacypolicy.html')
+
+# 営業資料用サンプル
+def restaurants_sample(request):
+    restaurant = Restaurant_sample.objects.all()
+    paginator = Paginator(restaurant, 12)
+    page = request.GET.get('page', 1)
+    try:
+    	pages = paginator.page(page)
+    except PageNotAnInteger:
+    	pages = paginator.page(1)
+    except EmptyPage:
+    	pages = paginator.page(1)
+    params = {
+        'pages': pages,
+    }
+    return render(request,'restaurants_sample.html', params)
+
+def restaurant_detail_sample(request, id):
+    restaurant = Restaurant_sample.objects.get(pk=id)
+    restaurant.document = markdown(restaurant.document)
+    restaurant.businessHour = markdown(restaurant.businessHour)
+    return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})

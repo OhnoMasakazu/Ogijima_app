@@ -1,36 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!-- paramsの命名がarts、restaurants、hotels、catsと仮定 -->
-
 {% block extra_style %}
     <link rel="stylesheet" href="{% static 'css/information.css' %}">
     <style>
         {% for art in arts %}
-        #mark_1_{{ art.id }}{top:{{ art.coordinate1 }}%;left:{{ art.coordinate2 }}%;}
+        #mark_1_{{ art.id }}{top:{{ art.coordinate_pc_top }}%;left:{{ art.coordinate_pc_left }}%;}
         {% endfor %}
         {% for restaurant in restaurants %}
-        #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate1 }}%;left:{{ restaurant.coordinate2 }}%;}
+        #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate_pc_top }}%;left:{{ restaurant.coordinate_pc_left }}%;}
         {% endfor %}
         {% for hotel in hotels %}
-        #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate1 }}%;left:{{ hotel.coordinate2 }}%;}
+        #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate_pc_top }}%;left:{{ hotel.coordinate_pc_left }}%;}
         {% endfor %}
         {% for cat in cats %}
-        #mark_4_{{ cat.id }}{top:{{ cat.coordinate1 }}%;left:{{ cat.coordinate2 }}%;}
+        #mark_4_{{ cat.id }}{top:{{ cat.coordinate_pc_top }}%;left:{{ cat.coordinate_pc_left }}%;}
         {% endfor %}
 
         @media screen and (max-width:1020px) {
             {% for art in arts %}
-            #mark_1_{{ art.id }}{top:{{ art.coordinate3 }}%;left:{{ art.coordinate4 }}%;}
+            #mark_1_{{ art.id }}{top:{{ art.coordinate_mobile_top }}%;left:{{ art.coordinate_mobile_left }}%;}
             {% endfor %}
             {% for restaurant in restaurants %}
-            #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate3 }}%;left:{{ restaurant.coordinate4 }}%;}
+            #mark_2_{{ restaurant.id }}{top:{{ restaurant.coordinate_mobile_top }}%;left:{{ restaurant.coordinate_mobile_left }}%;}
             {% endfor %}
             {% for hotel in hotels %}
-            #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate3 }}%;left:{{ hotel.coordinate4 }}%;}
+            #mark_3_{{ hotel.id }}{top:{{ hotel.coordinate_mobile_top }}%;left:{{ hotel.coordinate_mobile_left }}%;}
             {% endfor %}
             {% for cat in cats %}
-            #mark_4_{{ cat.id }}{top:{{ cat.coordinate3 }}%;left:{{ cat.coordinate4 }}%;}
+            #mark_4_{{ cat.id }}{top:{{ cat.coordinate_mobile_top }}%;left:{{ cat.coordinate_mobile_left }}%;}
             {% endfor %}
         }
     </style>
@@ -44,23 +42,35 @@
                     <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
 
                     {% for art in arts %}
-                    <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))">
-                        <a href="{% url 'ogijima:arts' %}?{{ art.id }}"></a>
+                    <div id="mark_1_{{ art.id }}" class="mark mark_1"
+                        onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))"
+                        onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))"
+                    >
+                        <!-- <a href="{% url 'ogijima:arts' %}?{{ art.id }}"></a> -->
                     </div>
                     {% endfor %}
                     {% for restaurant in restaurants %}
-                    <div id="mark_2_{{ restaurant.id }}" class="mark mark_2" onmouseenter="popupActivate(document.getElementById('popup_2_{{ restaurant.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_2_{{ restaurant.id }}'))">
-                        <a href="{% url 'ogijima:restaurants' %}?{{ restaurant.id }}"></a>
+                    <div id="mark_2_{{ restaurant.id }}" class="mark mark_2"
+                        onmouseenter="popupActivate(document.getElementById('popup_2_{{ restaurant.id }}'))"
+                        onmouseleave="popupDeactivate(document.getElementById('popup_2_{{ restaurant.id }}'))"
+                    >
+                        <!-- <a href="{% url 'ogijima:restaurants' %}?{{ restaurant.id }}"></a> -->
                     </div>
                     {% endfor %}
                     {% for hotel in hotels %}
-                    <div id="mark_3_{{ hotel.id }}" class="mark mark_3" onmouseenter="popupActivate(document.getElementById('popup_3_{{ hotel.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_3_{{ hotel.id }}'))">
-                        <a href="{% url 'ogijima:hotels' %}?{{ hotel.id }}"></a>
+                    <div id="mark_3_{{ hotel.id }}" class="mark mark_3"
+                        onmouseenter="popupActivate(document.getElementById('popup_3_{{ hotel.id }}'))"
+                        onmouseleave="popupDeactivate(document.getElementById('popup_3_{{ hotel.id }}'))"
+                    >
+                        <!-- <a href="{% url 'ogijima:hotels' %}?{{ hotel.id }}"></a> -->
                     </div>
                     {% endfor %}
                     {% for cat in cats %}
-                    <div id="mark_4_{{ cat.id }}" class="mark mark_4" onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))">
-                        <a href="{% url 'ogijima:cats' %}?{{ cat.id }}"></a>
+                    <div id="mark_4_{{ cat.id }}" class="mark mark_4"
+                        onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))"
+                        onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))"
+                    >
+                        <!-- <a href="{% url 'ogijima:cats' %}?{{ cat.id }}"></a> -->
                     </div>
                     {% endfor %}
 
@@ -97,8 +107,8 @@
                 <p class="popup__icon popup__icon-1">アート</p>
                 <p class="popup__name">{{ art.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <a href="{% url 'ogijima:arts' %}?1_{{ art.id }}" class="popup__link">詳細はこちら</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <a href="{% url 'ogijima:arts' %}?1_{{ art.id }}" class="popup__link">もっと見る</a>
         </div>
         {% endfor %}
         {% for restaurant in restaurants %}
@@ -107,8 +117,8 @@
                 <p class="popup__icon popup__icon-2">飲食店</p>
                 <p class="popup__name">{{ restaurant.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <a href="{% url 'ogijima:restaurants' %}?2_{{ restaurant.id }}" class="popup__link">詳細はこちら</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <a href="{% url 'ogijima:restaurants' %}?2_{{ restaurant.id }}" class="popup__link">もっと見る</a>
         </div>
         {% endfor %}
         {% for hotel in hotels %}
@@ -117,8 +127,8 @@
                 <p class="popup__icon popup__icon-3">宿泊施設</p>
                 <p class="popup__name">{{ hotel.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <a href="{% url 'ogijima:hotels' %}?3_{{ hotel.id }}" class="popup__link">詳細はこちら</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <a href="{% url 'ogijima:hotels' %}?3_{{ hotel.id }}" class="popup__link">もっと見る</a>
         </div>
         {% endfor %}
         {% for cat in cats %}
@@ -127,10 +137,22 @@
                 <p class="popup__icon popup__icon-4">猫</p>
                 <p class="popup__name">{{ cat.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <a href="{% url 'ogijima:cats' %}?4_{{ cat.id }}" class="popup__link">詳細はこちら</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <a href="{% url 'ogijima:cats' %}?4_{{ cat.id }}" class="popup__link">もっと見る</a>
         </div>
         {% endfor %}
+    </div>
+
+    <div id="detail-modal" class="detail-modal">
+        <div class="detail-modal-window">
+            <img id="detail-modal-img" src="">
+            <div class="detail-modal__textbox">
+                <h4 id="detail-modal-name"></h4>
+                <p id="detail-modal-intro"></p>
+                <a id="detail-modal-link" href="">詳細はこちら</a>
+            </div>
+        </div>
+        <i class="fas fa-times" onclick="modalDeactivate()"></i>
     </div>
 
     <div id="zoom-mordal" class="zoom-mordal">
@@ -146,5 +168,46 @@
 {% block footer %}{% endblock %}
 
 {% block extra_js %}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            {% for art in arts %}
+                document.getElementById('mark_' + 1 + "_{{ art.id }}").addEventListener('click', () => {
+                    document.getElementById('detail-modal-img').src = "{{ art.sumbnail }}";
+                    document.getElementById('detail-modal-name').innerText = "{{ art.name }}";
+                    document.getElementById('detail-modal-intro').innerText = "{{ art.introduction }}";
+                    document.getElementById('detail-modal-link').href = "{% url 'ogijima:art_detail' art.id  %}";
+                    document.getElementById('detail-modal').style.display = 'block';
+                })  
+            {% endfor %}
+            {% for restaurant in restaurants %}
+                document.getElementById('mark_' + 2 + "_{{ restaurant.id }}").addEventListener('click', () => {
+                    document.getElementById('detail-modal-img').src = "{{ restaurant.sumbnail }}";
+                    document.getElementById('detail-modal-name').innerText = "{{ restaurant.name }}";
+                    document.getElementById('detail-modal-intro').innerText = "{{ restaurant.introduction }}";
+                    document.getElementById('detail-modal-link').href = "{% url 'ogijima:restaurant_detail' restaurant.id  %}";
+                    document.getElementById('detail-modal').style.display = 'block';
+                })            
+            {% endfor %}
+            {% for hotel in hotels %}
+                document.getElementById('mark_' + 3 + "_{{ hotel.id }}").addEventListener('click', () => {
+                    document.getElementById('detail-modal-img').src = "{{ hotel.sumbnail }}";
+                    document.getElementById('detail-modal-name').innerText = "{{ hotel.name }}";
+                    document.getElementById('detail-modal-intro').innerText = "{{ hotel.introduction }}";
+                    document.getElementById('detail-modal-link').href = "{% url 'ogijima:hotel_detail' hotel.id  %}";
+                    document.getElementById('detail-modal').style.display = 'block';
+                })  
+            {% endfor %}
+            {% for cat in cats %}
+                document.getElementById('mark_' + 4 + "_{{ cat.id }}").addEventListener('click', () => {
+                    document.getElementById('detail-modal-img').src = "{{ cat.sumbnail }}";
+                    document.getElementById('detail-modal-name').innerText = "{{ cat.name }}";
+                    document.getElementById('detail-modal-intro').innerText = "{{ cat.introduction }}";
+                    document.getElementById('detail-modal-link').href = "{% url 'ogijima:cat_detail' cat.id  %}";
+                    document.getElementById('detail-modal').style.display = 'block';
+                })  
+            {% endfor %}
+        })
+
+    </script>
     <script src="{% static 'js/information.js' %}"></script>
 {% endblock %}

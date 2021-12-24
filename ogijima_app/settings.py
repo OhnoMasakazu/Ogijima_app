@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-xn!rrs3t3v=le6m*)$4&+rm(6a)b#l^024a_kqcqpy4gler*g^
 DEBUG = True
 
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ["13.208.234.67"]
-
+# ALLOWED_HOSTS = ['13.208.106.166']
 
 # Application definition
 
@@ -77,10 +76,10 @@ WSGI_APPLICATION = 'ogijima_app.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
 }
 
 # DATABASES = {

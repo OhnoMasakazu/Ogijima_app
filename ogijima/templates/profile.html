@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1>メンバー紹介</h1>
+<h1 class="pagetitle">メンバー紹介</h1>
 <div class="image__wrapper">
     {% for profile in profile %}
-    <img id="image-{{ profile.id }}" src="media/{{ profile.image }}">
+    <img id="image-{{ profile.id }}" src="{{ profile.image }}">
     {% endfor %}
 </div>
 <div id="popup" class="popup">
@@ -28,7 +28,7 @@
 <script>
     var profileList = []
     {% for profile in profile %}
-        profileList.push(["{{ profile.image }}","{{ profile.name }}","{{ profile.roll }}","{{ profile.introduction }}","{{ profile.link }}"])
+        profileList.push(["{{ profile.id }}","{{ profile.image }}","{{ profile.name }}","{{ profile.roll }}","{{ profile.introduction }}","{{ profile.link }}"])
     {% endfor %}
 </script>
 <script src="{% static 'js/profile.js' %}"></script>

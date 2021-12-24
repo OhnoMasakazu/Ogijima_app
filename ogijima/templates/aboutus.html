@@ -2,15 +2,66 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1>aboutus</h1>
+<h1 class="pagetitle">わたしたち</h1>
+
+<div id="backgroundimage">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLWjvlosJg-Ypebs7DxGkluO93oNQgW4isU83lGU3nxtsX4lfD2KL_BbkuErXvuimWPHWRGYvHehveoo_IpyixAT2yVmrp9b7q2pXnpFCfeQ_nm7mINIjTJ9SMFaHfXOuVEBaLy5QumQPDM2zQvPbUbk=w1024-h682-no?authuser=3" id="bgimage-1" style="opacity:1;">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLVsEL7CfJBsuWagQ6olXQSS-kxb_CaMRop5IXjZVUOhVo3h04HrhacnytEAwgVcTbYcepPJrKQ_rRfZUTMRlUQhfMQyp_pVl3iMJQTAIp-4XO7O20jk7Q_c63HvyJ-owPkGFugZIae4W0h-LLeJtMVe=w1024-h682-no?authuser=3" id="bgimage-2">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLX_U38tp23mcWtUMXUOq9G0nS8Ku3bRUeRy9P9MR7EZ6DzcoZH04WW1tMf6ZrHgezK-_Hs2jaf2V460M4A9sZHJ1Mytk1fZ4pkEMZwrcIIU_wkBeRv07WB7Ojp3Nk15GYAjYFc-Be5oxvyolUQVKIgY=w1024-h682-no?authuser=3" id="bgimage-3">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLUH1-ewCp6LYeQo2lTBx06a-EJZ8YbPI5Nq_VT6s6pwM8N0hwuZ10sPIvGqqISKqPJj3xGYBlpf5D-jp6FkngALYg15aOXrB7yYVMBXxuN6VHKyBv2IaEjZqmQUoBklx44zGJsjAo8sDUjFEpdWacWL=w1024-h682-no?authuser=3" id="bgimage-4">
+</div>
+<div id="backgroundimagemask"></div>
+
+<section id="source">
+    <h2>あいきえん由来</h2>
+    <p>
+        <h4>一、四字熟語「合縁奇縁」</h4>
+        <p>合縁…人と人との結びつき</p>
+        <p>奇縁…不思議な巡り合わせ</p>
+        <h4>二、関西弁「愛、消えん」</h4>
+        <p>男木島を愛する“きもち”島民の方や観光客などたくさんの人とのご縁を生みだし、永く大切にしていきたいという想いが込められています。人と人とのご縁が生まれる場所となりますように。</p>
+    </p>
+</section>
+
+<section id="will">
+    <h2>志</h2>
+    <h3>男木島の“いま”を残し続ける</h3>
+    <p>
+        私たちが定義する関係人口は、簡潔にいうと「観光客＜関係人口＜移住者」です。一度男木島に観光で訪れてそれっきりではなく、そこから二度三度訪ねたいと思ってもらえたり、その人が友人や家族を連れてきてくれたり、SNSに投稿したりしていただけるような継続した関係を築くことです。
+        また、島の環境・島の方々にお世話になることで男木島への気持ちが膨らみ、「男木島のために何かしたい」・「男木島に住みたい」と思ってもらえるようなところまで繋げることができればうれしいと思っています。
+    </p>
+</section>
+
+<section id="mission">
+    <h2>使命</h2>
+    <h3>男木島の魅力を伝え、「また来たい」をつくる</h3>
+    <p>    
+        100年以上前の姿が残る石垣の街並みや家屋、穏やかな海と広大な空、大自然。人間の生活に溶け込んだ約70匹の猫たち。“いま”のままでもとても素敵であるのに、その魅力が埋もれてしまっていて伝わりにくい。そんな現状を変えたいと思っています。<br>
+        何か新しい変革を起こすわけではなく、島のありのままの自然を可能な限り活かしたい。それらを、まだ男木島を知らない人たちに知ってもらうところからはじめます。
+    </p>
+</section>
+
+<section id="belief">
+    <h2>信条</h2>
+    <h3>島との対話 〈島に対して〉</h3>
+    <p>
+        島の自然。島の方々。島の生き物たち。全てと心を通じて対話する。そんな気持ちを持って男木島と向き合います。
+    </p>
+    <h3>個の着彩 〈仲間に対して〉</h3>
+    <p>
+        異なる経歴を持つ個性豊かなメンバーが勢揃いしているので、その個性を潰すことなく、互いに尊重し、男木島のために活かしていきたいと思っています。
+    </p>
+    <h3>経験と成長 〈自分に対して〉</h3>
+    <p>
+        ボランティアベースの活動であるため、“学び”という価値観を軸に、参加するメンバーには今後の人生に繋がる有意義な時間となるよう、しっかり目的を持って参加してほしいと思っています。また、将来振り返った時に貴重な“経験”になったと感じてもらえるような活動にしたい、するぞという意気込みで動いています。
+    </p>
+</section>
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script src="{% static 'js/aboutus.js' %}"></script>
 {% endblock %}

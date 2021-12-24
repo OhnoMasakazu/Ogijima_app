@@ -5,26 +5,26 @@
         <script>
             // 端末情報を取得
             var userAgent = (function () {
-            var ua = navigator.userAgent;
-            if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPod") > 0 || ua.indexOf("Android") > 0 && ua.indexOf("Mobile") > 0) {
-                return "sp";
-            } else if (ua.indexOf("iPad") > 0 || ua.indexOf("Android") > 0) {
-                return "sp";
-            } else {
-                return "pc";
-            }
+                var ua = navigator.userAgent;
+                if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPod") > 0 || ua.indexOf("Android") > 0 && ua.indexOf("Mobile") > 0) {
+                    return "sp";
+                } else if (ua.indexOf("iPad") > 0 || ua.indexOf("Android") > 0) {
+                    return "sp";
+                } else {
+                    return "pc";
+                }
             })();
             document.documentElement.classList.add(userAgent);
         </script>
         <meta charset="utf-8" />
-        <title>あいきえん | 男木島名物倉庫</title>
-        <meta name=”keywords” content=”男木島,倉庫,アート,リノベーション”>
-        <meta content="学生が運営する、廃倉庫をリノベーションしたアートギャラリー兼イベントスペース。男木島の『いま』を残し続け、そして男木島の魅力を伝え、『また来たい』をつくる。" name="description">
-        <meta property="og:title" content="男木島名物倉庫 あいきえん" />
+        <title>あいきえん｜男木島の“いま”を発信！</title>
+        <meta name=”keywords” content=”男木島,観光,倉庫,アート,リノベーション”>
+        <meta content='男木島の魅力あふれる観光情報がここに集結！男木島の“いま”を残し続け、「また来たい」をつくる。倉庫をリノベーションして作り上げたアートギャラリーを運営。島民の "生きがい"となる場所を目指し、島民と観光客とを結ぶ架け橋となる。' name="description">
+        <meta property="og:title" content="あいきえん｜男木島の“いま”を発信！" />
         <meta property="og:type" content="website" />
         <!-- <meta property="og:url" content="ページのURL" /> -->
-        <meta property="og:description" content="学生が運営する、廃倉庫をリノベーションしたアートギャラリー兼イベントスペース。男木島の『いま』を残し続け、そして男木島の魅力を伝え、『また来たい』をつくる。" />
-        <meta property="og:site_name" content="あいきえん | 男木島名物倉庫" />
+        <meta property="og:description" content='男木島の魅力あふれる観光情報がここに集結！男木島の“いま”を残し続け、「また来たい」をつくる。倉庫をリノベーションして作り上げたアートギャラリーを運営。島民の "生きがい"となる場所を目指し、島民と観光客とを結ぶ架け橋となる。' />
+        <meta property="og:site_name" content="あいきえん｜男木島の“いま”を発信！" />
         <meta property="og:image" content="{% static 'image/logo/ロゴ単体_tate.png' %}" />
         <meta property="fb:app_id" content="@aikien.ogijimaproject" />
         <meta name="twitter:card" content="summary">
@@ -39,7 +39,8 @@
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
         <link rel="stylesheet" href="{% static 'css/pagination.css' %}" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic">
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <!-- <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <!-- 各ページCSS -->
         {% block extra_style %}{% endblock %}
 
@@ -61,13 +62,15 @@
         {% block header %}
         <header>
             <nav class="header_menu">
-                <img src="{% static 'image/logo/logo3.png' %}">
+                <a href="{% url 'ogijima:top' %}" class="header_image_link">
+                    <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}">
+                </a>
                 <ul class="header_menu_tags">
                     <li>
                         <a href="{% url 'ogijima:aboutus' %}">組織</a>
                     </li>
                     <li>
-                        <a href="{% url 'ogijima:aboutus' %}">企画</a>
+                        <a href="{% url 'ogijima:works' %}">企画</a>
                     </li>
                     <li class="sub_menu">
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>
@@ -152,7 +155,7 @@
 
         <!-- フッター -->
         {% block footer %}
-        <footer>
+        <footer id="footer">
             <div class="footer__wrapper">
                 <div class="footer__link-box">
                     <div class="footer__link-list">
@@ -165,7 +168,7 @@
                     </div>
                 </div>
                 <div class="footer__logo">
-                    <img src="{% static 'image/logo/logo3.png' %}">
+                    <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}">
                     <!-- 団体名がついたらここも変えないと -->
                     <p class="footer__copyright">&copy; <span id="copyright_year"></span> あいきえん All rights reserved.</p>
                 </div>

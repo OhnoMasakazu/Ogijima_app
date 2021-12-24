@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/information_detail.css' %}">
+<style>
+    #mark{
+        top:{{ cat.coordinate_pc_top }}%;
+        left:{{ cat.coordinate_pc_left }}%;
+    }
+    @media screen and (max-width:1020px) {
+        #mark{
+            top:{{ cat.coordinate_mobile_top }}%;
+            left:{{ cat.coordinate_mobile_left }}%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block main_panel %}
+<div class="top">
+    <div class="top__imagebox">
+        <img id="top__image" class="top__image" src="">
+        <div id="image-list" class="image-list"></div>
+    </div>
+    <div class="top__textbox">
+        <h3>{{ cat.name }}</h3>
+        <p class="top__introduction">{{ cat.introduction | safe }}</p>
+        <!-- <p>位置情報は<a href="#locationinfo">こちら</a></p> -->
+    </div>
+</div>
+{% if cat.document %}
+<div class="document">
+    {{ cat.document | safe }}
+</div>
+{% endif %}
+<h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
+<div class="locationinfo">
+    <div class="map__frame mousedragscrollable">
+        <div id="map" class="map">
+            <div class="map__wrapper">
+                <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
+                <div id="mark" class="mark"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    var imageList="{{ cat.image }}";
+    imageList = imageList.split(',');
+    document.getElementById("top__image").src = imageList[0];
+    for(let i = 0; i < imageList.length; i++){
+        let smallImage = document.createElement('img');
+        smallImage.src = imageList[i];
+        smallImage.id = "image-" + i;
+        document.getElementById('image-list').appendChild(smallImage);
+        document.getElementById('image-' + i).addEventListener('click', () => {
+            document.getElementById("top__image").src = imageList[i];     
+
+        })
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let screenWidth = window.screen.availWidth;
+        let screenHeight = document.querySelector('header').clientHeight * 10;
+        let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
+        let imageSize = aspectCheck(mapArea);
+        if (userAgent == "pc") {
+            document.getElementById('mark').style.height = imageSize[1] / 30 + "px";
+            document.getElementById('mark').style.width = imageSize[1] / 30 + "px";
+        } else {
+            document.getElementById('mark').style.height = imageSize[1] / 20 + "px";
+            document.getElementById('mark').style.width = imageSize[1] / 20 + "px";
+        };
+    })
+
+    function mapAreaSize(userAgent, screenWidth, screenHeight) {
+        if (userAgent == "pc") {
+            var mapArea = [
+                // 横幅変更したらここも変えないといけない。点の座標ずれる
+                screenWidth * 0.4, //横
+                screenHeight * 0.6 //縦
+            ]
+        } else {
+            var mapArea = [
+                // 横幅変更したらここも変えないといけない。点の座標ずれる
+                screenWidth - 48, //横
+                screenHeight * 0.65 - 48 //縦
+            ]
+        }
+        return mapArea
+    }
+
+    function aspectCheck(mapArea) {
+        // 地図の画像が変更された場合、ここの指数は変更する必要がある
+        // 画像のアスペクト比よりも横長の場合
+        if (mapArea[0] / mapArea[1] > 1.098) {
+            var imageWidth = mapArea[1] * 1.097;
+            // 12px小さくしているのは、計算誤差や思わぬヘッダーなどでスクロールが発生するのを防ぐため
+            var imageHeight = mapArea[1] - 12;
+        }
+        else {
+            var imageWidth = mapArea[0] - 12;
+            var imageHeight = mapArea[0] * 0.91;
+        }
+        document.querySelector('.map__image').style.width = imageWidth + "px";
+        document.querySelector('.map__image').style.height = imageHeight + "px";
+        document.querySelector('.map__wrapper').style.width = imageWidth + "px";
+        document.querySelector('.map__wrapper').style.height = imageHeight + "px";
+        return [imageHeight, imageWidth]
+    }
+
+
+</script>
+{% endblock %}
