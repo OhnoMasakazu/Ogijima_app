@@ -92,7 +92,7 @@
 
 .map__frame{
   /* 横幅いじったらJSのmapAreaの中身修正しないといけない */
-  width: 40vw;
+  width: 50vw;
   height: 60vh;
   overflow: auto;
   position: relative;
@@ -119,16 +119,32 @@
   position: absolute;
   cursor: pointer;
   border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
-
-.mark a{
-    display: block;
-    width: 100%;
-    height: 100%;
+.mark i{
+    font-size: 16px
 }
+.mark-art i{color: rgb(230,95,96);}
+.mark-restaurant i{color: #2e8b57;}
+.mark-hotel i{color: #daa520;}
+.mark-cat i{color: #245678;}
 
-.mark{background-color: #cff;}
-
+.place{
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+}
+.place-port{
+    top: 29%;
+    left: 17.5%;
+}
+.place-school{
+    top: 66%;
+    left: 46%;
+}
+.place-aikien{
+    top: 88%;
+    left: 44%;
+}
 .map__text{
     margin-top: 24px;
     width: 30vw;
@@ -180,10 +196,5 @@
         pointer-events: none;
     }
     .map__text{width: 90vw;}
-    .mark a{
-        /* display: block;
-        width: 100%;
-        height: 100%; */
-        display: none;
-    }
+    .place{font-size: 14px;}
 }

@@ -14,7 +14,7 @@ h4{font-size: 24px;}
 h5{font-size: 18px;}
 h6{font-size: 14px;}
 p{font-size: 16px;}
-h1,h2,h3,h4,h5,h6,p,li{color:rgb(68,58,59);}
+h1,h2,h3,h4,h5,h6,p,li,span{color:rgb(68,58,59);}
 /* h5,h6{color:rgb(98,82,84);} */
 p{line-height: 1.8;}
 .header_image_link{
@@ -210,10 +210,7 @@ footer{
 }
 
 
-.footer__logo{
-    width: 30vw;
-    /* margin-right: 6vw; */
-}
+.footer__logo{width: 30vw;}
 
 .footer__logo img{
     width: 20vw;
@@ -222,9 +219,8 @@ footer{
     margin: 32px 0 0;
 }
 
-.footer__copyright{
-    color: rgb(239, 228, 213);
-}
+.footer__copyright{color: rgb(239, 228, 213);}
+#copyright_year{color: rgb(239, 228, 213);}
 
 @media screen and (max-width:1020px) {
     header img{

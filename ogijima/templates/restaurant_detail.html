@@ -70,8 +70,13 @@
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
             <div class="map__wrapper">
-                <img id="map__image" class="map__image" src="{% static 'image/map/map.svg' %}">
-                <div id="mark" class="mark"></div>
+                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
+                <p class="place place-port">男木港</p>
+                <p class="place place-school">男木島小・中学校</p>
+                <p class="place place-aikien">あいきえん</p>
+                <div id="mark" class="mark mark-restaurant">
+                    <i class="fas fa-utensils"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -85,6 +90,8 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="{% static 'js/map.js' %}"></script>
+<script src="{% static 'js/information_detail.js' %}"></script>
 <script>
     var imageList="{{ restaurant.image }}";
     imageList = imageList.split(',');
@@ -99,72 +106,5 @@
 
         })
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        var ua = navigator.userAgent;
-        if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPod") > 0 || ua.indexOf("iPad") > 0) {
-            document.querySelector('.map-link-apple').style.display = "inline";
-            document.querySelector('.map-link-google').style.display = "inline";
-            document.querySelector('.map-link-pc').style.display = "none";
-        } else if (ua.indexOf("Android") > 0) {
-            document.querySelector('.map-link-apple').style.display = "none";
-            document.querySelector('.map-link-google').style.display = "inline";
-            document.querySelector('.map-link-pc').style.display = "none";
-        } else {
-            document.querySelector('.map-link-apple').style.display = "none";
-            document.querySelector('.map-link-google').style.display = "none";
-            document.querySelector('.map-link-pc').style.display = "inline";
-        }
-
-        let screenWidth = window.screen.availWidth;
-        let screenHeight = document.querySelector('header').clientHeight * 10;
-        let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
-        let imageSize = aspectCheck(mapArea);
-        if (userAgent == "pc") {
-            document.getElementById('mark').style.height = imageSize[1] / 30 + "px";
-            document.getElementById('mark').style.width = imageSize[1] / 30 + "px";
-        } else {
-            document.getElementById('mark').style.height = imageSize[1] / 20 + "px";
-            document.getElementById('mark').style.width = imageSize[1] / 20 + "px";
-        };
-    })
-
-    function mapAreaSize(userAgent, screenWidth, screenHeight) {
-        if (userAgent == "pc") {
-            var mapArea = [
-                // 横幅変更したらここも変えないといけない。点の座標ずれる
-                screenWidth * 0.4, //横
-                screenHeight * 0.6 //縦
-            ]
-        } else {
-            var mapArea = [
-                // 横幅変更したらここも変えないといけない。点の座標ずれる
-                screenWidth - 48, //横
-                screenHeight * 0.65 - 48 //縦
-            ]
-        }
-        return mapArea
-    }
-
-    function aspectCheck(mapArea) {
-        // 地図の画像が変更された場合、ここの指数は変更する必要がある
-        // 画像のアスペクト比よりも横長の場合
-        if (mapArea[0] / mapArea[1] > 1.098) {
-            var imageWidth = mapArea[1] * 1.097;
-            // 12px小さくしているのは、計算誤差や思わぬヘッダーなどでスクロールが発生するのを防ぐため
-            var imageHeight = mapArea[1] - 12;
-        }
-        else {
-            var imageWidth = mapArea[0] - 12;
-            var imageHeight = mapArea[0] * 0.91;
-        }
-        document.querySelector('.map__image').style.width = imageWidth + "px";
-        document.querySelector('.map__image').style.height = imageHeight + "px";
-        document.querySelector('.map__wrapper').style.width = imageWidth + "px";
-        document.querySelector('.map__wrapper').style.height = imageHeight + "px";
-        return [imageHeight, imageWidth]
-    }
-
-
 </script>
 {% endblock %}

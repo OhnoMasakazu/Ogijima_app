@@ -51,6 +51,7 @@
   position: absolute;
   cursor: pointer;
   border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .mark a{
