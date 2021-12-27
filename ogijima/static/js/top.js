@@ -122,11 +122,17 @@ window.onpageshow = function(event) {
 // })
 
 function popupActivate(elem) {
+    if(userAgent != "pc"){
+        var mapPopupList = document.querySelectorAll('.upblock');
+        for(let i = 0; i < mapPopupList.length; i++){
+            mapPopupList[i].style.display = "none";
+        }
+    }
     elem.style.display = "flex";
 }
 
 function popupDeactivate(elem) {
-    elem.style.display = "none";
+    if(userAgent == "pc"){elem.style.display = "none";}
 }
 
 function mapAreaSize(userAgent, screenWidth, screenHeight) {

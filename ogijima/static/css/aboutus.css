@@ -46,3 +46,6 @@ p{
     bottom: 0;
     background-color: rgba(239, 228, 213, 0.7);
 }
+@media screen and (max-width:1020px) { 
+    h2{font-weight: 100;}
+}

@@ -128,6 +128,7 @@
 .mark-restaurant i{color: #2e8b57;}
 .mark-hotel i{color: #daa520;}
 .mark-cat i{color: #245678;}
+#mark_1_7{opacity: 0;}
 
 .place{
     position: absolute;

@@ -1,12 +1,12 @@
-document.querySelector('.map__frame input').addEventListener('input', () => {
-    let ratio = document.querySelector('.map__frame input').value;
-    // document.querySelector('.map__image').style.transform = "scale(" + ratio + ", " + ratio + ")";
-    document.querySelector('.map').style.transform = "scale(" + ratio + ", " + ratio + ")";
-    let marginRatio = (ratio - 1) / 0.02;
-    document.querySelector('.map').style.margin = marginRatio + "%";
-    // console.log(document.querySelector('.map__image'));
-    // console.log(ratio);
-})
+// document.querySelector('.map__frame input').addEventListener('input', () => {
+//     let ratio = document.querySelector('.map__frame input').value;
+//     // document.querySelector('.map__image').style.transform = "scale(" + ratio + ", " + ratio + ")";
+//     document.querySelector('.map').style.transform = "scale(" + ratio + ", " + ratio + ")";
+//     let marginRatio = (ratio - 1) / 0.02;
+//     document.querySelector('.map').style.margin = marginRatio + "%";
+//     // console.log(document.querySelector('.map__image'));
+//     // console.log(ratio);
+// })
 
 function popupActivate(elem) {
     elem.style.display = "flex";
@@ -32,7 +32,7 @@ function mapAreaSize(userAgent, screenWidth, screenHeight) {
         var mapArea = [
             // 横幅変更したらここも変えないといけない。点の座標ずれる
             screenWidth - 48, //横
-            screenHeight * 0.65 - 48 //縦
+            screenHeight * 0.4 - 48 //縦
         ]
     }
     return mapArea
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // どっかのvhから逆算するのが堅い
     let screenHeight = document.querySelector('header').clientHeight * 10;
 
-    document.getElementById('zoom-mordal').style.height = screenHeight + 'px';
+    // document.getElementById('zoom-mordal').style.height = screenHeight + 'px';
 
     let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
     let imageSize = aspectCheck(mapArea)
@@ -113,18 +113,18 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 })
 
-document.body.addEventListener("touchstart", function (e) {
-    if (e.touches && e.touches.length > 1) {
-        e.preventDefault();
-    }
-}, { passive: false });
-document.body.addEventListener("touchmove", function (e) {
-    if (e.touches && e.touches.length > 1) {
-        e.preventDefault();
-        document.getElementById('zoom-mordal').style.display = "block";
-    }
-}, { passive: false });
+// document.body.addEventListener("touchstart", function (e) {
+//     if (e.touches && e.touches.length > 1) {
+//         e.preventDefault();
+//     }
+// }, { passive: false });
+// document.body.addEventListener("touchmove", function (e) {
+//     if (e.touches && e.touches.length > 1) {
+//         e.preventDefault();
+//         document.getElementById('zoom-mordal').style.display = "block";
+//     }
+// }, { passive: false });
 
-document.getElementById('zoom-mordal__button').addEventListener('click', () => {
-    document.getElementById('zoom-mordal').style.display = "none";
-})
+// document.getElementById('zoom-mordal__button').addEventListener('click', () => {
+//     document.getElementById('zoom-mordal').style.display = "none";
+// })

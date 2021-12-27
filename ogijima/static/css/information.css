@@ -1,13 +1,7 @@
-.main-panel{
-  margin: 8vh 0 !important;
-}
-
 .main{
-    top: 8vh;
-    width: 100vw;
-    position: fixed;
+    /* top: 8vh; */
     display: flex;
-    bottom: 0;
+    /* bottom: 0; */
 }
 
 .map{
@@ -26,7 +20,7 @@
   height: calc(92vh - 48px);
   overflow: auto;
   position: relative;
-  margin: 24px;
+  margin: 24px auto;
 }
 
 .map__image{
@@ -53,17 +47,43 @@
   border-radius: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
+.mark i{
+  font-size: 16px;
+  color:rgb(68,58,59);
+}
+/* .mark-art i{color: rgb(230,95,96);}
+.mark-restaurant i{color: #2e8b57;}
+.mark-hotel i{color: #daa520;}
+.mark-cat i{color: #245678;} */
+#mark_1_7{opacity: 0;}
 
-.mark a{
+/* .mark a{
     display: block;
     width: 100%;
     height: 100%;
-}
+} */
 
-.mark_1{background-color: #cff;}
+/* .mark_1{background-color: #cff;}
 .mark_2{background-color: #fcf;}
 .mark_3{background-color: #ffc;}
-.mark_4{background-color: #fcc;}
+.mark_4{background-color: #fcc;} */
+
+.place{
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+}
+.place-port{
+  top: 29%;
+  left: 17.5%;
+}
+.place-school{
+  top: 66%;
+  left: 46%;
+}
+.place-aikien{
+  top: 88%;
+  left: 44%;
+}
 
 #popup{
   position: absolute;
@@ -86,7 +106,9 @@
 }
 
 .popup__title{
-  display: flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
 }
 .popup__text{
   font-size: 12px;
@@ -97,23 +119,27 @@
 }
 
 .popup__icon{
-  font-size: 10px;
-  border-radius: 16px;
-  border: solid #ccc 1px;
-  width: max-content;
-  padding: 3px;
-  font-weight: bold;
-  margin-right: 4px;
+    font-size: 12px;
+    border-radius: 16px;
+    width: max-content;
+    padding: 4px 6px;
+    font-weight: bold;
+    margin-right: 4px;
+    line-height: 1;
+    height: max-content;
+    background-color: rgb(90, 77, 79);
+    color: rgb(239, 228, 213);
+    font-weight: bold;
 }
-.popup__icon-1{background-color: #cff;}
+/* .popup__icon-1{background-color: #cff;}
 .popup__icon-2{background-color: #fcf;}
-.popup__icon-3{background-color: #ffc;}
+.popup__icon-3{background-color: #ffc;} */
 
-input[type="range"] {
+/* input[type="range"] {
   display: none;
-}
+} */
 
-.tile__frame{
+/* .tile__frame{
   width: 30vw;
   height: 92vh;
   display: flex;
@@ -153,7 +179,30 @@ input[type="range"] {
 
 .zoom-mordal{
   display: none;
+} */
+
+.information-list{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
+.information-list-button{
+  width: 17vw;
+  text-align: center;
+  border: solid 1px rgb(90, 77, 79);
+  border-radius: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+  color: rgb(68,58,59);
+  text-decoration: none;
+  transition: .5s;
+}
+.information-list-button:hover{
+  background-color: rgb(90, 77, 79);
+  color: rgb(239, 228, 213);
+}
+
 
 .detail-modal{
     display: none;
@@ -221,8 +270,9 @@ input[type="range"] {
     width: calc(100vw - 48px);
     /* ここを65にしているのは、Safariのヘッダー対策。
     地図はほぼ正方形なので、これくらいの大きさにしておけばいい感じに収まってくれるだろうという数字 */
-    height: calc(65vh - 48px);
-    margin: 24px;
+    height: calc(40vh - 48px);
+    margin: 24px 24px 0;
+    transform: translateX(-5vw);
   }
 
   .map__image{
@@ -236,14 +286,16 @@ input[type="range"] {
     height: 100%; */
     display: none;
   }
+  .mark i{font-size: 10px;}
 
-  #popup{
-    bottom: 20vh;
-    left: 20vw;
-    right: 20vw;
-    text-align: center;
-    padding: 12px;
-  }
+    #popup{
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: max-content;
+    }
 
   .popup__icon{
     font-size: 14px;
@@ -260,9 +312,22 @@ input[type="range"] {
     display: block;
     font-size: 12px;
   }
+  #popup .upblock{
+    min-width: 60vw;
+  }
+
+     .information-list{
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        margin-top: 100px;
+     }
+    .information-list-button{
+        margin: 8px auto;
+        width: 70vw;
+    }
 
 
-  .tile{
+  /* .tile{
     max-height: 13vh;
     height: 22vw;
     width: 22vw;
@@ -282,16 +347,16 @@ input[type="range"] {
     width: 100vw;
     position: absolute;
     bottom: 0;
-  }
+  } */
   .mobile-none{
     display: none;
   }
 
-  .zoom-mordal{
+  /* .zoom-mordal{
     position: absolute;
     top: 0;
     width: 100vw;
-    /* height: 100vh; */
+    height: 100vh;
     background-color: rgba(0,0,0,0.4);
     z-index: 200;
   }
@@ -319,10 +384,10 @@ input[type="range"] {
     margin: 20px 0 0;
     cursor: pointer;
     text-decoration: underline;
-  }
+  } */
 
 
-  input[type="range"] {
+  /* input[type="range"] {
     display: block;
     -webkit-appearance: none;
     appearance: none;
@@ -358,7 +423,7 @@ input[type="range"] {
   }
   input[type="range"]:active::-webkit-slider-thumb {
     box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
-  }
+  } */
 
     .detail-modal-window{
         -webkit-align-items: center;
@@ -382,5 +447,5 @@ input[type="range"] {
         top: 24px;
         right: 24px;
     }
-
+    .place{font-size: 14px;}
 }

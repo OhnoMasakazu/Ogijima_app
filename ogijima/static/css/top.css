@@ -198,6 +198,19 @@ section{
 .notification__content{
     width: 38vw;
 }
+
+#work-1, #work-2{
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+#work-1 a, #work-2 a{
+    margin-left: auto;
+    margin-top: 8px;
+}
 .work__box{
     width: 50vw;
     display: block;
@@ -297,11 +310,12 @@ hr{
     position: absolute;
     top: 0;
     font-size: 16px;
+    color:rgb(68,58,59);
 }
-.fa-palette{color: rgb(230,95,96);}
+/* .fa-palette{color: rgb(230,95,96);}
 .fa-utensils{color: #2e8b57}
 .fa-home{color: #daa520}
-.fa-paw{color: #245678}
+.fa-paw{color: #245678} */
 #mark_1_7{opacity: 0;}
 
 .map-place{
@@ -497,13 +511,9 @@ hr{
 }
 
 @media screen and (max-width:1020px) {
+    h2, h3, h2 span, .caption span{font-weight: 100;}
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
-    .caption-block p{font-size: 24px;}
-    .caption{height: 43.2px;}
-    .caption-block{border-bottom: 43.2px solid rgba(230,95,96,0.7);}
-    .caption-block-right{border-left: 9px solid transparent;}
-    .caption-block-left{border-right: 9px solid transparent;}
     .work__box, .work__box img{width: 70vw;}
     .work__box img{height: 22vw;}
     .work__date{line-height: 1.2;}
@@ -547,6 +557,7 @@ hr{
         pointer-events: none;
     }
     .mark i{font-size: 10px;}
+    .map-place{font-size: 14px;}
 
     #popup{
         bottom: 6vh;

@@ -39,6 +39,9 @@
     color:rgba(68,58,59, 0.3);
     border: solid 1px rgba(90, 77, 79, 0.3);
 }
+.pagination__disabled-next span, .pagination__disabled-prev span{
+    color:rgba(68,58,59, 0.3);
+}
 
 @media screen and (max-width:1020px) {
     .pagination li a, .pagination__disabled, .pagination__disabled-next, .pagination__disabled-prev{

@@ -28,7 +28,14 @@ a{
 }
 .pagetitle{
     font-family: 'ロンド B';
-    src: url(../font/Ronde-B_square.otf);
+    width: max-content;
+}
+.pagetitle:after{
+    content: "";
+    display: block;
+    background-color: rgb(230,95,96);
+    border-radius: 3px;
+    height: 6px;
 }
 
 html{
@@ -223,6 +230,7 @@ footer{
 #copyright_year{color: rgb(239, 228, 213);}
 
 @media screen and (max-width:1020px) {
+    .pagetitle{font-weight: 100;}
     header img{
         height: 6vh;
         width: 18vh;

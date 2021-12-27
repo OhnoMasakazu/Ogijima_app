@@ -116,8 +116,8 @@
                 <p class="popup__icon popup__icon-1">アート</p>
                 <p class="popup__name">{{ art.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <p id="popup_modal_1_{{ art.id }}" class="popup__link">タップして詳細</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <p id="popup_modal_1_{{ art.id }}" class="popup__link">タップしてもっと見る</a>
             </div>
         {% endfor %}
         {% for restaurant in restaurants %}
@@ -126,19 +126,19 @@
                 <p class="popup__icon popup__icon-2">飲食店</p>
                 <p class="popup__name">{{ restaurant.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <p id="popup_modal_2_{{ restaurant.id }}" class="popup__link">タップして詳細</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <p id="popup_modal_2_{{ restaurant.id }}" class="popup__link">タップしてもっと見る</a>
             </div>
         {% endfor %}
         {% for hotel in hotels %}
         <div class="upblock popup_3" id="popup_3_{{ hotel.id }}">
-        <div class="popup__title">
+            <div class="popup__title">
                 <p class="popup__icon popup__icon-3">宿泊施設</p>
                 <p class="popup__name">{{ hotel.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <p id="popup_modal_3_{{ hotel.id }}" class="popup__link">タップして詳細</a>
-            </div>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <p id="popup_modal_3_{{ hotel.id }}" class="popup__link">タップしてもっと見る</a>
+        </div>
         {% endfor %}
         {% for cat in cats %}
         <div class="upblock popup_4" id="popup_4_{{ cat.id }}">
@@ -146,8 +146,8 @@
                 <p class="popup__icon popup__icon-4">猫</p>
                 <p class="popup__name">{{ cat.name }}</p>
             </div>
-            <p class="popup__text">クリックして詳細へ</p>
-            <p id="popup_modal_4_{{ cat.id }}" class="popup__link">タップして詳細</a>
+            <p class="popup__text">クリックしてもっと見る</p>
+            <p id="popup_modal_4_{{ cat.id }}" class="popup__link">タップしてもっと見る</a>
         </div>
         {% endfor %}
         <div class="upblock popup_0" id="popup_0_0">
@@ -309,7 +309,6 @@
         else{
             {% for art in arts %}
                 document.getElementById('popup_modal_' + 1 + "_{{ art.id }}").addEventListener('click', () => {
-                    console.log('7')
                     document.getElementById('detail-modal-img').src = "{{ art.sumbnail }}";
                     document.getElementById('detail-modal-name').innerText = "{{ art.name }}";
                     document.getElementById('detail-modal-intro').innerText = "{{ art.introduction }}";

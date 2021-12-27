@@ -2,89 +2,127 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/reports.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1 class="pagetitle">reports</h1>
+<h1 class="pagetitle">活動報告</h1>
+<div id="reports-list" class="reports-list">
+    <div class="reports-list-button" id="button-blog" onclick="sectionChange(1)"><span>島暮らしの<br>ヤマグッティ</span></div>
+    <div class="reports-list-button" id="button-crowdfunding" onclick="sectionChange(2)"><span>クラウド<br>ファンディング</span></div>
+    <div class="reports-list-button" id="button-donation" onclick="sectionChange(3)"><span>寄付サイト</span></div>
+    <div class="reports-list-button" id="button-shop" onclick="sectionChange(4)"><span>ショップ</span></div>
+</div>
 
-{% for blog in pages %}
-    {{ blog.title }}
-    {{ blog.date | date:"Y年m月d日" }}
-    {{ blog.content | safe}}
-    <!-- imgのsrc -->
-    {{ blog.smbnail }}
-{% endfor %}
+<div class="section" id="section-blog">
+    <h3>島暮らしのヤマグッティ</h3>
+    {% for blog in pages %}
+        <a class="blog__wrapper" href="{% url 'ogijima:blog_detail' blog.id %}">
+            <img class="blog-sumbnail" src="{{ blog.sumbnail }}">
+            <div class="blog__text">
+                <h4>{{ blog.title }}</h4>
+                <p>{{ blog.date | date:"Y年m月d日" }}</p>
+                <p class="blog__content">{{ blog.content | safe}}</p>
+                <p class="blog__link-button">もっと見る ＞</p>
+            </div>
+        </a>
+        <hr class="separator">
+        {% endfor %}
 
-<!-- ここからページネーション -->
-{% if pages.has_other_pages %}
-<nav class="pagination__nav">
-    <ul class="pagination">
-        {% if pages.has_previous %}
-        <li>
-            <a class="page-link text-primary d-inline-block" href="?page={{ pages.previous_page_number }}">
-                前<span class="pagination__mobile-delete">のページ</span>へ
-            </a>
-        </li>
-        {% else %}
-        <li class="disabled">
-            <p class="pagination__disabled-prev">
-                前<span class="pagination__mobile-delete">のページ</span>へ
-            </p>
-        </li>
-        {% endif %}
+    <!-- ここからページネーション -->
+    {% if pages.has_other_pages %}
+    <nav class="pagination__nav">
+        <ul class="pagination">
+            {% if pages.has_previous %}
+            <li>
+                <a class="page-link text-primary d-inline-block" href="?page={{ pages.previous_page_number }}">
+                    前<span class="pagination__mobile-delete">のページ</span>へ
+                </a>
+            </li>
+            {% else %}
+            <li class="disabled">
+                <p class="pagination__disabled-prev">
+                    前<span class="pagination__mobile-delete">のページ</span>へ
+                </p>
+            </li>
+            {% endif %}
 
-        {% if pages.has_previous %}
-        {% if pages.previous_page_number != 1 %}
-        <li>
-            <a href="?page=1">1</a>
-        </li>
-        <li>…</li>
-        {% endif %}
-        <li>
-            <a href="?page={{ pages.previous_page_number }}">
-                {{ pages.previous_page_number }}
-            </a>
-        </li>
-        {% endif %}
-        <li class="disabled">
-            <p class="pagination__disabled">{{ pages.number }}</p>
-        </li>
-        {% if pages.has_next %}
-        <li>
-            <a href="?page={{ pages.next_page_number }}">
-                {{ pages.next_page_number }}
-            </a>
-        </li>
-        {% if pages.next_page_number != pages.paginator.num_pages %}
-        <li>…</li>
-        <li>
-            <a href="?page={{ pages.paginator.num_pages }}">
-                {{ pages.paginator.num_pages }}
-            </a>
-        </li>
-        {% endif %}
-        {% endif %}
-        {% if pages.has_next %}
-        <li>
-            <a href="?page={{ pages.next_page_number }}">
-                次<span class="pagination__mobile-delete">のページ</span>へ
-            </a>
-        </li>
-        {% else %}
-        <li class="disabled">
-            <p class="pagination__disabled-next">次<span class="pagination__mobile-delete">のページ</span>へ</p>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
-<!-- ここまでページネーション -->
+            {% if pages.has_previous %}
+            {% if pages.previous_page_number != 1 %}
+            <li>
+                <a href="?page=1">1</a>
+            </li>
+            <li>…</li>
+            {% endif %}
+            <li>
+                <a href="?page={{ pages.previous_page_number }}">
+                    {{ pages.previous_page_number }}
+                </a>
+            </li>
+            {% endif %}
+            <li class="disabled">
+                <p class="pagination__disabled">{{ pages.number }}</p>
+            </li>
+            {% if pages.has_next %}
+            <li>
+                <a href="?page={{ pages.next_page_number }}">
+                    {{ pages.next_page_number }}
+                </a>
+            </li>
+            {% if pages.next_page_number != pages.paginator.num_pages %}
+            <li>…</li>
+            <li>
+                <a href="?page={{ pages.paginator.num_pages }}">
+                    {{ pages.paginator.num_pages }}
+                </a>
+            </li>
+            {% endif %}
+            {% endif %}
+            {% if pages.has_next %}
+            <li>
+                <a href="?page={{ pages.next_page_number }}">
+                    次<span class="pagination__mobile-delete">のページ</span>へ
+                </a>
+            </li>
+            {% else %}
+            <li class="disabled">
+                <p class="pagination__disabled-next">次<span class="pagination__mobile-delete">のページ</span>へ</p>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+    <!-- ここまでページネーション -->
+
+</div>
+
+<div class="section" id="section-crowdfunding">
+    <h3>クラウドファンディング</h3>
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLU40C1943L_LatojOQstpk8AAbXIaxoCSqEC5RQLCjcVxQljAW0PJNPadhsbJbftFF256V_5ApCzqQlkgWuvyxDRmg5Ox6IfSHUWyM0qTnHHtbgK45b8_pnKkwwFJoRt5XwBJDP9pofFhG5YEAUitQT=w1024-h682-no?authuser=3" class="sumbnail">
+    <p>Campfireにてクラウドファンディングを実施しておりました。現在は期間外で受け付けていないのですが、ぜひサイトをご覧ください。</p>
+    <!-- <p>現在準備中です。しばらくお待ちください。</p> -->
+    <a href="https://camp-fire.jp/projects/view/503076" class="section__button" target="_blank">クラウドファンディングへ</a>
+</div>
+
+<div class="section" id="section-donation">
+    <h3>寄付サイト</h3>
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLU6VhiiV7eexDz0aXEkpKdOrPa4AZGoZfc_u0LCqDnLV8ypzIKh_b8jlquPO9Cd_bhoCgCV_nD5pd0l_GI-X6Uz0YomMx1IfyJemWrzi06Nv-FgfmgcKSn5mJkhnkJnaXzDyTlyGWo8LJeZCdMUUXA=w1119-h839-no?authuser=3" class="sumbnail">
+    <!-- <p></p> -->
+    <p>現在準備中です。しばらくお待ちください。</p>
+    <a href="" class="section__button button__deactivate" target="_blank">寄付サイトへ</a>
+
+</div>
+
+<div class="section" id="section-shop">
+    <h3>ショップ</h3>
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLVckvk-WoAsworeRbs9Ys2yr6obWZIkHZvSdOMW_bj_AJ8KxqzN3Wesz1sZ2bwb3zMyqVqkiQgkv7Z5Yd9EltCfRNeJZt-QfFYBd8_il_9cwFaP_lafOCGqrvRn1KikxmZfP309qodO7kc_pgEZdtdX=w954-h519-no?authuser=3" class="sumbnail">
+    <!-- <p></p> -->
+    <p>現在準備中です。しばらくお待ちください。</p>
+    <a href="" class="section__button button__deactivate" target="_blank">ショップへ</a>
+</div>
 
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script src="{% static 'js/reports.js' %}"></script>
 {% endblock %}

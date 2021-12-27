@@ -23,7 +23,7 @@
         <p class="work__link-button">もっと見る ＞</p>
     </div>
 </a>
-<hr>
+<hr class="separator">
 {% endfor %}
 
 {% if pages.has_other_pages %}
@@ -93,4 +93,10 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        var separatorList = document.querySelectorAll('.separator');
+        separatorList[separatorList.length - 1].style.display = "none";
+    })
+</script>
 {% endblock %}
