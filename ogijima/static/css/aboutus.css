@@ -1,6 +1,9 @@
 section{
     margin: 20vh 10vw;
 }
+.sp-br{
+    display: none;
+}
 h2{
     font-family: 'ロンド B';
     text-align: center;
@@ -14,8 +17,21 @@ h2:after{
     border-radius: 3px;
     height: 6px;
 }
-h3, h4{
-    margin: 24px 0 12px;
+h3{
+    margin: 36px 0;
+    text-align: center;
+}
+#source h3{
+    margin-bottom: 24px;
+}
+.source-1, .source-2, .source-3{
+    text-align: center;
+} 
+section p:not(.source-3){
+    text-indent: 1em;
+}
+#belief h3{
+    margin: 56px 0 18px;
 }
 p{
     font-size: 18px;
@@ -47,5 +63,19 @@ p{
     background-color: rgba(239, 228, 213, 0.7);
 }
 @media screen and (max-width:1020px) { 
-    h2{font-weight: 100;}
+    h2{
+        font-weight: 100;
+    }
+    h3{
+        font-size: 22px;
+    }
+    p{
+        font-size: 16px;
+    }
+    section{
+        margin: 20vh 0;
+    }
+    .sp-br{
+        display: inline;
+    }
 }

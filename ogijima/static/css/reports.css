@@ -1,6 +1,9 @@
 h1{
     margin-bottom: 36px;
 }
+.sp-br{
+    display: none;
+}
 .reports-list{
     display: -webkit-flex;
     display: flex;
@@ -8,11 +11,11 @@ h1{
     justify-content: space-between;
 }
 .reports-list-button{
-    width: 17vw;
+    width: 22vw;
     text-align: center;
     border: solid 1px rgb(90, 77, 79);
     border-radius: 12px;
-    padding: 8px 0;
+    padding: 12px 0;
     display: flex;
     cursor: pointer;
 }
@@ -117,6 +120,9 @@ hr{
 
 
 @media screen and (max-width:1020px) {
+    .sp-br{
+        display: inline;
+    }
     .reports-list{
         flex-wrap: wrap;
         -webkit-justify-content: space-around;
@@ -129,6 +135,9 @@ hr{
     }
     .reports-list-button span{
         font-size: 14px;
+    }
+    .section h3{
+        font-weight: 100;
     }
     .sumbnail{
         width: 90vw;

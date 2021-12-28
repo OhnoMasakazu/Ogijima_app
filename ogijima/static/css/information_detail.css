@@ -122,12 +122,17 @@
   transform: translate3d(-50%, -50%, 0);
 }
 .mark i{
-    font-size: 16px
+    font-size: 16px;
+    color: rgb(230,95,96);
+    position: absolute;
+    top: 0;
 }
-.mark-art i{color: rgb(230,95,96);}
+
+
+/* .mark-art i{color: rgb(230,95,96);}
 .mark-restaurant i{color: #2e8b57;}
 .mark-hotel i{color: #daa520;}
-.mark-cat i{color: #245678;}
+.mark-cat i{color: #245678;} */
 #mark_1_7{opacity: 0;}
 
 .place{
@@ -196,6 +201,7 @@
         height: max-content;
         pointer-events: none;
     }
+    .mark i{font-size: 10px;}
     .map__text{width: 90vw;}
     .place{font-size: 14px;}
 }

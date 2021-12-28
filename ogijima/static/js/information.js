@@ -1,13 +1,3 @@
-// document.querySelector('.map__frame input').addEventListener('input', () => {
-//     let ratio = document.querySelector('.map__frame input').value;
-//     // document.querySelector('.map__image').style.transform = "scale(" + ratio + ", " + ratio + ")";
-//     document.querySelector('.map').style.transform = "scale(" + ratio + ", " + ratio + ")";
-//     let marginRatio = (ratio - 1) / 0.02;
-//     document.querySelector('.map').style.margin = marginRatio + "%";
-//     // console.log(document.querySelector('.map__image'));
-//     // console.log(ratio);
-// })
-
 function popupActivate(elem) {
     elem.style.display = "flex";
 }
@@ -102,8 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         $(function () {
             $(".mark").css({
-                "height": imageSize[1] / 20 + "px",
-                "width": imageSize[1] / 20 + "px",
+                "height": imageSize[1] / 31 + "px",
+                "width": imageSize[1] / 31 + "px",
             });
         });
         // window.addEventListener("DOMContentLoaded", () => {
@@ -112,19 +102,3 @@ document.addEventListener("DOMContentLoaded", () => {
         // })
     };
 })
-
-// document.body.addEventListener("touchstart", function (e) {
-//     if (e.touches && e.touches.length > 1) {
-//         e.preventDefault();
-//     }
-// }, { passive: false });
-// document.body.addEventListener("touchmove", function (e) {
-//     if (e.touches && e.touches.length > 1) {
-//         e.preventDefault();
-//         document.getElementById('zoom-mordal').style.display = "block";
-//     }
-// }, { passive: false });
-
-// document.getElementById('zoom-mordal__button').addEventListener('click', () => {
-//     document.getElementById('zoom-mordal').style.display = "none";
-// })

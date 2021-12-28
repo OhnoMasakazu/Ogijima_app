@@ -111,16 +111,6 @@ window.onpageshow = function(event) {
     }
 };
 
-// document.getElementById('map-expansor').addEventListener('input', () => {
-//     let ratio = document.getElementById('map-expansor').value;
-//     // document.querySelector('.map__image').style.transform = "scale(" + ratio + ", " + ratio + ")";
-//     document.querySelector('.map').style.transform = "scale(" + ratio + ", " + ratio + ")";
-//     let marginRatio = (ratio - 1) / 0.02;
-//     document.querySelector('.map').style.margin = marginRatio + "%";
-//     // console.log(document.querySelector('.map__image'));
-//     // console.log(ratio);
-// })
-
 function popupActivate(elem) {
     if(userAgent != "pc"){
         var mapPopupList = document.querySelectorAll('.upblock');

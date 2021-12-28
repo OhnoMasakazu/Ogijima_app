@@ -5,19 +5,22 @@
 }
 
 .work_title {
-    margin: 24px auto 12px;
+    margin: 24px auto 24px;
     text-align: center;
 }
 
-/* .date {
-    text-align: right;
-} */
+.date {
+    margin-bottom: 36px;
+}
 
 .main_sentence {
     margin: 12px auto 24px;
 }
 .main_sentence > *:not(ul, li){
     white-space: pre-wrap;
+}
+.main_sentence h1, .main_sentence h2, .main_sentence h3, .main_sentence h4, .main_sentence h5, .main_sentence h6{
+    margin-top: 12px;
 }
 
 .link_wrapper {

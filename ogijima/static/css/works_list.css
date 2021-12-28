@@ -57,7 +57,7 @@
 hr{
     width: 65vw;
     margin: 36px auto;
-    color: rgb(90, 77, 79);
+    color: rgba(90, 77, 79, 0.4);
 }
 
 @media screen and (max-width:1020px) {
@@ -83,5 +83,8 @@ hr{
     }
     .work__text{
         width: 90vw;
+    }
+    .work__text h4{
+        font-size: 20px;
     }
 }

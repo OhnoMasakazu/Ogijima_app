@@ -63,6 +63,9 @@ def works(request):
     else:
         future_works = all_works.filter(work_start_date__gt=today)
     past_works = all_works.filter(work_end_date__lt=today)
+    now_works = now_works.order_by("work_start_date")
+    future_works = future_works.order_by("work_start_date")[0:5]
+    past_works = past_works.order_by("-work_start_date")[0:5]
     p = re.compile(r"<[^>]*?>")
     for work in now_works:
         work.content = p.sub("", markdown(work.content))
@@ -84,7 +87,8 @@ def planed_works(request):
     p = re.compile(r"<[^>]*?>")
     for work in future_works:
         work.content = p.sub("", markdown(work.content))
-    paginator = Paginator(future_works, 10)
+    # paginator = Paginator(future_works, 10)
+    paginator = Paginator(future_works, 5)
     page = request.GET.get('page', 1)
     try:
         pages = paginator.page(page)
@@ -104,7 +108,8 @@ def held_works(request):
     p = re.compile(r"<[^>]*?>")
     for work in past_works:
         work.content = p.sub("", markdown(work.content))
-    paginator = Paginator(past_works, 10)
+    # paginator = Paginator(past_works, 10)
+    paginator = Paginator(past_works, 5)
     page = request.GET.get('page', 1)
     try:
         pages = paginator.page(page)
@@ -133,7 +138,7 @@ def work_detail(request,work_id):
     return render(request,'work_detail.html',params)
 
 def reports(request):
-    blog = Blog.objects.all()
+    blog = Blog.objects.all().order_by('-date')
     paginator = Paginator(blog, 5)
     # paginator = Paginator(blog, 10)
     page = request.GET.get('page', 1)

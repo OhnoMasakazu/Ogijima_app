@@ -1,15 +1,15 @@
 .list__wrapper{
     display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+    /* -webkit-justify-content: space-between;
+    justify-content: space-between; */
     flex-wrap: wrap;
     margin-top: 36px;
 }
 .list__wrapper a{
     width: 22vw;
-    margin-bottom: 36px;
     text-decoration: none;
+    margin: 0 calc(4vw / 6) 1vw;
 }
 .list__wrapper a img{
     width: 100%;
@@ -38,7 +38,7 @@
 @media screen and (max-width:1020px) {
     .list__wrapper a{
         width: 44vw;
-        margin-bottom: 16px;
+        margin: 0 calc(2vw / 4) 16px;
     }
     .list__wrapper a img{
         height: 33vw;
