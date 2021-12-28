@@ -120,11 +120,16 @@ def held_works(request):
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
     work.content = markdown(work.content)
-    prev_id = work_id-1
-    if work_id+1==Work.objects.all().count():
-        next_id = 0
+    worklist = Work.objects.order_by('date')
+    idx = list(map(lambda x:x.pk, worklist)).index(work_id)
+    if idx==0:
+        prev_id = -1
     else:
-        next_id = work_id+1
+        prev_id = worklist[idx-1].pk
+    if idx==len(worklist)-1:
+        next_id  = -1
+    else:
+        next_id = worklist[idx+1].pk
     params = {
         'work':work,
         'prev_id':prev_id,
@@ -154,11 +159,16 @@ def reports(request):
 def blog_detail(request,blog_id):
     blog = Blog.objects.get(pk=blog_id)
     blog.content = markdown(blog.content)
-    prev_id = blog_id-1
-    if blog_id+1==Work.objects.all().count():
-        next_id = 0
+    bloglist = Blog.objects.order_by('date')
+    idx = list(map(lambda x:x.pk, bloglist)).index(blog_id)
+    if idx==0:
+        prev_id = -1
     else:
-        next_id = blog_id+1
+        prev_id = bloglist[idx-1].pk
+    if idx==len(bloglist)-1:
+        next_id  = -1
+    else:
+        next_id = bloglist[idx+1].pk
     params = {
         'blog':blog,
         'prev_id':prev_id,
@@ -299,8 +309,9 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('contact_completed', email=form.email)
+            form.send_email()
+            email = form.return_email()
+            return redirect('ogijima:contact_completed', email)
     else:
         form = ContactForm()
     return render(request,'contact.html',{'form': form})
