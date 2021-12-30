@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'ogijima_app.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # DATABASES = {
@@ -142,8 +142,8 @@ MEDIA_URL = '/media/'
 
 # Gmail で送信する場合
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'ogijima.pj.hp@gmail.com'
-EMAIL_HOST_PASSWORD = 'aikien12345' #書き換える必要ありアルファベット16桁
+EMAIL_HOST_USER = 'aikien.info@gmail.com'
+EMAIL_HOST_PASSWORD = 'cwglonoeuodvheql'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
