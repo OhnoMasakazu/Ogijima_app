@@ -38,7 +38,7 @@ class ContactForm(forms.Form):
         email = self.cleaned_data['email']
         title = self.cleaned_data['title']
         text = self.cleaned_data['text']
-        message = "お問い合せが完了しました．\n件名\n"+title+"\n本文"+text
+        message = "お問い合せが完了しました．\n件名\n"+title+"\n本文\n"+text
         from_email = settings.EMAIL_HOST_USER
         recipient_list = ['{name} <{email}>'.format(name=name, email=email)]  # 受信者リスト
         bcc = [settings.EMAIL_HOST_USER]
@@ -46,3 +46,5 @@ class ContactForm(forms.Form):
             send_mail(subject, message, from_email, recipient_list, bcc)
         except BadHeaderError:
             return HttpResponse("無効なヘッダが検出されました。")
+    def return_email(self):
+        return self.cleaned_data['email']
