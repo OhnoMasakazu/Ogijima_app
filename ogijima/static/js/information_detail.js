@@ -1,18 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     var ua = navigator.userAgent;
-    if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPod") > 0 || ua.indexOf("iPad") > 0) {
-        document.querySelector('.map-link-apple').style.display = "inline";
-        document.querySelector('.map-link-google').style.display = "inline";
-        document.querySelector('.map-link-pc').style.display = "none";
-    } else if (ua.indexOf("Android") > 0) {
-        document.querySelector('.map-link-apple').style.display = "none";
-        document.querySelector('.map-link-google').style.display = "inline";
-        document.querySelector('.map-link-pc').style.display = "none";
-    } else {
-        document.querySelector('.map-link-apple').style.display = "none";
-        document.querySelector('.map-link-google').style.display = "none";
-        document.querySelector('.map-link-pc').style.display = "inline";
-    }
+    try{
+        if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPod") > 0 || ua.indexOf("iPad") > 0) {
+            document.querySelector('.map-link-apple').style.display = "inline";
+            document.querySelector('.map-link-google').style.display = "inline";
+            document.querySelector('.map-link-pc').style.display = "none";
+        } else if (ua.indexOf("Android") > 0) {
+            document.querySelector('.map-link-apple').style.display = "none";
+            document.querySelector('.map-link-google').style.display = "inline";
+            document.querySelector('.map-link-pc').style.display = "none";
+        } else {
+            document.querySelector('.map-link-apple').style.display = "none";
+            document.querySelector('.map-link-google').style.display = "none";
+            document.querySelector('.map-link-pc').style.display = "inline";
+        }
+    }catch(e){}
 
     let screenWidth = window.screen.availWidth;
     let screenHeight = document.querySelector('header').clientHeight * 10;

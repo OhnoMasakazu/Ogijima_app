@@ -2,34 +2,29 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/sponsor.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
 <h1 class="pagetitle">協賛</h1>
-<img src="https://topseller.style/wp-content/uploads/2018/07/gazou.jpg" alt="企業画像" title="企業画像">
-<!-- 表示だけさせておきます -->
 
-<div class="sponsor55">
- {% for banner in banners %}
-    <p class="sponsor__banner">{{ banner.name }}</p> 
-    <!-- imgのsrc -->
-    <p class="sponsor__name">{{ banner.image }}</p>
- {% endfor %}
+{% for banner in banners %}
+<div class="banner">
+    <img src="{{ banner.image }}" title="banner">
+    <h3 class="banner__name">{{ banner.name }}</h3>
+</div> 
+{% endfor %}
 
-   
-    
-
- {% for name in names %}
- <p class="sponsor__name">  {{ name.name }}</p>
- {% endfor %}
-</div>
-
+{% for name in names %}
+<h3 class="name">{{ name.name }}</h3>
+{% endfor %}
+ 
 {% endblock %}
 
-
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('.name')[0].style.marginTop = "48px";
+    })
+</script>
 {% endblock %}

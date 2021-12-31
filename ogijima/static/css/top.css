@@ -185,7 +185,7 @@ section{
 .notification__wrap{
     text-decoration: none;
     display: flex;
-    width: 50vw;
+    width: max-content;
     margin: 8px 10vw;
 }
 .notification__wrap:hover{
@@ -196,7 +196,7 @@ section{
     width: 12vw;
 }
 .notification__content{
-    width: 38vw;
+    max-width: 38vw;
 }
 
 #work-1, #work-2{
@@ -538,6 +538,7 @@ hr{
         width: auto;
         margin-left: 12px;
         line-height: 1.2;
+        max-width: calc(90vw - 12px);
     }
 
     #information{

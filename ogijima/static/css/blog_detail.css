@@ -1,0 +1,43 @@
+.sumbnail {
+    margin-top: 48px;
+    height: 21.875vw;
+    object-fit: cover;
+}
+
+.blog_title {
+    margin: 24px auto 24px;
+    text-align: center;
+}
+
+.date {
+    margin-bottom: 36px;
+    width: max-content;
+    margin-left: auto;
+}
+
+.main_sentence {
+    margin: 12px auto 24px;
+}
+.main_sentence > *:not(ul, li){
+    white-space: pre-wrap;
+}
+.main_sentence h1, .main_sentence h2, .main_sentence h3, .main_sentence h4, .main_sentence h5, .main_sentence h6{
+    margin-top: 12px;
+}
+
+.link_wrapper {
+    margin: 24px auto 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.move_allarticles {
+    width: fit-content;
+    margin: 0px auto;
+}
+.mobile-br{display: none;}
+
+@media screen and (max-width:1020px) {
+    .mobile-br{display: block;}
+    .mobile-delete{display: none;}
+}
