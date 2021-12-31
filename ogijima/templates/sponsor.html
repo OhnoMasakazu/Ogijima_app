@@ -3,31 +3,28 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="{% static 'css/sponsor.css' %}">
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
 <h1 class="pagetitle">協賛</h1>
-<!-- 表示だけさせておきます -->
 
- {% for banner in banners %}
-    <p class="sponsor__banner">{{ banner.name }}</p>
-    <!-- imgのsrc -->
-    <img src="{{ banner.image }}"class="sample" title="企業画像">
-   
-    
- {% endfor %}
+{% for banner in banners %}
+<div class="banner">
+    <img src="{{ banner.image }}" title="banner">
+    <h3 class="banner__name">{{ banner.name }}</h3>
+</div> 
+{% endfor %}
 
- {% for name in names %}
- <p class="sponsor__name">{{ name.name }}</p>
-
- {% endfor %}
+{% for name in names %}
+<h3 class="name">{{ name.name }}</h3>
+{% endfor %}
  
 {% endblock %}
 
-
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('.name')[0].style.marginTop = "48px";
+    })
+</script>
 {% endblock %}
