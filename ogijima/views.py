@@ -125,7 +125,7 @@ def held_works(request):
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
     work.content = markdown(work.content)
-    worklist = Work.objects.order_by('date')
+    worklist = Work.objects.order_by('work_start_date')
     idx = list(map(lambda x:x.pk, worklist)).index(work_id)
     if idx==0:
         prev_id = -1
@@ -322,7 +322,7 @@ def contact(request):
     return render(request,'contact.html',{'form': form})
 
 def contact_completed(request,email):
-    return render(request,'contact_completed.html')
+    return render(request,'contact_completed.html',{'email': email})
 
 def sponsor(request):
     names = Sponsor_name.objects.all().order_by('order')

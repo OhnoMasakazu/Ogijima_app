@@ -15,8 +15,16 @@
 </h3>
 <div class="main_sentence">{{ work.content | safe}}</div>
 <div class="link_wrapper">
-    <a href="{% url 'ogijima:work_detail' work.id %}">前の記事へ</a>
-    <a href="{% url 'ogijima:work_detail' work.id %}">後の記事へ</a>
+    {% if prev_id != -1 %}
+        <a href="{% url 'ogijima:work_detail' prev_id %}">前のイベント情報へ</a>
+    {% else %}
+        <p></p>
+    {% endif %}
+    {% if next_id != -1 %}
+        <a href="{% url 'ogijima:work_detail' next_id %}">後のイベント情報へ</a>
+    {% else %}
+        <p></p>
+    {% endif %}
 </div>
 <div class="move_allarticles">
     <a href="{% url 'ogijima:works' %}">一覧を見る</a>

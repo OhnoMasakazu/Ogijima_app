@@ -1,5 +1,21 @@
-.main-panel{
-    margin: calc(48px + 8vh) 15vw 64px;
-    width: 70vw;
-    min-height: calc(56vh - 112px);
+h1{
+    margin-bottom: 48px;
+}
+.contact_completed_text-1{
+    margin-bottom: 12px;
+}
+.contact_completed_text-2{
+    margin-bottom: 64px;
+}
+.button{
+    font-size: 18px;
+    color: rgb(239, 228, 213);
+    background-color: rgb(90, 77, 79);
+    padding: 12px 24px;
+    cursor: pointer;
+    width: max-content;
+    border-radius: 12px;
+    margin: 36px auto;
+    display: block;
+    text-decoration: none;
 }
