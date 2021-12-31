@@ -40,4 +40,5 @@
 @media screen and (max-width:1020px) {
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
+    .pagetitle{font-size: 22px;}
 }

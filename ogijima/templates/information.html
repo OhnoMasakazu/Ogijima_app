@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_style %}
-    <link rel="stylesheet" href="{% static 'css/information.css' %}">
+    <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/information.css">
     <style>
         {% for art in arts %}
         #mark_1_{{ art.id }}{top:{{ art.coordinate_pc_top }}%;left:{{ art.coordinate_pc_left }}%;}
@@ -44,7 +44,7 @@
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
             <div class="map__wrapper">
-                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
+                <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg">
                 <p class="place place-port">男木港</p>
                 <p class="place place-aikien">あいきえん</p>   
 
@@ -150,19 +150,19 @@
 
 <div id="information-list" class="information-list">
     <a class="information-list-button" href="{% url 'ogijima:arts' %}">
-        <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
+        <img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/icon/ogi_hp_icon_art_2.svg">
         <span>アート紹介</span>
     </a>
     <a class="information-list-button" href="{% url 'ogijima:restaurants' %}">
-        <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
+        <img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/icon/ogi_hp_icon_restaurant_2.svg">
         <span>飲食店紹介</span>
     </a>
     <a class="information-list-button" href="{% url 'ogijima:hotels' %}">
-        <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
+        <img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/icon/ogi_hp_icon_hotel_2.svg">
         <span>宿泊施設紹介</span>
     </a>
     <a class="information-list-button" href="{% url 'ogijima:cats' %}">
-        <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
+        <img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/icon/ogi_hp_icon_cat_2.svg">
         <span>島猫紹介</span>
     </a>
 </div>
@@ -292,5 +292,5 @@
         })
 
     </script>
-    <script src="{% static 'js/information.js' %}"></script>
+    <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/information.js"></script>
 {% endblock %}
