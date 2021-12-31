@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/sponsor.css' %}">
 <!-- ここに各ページだけで効かせたいCSSを記述 -->
 {% endblock %}
 
@@ -9,24 +10,21 @@
 <!-- ここに各ページの本体を記述 -->
 <!-- ヘッダー・フッターは自動で入っている -->
 <h1 class="pagetitle">協賛</h1>
-<img src="https://topseller.style/wp-content/uploads/2018/07/gazou.jpg" alt="企業画像" title="企業画像">
 <!-- 表示だけさせておきます -->
 
-<div class="sponsor55">
  {% for banner in banners %}
-    <p class="sponsor__banner">{{ banner.name }}</p> 
+    <p class="sponsor__banner">{{ banner.name }}</p>
     <!-- imgのsrc -->
-    <p class="sponsor__name">{{ banner.image }}</p>
- {% endfor %}
-
+    <img src="{{ banner.image }}"class="sample" title="企業画像">
    
     
+ {% endfor %}
 
  {% for name in names %}
- <p class="sponsor__name">  {{ name.name }}</p>
- {% endfor %}
-</div>
+ <p class="sponsor__name">{{ name.name }}</p>
 
+ {% endfor %}
+ 
 {% endblock %}
 
 
