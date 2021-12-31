@@ -2,39 +2,76 @@
 {% load static %}
 
 {% block extra_style %}
-<!-- ここに各ページだけで効かせたいCSSを記述 -->
+<link rel="stylesheet" href="{% static 'css/works.css' %}">
 {% endblock %}
 
 {% block main_panel %}
-<!-- ここに各ページの本体を記述 -->
-<!-- ヘッダー・フッターは自動で入っている -->
-<h1 class="pagetitle">works</h1>
+<!-- <h1 class="pagetitle">イベント情報</h1> -->
 
+<div id="now-work" class="section-title" style="margin-top: 0;">
+    <h1>現在開催中のイベント</h1>
+</div>
 {% for work in now_works %}
-    {{ work.title }}
-    {{ work.work_start_date | date:"Y年m月d日" }}
-    {{ work.work_end_date | date:"Y年m月d日" }}
-    {{ work.content | safe}}
+    <a class="now-work__box" href="{% url 'ogijima:work_detail' work.id %}">
+        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <h4>{{ work.title }}</h4>
+        <p class="now-work__date">
+            開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+            {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}
+        </p>
+        <p class="now-work__content">{{ work.content | safe }}</p>
+        <p class="now-work__link-button">もっと見る ＞</p>
+    </a>
+    <hr class="separator separator-1">
 {% endfor %}
 
+<div id="work-1" class="section-title">
+    <h1>これから開催するイベント</h1>
+    <a href="{% url 'ogijima:planed_works' %}">これから開催するイベントの一覧を見る</a>
+</div>
 {% for work in future_works %}
-    {{ work.title }}
-    {{ work.work_start_date | date:"Y年m月d日" }}
-    {{ work.work_end_date | date:"Y年m月d日" }}
-    {{ work.content | safe}}
-    <!-- imgのsrc -->
-    {{ work.smbnail }}
+    <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
+        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <div class="work__text">
+            <h4>{{ work.title }}</h4>
+            <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
+            <p class="work__content">{{ work.content | safe }}</p>
+            <p class="work__link-button">もっと見る ＞</p>
+        </div>
+    </a>
+    <hr class="separator separator-2">
 {% endfor %}
 
+<div id="work-1" class="section-title">
+    <h1>これまでに開催したイベント</h1>
+    <a href="{% url 'ogijima:held_works' %}">これまでに開催したイベントの一覧を見る</a>
+</div>
 {% for work in past_works %}
-    {{ work.title }}
-    {{ work.work_start_date | date:"Y年m月d日" }}
-    {{ work.work_end_date | date:"Y年m月d日" }}
-    {{ work.content | safe}}
+    <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
+        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <div class="work__text">
+            <h4>{{ work.title }}</h4>
+            <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
+            <p class="work__content">{{ work.content | safe }}</p>
+            <p class="work__link-button">もっと見る ＞</p>
+        </div>
+    </a>
+    <hr class="separator separator-3">
 {% endfor %}
+
+
 
 {% endblock %}
 
 {% block extra_js %}
-<!-- ここに各ページだけで効かせたいJSを記述 -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        var separatorList1 = document.querySelectorAll('.separator-1');
+        separatorList1[separatorList1.length - 1].style.display = "none";
+        var separatorList2 = document.querySelectorAll('.separator-2');
+        separatorList2[separatorList2.length - 1].style.display = "none";
+        var separatorList3 = document.querySelectorAll('.separator-3');
+        separatorList3[separatorList3.length - 1].style.display = "none";
+    })
+</script>
 {% endblock %}

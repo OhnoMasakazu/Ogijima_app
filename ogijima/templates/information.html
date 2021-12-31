@@ -16,6 +16,10 @@
         {% for cat in cats %}
         #mark_4_{{ cat.id }}{top:{{ cat.coordinate_pc_top }}%;left:{{ cat.coordinate_pc_left }}%;}
         {% endfor %}
+        #mark_0_0{
+            top: 61%;
+            left: 45%;
+        }
 
         /* @media screen and (max-width:1020px) {
             {% for art in arts %}
@@ -42,7 +46,6 @@
             <div class="map__wrapper">
                 <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
                 <p class="place place-port">男木港</p>
-                <p class="place place-school">男木島小・中学校</p>
                 <p class="place place-aikien">あいきえん</p>   
 
                 {% for art in arts %}
@@ -77,31 +80,12 @@
                     <i class="fas fa-paw"></i>
                 </div>
                 {% endfor %}
-
+                <div id="mark_0_0" class="mark mark_0" onmouseenter="popupActivate(document.getElementById('popup_0_0'))" onmouseleave="popupDeactivate(document.getElementById('popup_0_0'))">
+                </div>
 
             </div>
         </div>
-        <!-- <input type="range" name="range" min="1" max="2" value="1" step="0.1"> -->
     </div>
-    <!-- <div class="tile__frame">
-        <div class="tile tile-1">
-            レスポンシブの見た目の問題で「紹介」をなくしてみる
-            <p>アート<span class="mobile-none">紹介</span></p>
-            <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
-        </div>
-        <div class="tile tile-2">
-            <p>飲食店<span class="mobile-none">紹介</span></p>
-            <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
-        </div>
-        <div class="tile tile-3">
-            <p>宿泊施設<span class="mobile-none">紹介</span></p>
-            <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
-        </div>
-        <div class="tile tile-4">
-            <p>猫<span class="mobile-none">紹介</span></p>
-            <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
-        </div>
-    </div> -->
 </div>
 
 <div id="popup">
@@ -145,6 +129,11 @@
         <p id="popup_modal_4_{{ cat.id }}" class="popup__link">タップしてもっと見る</a>
     </div>
     {% endfor %}
+    <div class="upblock popup_0" id="popup_0_0">
+        <div class="popup__title">
+            <p class="popup__name">男木島小・中学校</p>
+        </div>
+    </div>
 </div>
 
 <div id="detail-modal" class="detail-modal">
@@ -159,18 +148,23 @@
     <i class="fas fa-times" onclick="modalDeactivate()"></i>
 </div>
 
-<!-- <div id="zoom-mordal" class="zoom-mordal">
-    <div class="zoom-mordal__window">
-    <p class="zoom-mordal__text">この地図は二本指での拡大はできません。地図の下のゲージで拡大してください。</p>
-    <p id="zoom-mordal__button" class="zoom-mordal__button">閉じる</p>
-    </div>
-</div> -->
-
 <div id="information-list" class="information-list">
-    <a class="information-list-button" href="{% url 'ogijima:arts' %}">アート紹介</a>
-    <a class="information-list-button" href="{% url 'ogijima:restaurants' %}">飲食店紹介</a>
-    <a class="information-list-button" href="{% url 'ogijima:hotels' %}">宿泊施設紹介</a>
-    <a class="information-list-button" href="{% url 'ogijima:cats' %}">島猫紹介</a>
+    <a class="information-list-button" href="{% url 'ogijima:arts' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
+        <span>アート紹介</span>
+    </a>
+    <a class="information-list-button" href="{% url 'ogijima:restaurants' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
+        <span>飲食店紹介</span>
+    </a>
+    <a class="information-list-button" href="{% url 'ogijima:hotels' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
+        <span>宿泊施設紹介</span>
+    </a>
+    <a class="information-list-button" href="{% url 'ogijima:cats' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
+        <span>島猫紹介</span>
+    </a>
 </div>
     
 {% endblock %}

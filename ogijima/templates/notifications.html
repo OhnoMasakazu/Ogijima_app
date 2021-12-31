@@ -8,12 +8,15 @@
 {% block main_panel %}
 <!-- ここに各ページの本体を記述 -->
 <!-- ヘッダー・フッターは自動で入っている -->
-<h1 class="pagetitle">notifications</h1>
+<h1 class="pagetitle">新着情報</h1>
 
 <!-- 表示だけさせておきます -->
+
 {% for notification in pages %}
-    {{ notification.date | date:"Y年m月d日" }}
-    {{ notification.content }}
+<a class="notification__wrap" href="{{ notification.link }}">
+    <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
+        <p class="notification__content">{{ notification.content }}</p>
+</a>
 {% endfor %}
 
 <!-- ここからページネーション -->

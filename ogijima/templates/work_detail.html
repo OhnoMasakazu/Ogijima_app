@@ -8,15 +8,23 @@
 {% block main_panel %}
 <h1 class="pagetitle">イベント情報</h1>
 <img  class="sumbnail" src="{{ work.sumbnail }}" style="width: 100%;">
-<h3 class="work_title">{{ work.title }}</h3>
-<h4 class="date">
+<h1 class="work_title">{{ work.title }}</h1>
+<h3 class="date">
     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
     {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}
-</h4>
+</h3>
 <div class="main_sentence">{{ work.content | safe}}</div>
 <div class="link_wrapper">
-    <a href="{% url 'ogijima:work_detail' work.id %}">前の記事へ</a>
-    <a href="{% url 'ogijima:work_detail' work.id %}">後の記事へ</a>
+    {% if prev_id != -1 %}
+        <a href="{% url 'ogijima:work_detail' prev_id %}">前のイベント情報へ</a>
+    {% else %}
+        <p></p>
+    {% endif %}
+    {% if next_id != -1 %}
+        <a href="{% url 'ogijima:work_detail' next_id %}">後のイベント情報へ</a>
+    {% else %}
+        <p></p>
+    {% endif %}
 </div>
 <div class="move_allarticles">
     <a href="{% url 'ogijima:works' %}">一覧を見る</a>

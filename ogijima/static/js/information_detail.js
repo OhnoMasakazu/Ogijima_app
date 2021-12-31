@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('mark').style.height = imageSize[1] / 30 + "px";
         document.getElementById('mark').style.width = imageSize[1] / 30 + "px";
     } else {
-        document.getElementById('mark').style.height = imageSize[1] / 20 + "px";
-        document.getElementById('mark').style.width = imageSize[1] / 20 + "px";
+        document.getElementById('mark').style.height = imageSize[1] / 31 + "px";
+        document.getElementById('mark').style.width = imageSize[1] / 31 + "px";
     };
 })
 

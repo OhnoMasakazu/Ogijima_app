@@ -63,6 +63,9 @@ def works(request):
     else:
         future_works = all_works.filter(work_start_date__gt=today)
     past_works = all_works.filter(work_end_date__lt=today)
+    now_works = now_works.order_by("work_start_date")
+    future_works = future_works.order_by("work_start_date")[0:5]
+    past_works = past_works.order_by("-work_start_date")[0:5]
     p = re.compile(r"<[^>]*?>")
     for work in now_works:
         work.content = p.sub("", markdown(work.content))
@@ -84,7 +87,8 @@ def planed_works(request):
     p = re.compile(r"<[^>]*?>")
     for work in future_works:
         work.content = p.sub("", markdown(work.content))
-    paginator = Paginator(future_works, 10)
+    # paginator = Paginator(future_works, 10)
+    paginator = Paginator(future_works, 5)
     page = request.GET.get('page', 1)
     try:
         pages = paginator.page(page)
@@ -104,7 +108,8 @@ def held_works(request):
     p = re.compile(r"<[^>]*?>")
     for work in past_works:
         work.content = p.sub("", markdown(work.content))
-    paginator = Paginator(past_works, 10)
+    # paginator = Paginator(past_works, 10)
+    paginator = Paginator(past_works, 5)
     page = request.GET.get('page', 1)
     try:
         pages = paginator.page(page)
@@ -120,11 +125,16 @@ def held_works(request):
 def work_detail(request,work_id):
     work = Work.objects.get(pk=work_id)
     work.content = markdown(work.content)
-    prev_id = work_id-1
-    if work_id+1==Work.objects.all().count():
-        next_id = 0
+    worklist = Work.objects.order_by('work_start_date')
+    idx = list(map(lambda x:x.pk, worklist)).index(work_id)
+    if idx==0:
+        prev_id = -1
     else:
-        next_id = work_id+1
+        prev_id = worklist[idx-1].pk
+    if idx==len(worklist)-1:
+        next_id  = -1
+    else:
+        next_id = worklist[idx+1].pk
     params = {
         'work':work,
         'prev_id':prev_id,
@@ -133,7 +143,7 @@ def work_detail(request,work_id):
     return render(request,'work_detail.html',params)
 
 def reports(request):
-    blog = Blog.objects.all()
+    blog = Blog.objects.all().order_by('-date')
     paginator = Paginator(blog, 5)
     # paginator = Paginator(blog, 10)
     page = request.GET.get('page', 1)
@@ -154,11 +164,16 @@ def reports(request):
 def blog_detail(request,blog_id):
     blog = Blog.objects.get(pk=blog_id)
     blog.content = markdown(blog.content)
-    prev_id = blog_id-1
-    if blog_id+1==Work.objects.all().count():
-        next_id = 0
+    bloglist = Blog.objects.order_by('date')
+    idx = list(map(lambda x:x.pk, bloglist)).index(blog_id)
+    if idx==0:
+        prev_id = -1
     else:
-        next_id = blog_id+1
+        prev_id = bloglist[idx-1].pk
+    if idx==len(bloglist)-1:
+        next_id  = -1
+    else:
+        next_id = bloglist[idx+1].pk
     params = {
         'blog':blog,
         'prev_id':prev_id,
@@ -299,14 +314,15 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('contact_completed', email=form.email)
+            form.send_email()
+            email = form.return_email()
+            return redirect('ogijima:contact_completed', email)
     else:
         form = ContactForm()
     return render(request,'contact.html',{'form': form})
 
 def contact_completed(request,email):
-    return render(request,'contact_completed.html')
+    return render(request,'contact_completed.html',{'email': email})
 
 def sponsor(request):
     names = Sponsor_name.objects.all().order_by('order')

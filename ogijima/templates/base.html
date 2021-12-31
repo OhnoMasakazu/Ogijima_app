@@ -17,14 +17,14 @@
             document.documentElement.classList.add(userAgent);
         </script>
         <meta charset="utf-8" />
-        <title>あいきえん｜男木島の“いま”を発信！</title>
+        <title>男木島名物倉庫『あいきえん』｜男木島の“いま”を発信！</title>
         <meta name=”keywords” content=”男木島,観光,倉庫,アート,リノベーション”>
         <meta content='男木島の魅力あふれる観光情報がここに集結！男木島の“いま”を残し続け、「また来たい」をつくる。倉庫をリノベーションして作り上げたアートギャラリーを運営。島民の "生きがい"となる場所を目指し、島民と観光客とを結ぶ架け橋となる。' name="description">
-        <meta property="og:title" content="あいきえん｜男木島の“いま”を発信！" />
+        <meta property="og:title" content="男木島名物倉庫『あいきえん』｜男木島の“いま”を発信！" />
         <meta property="og:type" content="website" />
         <!-- <meta property="og:url" content="ページのURL" /> -->
         <meta property="og:description" content='男木島の魅力あふれる観光情報がここに集結！男木島の“いま”を残し続け、「また来たい」をつくる。倉庫をリノベーションして作り上げたアートギャラリーを運営。島民の "生きがい"となる場所を目指し、島民と観光客とを結ぶ架け橋となる。' />
-        <meta property="og:site_name" content="あいきえん｜男木島の“いま”を発信！" />
+        <meta property="og:site_name" content="男木島名物倉庫『あいきえん』｜男木島の“いま”を発信！" />
         <meta property="og:image" content="{% static 'image/logo/ロゴ単体_tate.png' %}" />
         <meta property="fb:app_id" content="@aikien.ogijimaproject" />
         <meta name="twitter:card" content="summary">
@@ -45,14 +45,14 @@
         {% block extra_style %}{% endblock %}
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJRD443GX9"></script>
+        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJRD443GX9"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-BJRD443GX9');
-        </script>
+        </script> -->
 
     </head>
 
@@ -65,27 +65,34 @@
                 <a href="{% url 'ogijima:top' %}" class="header_image_link">
                     <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}">
                 </a>
-                <ul class="header_menu_tags">
+                <ul class="header_menu_tags" id="header_menu_tags">
+                    <button id="close_btn" class="close_btn">×  閉じる</button>
                     <li>
-                        <a href="{% url 'ogijima:aboutus' %}">組織</a>
+                        <a href="{% url 'ogijima:aboutus' %}">わたしたち</a>
                     </li>
                     <li>
-                        <a href="{% url 'ogijima:works' %}">企画</a>
+                        <a href="{% url 'ogijima:notifications' %}">おしらせ</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'ogijima:works' %}">イベント</a>
                     </li>
                     <li class="sub_menu">
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>
                         <ul class="sub">
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?1">島暮らしのヤマグッティ<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?1">島暮らしの<br>ヤマグッティ</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?2">クラウドファンディング<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?2">クラウド<br>ファンディング</a>
+                                <div>></div>
                             </li>
+                            <!-- <li>
+                                <a href="{% url 'ogijima:reports' %}?3">寄付サイト</a>
+                            </li> -->
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?3">寄付サイト<span>＞</span></a>
-                            </li>
-                            <li>
-                                <a href="{% url 'ogijima:reports' %}?4">物販サイト<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?4">オンライン<br>ショップ</a>
+                                <div>></div>
                             </li>
                         </ul>
                     </li>
@@ -96,19 +103,24 @@
                         <a href="{% url 'ogijima:information' %}">島情報</a>
                         <ul class="sub">
                             <li>
-                                <a href="{% url 'ogijima:information' %}">島内案内マップ<span>＞</span></a>
+                                <a href="{% url 'ogijima:information' %}">島内案内マップ</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:arts' %}">アート紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:arts' %}">アート紹介</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:restaurants' %}">飲食店紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:restaurants' %}">飲食店紹介</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:hotels' %}">宿泊施設紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:hotels' %}">宿泊施設紹介</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:cats' %}">猫紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:cats' %}">島猫紹介</a>
+                                <div>></div>
                             </li>
                         </ul>
                     </li>
@@ -119,34 +131,13 @@
                         <a href="{% url 'ogijima:contact' %}">お問い合わせ</a>
                     </li>
                     <li>
-                        <a href="{% url 'ogijima:sponsor' %}">提供</a>
+                        <a href="{% url 'ogijima:sponsor' %}">協賛</a>
                     </li>
                 </ul>
+                <button id="nav_btn" class="nav_btn">≡</button>
             </nav>
         </header>
         {% endblock %}
-
-        {% comment %}
-        <div class="loader-wrap">
-            <div class="loader">Loading...</div>
-        </div>
-        <div class="wrapper" id="wrapper">
-            <!-- sidebar -->
-            {% block main_panel %}
-            <!-- Navbar -->
-            {% block navbar %}{% include "./components/navbar.html" %}{% endblock %}
-            <div class="container">
-                {% block content %}{% endblock %}
-            </div>
-            {% include 'myapp/custom_alert/alert.html' %}
-            {% include 'myapp/custom_alert/confirm.html' %}
-            {% include 'myapp/custom_alert/prompt.html' %}
-            {% if not user.member_type %}{% include 'myapp/components/modals/deny-free-member.html' %}{% endif %}
-            {% if not user.is_authenticated %}{% include 'myapp/components/modals/deny-anon-member.html' %}{% endif %}
-            </div>
-            {% endblock %}
-        </div>
-        {% endcomment %}
 
         <!-- メイン部分 -->
         <div class="main-panel">

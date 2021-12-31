@@ -23,13 +23,16 @@
     color:rgb(68,58,59);
     border: solid 1px rgb(90, 77, 79);
 }
-.pagination li a{
+.pagination li a, .pagination li a span{
     color:rgb(68,58,59);
     transition: .3s;
 }
 .pagination li a:hover{
     color: rgb(239, 228, 213);
     background-color: rgb(90, 77, 79);
+}
+.pagination li a:hover > span{
+    color: rgb(239, 228, 213);
 }
 .pagination__disabled{
     color: rgb(239, 228, 213);

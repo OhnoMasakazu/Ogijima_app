@@ -15,7 +15,6 @@ h5{font-size: 18px;}
 h6{font-size: 14px;}
 p{font-size: 16px;}
 h1,h2,h3,h4,h5,h6,p,li,span{color:rgb(68,58,59);}
-/* h5,h6{color:rgb(98,82,84);} */
 p{line-height: 1.8;}
 .header_image_link{
     height: 10vh;
@@ -61,7 +60,6 @@ header{
     justify-content: space-between;
 }
 
-
 .header_menu_tags {
     display: flex;
     justify-content: space-evenly;
@@ -71,9 +69,8 @@ header{
 
 .header_menu_tags > li {
     list-style: none;
-    width: 10.25vw;
+    width: 9vw;
     position: relative;
-    display: inline-block;
 }
 
 
@@ -85,7 +82,7 @@ header{
     content: '';
     width: 100%;
     height: 2px;
-    background: antiquewhite;
+    background: rgb(239, 228, 213);
     transform: scale(0, 1);
     transform-origin: left top;
     transition: transform .3s;
@@ -97,7 +94,7 @@ header{
 /* hoverラインおわり */
 
 .header_menu_tags > li > a{
-    color: antiquewhite;
+    color: rgb(239, 228, 213);
     font-size: 14px;
     text-decoration: none;
     margin-bottom: 2vh;
@@ -133,19 +130,34 @@ header img{
 .sub > li {
     list-style: none;
     height: max-content;
+    display: flex;
+    justify-content: space-between;
 }
 
 .sub > li > a {
-    color: antiquewhite;
+    width: fit-content;
+    color: rgb(239, 228, 213);
     text-decoration: none;
     font-size: 12px;
     position: relative;
-    margin: 10px auto;
+    margin: 10px auto 10px 5px;
     display: block;
+    text-align: left;
 }
 
-.sub > li > a > span {
-    margin-right: 0;
+.sub > li > div {
+    margin: auto 5px;
+    display: block;
+    font-size: 12px;
+    color: rgb(239, 228, 213);
+}
+
+.nav_btn{
+    display: none;
+}
+
+.close_btn{
+    display: none;
 }
 /* サブメニューおわり */
 /* headerおわり */
@@ -186,7 +198,6 @@ footer{
 
 .footer__link-text{
     cursor: pointer;
-    /* color: #1a0dab; */
     color: #ccc;
     text-decoration: underline;
 }
@@ -231,12 +242,106 @@ footer{
 
 @media screen and (max-width:1020px) {
     .pagetitle{font-weight: 100;}
+
     header img{
-        height: 6vh;
-        width: 18vh;
-        margin: 1vh 1vw;
+        height: 9vh;
+        width: 28vh;
+        margin: 0.5vh 1vw;
         object-fit: cover;
     }
+    .header_image_link{
+        height: max-content;
+        display: inline-block;
+    }
+
+    .header_menu{
+        width: auto;
+        display: block;
+    }
+
+    .header_menu_tags{
+        display: none;
+    }
+
+    .header_menu_tags > li{
+        height: 48px;
+        width: 80vw;
+        margin: auto 10vw;
+    }
+
+    .header_menu_tags :nth-child(2) {
+        margin-top: 6vh;
+    }
+
+    .header_menu_tags > li > a{
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .header_menu_tags > li::after {
+        content: ">";
+        bottom: 0;
+        top: 0;
+        right: 1rem;
+        left: auto;
+        color: rgb(239, 228, 213);
+        font-size: 24px;
+        font: "awesome";
+        width: auto;
+        height: auto;
+        background-color: unset;
+        transform: none;
+    }
+
+    .sub {
+        display: none;
+    }
+
+    .nav_btn{
+        font-family: "awesome";
+        display: unset;
+        position: absolute;
+        right: 12px;
+        padding: 0;
+        margin: auto;
+        border-style: none;
+        background: none;
+        font-size: 36px;
+        height: inherit;
+        color: rgb(239, 228, 213);
+        cursor: pointer;
+        top: 0;
+        bottom: 0;
+        height: max-content;
+        line-height: 1;
+    }
+    
+    .close_btn {
+        display: block;
+        display: block;
+        border-style: none;
+        background: none;
+        font-size: 18px;
+        color: rgb(239, 228, 213);
+        cursor: pointer;
+        position: absolute;
+        top: 6vh;
+        right: 5vw;
+    }
+    
+    /*メニュー選択時に表示*/
+    .show_nav{
+        z-index: 1;
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,0.8);
+        padding-top: 16vh;
+    }
+
 
     .main-panel{
         width: 90%;

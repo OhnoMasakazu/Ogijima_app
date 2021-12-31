@@ -10,7 +10,7 @@
     <h1 class="pagetitle">これまでに開催したイベント</h1>
     <a href="{% url 'ogijima:planed_works' %}">これから開催するイベント一覧はこちら</a>
 </div>
-{% for work in past_works %}
+{% for work in pages %}
     <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
         <img  class="sumbnail" src="{{ work.sumbnail }}">
         <div class="work__text">
