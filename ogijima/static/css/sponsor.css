@@ -1,3 +1,13 @@
-.sponsor55{
-    display: flex;
+.sponsor__banner
+{
+    text-align: center;
+    /* bottom: -2px; */
+    position: relative;
+    top: 61px;
 }
+.sample{
+    height: 122px;
+    width: 221px;
+}
+
+
