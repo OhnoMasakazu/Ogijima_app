@@ -1,0 +1,37 @@
+.pagetitle{
+    margin-bottom: 48px;
+}
+.notification__wrap {
+    display: flex;
+    margin: 12px 5vw;
+    text-decoration: none;
+    width: max-content;
+}
+.notification__wrap:hover {
+    text-decoration: underline;
+}
+.notification__date {
+    width: 10vw;
+}
+.notification__content {
+    max-width: 50vw;
+}
+
+@media screen and (max-width:1020px) {
+    .notification__wrap{
+        margin: 16px 0;
+        width: 90vw;
+        flex-flow: column;
+    }
+    .notification__date{
+        width: auto;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+    .notification__content{
+        width: auto;
+        margin-left: 12px;
+        line-height: 1.2;
+        max-width: calc(90vw - 12px);
+    }
+}
