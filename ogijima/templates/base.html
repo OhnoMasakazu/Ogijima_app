@@ -65,7 +65,8 @@
                 <a href="{% url 'ogijima:top' %}" class="header_image_link">
                     <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}">
                 </a>
-                <ul class="header_menu_tags">
+                <ul class="header_menu_tags" id="header_menu_tags">
+                    <button id="close_btn" class="close_btn">×  閉じる</button>
                     <li>
                         <a href="{% url 'ogijima:aboutus' %}">わたしたち</a>
                     </li>
@@ -79,16 +80,19 @@
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>
                         <ul class="sub">
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?1">島暮らしのヤマグッティ<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?1">島暮らしの<br>ヤマグッティ</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?2">クラウドファンディング<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?2">クラウド<br>ファンディング</a>
+                                <div>></div>
                             </li>
                             <!-- <li>
-                                <a href="{% url 'ogijima:reports' %}?3">寄付サイト<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?3">寄付サイト</a>
                             </li> -->
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?4">オンラインショップ<span>＞</span></a>
+                                <a href="{% url 'ogijima:reports' %}?4">オンライン<br>ショップ</a>
+                                <div>></div>
                             </li>
                         </ul>
                     </li>
@@ -99,19 +103,24 @@
                         <a href="{% url 'ogijima:information' %}">島情報</a>
                         <ul class="sub">
                             <li>
-                                <a href="{% url 'ogijima:information' %}">島内案内マップ<span>＞</span></a>
+                                <a href="{% url 'ogijima:information' %}">島内案内マップ</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:arts' %}">アート紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:arts' %}">アート紹介</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:restaurants' %}">飲食店紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:restaurants' %}">飲食店紹介</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:hotels' %}">宿泊施設紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:hotels' %}">宿泊施設紹介</a>
+                                <div>></div>
                             </li>
                             <li>
-                                <a href="{% url 'ogijima:cats' %}">島猫紹介<span>＞</span></a>
+                                <a href="{% url 'ogijima:cats' %}">島猫紹介</a>
+                                <div>></div>
                             </li>
                         </ul>
                     </li>
@@ -125,31 +134,10 @@
                         <a href="{% url 'ogijima:sponsor' %}">協賛</a>
                     </li>
                 </ul>
+                <button id="nav_btn" class="nav_btn">≡</button>
             </nav>
         </header>
         {% endblock %}
-
-        {% comment %}
-        <div class="loader-wrap">
-            <div class="loader">Loading...</div>
-        </div>
-        <div class="wrapper" id="wrapper">
-            <!-- sidebar -->
-            {% block main_panel %}
-            <!-- Navbar -->
-            {% block navbar %}{% include "./components/navbar.html" %}{% endblock %}
-            <div class="container">
-                {% block content %}{% endblock %}
-            </div>
-            {% include 'myapp/custom_alert/alert.html' %}
-            {% include 'myapp/custom_alert/confirm.html' %}
-            {% include 'myapp/custom_alert/prompt.html' %}
-            {% if not user.member_type %}{% include 'myapp/components/modals/deny-free-member.html' %}{% endif %}
-            {% if not user.is_authenticated %}{% include 'myapp/components/modals/deny-anon-member.html' %}{% endif %}
-            </div>
-            {% endblock %}
-        </div>
-        {% endcomment %}
 
         <!-- メイン部分 -->
         <div class="main-panel">
