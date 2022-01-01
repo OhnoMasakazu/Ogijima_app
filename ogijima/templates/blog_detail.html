@@ -6,19 +6,19 @@
 {% endblock %}
 
 {% block main_panel %}
-<h1 class="pagetitle">イベント情報</h1>
+<h1 class="pagetitle">島暮らしのヤマグッティ</h1>
 <img  class="sumbnail" src="{{ blog.sumbnail }}" style="width: 100%;">
 <h1 class="blog_title">{{ blog.title }}</h1>
 <h3 class="date">{{ blog.date | date:"Y年m月d日" }}</h3>
 <div class="main_sentence">{{ blog.content | safe}}</div>
 <div class="link_wrapper">
     {% if prev_id != -1 %}
-        <a href="{% url 'ogijima:blog_detail' prev_id %}">前のイベント情報へ</a>
+        <a href="{% url 'ogijima:blog_detail' prev_id %}">前の記事へ</a>
     {% else %}
         <p></p>
     {% endif %}
     {% if next_id != -1 %}
-        <a href="{% url 'ogijima:blog_detail' next_id %}">後のイベント情報へ</a>
+        <a href="{% url 'ogijima:blog_detail' next_id %}">後の記事へ</a>
     {% else %}
         <p></p>
     {% endif %}
