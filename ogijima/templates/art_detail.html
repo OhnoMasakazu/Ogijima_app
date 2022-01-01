@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/information_detail.css' %}">
+<link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/information_detail.css">
 <style>
     #mark{
         top:{{ art.coordinate_pc_top }}%;
@@ -39,7 +39,7 @@
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
             <div class="map__wrapper">
-                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
+                <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg">
                 <p class="place place-port">男木港</p>
                 <p class="place place-school">男木島小・中学校</p>
                 <p class="place place-aikien">あいきえん</p>
@@ -58,8 +58,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/map.js' %}"></script>
-<script src="{% static 'js/information_detail.js' %}"></script>
+<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/map.js"></script>
+<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/information_detail.js"></script>
 <script>
     var imageList="{{ art.image }}";
     imageList = imageList.split(',');

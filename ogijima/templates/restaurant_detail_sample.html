@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="{% static 'css/information_detail.css' %}">
+<link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/information_detail.css">
 <style>
     #mark{
         top:{{ restaurant.coordinate_pc_top }}%;
@@ -49,13 +49,13 @@
         </p>
         <div class="sns-list">
             {% if restaurant.instagram %}
-            <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="{% static 'image/sns/glyph-logo_May2016_white.png' %}"></a>
+            <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram"><img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/sns/glyph-logo_May2016_white.png"></a>
             {% endif %}
             {% if restaurant.twitter %}
-            <a href="{{ restaurant.twitter }}" class="sns-list__twitter" target="twitter"><img src="{% static 'image/sns/2021 Twitter logo - white.png' %}"></a>
+            <a href="{{ restaurant.twitter }}" class="sns-list__twitter" target="twitter"><img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/sns/2021 Twitter logo - white.png"></a>
             {% endif %}
             {% if restaurant.facebook %}
-            <a href="{{ restaurant.facebook }}" class="sns-list__facebook" target="facebook"><img src="{% static 'image/sns/f_logo_RGB-White_100.png' %}"></a>
+            <a href="{{ restaurant.facebook }}" class="sns-list__facebook" target="facebook"><img src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/sns/f_logo_RGB-White_100.png"></a>
             {% endif %}
         </div>
     </div>
@@ -70,7 +70,7 @@
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
             <div class="map__wrapper">
-                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
+                <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg">
                 <p class="place place-port">男木港</p>
                 <p class="place place-school">男木島小・中学校</p>
                 <p class="place place-aikien">あいきえん</p>
@@ -90,8 +90,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/map.js' %}"></script>
-<script src="{% static 'js/information_detail.js' %}"></script>
+<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/map.js"></script>
+<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/information_detail.js"></script>
 <script>
     var imageList="{{ restaurant.image }}";
     imageList = imageList.split(',');
