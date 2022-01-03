@@ -5,6 +5,9 @@ var informationOffset = document.getElementById('information').offsetTop;
 var work1Offset = document.getElementById('work-1').offsetTop;
 var work2Offset = document.getElementById('work-2').offsetTop;
 var desireOffset = document.getElementById('desire').offsetTop;
+// スクロールバーで横スクロール発生する問題のため、少し小さくしている
+var desireWidth = document.querySelector('header').clientWidth *0.68;
+var flag = 0;
 
 let mySwiper = new Swiper('.swiper', {
     autoplay: {
@@ -32,21 +35,41 @@ window.addEventListener('scroll', () => {
         document.getElementById('swiper').style.opacity = 1;
     }
 
-    if(scrollY > desireOffset - screenHeight * 0.6){
-        document.querySelector('#desire h2').classList.add('titlelinein');
+    if(scrollY > desireOffset - screenHeight * 0.55 && flag == 0){
+        flag = 1;
+        document.querySelector('.desire__wrapper').style.width = desireWidth + "px";
+        document.querySelector('.desire__wrapper').style.padding = "48px 15vw";
+        window.setTimeout(() => {
+            document.querySelector('.desire__wrapper').style.width = "auto";
+            document.getElementById('desire__list-1').style.opacity = 1;
+            document.getElementById('desire__list-1').style.transform = "translateY(0%)";
+        }, 800);
+        window.setTimeout(() => {
+            document.querySelector('.desire__wrapper').style.width = "auto";
+            document.getElementById('desire__list-2').style.opacity = 1;
+            document.getElementById('desire__list-2').style.transform = "translateY(0%)";
+        }, 1400);
+        window.setTimeout(() => {
+            document.querySelector('.desire__wrapper').style.width = "auto";
+            document.getElementById('desire__list-3').style.opacity = 1;
+            document.getElementById('desire__list-3').style.transform = "translateY(0%)";
+        }, 2000);
     }
-    else if(scrollY > work2Offset - screenHeight * 0.6){
-        document.querySelector('#work-2 h2').classList.add('titlelinein');
-    }
-    else if(scrollY > work1Offset - screenHeight * 0.6){
-        document.querySelector('#work-1 h2').classList.add('titlelinein');
-    }
-    else if(scrollY > informationOffset - screenHeight * 0.6){
-        document.querySelector('#information .section-title h2').classList.add('titlelinein');
-    }
-    else if(scrollY > newsOffset - screenHeight * 0.6){
-        document.querySelector('#news .section-title h2').classList.add('titlelinein');
-    }
+    // else if(scrollY > desireOffset - screenHeight * 0.6){
+    //     document.querySelector('#desire h2').classList.add('titlelinein');
+    // }
+    // else if(scrollY > work2Offset - screenHeight * 0.6){
+    //     document.querySelector('#work-2 h2').classList.add('titlelinein');
+    // }
+    // else if(scrollY > work1Offset - screenHeight * 0.6){
+    //     document.querySelector('#work-1 h2').classList.add('titlelinein');
+    // }
+    // else if(scrollY > informationOffset - screenHeight * 0.6){
+    //     document.querySelector('#information .section-title h2').classList.add('titlelinein');
+    // }
+    // else if(scrollY > newsOffset - screenHeight * 0.6){
+    //     document.querySelector('#news .section-title h2').classList.add('titlelinein');
+    // }
 
     // if(scrollY > desireOffset - screenHeight * 0.6){
     //     document.querySelector('#desire h2 span').style.transform = "translateX(0)";
@@ -99,6 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var separatorList = document.querySelectorAll('.separator');
     separatorList[separatorList.length - 1].style.display = "none";
+
+    document.querySelector('#popup_1_7 .popup__title').style.display = "none";
+    let aikienPopup = document.createElement('img');
+    aikienPopup.src = "https://aikien.s3.ap-northeast-3.amazonaws.com/image/logo/logo_HP_yoko_brown.svg";
+    aikienPopup.classList.add('aikienPopup');
+    document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
+
 })
 
 // ブラウザバックしたときにもともと表示されていたポップアップが出たままになるエラーを修正

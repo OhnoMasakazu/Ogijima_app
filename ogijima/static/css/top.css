@@ -5,7 +5,7 @@ h2{
     width: max-content;
 }
 /* 下線延びるやつ */
-h2:after{
+/* h2:after{
     content: "";
     display: block;
     background-color: rgb(230,95,96);
@@ -13,7 +13,7 @@ h2:after{
     height: 6px;
     transition: .3s;
     width: 0;
-}
+} */
 /* 左から出てくるやつ（Span） */
 /* h2{
     overflow: hidden;
@@ -54,6 +54,15 @@ h2 span:after{
     margin-top: -41px;
 } */
 
+.top-text{
+    position: absolute;
+    top: 56vh;
+    width: 48vw;
+    left: 53vw;
+    object-fit: cover;
+    height: 20vh;
+}
+
 .titlelinein:after{
     width: 100%;
 }
@@ -88,26 +97,13 @@ section{
     left: 0;
     margin-top: 0;
 }
-.titletext-1{
+.top-text{
+    font-family: 'ロンド B';
+    display: block;
     position: absolute;
-    top: 7vh;
-    width: 21vw;
-    left: 5vw;
+
 }
-.titletext-2{
-    width: 60vw;
-    position: absolute;
-    bottom: 10vh;
-    right: 5vw;
-}
-/* .titlescroll{
-    position: absolute;
-    bottom: 0;
-    width: 5vw;
-    margin: auto;
-    left: 0;
-    right: 0;
-} */
+
 .scrollicon {
     padding-top: 60px;
     position: absolute;
@@ -190,7 +186,7 @@ section{
 }
 .notification__wrap:hover{
     text-decoration: underline;
-    text-decoration-color: rgb(68,58,59);
+    text-decoration-color: rgb(230,95,96);
 }
 .notification__date{
     width: 12vw;
@@ -225,6 +221,9 @@ section{
     height: 16vw;
     object-fit: cover;
 }
+.work__box h4{
+    margin-bottom: 8px;
+}
 .work__content{
     position: relative;
     height: 38.4px;
@@ -248,7 +247,7 @@ section{
     height: 100%;
 }
 .work__link-button{
-    color:rgb(0,112,192);
+    color:rgb(230,95,96);
     text-decoration: underline !important;
     text-align: right;
 }
@@ -349,6 +348,8 @@ hr{
 
 .popup__title{
     display: flex;
+    -webkit-align-items: center;
+    align-items: center;
 }
 .popup__text{
     font-size: 12px;
@@ -359,17 +360,28 @@ hr{
 }
 
 .popup__icon{
-    font-size: 10px;
+    font-size: 12px;
     border-radius: 16px;
-    border: solid #ccc 1px;
     width: max-content;
-    padding: 3px;
+    padding: 4px 6px;
     font-weight: bold;
     margin-right: 4px;
+    line-height: 1;
+    height: max-content;
+    background-color: rgb(90, 77, 79);
+    color: rgb(239, 228, 213);
+    font-weight: bold;
 }
-.popup__icon-1{background-color: #cff;}
+.aikienPopup{
+    width: 160px;
+    height: 56px;
+    object-fit: cover;
+    background-color: rgb(239, 228, 213);
+    border-radius: 12px;
+}
+/* .popup__icon-1{background-color: #cff;}
 .popup__icon-2{background-color: #fcf;}
-.popup__icon-3{background-color: #ffc;}
+.popup__icon-3{background-color: #ffc;} */
 
 .detail-modal{
     display: none;
@@ -471,11 +483,17 @@ hr{
     margin-top: 24px;
     left: 0;
     right: 0;
-    padding: 48px 15vw;
+    /* padding: 48px 15vw; */
     background-color: rgb(230,95,96);
+    width: 0;
+    padding: 48px 0;
+    transition: .8s;
 }
 .desire__list{
     width: 22vw;
+    opacity: 0;
+    transition: .8s;
+    transform: translateY(20%);
 }
 .caption{
     /* color: rgb(239, 228, 213); */
@@ -510,6 +528,12 @@ hr{
     h2, h3, h2 span, .caption span{font-weight: 100;}
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
+    .top-text{
+        top: 60vh;
+        width: 100vw;
+        left: 7vw;
+        height: 25vw;
+    }
     .now-work__box, .future-work__box{
         width: 90vw;
     }
@@ -588,6 +612,11 @@ hr{
         display: block;
         font-size: 12px;
     }
+    #popup .upblock{
+        width: max-content;
+        margin: 0 auto;
+        max-width: 90vw;
+    }
 
     .detail-modal-window{
         -webkit-align-items: center;
@@ -620,7 +649,8 @@ hr{
     .desire__wrapper{
         -webkit-flex-direction: column;
         flex-direction: column;
-        padding: 48px 5vw;
+        /* padding: 48px 5vw; */
+        padding: 48px 0;
     }
     .desire__list{
         width: auto;

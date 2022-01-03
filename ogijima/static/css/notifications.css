@@ -9,6 +9,7 @@
 }
 .notification__wrap:hover {
     text-decoration: underline;
+    text-decoration-color: rgb(230,95,96);
 }
 .notification__date {
     width: 10vw;

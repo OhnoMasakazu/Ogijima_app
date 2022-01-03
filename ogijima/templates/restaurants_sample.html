@@ -11,7 +11,7 @@
     {% for restaurant in pages %}
     <a href="{% url 'ogijima:restaurant_detail_sample' restaurant.id %}">
         <img src="{{ restaurant.sumbnail }}">
-        <h4>{{ restaurant.name }}</h4>
+        <h5>{{ restaurant.name }}</h5>
     </a>
     {% endfor %}
 </div>
