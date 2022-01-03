@@ -1,3 +1,37 @@
+.works-list{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin: 48px 0;
+}
+.works-list-button{
+    width: 22vw;
+    text-align: center;
+    border: solid 1px rgb(90, 77, 79);
+    border-radius: 12px;
+    padding: 12px 0;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
+.works-list-button:hover{
+    background-color: rgb(90, 77, 79);
+}
+.works-list-button:hover > span{
+    color: rgb(239, 228, 213);
+}
+.works-list-button-active{
+    background-color: rgb(90, 77, 79);
+}
+.works-list-button-active span{
+    color: rgb(239, 228, 213);
+}
+.works-list-button span{
+    margin: auto;
+}
+
 .title{
     display: -webkit-flex;
     display: flex;
@@ -47,7 +81,7 @@
     height: 100%;
 }
 .work__link-button{
-    color:rgb(0,112,192);
+    color:rgb(230,95,96);
     text-decoration: underline !important;
     text-align: right;
     display: block;

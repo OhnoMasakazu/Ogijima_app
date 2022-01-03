@@ -21,6 +21,7 @@ form > p > input, form > p > textarea{
     border-radius: 6px;
     padding: 4px 8px;
     font-size: 16px;
+    background-color: rgb(248,243,236);
 }
 #id_text{
     resize: none;

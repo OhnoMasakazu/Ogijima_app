@@ -11,7 +11,7 @@
     {% for art in pages %}
     <a href="{% url 'ogijima:art_detail' art.id %}">
         <img src="{{ art.sumbnail }}">
-        <h4>{{ art.name }}</h4>
+        <h5>{{ art.name }}</h5>
     </a>
     {% endfor %}
 </div>

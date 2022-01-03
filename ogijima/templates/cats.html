@@ -11,7 +11,7 @@
     {% for cat in pages %}
     <a href="{% url 'ogijima:cat_detail' cat.id %}">
         <img src="{{ cat.sumbnail }}">
-        <h4>{{ cat.name }}</h4>
+        <h5>{{ cat.name }}</h5>
     </a>
     {% endfor %}
 </div>

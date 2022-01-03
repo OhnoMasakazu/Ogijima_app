@@ -3,13 +3,19 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/works_list.css">
+<!-- <link rel="stylesheet" href="{% static 'css/works_list.css' %}"> -->
 {% endblock %}
 
 {% block main_panel %}
-<div class="title">
-    <h1 class="pagetitle">これまでに開催したイベント</h1>
-    <a href="{% url 'ogijima:planed_works' %}">これから開催するイベント一覧はこちら</a>
+<h1 class="pagetitle">イベント情報</h1>
+
+<div id="works-list" class="works-list">
+    <a href="{% url 'ogijima:works' %}" class="works-list-button"><span>現在開催中</span></a>
+    <a href="{% url 'ogijima:planed_works' %}" class="works-list-button"><span>開催予定</span></a>
+    <a class="works-list-button works-list-button-active"><span>開催記録</span></a>
 </div>
+
+<h2 class="pagetitle">開催記録</h2>
 {% for work in pages %}
     <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
         <img  class="sumbnail" src="{{ work.sumbnail }}">

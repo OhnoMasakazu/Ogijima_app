@@ -3,10 +3,17 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/works.css">
+<!-- <link rel="stylesheet" href="{% static 'css/works.css' %}"> -->
 {% endblock %}
 
 {% block main_panel %}
-<!-- <h1 class="pagetitle">イベント情報</h1> -->
+<h1 class="pagetitle">イベント情報</h1>
+
+<div id="works-list" class="works-list">
+    <a class="works-list-button works-list-button-active"><span>現在開催中</span></a>
+    <a href="{% url 'ogijima:planed_works' %}" class="works-list-button"><span>開催予定</span></a>
+    <a href="{% url 'ogijima:held_works' %}" class="works-list-button"><span>開催記録</span></a>
+</div>
 
 <div id="now-work" class="section-title" style="margin-top: 0;">
     <h1>現在開催中のイベント</h1>
@@ -25,6 +32,7 @@
     <hr class="separator separator-1">
 {% endfor %}
 
+<!-- {% comment %}
 <div id="work-1" class="section-title">
     <h1>これから開催するイベント</h1>
     <a href="{% url 'ogijima:planed_works' %}">これから開催するイベントの一覧を見る</a>
@@ -59,7 +67,7 @@
     <hr class="separator separator-3">
 {% endfor %}
 
-
+{% endcomment %} -->
 
 {% endblock %}
 

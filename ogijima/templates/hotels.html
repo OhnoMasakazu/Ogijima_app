@@ -11,7 +11,7 @@
     {% for hotel in pages %}
     <a href="{% url 'ogijima:hotel_detail' hotel.id %}">
         <img src="{{ hotel.sumbnail }}">
-        <h4>{{ hotel.name }}</h4>
+        <h5>{{ hotel.name }}</h5>
     </a>
     {% endfor %}
 </div>

@@ -4,6 +4,7 @@
 {% block extra_style %}
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/top.css">
+<!-- <link rel="stylesheet" href="{% static 'css/top.css' %}"> -->
 <style>
     {% for art in arts %}
     #mark_1_{{ art.id }}{top:{{ art.coordinate_pc_top }}%;left:{{ art.coordinate_pc_left }}%;}
@@ -51,8 +52,8 @@
 <div id="swiper-hide-mask" class="swiper-hide-mask"></div>
 
 <section id="top" class="delay">
-    <!-- <img class="titletext-1" src="https://photosku.com/images_file/small_images/s007_595.png">
-    <img class="titletext-2" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/titletext1.png"> -->
+    <!-- <p class="top-text"><span class="layer-1">男木島の“いま”</span><br><span class="layer-1">を残し続ける</span></p> -->
+    <img class="top-text" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/top_text.svg">
     <a class="scrollicon"><span></span><span></span><span></span>Scroll</a>
 </section>
 <section id="news">
@@ -181,7 +182,7 @@
                     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
                     {{ now_work.work_start_date | date:"Y年m月d日" }} ～ {{ now_work.work_end_date | date:"Y年m月d日" }}
                 </p>
-                <p class="now-work__content work__content">{{ now_work.content | safe }}</p>
+                <!-- <p class="now-work__content work__content">{{ now_work.content | safe }}</p> -->
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
             <hr class="separator">
@@ -201,7 +202,7 @@
                     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
                     {{ future_work.work_start_date | date:"Y年m月d日" }} ～ {{ future_work.work_end_date | date:"Y年m月d日" }}
                 </p>
-                <p class="future-work__content work__content">{{ future_work.content | safe }}</p>
+                <!-- <p class="future-work__content work__content">{{ future_work.content | safe }}</p> -->
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
     {% else %}
@@ -213,15 +214,15 @@
 <section id="desire">
     <h2>想い</h2>
     <div class="desire__wrapper">
-        <div class="desire__list">
+        <div id="desire__list-1" class="desire__list">
             <h3 class="caption caption-1"><span>志</span></h3>
             <h4 class="desire__text">男木島の“いま”を残し続ける</h4>
         </div>
-        <div class="desire__list">
+        <div id="desire__list-2" class="desire__list">
             <h3 class="caption caption-2"><span>使命</span></h3>
             <h4 class="desire__text">男木島の魅力を伝え、<br>「また来たい」をつくる</h4>
         </div>
-        <div class="desire__list">
+        <div id="desire__list-3" class="desire__list">
             <h3 class="caption caption-3"><span>信条</span></h3>
             <h4 class="desire__text">島との対話〈島に対して〉</h4>
             <h4 class="desire__text">個の着彩〈仲間に対して〉</h4>
@@ -336,4 +337,5 @@
 <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/top.js"></script>
+<!-- <script src="{% static 'js/top.js' %}"></script> -->
 {% endblock %}
