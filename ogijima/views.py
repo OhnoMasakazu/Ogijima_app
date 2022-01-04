@@ -59,24 +59,24 @@ def works(request):
             now_works_date = today
         else:
             now_works_date = now_works.work_start_date
-        future_works = all_works.filter(work_start_date__gt=now_works_date)
-    else:
-        future_works = all_works.filter(work_start_date__gt=today)
-    past_works = all_works.filter(work_end_date__lt=today)
+        # future_works = all_works.filter(work_start_date__gt=now_works_date)
+    # else:
+    #     future_works = all_works.filter(work_start_date__gt=today)
+    # past_works = all_works.filter(work_end_date__lt=today)
     now_works = now_works.order_by("work_start_date")
-    future_works = future_works.order_by("work_start_date")[0:5]
-    past_works = past_works.order_by("-work_start_date")[0:5]
+    # future_works = future_works.order_by("work_start_date")[0:5]
+    # past_works = past_works.order_by("-work_start_date")[0:5]
     p = re.compile(r"<[^>]*?>")
     for work in now_works:
         work.content = p.sub("", markdown(work.content))
-    for work in future_works:
-        work.content = p.sub("", markdown(work.content))
-    for work in past_works:
-        work.content = p.sub("", markdown(work.content))
+    # for work in future_works:
+    #     work.content = p.sub("", markdown(work.content))
+    # for work in past_works:
+    #     work.content = p.sub("", markdown(work.content))
     params = {
         'now_works':now_works,
-        'future_works':future_works,
-        'past_works':past_works,
+        # 'future_works':future_works,
+        # 'past_works':past_works,
     }
     return render(request,'works.html',params)
 

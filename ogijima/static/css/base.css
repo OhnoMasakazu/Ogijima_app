@@ -391,10 +391,10 @@ footer{
         margin: 0 0 32px;
     }
     .footer__logo a{
-        position: absolute;
+        /* position: absolute;
         top: 0;
         left: 0;
-        right: 0;
+        right: 0; */
         margin: auto;
     }
     .footer__logo img{
@@ -403,9 +403,10 @@ footer{
         height: 20vw;
         position: static;
     }
+
     .footer__copyright{
         text-align: center;
-        margin-top: 20vw;
+        /* margin-top: 20vw; */
         margin-right: auto;
     }
 }

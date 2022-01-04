@@ -495,6 +495,9 @@ hr{
     transition: .8s;
     transform: translateY(20%);
 }
+.desire__linktext{
+    margin-top: 400px;
+}
 .caption{
     /* color: rgb(239, 228, 213); */
 
@@ -657,6 +660,9 @@ hr{
     }
     .desire__list:nth-child(1), .desire__list:nth-child(2){
         margin-bottom: 48px;
+    }
+    .desire__linktext{
+        margin-top: 820px;
     }
     .caption{
         margin-bottom: 24px;
