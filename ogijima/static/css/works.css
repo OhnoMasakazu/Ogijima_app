@@ -162,6 +162,9 @@ hr{
 }
 
 @media screen and (max-width:1020px) {
+    .works-list-button{
+        width: 28vw;
+    }
     .mobile-br{display: inline;}
     .section-title{
         -webkit-align-items: flex-start;

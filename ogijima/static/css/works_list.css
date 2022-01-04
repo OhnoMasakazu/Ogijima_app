@@ -1,3 +1,6 @@
+.pagetitle{
+    margin-bottom: 36px;
+}
 .works-list{
     display: -webkit-flex;
     display: flex;
@@ -95,6 +98,9 @@ hr{
 }
 
 @media screen and (max-width:1020px) {
+    .works-list-button{
+        width: 28vw;
+    }
     .title{
         -webkit-align-items: flex-start;
         align-items: flex-start;

@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('swiper').classList.remove('delay');
     }, 500);
 
-    var desireHeight = document.querySelector('.desire__wrapper').clientHeight;
-    document.querySelector('.desire__linktext').style.marginTop = desireHeight + 48 + "px";
+    // var desireHeight = document.querySelector('.desire__wrapper').clientHeight;
+    // document.querySelector('.desire__linktext').style.marginTop = desireHeight + 48 + "px";
 
     var hidemaskTop = document.getElementById('information').offsetTop;
     var hidemaskBottom = document.getElementById('footer').offsetTop;

@@ -101,4 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.map__wrapper').style.width = imageSize[1] + "px";
         // })
     };
+
+    document.querySelector('#popup_1_7 .popup__title').style.display = "none";
+    let aikienPopup = document.createElement('img');
+    aikienPopup.src = "https://aikien.s3.ap-northeast-3.amazonaws.com/image/logo/logo_HP_yoko_brown.svg";
+    aikienPopup.classList.add('aikienPopup');
+    document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
+
 })

@@ -133,6 +133,13 @@
     color: rgb(239, 228, 213);
     font-weight: bold;
 }
+.aikienPopup{
+  width: 160px;
+  height: 56px;
+  object-fit: cover;
+  background-color: rgb(239, 228, 213);
+  border-radius: 12px;
+}
 /* .popup__icon-1{background-color: #cff;}
 .popup__icon-2{background-color: #fcf;}
 .popup__icon-3{background-color: #ffc;} */
