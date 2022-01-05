@@ -85,6 +85,9 @@ section{
     align-items: flex-end;
     margin-bottom: 24px;
 }
+.map-annotation{
+    margin-top: 48px;
+}
 #work-2{
     margin-top: 64px;
 }
