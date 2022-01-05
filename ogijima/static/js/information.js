@@ -1,9 +1,29 @@
-function popupActivate(elem) {
-    elem.style.display = "flex";
+// function popupActivate(elem) {
+//     elem.style.display = "flex";
+// }
+
+// function popupDeactivate(elem) {
+//     elem.style.display = "none";
+// }
+
+function popupActivate(id) {
+    var markList = document.querySelectorAll('.mark');
+    for(let i = 0; i < markList.length; i++){
+        try{markList[i].querySelector('i').style.color = "rgb(104, 94, 96)";}catch{}
+    }
+    document.querySelector('#mark' + id + " i").style.color = "rgb(230,95,96)";
+    if(userAgent != "pc"){
+        var mapPopupList = document.querySelectorAll('.upblock');
+        for(let i = 0; i < mapPopupList.length; i++){
+            mapPopupList[i].style.display = "none";
+        }
+    }
+    document.getElementById('popup' + id).style.display = "flex";
 }
 
-function popupDeactivate(elem) {
-    elem.style.display = "none";
+function popupDeactivate(id) {
+    document.querySelector('#mark' + id + " i").style.color = "rgb(104, 94, 96)";
+    if(userAgent == "pc"){document.getElementById('popup' + id).style.display = "none";}
 }
 
 function modalDeactivate(){
@@ -108,4 +128,17 @@ document.addEventListener("DOMContentLoaded", () => {
     aikienPopup.classList.add('aikienPopup');
     document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
 
+    if(userAgent == "sp"){
+        var markList = document.querySelectorAll('.mark');
+        for(let i = 0; i < markList.length; i++){
+            markList[i].onmouseenter = "";
+            markList[i].onmouseleave = "";
+            markList[i].addEventListener('touchstart', () => {
+                // popupActivate(document.getElementById('popup' + markList[i].id.replace('mark', "")))
+                popupActivate(markList[i].id.replace('mark', ""))
+            });
+        }
+
+        document.getElementById('mobile-text').innerText = "をタップすると";
+    }
 })

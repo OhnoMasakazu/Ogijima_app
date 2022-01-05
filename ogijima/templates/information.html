@@ -40,6 +40,7 @@
 
 {% block main_panel %}
 <h1 class="pagetitle">島内案内マップ</h1>
+<p class="map-annotation">地図上のアイコン<span id="mobile-text">にカーソルを合わせると</span>、情報が表示されます</p>
 <div class="main">
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
@@ -49,38 +50,54 @@
                 <!-- <p class="place place-aikien">あいきえん</p> -->
 
                 {% for art in arts %}
-                <div id="mark_1_{{ art.id }}" class="mark mark-art mark_1"
+                <!-- <div id="mark_1_{{ art.id }}" class="mark mark-art mark_1"
                     onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))"
                     onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))"
+                > -->
+                <div id="mark_1_{{ art.id }}" class="mark mark-art mark_1"
+                    onmouseenter="popupActivate('_1_{{ art.id }}')"
+                    onmouseleave="popupDeactivate('_1_{{ art.id }}')"
                 >
                     <i class="fas fa-palette"></i>
                 </div>
                 {% endfor %}
                 {% for restaurant in restaurants %}
-                <div id="mark_2_{{ restaurant.id }}" class="mark mark-restaurant mark_2"
+                <!-- <div id="mark_2_{{ restaurant.id }}" class="mark mark-restaurant mark_2"
                     onmouseenter="popupActivate(document.getElementById('popup_2_{{ restaurant.id }}'))"
                     onmouseleave="popupDeactivate(document.getElementById('popup_2_{{ restaurant.id }}'))"
+                > -->
+                <div id="mark_2_{{ restaurant.id }}" class="mark mark-restaurant mark_2"
+                    onmouseenter="popupActivate('_2_{{ restaurant.id }}')"
+                    onmouseleave="popupDeactivate('_2_{{ restaurant.id }}')"
                 >
                     <i class="fas fa-utensils"></i>
                 </div>
                 {% endfor %}
                 {% for hotel in hotels %}
-                <div id="mark_3_{{ hotel.id }}" class="mark mark-hotel mark_3"
+                <!-- <div id="mark_3_{{ hotel.id }}" class="mark mark-hotel mark_3"
                     onmouseenter="popupActivate(document.getElementById('popup_3_{{ hotel.id }}'))"
                     onmouseleave="popupDeactivate(document.getElementById('popup_3_{{ hotel.id }}'))"
+                > -->
+                <div id="mark_3_{{ hotel.id }}" class="mark mark-hotel mark_3"
+                    onmouseenter="popupActivate('_3_{{ hotel.id }}')"
+                    onmouseleave="popupDeactivate('_3_{{ hotel.id }}')"
                 >
                     <i class="fas fa-home"></i>
                 </div>
                 {% endfor %}
                 {% for cat in cats %}
-                <div id="mark_4_{{ cat.id }}" class="mark mark-cat mark_4"
+                <!-- <div id="mark_4_{{ cat.id }}" class="mark mark-cat mark_4"
                     onmouseenter="popupActivate(document.getElementById('popup_4_{{ cat.id }}'))"
                     onmouseleave="popupDeactivate(document.getElementById('popup_4_{{ cat.id }}'))"
+                > -->
+                <div id="mark_4_{{ cat.id }}" class="mark mark-cat mark_4"
+                    onmouseenter="popupActivate('_4_{{ cat.id }}')"
+                    onmouseleave="popupDeactivate('_4_{{ cat.id }}')"
                 >
                     <i class="fas fa-paw"></i>
                 </div>
                 {% endfor %}
-                <div id="mark_0_0" class="mark mark_0" onmouseenter="popupActivate(document.getElementById('popup_0_0'))" onmouseleave="popupDeactivate(document.getElementById('popup_0_0'))">
+                <div id="mark_0_0" class="mark mark_0" onmouseenter="popupActivate('_0_0')" onmouseleave="popupDeactivate('_0_0')">
                 </div>
 
             </div>
@@ -293,4 +310,5 @@
 
     </script>
     <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/information.js"></script>
+    <!-- <script src="{% static 'js/information.js' %}"></script> -->
 {% endblock %}

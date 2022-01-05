@@ -55,52 +55,6 @@ window.addEventListener('scroll', () => {
             document.getElementById('desire__list-3').style.transform = "translateY(0%)";
         }, 2000);
     }
-    // else if(scrollY > desireOffset - screenHeight * 0.6){
-    //     document.querySelector('#desire h2').classList.add('titlelinein');
-    // }
-    // else if(scrollY > work2Offset - screenHeight * 0.6){
-    //     document.querySelector('#work-2 h2').classList.add('titlelinein');
-    // }
-    // else if(scrollY > work1Offset - screenHeight * 0.6){
-    //     document.querySelector('#work-1 h2').classList.add('titlelinein');
-    // }
-    // else if(scrollY > informationOffset - screenHeight * 0.6){
-    //     document.querySelector('#information .section-title h2').classList.add('titlelinein');
-    // }
-    // else if(scrollY > newsOffset - screenHeight * 0.6){
-    //     document.querySelector('#news .section-title h2').classList.add('titlelinein');
-    // }
-
-    // if(scrollY > desireOffset - screenHeight * 0.6){
-    //     document.querySelector('#desire h2 span').style.transform = "translateX(0)";
-    // }
-    // else if(scrollY > workOffset - screenHeight * 0.6){
-    //     document.querySelector('#work .section-title h2 span').style.transform = "translateX(0)";
-    // }
-    // else if(scrollY > informationOffset - screenHeight * 0.6){
-    //     document.querySelector('#information .section-title h2 span').style.transform = "translateX(0)";
-    // }
-    // else if(scrollY > newsOffset - screenHeight * 0.6){
-    //     document.querySelector('#news .section-title h2 span').style.transform = "translateX(0)";
-    // }
-
-    // if(scrollY > desireOffset - screenHeight * 0.6){
-    //     document.querySelector('#desire h2 span').style.transform = "translateX(0)";
-    // }
-    // else if(scrollY > workOffset - screenHeight * 0.6){
-    //     document.querySelector('#work .section-title h2 span').style.transform = "translateX(0)";
-    // }
-    // else if(scrollY > informationOffset - screenHeight * 0.6){
-    //     document.querySelector('#information .section-title h2 span').style.transform = "translateX(0)";
-    // }
-    // else if(scrollY > newsOffset - screenHeight * 0.6){
-    // if(scrollY > newsOffset - screenHeight * 0.6){
-    //     document.querySelector('#news .section-title h2 span').style.transform = "translateY(0)";
-    //     document.querySelector('#news .section-title h2 span').classList.add('h2mask');
-    //     window.setTimeout(() => {
-    //         document.querySelector('#news .section-title h2 span').classList.remove('h2mask');
-    //     }, 300);    
-    // }
 })
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -141,18 +95,40 @@ window.onpageshow = function(event) {
     }
 };
 
-function popupActivate(elem) {
+// function popupActivate(elem) {
+//     // elem.firstChild.style.color = "rgb(230,95,96)";
+//     console.log(elem)
+//     if(userAgent != "pc"){
+//         var mapPopupList = document.querySelectorAll('.upblock');
+//         for(let i = 0; i < mapPopupList.length; i++){
+//             mapPopupList[i].style.display = "none";
+//         }
+//     }
+//     elem.style.display = "flex";
+// }
+
+// function popupDeactivate(elem) {
+//     if(userAgent == "pc"){elem.style.display = "none";}
+// }
+
+function popupActivate(id) {
+    var markList = document.querySelectorAll('.mark');
+    for(let i = 0; i < markList.length; i++){
+        try{markList[i].querySelector('i').style.color = "rgb(104, 94, 96)";}catch{}
+    }
+    document.querySelector('#mark' + id + " i").style.color = "rgb(230,95,96)";
     if(userAgent != "pc"){
         var mapPopupList = document.querySelectorAll('.upblock');
         for(let i = 0; i < mapPopupList.length; i++){
             mapPopupList[i].style.display = "none";
         }
     }
-    elem.style.display = "flex";
+    document.getElementById('popup' + id).style.display = "flex";
 }
 
-function popupDeactivate(elem) {
-    if(userAgent == "pc"){elem.style.display = "none";}
+function popupDeactivate(id) {
+    document.querySelector('#mark' + id + " i").style.color = "rgb(104, 94, 96)";
+    if(userAgent == "pc"){document.getElementById('popup' + id).style.display = "none";}
 }
 
 function mapAreaSize(userAgent, screenWidth, screenHeight) {
@@ -245,6 +221,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.map__wrapper').style.width = imageSize[1] + "px";
         // })
     };
+
+    if(userAgent == "sp"){
+        var markList = document.querySelectorAll('.mark');
+        for(let i = 0; i < markList.length; i++){
+            markList[i].onmouseenter = "";
+            markList[i].onmouseleave = "";
+            markList[i].addEventListener('touchstart', () => {
+                // popupActivate(document.getElementById('popup' + markList[i].id.replace('mark', "")))
+                popupActivate(markList[i].id.replace('mark', ""))
+            });
+        }
+        document.getElementById('mobile-text').innerText = "をタップすると";
+    }
 })
 
 function modalDeactivate(){
