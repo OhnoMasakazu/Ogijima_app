@@ -82,7 +82,7 @@
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>
                         <ul class="sub">
                             <li>
-                                <a href="{% url 'ogijima:reports' %}?1">島暮らしの<br>ヤマグッティ</a>
+                                <a href="{% url 'ogijima:reports' %}?1">島レポート</a>
                                 <div>></div>
                             </li>
                             <li>
@@ -101,6 +101,7 @@
                     <li>
                         <a href="{% url 'ogijima:profile' %}">メンバー</a>
                     </li>
+                    {% comment %}
                     <li class="sub_menu">
                         <a href="{% url 'ogijima:information' %}">島情報</a>
                         <ul class="sub">
@@ -126,6 +127,7 @@
                             </li>
                         </ul>
                     </li>
+                    {% endcomment %}
                     <li>
                         <a href="{% url 'ogijima:gallery' %}">ギャラリー</a>
                     </li>

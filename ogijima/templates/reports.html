@@ -8,14 +8,14 @@
 {% block main_panel %}
 <h1 class="pagetitle">活動報告</h1>
 <div id="reports-list" class="reports-list">
-    <div class="reports-list-button" id="button-blog" onclick="sectionChange(1)"><span>島暮らしの<br class="sp-br">ヤマグッティ</span></div>
+    <div class="reports-list-button" id="button-blog" onclick="sectionChange(1)"><span>島レポート</span></div>
     <div class="reports-list-button" id="button-crowdfunding" onclick="sectionChange(2)"><span>クラウド<br class="sp-br">ファンディング</span></div>
     <!-- {% comment %}<div class="reports-list-button" id="button-donation" onclick="sectionChange(3)"><span>寄付サイト</span></div>{% endcomment %} -->
     <div class="reports-list-button" id="button-shop" onclick="sectionChange(4)"><span>オンラインショップ</span></div>
 </div>
 
 <div class="section" id="section-blog">
-    <h3>島暮らしのヤマグッティ</h3>
+    <h3>島レポート</h3>
     {% for blog in pages %}
         <a class="blog__wrapper" href="{% url 'ogijima:blog_detail' blog.id %}">
             <img class="blog-sumbnail" src="{{ blog.sumbnail }}">

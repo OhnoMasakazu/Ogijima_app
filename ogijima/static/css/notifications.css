@@ -12,10 +12,10 @@
     text-decoration-color: rgb(230,95,96);
 }
 .notification__date {
-    width: 10vw;
+    width: 13vw;
 }
 .notification__content {
-    max-width: 50vw;
+    max-width: 47vw;
 }
 
 @media screen and (max-width:1020px) {
