@@ -13,6 +13,8 @@
     <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
     <p class="notification__content">{{ notification.content }}</p>
 </a>
+{% empty %}
+<p>現在おしらせはありません。</p>
 {% endfor %}
 
 <!-- ここからページネーション -->
