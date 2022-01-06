@@ -66,9 +66,12 @@
             <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
             <p class="notification__content">{{ notification.content }}</p>
         </a>
+    {% empty %}
+        <p>現在おしらせはありません。</p>
     {% endfor %}
 </section>
 
+{% comment %}
 <section id="information">
     <div class="section-title">
         <h2>島内マップ</h2>
@@ -172,6 +175,7 @@
     </div>
 
 </section>
+{% endcomment %}
 
 <section id="work">
     <div id="work-1" class="section-title">
@@ -260,6 +264,7 @@
         {% endfor %}
     }
 
+    {% comment %}
     document.addEventListener("DOMContentLoaded", () => {
         if(userAgent == "pc"){
             {% for art in arts %}
@@ -338,6 +343,7 @@
             {% endfor %}
         }
     })
+    {% endcomment %}
 </script>
 <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

@@ -1,7 +1,7 @@
 var screenHeight = window.screen.height;
 
 var newsOffset = document.getElementById('news').offsetTop;
-var informationOffset = document.getElementById('information').offsetTop;
+// var informationOffset = document.getElementById('information').offsetTop;
 var work1Offset = document.getElementById('work-1').offsetTop;
 var work2Offset = document.getElementById('work-2').offsetTop;
 var desireOffset = document.getElementById('desire').offsetTop;
@@ -17,7 +17,8 @@ let mySwiper = new Swiper('.swiper', {
     speed: 1000,
     loop: true,
 });
-var hidemaskTop = document.getElementById('information').offsetTop;
+// var hidemaskTop = document.getElementById('information').offsetTop;
+var hidemaskTop = document.getElementById('work').offsetTop;
 
 window.addEventListener('scroll', () => {
     var scrollY = window.pageYOffset;
@@ -69,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // var desireHeight = document.querySelector('.desire__wrapper').clientHeight;
     // document.querySelector('.desire__linktext').style.marginTop = desireHeight + 48 + "px";
 
-    var hidemaskTop = document.getElementById('information').offsetTop;
+    // var hidemaskTop = document.getElementById('information').offsetTop;
+    var hidemaskTop = document.getElementById('work').offsetTop;
     var hidemaskBottom = document.getElementById('footer').offsetTop;
     document.getElementById('swiper-hide-mask').style.top = hidemaskTop - 60 + "px";
     document.getElementById('swiper-hide-mask').style.height = hidemaskBottom - hidemaskTop + 60 + "px";
@@ -77,11 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
     var separatorList = document.querySelectorAll('.separator');
     separatorList[separatorList.length - 1].style.display = "none";
 
-    document.querySelector('#popup_1_7 .popup__title').style.display = "none";
-    let aikienPopup = document.createElement('img');
-    aikienPopup.src = "https://aikien.s3.ap-northeast-3.amazonaws.com/image/logo/logo_HP_yoko_brown.svg";
-    aikienPopup.classList.add('aikienPopup');
-    document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
+    // document.querySelector('#popup_1_7 .popup__title').style.display = "none";
+    // let aikienPopup = document.createElement('img');
+    // aikienPopup.src = "https://aikien.s3.ap-northeast-3.amazonaws.com/image/logo/logo_HP_yoko_brown.svg";
+    // aikienPopup.classList.add('aikienPopup');
+    // document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
 
 })
 
@@ -148,24 +150,24 @@ function mapAreaSize(userAgent, screenWidth, screenHeight) {
     return mapArea
 }
 
-function aspectCheck(mapArea) {
-    // 地図の画像が変更された場合、ここの指数は変更する必要がある
-    // 画像のアスペクト比よりも横長の場合
-    if (mapArea[0] / mapArea[1] > 1.686) {
-        var imageWidth = mapArea[1] * 1.686 - 12;
-        // 12px小さくしているのは、計算誤差や思わぬヘッダーなどでスクロールが発生するのを防ぐため
-        var imageHeight = mapArea[1] - 12;
-    }
-    else {
-        var imageWidth = mapArea[0] - 12;
-        var imageHeight = mapArea[0] * 0.593 - 12;
-    }
-    document.querySelector('.map__image').style.width = imageWidth + "px";
-    document.querySelector('.map__image').style.height = imageHeight + "px";
-    document.querySelector('.map__wrapper').style.width = imageWidth + "px";
-    document.querySelector('.map__wrapper').style.height = imageHeight + "px";
-    return [imageHeight, imageWidth]
-}
+// function aspectCheck(mapArea) {
+//     // 地図の画像が変更された場合、ここの指数は変更する必要がある
+//     // 画像のアスペクト比よりも横長の場合
+//     if (mapArea[0] / mapArea[1] > 1.686) {
+//         var imageWidth = mapArea[1] * 1.686 - 12;
+//         // 12px小さくしているのは、計算誤差や思わぬヘッダーなどでスクロールが発生するのを防ぐため
+//         var imageHeight = mapArea[1] - 12;
+//     }
+//     else {
+//         var imageWidth = mapArea[0] - 12;
+//         var imageHeight = mapArea[0] * 0.593 - 12;
+//     }
+//     document.querySelector('.map__image').style.width = imageWidth + "px";
+//     document.querySelector('.map__image').style.height = imageHeight + "px";
+//     document.querySelector('.map__wrapper').style.width = imageWidth + "px";
+//     document.querySelector('.map__wrapper').style.height = imageHeight + "px";
+//     return [imageHeight, imageWidth]
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
     // let imageWidth = document.querySelector('.map__image').clientWidth;
@@ -176,66 +178,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // document.getElementById('zoom-mordal').style.height = screenHeight + 'px';
 
-    let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
-    let imageSize = aspectCheck(mapArea)
+    // let mapArea = mapAreaSize(userAgent, screenWidth, screenHeight);
+    // let imageSize = aspectCheck(mapArea)
 
-    if (userAgent == "pc") {
-        $(function () {
-            $(".mark").css({
-                "height": imageSize[1] / 50 + "px",
-                "width": imageSize[1] / 50 + "px",
-            });
-        });
-        $(function () {
-            $('#map__image').hover(function () {	//色領域にマウスカーソルがホバーしているとき開始
-                function MouseMoveFunc(e) {	//マウスカーソルが移動するたびに実行する関数
+    // if (userAgent == "pc") {
+    //     $(function () {
+    //         $(".mark").css({
+    //             "height": imageSize[1] / 50 + "px",
+    //             "width": imageSize[1] / 50 + "px",
+    //         });
+    //     });
+    //     $(function () {
+    //         $('#map__image').hover(function () {	//色領域にマウスカーソルがホバーしているとき開始
+    //             function MouseMoveFunc(e) {	//マウスカーソルが移動するたびに実行する関数
 
-                    // マウスカーソルの座標を取得
-                    var mouse_x = e.clientX + 5;	//マウスカーソルのX座標 5px右へ調整
-                    var mouse_y = $(window).scrollTop() + e.clientY + 5;	//マウスカーソルのY座標 現在のスクロール位置＋5px下へ調整
+    //                 // マウスカーソルの座標を取得
+    //                 var mouse_x = e.clientX + 5;	//マウスカーソルのX座標 5px右へ調整
+    //                 var mouse_y = $(window).scrollTop() + e.clientY + 5;	//マウスカーソルのY座標 現在のスクロール位置＋5px下へ調整
 
-                    // 吹き出しの位置座標を取得したマウスカーソルの座標に変換
-                    $("#popup").css({
-                        "position": "absolute",
-                        "left": mouse_x,
-                        "top": mouse_y
-                    });
-                }
+    //                 // 吹き出しの位置座標を取得したマウスカーソルの座標に変換
+    //                 $("#popup").css({
+    //                     "position": "absolute",
+    //                     "left": mouse_x,
+    //                     "top": mouse_y
+    //                 });
+    //             }
 
-                if (document.addEventListener) {
-                    document.addEventListener("mousemove", MouseMoveFunc);
-                } else if (document.attachEvent) {
-                    document.attachEvent("onmousemove", MouseMoveFunc);
-                }
-            });
-        });
-    } else {
-        $(function () {
-            $(".mark").css({
-                "height": imageSize[1] / 31 + "px",
-                "width": imageSize[1] / 31 + "px",
-            });
-        });
-        // window.addEventListener("DOMContentLoaded", () => {
-        document.querySelector('.map__wrapper').style.height = imageSize[0] + "px";
-        document.querySelector('.map__wrapper').style.width = imageSize[1] + "px";
-        // })
-    };
+    //             if (document.addEventListener) {
+    //                 document.addEventListener("mousemove", MouseMoveFunc);
+    //             } else if (document.attachEvent) {
+    //                 document.attachEvent("onmousemove", MouseMoveFunc);
+    //             }
+    //         });
+    //     });
+    // } else {
+    //     $(function () {
+    //         $(".mark").css({
+    //             "height": imageSize[1] / 31 + "px",
+    //             "width": imageSize[1] / 31 + "px",
+    //         });
+    //     });
+    //     // window.addEventListener("DOMContentLoaded", () => {
+    //     document.querySelector('.map__wrapper').style.height = imageSize[0] + "px";
+    //     document.querySelector('.map__wrapper').style.width = imageSize[1] + "px";
+    //     // })
+    // };
 
-    if(userAgent == "sp"){
-        var markList = document.querySelectorAll('.mark');
-        for(let i = 0; i < markList.length; i++){
-            markList[i].onmouseenter = "";
-            markList[i].onmouseleave = "";
-            markList[i].addEventListener('touchstart', () => {
-                // popupActivate(document.getElementById('popup' + markList[i].id.replace('mark', "")))
-                popupActivate(markList[i].id.replace('mark', ""))
-            });
-        }
-        document.getElementById('mobile-text').innerText = "をタップすると";
-    }
+    // if(userAgent == "sp"){
+    //     var markList = document.querySelectorAll('.mark');
+    //     for(let i = 0; i < markList.length; i++){
+    //         markList[i].onmouseenter = "";
+    //         markList[i].onmouseleave = "";
+    //         markList[i].addEventListener('touchstart', () => {
+    //             // popupActivate(document.getElementById('popup' + markList[i].id.replace('mark', "")))
+    //             popupActivate(markList[i].id.replace('mark', ""))
+    //         });
+    //     }
+    //     document.getElementById('mobile-text').innerText = "をタップすると";
+    // }
 })
 
-function modalDeactivate(){
-    document.getElementById('detail-modal').style.display = "none";
-}
+// function modalDeactivate(){
+//     document.getElementById('detail-modal').style.display = "none";
+// }

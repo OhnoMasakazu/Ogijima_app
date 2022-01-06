@@ -73,7 +73,8 @@ header{
 
 .header_menu_tags > li {
     list-style: none;
-    width: 9vw;
+    /* width: 9vw; */
+    width: 10vw;
     position: relative;
 }
 
