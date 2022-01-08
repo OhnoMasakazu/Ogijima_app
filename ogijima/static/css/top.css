@@ -99,6 +99,8 @@ section{
     top: 10vh;
     left: 0;
     margin-top: 0;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.3);
 }
 .top-text{
     font-family: 'ロンド B';
@@ -179,7 +181,8 @@ section{
     }
 }
 #news{
-    margin-top: 150vh;
+    /* margin-top: 150vh; */
+    margin-top: 350vh;
 }
 .notification__wrap{
     text-decoration: none;
