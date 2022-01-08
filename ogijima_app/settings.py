@@ -28,8 +28,8 @@ DEBUG = False
 
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['15.152.138.244']
-
+#ALLOWED_HOSTS = ['15.152.138.244']
+ALLOWED_HOSTS = ['aikien.com']
 
 # Application definition
 
