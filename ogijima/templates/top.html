@@ -3,8 +3,8 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/top.css">
-<!-- <link rel="stylesheet" href="{% static 'css/top.css' %}"> -->
+<!-- <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/top.css"> -->
+<link rel="stylesheet" href="{% static 'css/top.css' %}">
 <style>
     {% for art in arts %}
     #mark_1_{{ art.id }}{top:{{ art.coordinate_pc_top }}%;left:{{ art.coordinate_pc_left }}%;}
@@ -347,6 +347,6 @@
 </script>
 <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/top.js"></script>
-<!-- <script src="{% static 'js/top.js' %}"></script> -->
+<!-- <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/top.js"></script> -->
+<script src="{% static 'js/top.js' %}"></script>
 {% endblock %}
