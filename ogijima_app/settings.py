@@ -134,10 +134,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'ogijima/static'),
 )
-STATIC_ROOT = os.path.join(BASE_DIR, 'ogijima/static')
-# STATIC_ROOT = '/usr/share/nginx/html/static'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'ogijima/static')
+STATIC_ROOT = '/usr/share/nginx/html/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -145,8 +145,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'ogijima/static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_ROOT = '/usr/share/nginx/html/media'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/usr/share/nginx/html/media'
 
 # Gmail で送信する場合
 EMAIL_HOST = 'smtp.gmail.com'
