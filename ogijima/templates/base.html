@@ -39,6 +39,7 @@
 
         <!-- 全体CSS -->
         <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/base.css" />
+        <!-- <link rel="stylesheet" href="{% static 'css/base.css' %}" /> -->
         <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/pagination.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic">
         <!-- <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> -->
@@ -75,8 +76,22 @@
                     <li>
                         <a href="{% url 'ogijima:notifications' %}">おしらせ</a>
                     </li>
-                    <li>
+                    <li class="sub_menu">
                         <a href="{% url 'ogijima:works' %}">イベント</a>
+                        <ul class="sub">
+                            <li>
+                                <a href="{% url 'ogijima:works' %}">現在開催中</a>
+                                <div>></div>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:planed_works' %}">開催予定</a>
+                                <div>></div>
+                            </li>
+                            <li>
+                                <a href="{% url 'ogijima:held_works' %}">開催記録</a>
+                                <div>></div>
+                            </li>
+                        </ul>
                     </li>
                     <li class="sub_menu">
                         <a href="{% url 'ogijima:reports' %}">活動報告</a>

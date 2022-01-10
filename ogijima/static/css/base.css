@@ -2,7 +2,7 @@
     margin: 0;
     /* font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Zen Maru Gothic"; */
     font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
-    font-weight: 300;
+    font-weight: 200;
 }
 @font-face {
     font-family: 'ロンド B';
@@ -104,6 +104,7 @@ header{
     text-decoration: none;
     margin-bottom: 2vh;
     display: block;
+    font-weight: 200;
 }
 
 header img{
@@ -176,8 +177,9 @@ header img{
 
 footer{
     bottom: 0;
-    height: 36vh;
+    height: max-content;
     width: auto;
+    padding: 32px;
     background-color: rgb(90, 77, 79);
     border-bottom: solid 10px rgb(90, 77, 79);
 }
@@ -198,7 +200,7 @@ footer{
 }
 
 .footer__link-list{
-    margin: 32px 0 12px;
+    margin: 0 0 12px;
     text-align: left;
 }
 
@@ -240,11 +242,11 @@ footer{
     width: max-content;
     height: max-content;
     display: block;
-    margin: 32px 0 0 auto;
+    margin: 0 0 0 auto;
 }
 
 .footer__logo img{
-    margin: 32px 0 0;
+    margin: 0;
     width: 20vw;
     height: 7vw;
     object-fit: cover;
@@ -256,6 +258,7 @@ footer{
     display: block;
     width: max-content;
     margin-left: auto;
+    font-size: 12px;
 }
 #copyright_year{
     color: rgb(239, 228, 213);
