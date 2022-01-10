@@ -140,6 +140,18 @@ class Sponsor_banner(models.Model):
     def __str__(self):
         return self.name
 
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    mail = models.EmailField(max_length=254)
+    content = models.TextField(max_length=4000,blank=True)
+    application_file = models.FileField(upload_to='media/%Y-%m-%d-%H-%M-%S', blank=True)
+    terms_file = models.FileField(upload_to='media/%Y-%m-%d-%H-%M-%S', blank=True)
+    # application_file = models.FileField(upload_to='usr/share/nginx/html/media/%Y-%m-%d-%H-%M-%S')
+    # terms_file = models.FileField(upload_to='usr/share/nginx/html/media/%Y-%m-%d-%H-%M-%S')
+
+    def __str__(self):
+        return self.name
+
 # 営業資料用サンプル
 class Restaurant_sample(models.Model):
     sumbnail = models.CharField(max_length=300)

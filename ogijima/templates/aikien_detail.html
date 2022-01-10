@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<!-- <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/information_detail.css"> -->
+<link rel="stylesheet" href="{% static 'css/information_detail.css' %}">
+<style>
+    #mark{
+        top:{{ art.coordinate_pc_top }}%;
+        left:{{ art.coordinate_pc_left }}%;
+    }
+    /* @media screen and (max-width:1020px) {
+        #mark{
+            top:{{ art.coordinate_mobile_top }}%;
+            left:{{ art.coordinate_mobile_left }}%;
+        }
+    } */
+</style>
+{% endblock %}
+
+{% block main_panel %}
+<div class="top">
+    <div class="top__imagebox">
+        <img id="top__image" class="top__image" src="">
+        <div id="image-list" class="image-list"></div>
+    </div>
+    <div class="top__textbox">
+        <h3>{{ art.name }}</h3>
+        <p class="top__introduction">{{ art.introduction | safe }}</p>
+        <p><a href="#locationinfo">位置情報</a>はこちら</p>
+    </div>
+</div>
+
+<div class="aikien-document">
+
+    <p>
+        <a href="https://drive.google.com/file/d/11-cCfUR5d2couktFxIIZKV3mRNVyEXJw/view?usp=sharing" target="application">
+            利用規約
+        </a>
+        はこちら
+    </p>
+    <p>
+        <a href="https://drive.google.com/file/d/11-cCfUR5d2couktFxIIZKV3mRNVyEXJw/view?usp=sharing" target="terms">
+            申込書
+        </a>
+        はこちら
+    </p>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <div class="privacypolicy-check__wrapper">
+            <p><a href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>に同意する</p>
+            <input id="privacypolicy-check" type="checkbox"><label for="privacypolicy-check"></label>
+        </div>
+        <button id="submit-button" type="submit" disabled="true">送信</button>
+        <div id="button-cover">送信</div>
+    </form>
+
+</div>
+
+<h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
+<div class="locationinfo">
+    <div class="map__frame mousedragscrollable">
+        <div id="map" class="map">
+            <div class="map__wrapper">
+                <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg">
+                <p class="place place-port">男木港</p>
+                <p class="place place-school">男木島小・中学校</p>
+                <p class="place place-aikien">あいきえん</p>
+                <div id="mark" class="mark mark-art">
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map__text">
+        <p><a href="{{ art.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
+        <p><a href="{{ art.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
+        <p><a href="{{ art.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/map.js"></script>
+<!-- <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/information_detail.js"></script> -->
+<script src="{% static 'js/information_detail.js' %}"></script>
+<script>
+    var imageList="{{ art.image }}";
+    imageList = imageList.split(',');
+    document.getElementById("top__image").src = imageList[0];
+    for(let i = 0; i < imageList.length; i++){
+        let smallImage = document.createElement('img');
+        smallImage.src = imageList[i];
+        smallImage.id = "image-" + i;
+        document.getElementById('image-list').appendChild(smallImage);
+        document.getElementById('image-' + i).addEventListener('click', () => {
+            document.getElementById("top__image").src = imageList[i];     
+
+        })
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("privacypolicy-check").addEventListener('change', () => {
+            if(document.getElementById("privacypolicy-check").checked){
+                document.getElementById("submit-button").style.opacity = 1;
+                document.getElementById("submit-button").disabled = false;
+                document.getElementById("button-cover").style.display = "none";
+            }else{
+                document.getElementById("submit-button").style.opacity = 0.3;
+                document.getElementById("submit-button").disabled = true;
+                document.getElementById("button-cover").style.display = "block";
+        }
+        })
+        document.getElementById("button-cover").addEventListener('click', () => {
+            swal('プライバシーポリシーに同意して、チェックボックスをチェックしてください。');
+        })
+
+        
+        document.querySelector('label[for="id_name"]').innerText = "名前";
+        document.querySelector('label[for="id_mail"]').innerText = "メールアドレス";
+        document.querySelector('label[for="id_content"]').innerText = "申込内容";
+        document.querySelector('label[for="id_application_file"]').innerText = "利用規約";
+        document.querySelector('label[for="id_terms_file"]').innerText = "申込書";
+
+        document.getElementById('id_application_file').parentElement.classList.add('filenamebox__wrapper','filenamebox__wrapper-1');
+        document.getElementById('id_terms_file').parentElement.classList.add('filenamebox__wrapper','filenamebox__wrapper-2');
+        
+        var filenamebox1 = document.createElement('div');
+        filenamebox1.classList.add('filenamebox','filenamebox-1');
+        var filenameboxInput1 = document.createElement('input');
+        filenameboxInput1.type = "text";
+        filenameboxInput1.id = "filenameboxInput1";
+        filenameboxInput1.placeholder = "select file...";
+        filenamebox1.appendChild(filenameboxInput1);
+        document.getElementById('id_application_file').insertAdjacentElement('afterend',filenamebox1);
+
+        var filenamebox2 = document.createElement('div');
+        filenamebox2.classList.add('filenamebox','filenamebox-2');
+        var filenameboxInput2 = document.createElement('input');
+        filenameboxInput2.type = "text";
+        filenameboxInput2.id = "filenameboxInput2";
+        filenameboxInput2.placeholder = "select file...";
+        filenamebox2.appendChild(filenameboxInput2);
+        document.getElementById('id_terms_file').insertAdjacentElement('afterend',filenamebox2);
+    })
+
+    $('input[id=id_application_file]').change(function() {
+        $('#filenameboxInput1').val($(this).val().replace("C:\\fakepath\\", ""));
+    });
+    $('input[id=id_terms_file]').change(function() {
+        $('#filenameboxInput2').val($(this).val().replace("C:\\fakepath\\", ""));
+    });
+</script>
+{% endblock %}

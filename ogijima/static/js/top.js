@@ -22,29 +22,26 @@ var hidemaskTop = document.getElementById('work').offsetTop;
 
 window.addEventListener('scroll', () => {
     var scrollY = window.pageYOffset;
-    // if(scrollY < screenHeight){
-    //     document.getElementById('swiper-mask').style.opacity = (scrollY / screenHeight) * 0.7;
-    //     document.getElementById('top').style.opacity = 1 - (scrollY / screenHeight) * 1.8;
-    // }else{
-    //     document.getElementById('swiper-mask').style.opacity = 0.7;
-    //     document.getElementById('top').style.opacity = 0;
-    // }
-
-    if(scrollY < screenHeight*0.75){
-        document.getElementById('top').style.opacity = (scrollY / screenHeight) * 4/3;
-        document.getElementById('swiper-mask').style.opacity = 0;
-    }
-    else if(scrollY < screenHeight*1.5){
-        document.getElementById('swiper-mask').style.opacity = 0;
-        document.getElementById('top').style.opacity = 1 - ((scrollY-screenHeight*0.75) / screenHeight) * 4/3;
-    }
-    else if(scrollY < screenHeight*3){
-        document.getElementById('swiper-mask').style.opacity = ((scrollY-screenHeight) / screenHeight) * 0.7;
+    if(scrollY < screenHeight){
+        document.getElementById('swiper-mask').style.opacity = (scrollY / screenHeight) * 0.7;
         document.getElementById('top').style.opacity = 1 - (scrollY / screenHeight) * 1.8;
     }else{
         document.getElementById('swiper-mask').style.opacity = 0.7;
         document.getElementById('top').style.opacity = 0;
     }
+
+    // if(scrollY < screenHeight*0.75){
+    //     document.getElementById('top').style.opacity = (scrollY / screenHeight) * 4/3;
+    //     document.getElementById('swiper-mask').style.opacity = 0;
+    // }
+    // else if(scrollY < screenHeight*1.5){
+    //     document.getElementById('swiper-mask').style.opacity = ((scrollY-screenHeight*0.75) / screenHeight) * 0.7;
+    //     document.getElementById('top').style.opacity = 1 - ((scrollY-screenHeight*0.75) / screenHeight) * 4/3;
+    // }
+    // else{
+    //     document.getElementById('swiper-mask').style.opacity = 0.7;
+    //     document.getElementById('top').style.opacity = 0;
+    // }
 
     if(scrollY > hidemaskTop){
         document.getElementById('swiper').style.opacity = 0;
@@ -75,7 +72,7 @@ window.addEventListener('scroll', () => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-    // document.getElementById('top').style.opacity = 1;
+    document.getElementById('top').style.opacity = 1;
     document.getElementById('swiper').style.opacity = 1;
 
     window.setTimeout(() => {

@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
+from django.conf import settings
 from django.http import HttpResponse
-from ogijima.forms import ContactForm
+from django.core.mail import BadHeaderError, send_mail, EmailMessage
+from ogijima.forms import ContactForm, ApplyForm, ApplicationForm
 from .models import *
 from markdown import markdown
 import re
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import datetime
 
 def top(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -217,6 +220,62 @@ def art_detail(request, id):
     art = Art.objects.get(pk=id)
     art.document = markdown(art.document)
     return render(request,'art_detail.html',{'art':art})
+
+def aikien_detail(request):
+    model = Contact
+    art = Art.objects.get(pk=7)
+    art.document = markdown(art.document)
+    if request.method == 'POST':
+        form = ApplicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            postdata = Contact(
+                name = request.POST['name'],
+                mail = request.POST['mail'],
+                content = request.POST['content'],
+                application_file = request.FILES['application_file'],
+                terms_file = request.FILES['terms_file'],
+            )
+            postdata.save()
+            name = request.POST['name']
+            email = request.POST['mail']
+            text = request.POST['content']
+            subject = "【男木島名物倉庫『あいきえん』】アートギャラリーお申込内容の確認"
+            message = """※このメールはシステムからの自動返信です。
+
+{name} 様
+アートギャラリーのご利用申込いただきありがとうございます。
+以下の内容で承りました。ご確認よろしくお願いします。
+添付いただいたファイルも添付しておりますので、併せてご確認ください。
+
+━━━━━━□■□　申込内容　□■□━━━━━━
+お名前 ： {name}
+
+メールアドレス ： {email}
+
+申込内容：
+{text}
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+担当の者より、数日で返信させていただきますので、今しばらくお待ちくださいませ。
+
+
+※このメールは送信専用です。このメールにご返信いただいても、お返しすることができませんので、ご了承ください。
+""".format(name=name, email=email, text=text)
+            from_email = '男木島名物倉庫『あいきえん』お問い合わせ <{email}>'.format(email=settings.EMAIL_HOST_USER)
+            recipient_list = ['{email}'.format(email=email)]
+            bcc = ['{email}'.format(email=settings.EMAIL_HOST_USER),'ogijima.pj.hp@gmail.com']
+            try:
+                send_mail = EmailMessage(subject, message, from_email, recipient_list, bcc)
+                send_mail.attach_file(Contact.objects.get(pk=postdata.id).application_file.path)
+                send_mail.attach_file(Contact.objects.get(pk=postdata.id).terms_file.path)
+                send_mail.send()
+            except BadHeaderError:
+                return HttpResponse("無効なヘッダが検出されました。")
+            return redirect('ogijima:contact_completed',request.POST['mail'])
+    else:
+        form = ApplicationForm()  
+    return render(request,'aikien_detail.html', {'art': art,'form': form})
 
 def restaurants(request):
     restaurant = Restaurant.objects.all().order_by('id')

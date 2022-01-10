@@ -16,6 +16,7 @@ urlpatterns = [
     path('information',views.information,name="information"),
     path('arts',views.arts,name="arts"),
     path('art_detail/<int:id>',views.art_detail,name="art_detail"),
+    path('art_detail/aikien',views.aikien_detail,name="aikien_detail"),
     path('restaurants',views.restaurants,name="restaurants"),
     path('restaurant_detail/<int:id>',views.restaurant_detail,name="restaurant_detail"),
     path('hotels',views.hotels,name="hotels"),
