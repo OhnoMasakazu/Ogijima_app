@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/aboutus.css">
+<!-- <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/aboutus.css"> -->
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
 {% endblock %}
 
 {% block main_panel %}
@@ -75,6 +76,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/aboutus.js"></script>
-<!-- <script src="{% static 'js/aboutus.js' %}"></script> -->
+<!-- <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/aboutus.js"></script> -->
+<script src="{% static 'js/aboutus.js' %}"></script>
 {% endblock %}

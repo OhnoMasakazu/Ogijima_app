@@ -1,28 +1,25 @@
 *{
     margin: 0;
     /* font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Zen Maru Gothic"; */
-    font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
+    /* font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif; */
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif;
     font-weight: 200;
 }
-@font-face {
-    font-family: 'ロンド B';
-    src: url(https://aikien.s3.ap-northeast-3.amazonaws.com/font/Ronde-B_square.otf);
-}
 
-h1{font-size: 36px;}
-h2{font-size: 32px;}
-h3{font-size: 28px;}
-h4{font-size: 24px;}
+h1{font-size: 32px;}
+h2{font-size: 28px;}
+h3{font-size: 24px;}
+h4{font-size: 20px;}
 h5{font-size: 18px;}
 h6{font-size: 14px;}
-p{font-size: 16px;}
+p{font-size: 14px;}
 h1,h2,h3,h4,h5,h6,p,li,span{color:rgb(68,58,59);}
 p{line-height: 1.8;}
 .header_image_link{
     height: 10vh;
 }
 a{
-    font-size: 16px;
+    font-size: 14px;
     color:rgb(230,95,96);
     text-decoration: underline;
     cursor: pointer;
@@ -50,14 +47,15 @@ header{
     /* width: 100vw; */
     text-align: center;
     position: fixed;
-    background-color: rgb(90, 77, 79);
+    background-color: rgb(239, 228, 213);
+    /* background-color: rgba(239, 228, 213, 0.4); */
     z-index: 100;
     left: 0;
     right: 0;
 }
 
 .header_menu {
-    width: fit-content;
+    /* width: fit-content; */
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: space-between;
@@ -67,15 +65,16 @@ header{
 .header_menu_tags {
     display: flex;
     justify-content: space-evenly;
-    margin: auto 0 0;
+    margin: auto 16px 0 0;
     padding: 0;
 }
 
 .header_menu_tags > li {
     list-style: none;
     /* width: 9vw; */
-    width: 10vw;
+    /* width: 10vw; */
     position: relative;
+    padding: 0 24px;
 }
 
 
@@ -87,7 +86,7 @@ header{
     content: '';
     width: 100%;
     height: 2px;
-    background: rgb(239, 228, 213);
+    background: rgb(90, 77, 79);
     transform: scale(0, 1);
     transform-origin: left top;
     transition: transform .3s;
@@ -99,7 +98,7 @@ header{
 /* hoverラインおわり */
 
 .header_menu_tags > li > a{
-    color: rgb(239, 228, 213);
+    color: rgb(90, 77, 79);
     font-size: 14px;
     text-decoration: none;
     margin-bottom: 2vh;
@@ -118,7 +117,7 @@ header img{
 /* サブメニュー */
 .sub {
     padding: 0;
-    background-color: rgba(90, 77, 79, 0.85);
+    background-color: rgba(239, 228, 213, 0.85);
     opacity: 0;
     position: absolute;
     right: 0;
@@ -143,20 +142,20 @@ header img{
 
 .sub > li > a {
     width: fit-content;
-    color: rgb(239, 228, 213);
+    color: rgb(90, 77, 79);
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10px;
     position: relative;
-    margin: 10px auto 10px 5px;
+    margin: 10px auto 10px 4px;
     display: block;
     text-align: left;
 }
 
 .sub > li > div {
-    margin: auto 5px;
+    margin: auto 4px;
     display: block;
     font-size: 12px;
-    color: rgb(239, 228, 213);
+    color: rgb(90, 77, 79);
 }
 
 .nav_btn{

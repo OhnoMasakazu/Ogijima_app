@@ -3,8 +3,8 @@
 
 {% block extra_style %}
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/top.css">
-<!-- <link rel="stylesheet" href="{% static 'css/top.css' %}"> -->
+<!-- <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/top.css"> -->
+<link rel="stylesheet" href="{% static 'css/top.css' %}">
 <style>
     {% for art in arts %}
     #mark_1_{{ art.id }}{top:{{ art.coordinate_pc_top }}%;left:{{ art.coordinate_pc_left }}%;}
@@ -53,7 +53,8 @@
 
 <section id="top" class="delay">
     <!-- <p class="top-text"><span class="layer-1">男木島の“いま”</span><br><span class="layer-1">を残し続ける</span></p> -->
-    <img class="top-text" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/top_text.svg">
+    <!-- <img class="top-text" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/top_text.svg"> -->
+    <img class="top-text" src="{% static 'image/top_text.svg' %}">
     <a class="scrollicon"><span></span><span></span><span></span>Scroll</a>
 </section>
 <section id="news">
@@ -81,7 +82,8 @@
     <div class="map__frame mousedragscrollable">
         <div id="map" class="map">
             <div class="map__wrapper">
-                <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg">
+                <!-- <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg"> -->
+                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
 
                 {% for art in arts %}
                 <!-- <div id="mark_1_{{ art.id }}" class="mark mark_1" onmouseenter="popupActivate(document.getElementById('popup_1_{{ art.id }}'))" onmouseleave="popupDeactivate(document.getElementById('popup_1_{{ art.id }}'))"> -->
@@ -342,10 +344,18 @@
                 })  
             {% endfor %}
         }
+
+        // document.querySelector('#popup_1_7 .popup__title').style.display = "none";
+        // let aikienPopup = document.createElement('img');
+        // aikienPopup.src = "https://aikien.s3.ap-northeast-3.amazonaws.com/image/logo/logo_HP_yoko_brown.svg";
+        // aikienPopup.classList.add('aikienPopup');
+        // document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
+
     })
     {% endcomment %}
 </script>
-<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/swiper-bundle.min.js"></script>
+<!-- <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/swiper-bundle.min.js"></script> -->
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/top.js"></script>
 <!--<script src="{% static 'js/top.js' %}"></script>-->

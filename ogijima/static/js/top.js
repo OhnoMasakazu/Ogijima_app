@@ -22,6 +22,14 @@ var hidemaskTop = document.getElementById('work').offsetTop;
 
 window.addEventListener('scroll', () => {
     var scrollY = window.pageYOffset;
+    // ヘッダーお試し
+    if(scrollY < screenHeight){
+        document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, " + (0.4 + scrollY / screenHeight * 0.6) + ")";
+    }else{
+        document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, 1)";
+    }
+    // ヘッダーお試し
+
     if(scrollY < screenHeight){
         document.getElementById('swiper-mask').style.opacity = (scrollY / screenHeight) * 0.7;
         document.getElementById('top').style.opacity = 1 - (scrollY / screenHeight) * 1.8;
@@ -91,12 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var separatorList = document.querySelectorAll('.separator');
     separatorList[separatorList.length - 1].style.display = "none";
-
-    // document.querySelector('#popup_1_7 .popup__title').style.display = "none";
-    // let aikienPopup = document.createElement('img');
-    // aikienPopup.src = "https://aikien.s3.ap-northeast-3.amazonaws.com/image/logo/logo_HP_yoko_brown.svg";
-    // aikienPopup.classList.add('aikienPopup');
-    // document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
 
 })
 
