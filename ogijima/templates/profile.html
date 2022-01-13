@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block extra_style %}
-<link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/profile.css">
+<!-- <link rel="stylesheet" href="https://aikien.s3.ap-northeast-3.amazonaws.com/css/profile.css"> -->
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 
 {% block main_panel %}
@@ -31,5 +32,6 @@
         profileList.push(["{{ profile.id }}","{{ profile.image }}","{{ profile.name }}","{{ profile.roll }}","{{ profile.introduction }}","{{ profile.link }}"])
     {% endfor %}
 </script>
-<script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/profile.js"></script>
+<!-- <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/profile.js"></script> -->
+<script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}
