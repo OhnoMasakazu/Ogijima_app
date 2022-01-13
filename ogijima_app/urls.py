@@ -18,10 +18,67 @@ from django.urls import path,include, re_path
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views.static import serve 
+from django.views.static import serve
+from django.contrib.sitemaps import Sitemap
+from django.contrib.sitemaps.views import sitemap
+from .models import *
+
+class StaticSitemap(Sitemap):
+    priority = 0.6
+    changefreq = "daily"
+
+    def items(self):
+        return [
+            "top",
+            "aboutus",
+            "works",
+            "planed_works",
+            "held_works",
+            "reports",
+            "profile",
+            "information",
+            "arts",
+            "restaurants",
+            "hotels",
+            "cats",
+            "gallery",
+            "notifications",
+            "contact",
+            "sponsor",
+            "privacypolicy",
+        ]
+
+    def location(self, obj):
+        return reverse(obj)
+
+class WorkSitemap(Sitemap):
+    priority = 0.5
+
+    def items(self):
+        return Work.objects.order_by("-date")
+
+    def location(self, obj):
+        return reverse(obj)
+
+class BlogSitemap(Sitemap):
+    priority = 0.5
+
+    def items(self):
+        return Blog.objects.order_by("-date")
+
+    def location(self, obj):
+        return reverse(obj)
+
+sitemaps = {
+    'static': StaticSitemap,
+    'work': WorkSitemap,
+    'blog': BlogSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps},  name='sitemap'),
+    url(r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", content_type="text/plain")),
     path('',include('ogijima.urls',namespace='ogijima')),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
