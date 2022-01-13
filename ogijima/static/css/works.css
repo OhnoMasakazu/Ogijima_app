@@ -6,7 +6,7 @@
     align-items: flex-end;
     margin: 160px 0 80px;
 }
-h1{
+.section-title h2{
     font-family: 'ロンド B';
 }
 /* h1:after{
