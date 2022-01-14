@@ -80,11 +80,11 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},  name='sitemap'),
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps},  name='sitemap'),
     path('',include('ogijima.urls',namespace='ogijima')),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     # re_path(r'^robots\.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
-    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path("robots.txt/", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
