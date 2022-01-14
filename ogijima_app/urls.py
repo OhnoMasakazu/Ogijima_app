@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include, re_path
+from django.urls import path,include, re_path, reverse
 # from django.conf.urls import url
 from . import settings
 from django.contrib.staticfiles.urls import static
@@ -24,30 +24,31 @@ from django.contrib.sitemaps import Sitemap
 from django.contrib.sitemaps.views import sitemap
 from ogijima.models import *
 from django.views.generic import TemplateView
+from django.shortcuts import resolve_url
 
 class StaticSitemap(Sitemap):
     priority = 0.6
-    changefreq = "daily"
+    changefreq = "never"
 
     def items(self):
         return [
-            "top",
-            "aboutus",
-            "works",
-            "planed_works",
-            "held_works",
-            "reports",
-            "profile",
-            "information",
-            "arts",
-            "restaurants",
-            "hotels",
-            "cats",
-            "gallery",
-            "notifications",
-            "contact",
-            "sponsor",
-            "privacypolicy",
+            "ogijima:top",
+            "ogijima:aboutus",
+            "ogijima:works",
+            "ogijima:planed_works",
+            "ogijima:held_works",
+            "ogijima:reports",
+            "ogijima:profile",
+            "ogijima:information",
+            "ogijima:arts",
+            "ogijima:restaurants",
+            "ogijima:hotels",
+            "ogijima:cats",
+            "ogijima:gallery",
+            "ogijima:notifications",
+            "ogijima:contact",
+            "ogijima:sponsor",
+            "ogijima:privacypolicy",
         ]
 
     def location(self, obj):
@@ -60,7 +61,7 @@ class WorkSitemap(Sitemap):
         return Work.objects.order_by("-date")
 
     def location(self, obj):
-        return reverse(obj)
+        return resolve_url('ogijima:work_detail', work_id=obj.pk)
 
 class BlogSitemap(Sitemap):
     priority = 0.5
@@ -69,12 +70,12 @@ class BlogSitemap(Sitemap):
         return Blog.objects.order_by("-date")
 
     def location(self, obj):
-        return reverse(obj)
+        return resolve_url('ogijima:blog_detail', blog_id=obj.pk)
 
 sitemaps = {
     'static': StaticSitemap,
     'work': WorkSitemap,
-    'blog': BlogSitemap
+    'blog': BlogSitemap,
 }
 
 urlpatterns = [
