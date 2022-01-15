@@ -2,6 +2,11 @@ header{
     background-color: rgba(239, 228, 213, 0.4);
 }
 
+#top h1{
+    position: absolute;
+    display: none;
+}
+
 h2, h3, h2 span{
     font-family: 'ロンド B';
 }
