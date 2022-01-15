@@ -49,6 +49,7 @@ class StaticSitemap(Sitemap):
             "ogijima:contact",
             "ogijima:sponsor",
             "ogijima:privacypolicy",
+            "ogijima:aikien_detail",
         ]
 
     def location(self, obj):

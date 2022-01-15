@@ -18,7 +18,15 @@ h1{
     padding: 12px 0;
     display: flex;
     cursor: pointer;
+    transition: .5s;
 }
+.reports-list-button:hover{
+    background-color: rgb(90, 77, 79);
+}
+.reports-list-button:hover span{
+    color: rgb(239, 228, 213);
+}
+
 .reports-list-button-active{
     background-color: rgb(90, 77, 79);
 }
