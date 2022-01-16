@@ -23,11 +23,11 @@ var hidemaskTop = document.getElementById('work').offsetTop;
 window.addEventListener('scroll', () => {
     var scrollY = window.pageYOffset;
     // ヘッダーお試し
-    if(scrollY < screenHeight){
-        document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, " + (0.4 + scrollY / screenHeight * 0.6) + ")";
-    }else{
-        document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, 1)";
-    }
+    // if(scrollY < screenHeight){
+    //     document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, " + (0.4 + scrollY / screenHeight * 0.6) + ")";
+    // }else{
+    //     document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, 1)";
+    // }
     // ヘッダーお試し
 
     if(scrollY < screenHeight){
@@ -60,7 +60,8 @@ window.addEventListener('scroll', () => {
     if(scrollY > desireOffset - screenHeight * 0.55 && flag == 0){
         flag = 1;
         document.querySelector('.desire__wrapper').style.width = desireWidth + "px";
-        document.querySelector('.desire__wrapper').style.padding = "48px 15vw";
+        // document.querySelector('.desire__wrapper').style.padding = "48px 15vw";
+        document.querySelector('.desire__wrapper').style.padding = "48px 0";
         window.setTimeout(() => {
             document.querySelector('.desire__wrapper').style.width = "auto";
             document.getElementById('desire__list-1').style.opacity = 1;
