@@ -194,7 +194,6 @@
                     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
                     {{ now_work.work_start_date | date:"Y年m月d日" }} ～ {{ now_work.work_end_date | date:"Y年m月d日" }}
                 </p>
-                <!-- <p class="now-work__content work__content">{{ now_work.content | safe }}</p> -->
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
             <hr class="separator">
@@ -214,7 +213,6 @@
                     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
                     {{ future_work.work_start_date | date:"Y年m月d日" }} ～ {{ future_work.work_end_date | date:"Y年m月d日" }}
                 </p>
-                <!-- <p class="future-work__content work__content">{{ future_work.content | safe }}</p> -->
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
     {% else %}
@@ -224,7 +222,7 @@
 </section>
 
 <section id="desire">
-    <h2>想い</h2>
+    <!-- <h2>想い</h2> -->
     <div class="desire__wrapper">
         <div id="desire__list-1" class="desire__list">
             <h3 class="caption caption-1"><span>志</span></h3>

@@ -22,12 +22,19 @@ var hidemaskTop = document.getElementById('work').offsetTop;
 
 window.addEventListener('scroll', () => {
     var scrollY = window.pageYOffset;
+    var submenuUl = document.querySelectorAll('.sub');
     // ヘッダーお試し
-    // if(scrollY < screenHeight){
-    //     document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, " + (0.4 + scrollY / screenHeight * 0.6) + ")";
-    // }else{
-    //     document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, 1)";
-    // }
+    if(scrollY < screenHeight){
+        document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, " + (scrollY / screenHeight) + ")";
+        for(let i = 0; i < submenuUl.length; i++){
+            submenuUl[i].style.backgroundColor = "rgba(239, 228, 213, " + (scrollY / screenHeight)*0.85 + ")";
+        }
+    }else{
+        document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, 1)";
+        for(let i = 0; i < submenuUl.length; i++){
+            submenuUl[i].style.backgroundColor = "rgba(239, 228, 213, 0.85)";
+        }
+    }
     // ヘッダーお試し
 
     if(scrollY < screenHeight){
@@ -93,10 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // document.querySelector('.desire__linktext').style.marginTop = desireHeight + 48 + "px";
 
     // var hidemaskTop = document.getElementById('information').offsetTop;
-    var hidemaskTop = document.getElementById('work').offsetTop;
+    // var hidemaskTop = document.getElementById('work').offsetTop;
+    var hidemaskTop = document.getElementById('news').offsetTop;
     var hidemaskBottom = document.getElementById('footer').offsetTop;
     document.getElementById('swiper-hide-mask').style.top = hidemaskTop - 60 + "px";
-    document.getElementById('swiper-hide-mask').style.height = hidemaskBottom - hidemaskTop + 60 + "px";
+    document.getElementById('swiper-hide-mask').style.height = hidemaskBottom - hidemaskTop - 30 + "px";
 
     var separatorList = document.querySelectorAll('.separator');
     separatorList[separatorList.length - 1].style.display = "none";
