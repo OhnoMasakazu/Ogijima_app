@@ -2,8 +2,9 @@
     margin: 0;
     /* font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Zen Maru Gothic"; */
     /* font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif; */
-    font-family: "Futura-CondensedExtraBold", Futura, sans-serif;
-    font-weight: 200;
+    /* font-family: "Futura-CondensedExtraBold", Futura, sans-serif; */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
 }
 
 h1{font-size: 32px;}
@@ -14,6 +15,7 @@ h5{font-size: 18px;}
 h6{font-size: 14px;}
 p{font-size: 14px;}
 h1,h2,h3,h4,h5,h6,p,li,span{color:rgb(68,58,59);}
+h1,h2,h3,h4,h5,h6{font-weight: 300;}
 p{line-height: 1.8;}
 .header_image_link{
     height: 10vh;
