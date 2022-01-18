@@ -104,6 +104,7 @@ header{
     margin-bottom: 2vh;
     display: block;
     font-weight: 200;
+    font-family: 'ロンド B';
 }
 
 header img{
@@ -171,7 +172,7 @@ header img{
 .main-panel{
     margin: calc(48px + 8vh) 15vw 64px;
     width: 70vw;
-    min-height: calc(56vh - 112px);
+    min-height: 60vh;
 }
 
 footer{
