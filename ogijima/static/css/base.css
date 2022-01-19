@@ -4,7 +4,7 @@
     /* font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif; */
     /* font-family: "Futura-CondensedExtraBold", Futura, sans-serif; */
     font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 h1{font-size: 32px;}
@@ -76,7 +76,7 @@ header{
     /* width: 9vw; */
     /* width: 10vw; */
     position: relative;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
 
@@ -107,6 +107,7 @@ header{
     display: block;
     font-weight: 200;
     font-family: 'ロンド B';
+    letter-spacing: -0.15em;
 }
 
 header img{
@@ -152,6 +153,9 @@ header img{
     margin: 10px auto 10px 4px;
     display: block;
     text-align: left;
+}
+.sub > li > .space-tight{
+    letter-spacing: -0.1em;
 }
 
 .sub > li > div {
