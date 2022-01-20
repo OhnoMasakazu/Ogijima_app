@@ -20,7 +20,7 @@
 </div>
 {% for work in now_works %}
     <a class="now-work__box" href="{% url 'ogijima:work_detail' work.id %}">
-        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <img  class="thumbnail" src="{{ work.thumbnail }}">
         <h4>{{ work.title }}</h4>
         <p class="now-work__date">
             開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
@@ -39,7 +39,7 @@
 </div>
 {% for work in future_works %}
     <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
-        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <img  class="thumbnail" src="{{ work.thumbnail }}">
         <div class="work__text">
             <h4>{{ work.title }}</h4>
             <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
@@ -56,7 +56,7 @@
 </div>
 {% for work in past_works %}
     <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
-        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <img  class="thumbnail" src="{{ work.thumbnail }}">
         <div class="work__text">
             <h4>{{ work.title }}</h4>
             <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>

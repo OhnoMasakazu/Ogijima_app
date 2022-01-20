@@ -18,7 +18,7 @@
 <h2 class="pagetitle">開催記録</h2>
 {% for work in pages %}
     <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
-        <img  class="sumbnail" src="{{ work.sumbnail }}">
+        <img  class="thumbnail" src="{{ work.thumbnail }}">
         <div class="work__text">
             <h4>{{ work.title }}</h4>
             <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>

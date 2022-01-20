@@ -11,7 +11,7 @@
 <div class="list__wrapper">
     {% for restaurant in pages %}
     <a href="{% url 'ogijima:restaurant_detail' restaurant.id %}">
-        <img src="{{ restaurant.sumbnail }}">
+        <img src="{{ restaurant.thumbnail }}">
         <h5>{{ restaurant.name }}</h5>
     </a>
     {% endfor %}

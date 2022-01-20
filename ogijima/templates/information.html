@@ -199,7 +199,7 @@
             {% comment %}
             {% for art in arts %}
                 document.getElementById('mark_' + 1 + "_{{ art.id }}").addEventListener('click', () => {
-                    document.getElementById('detail-modal-img').src = "{{ art.sumbnail }}";
+                    document.getElementById('detail-modal-img').src = "{{ art.thumbnail }}";
                     document.getElementById('detail-modal-name').innerText = "{{ art.name }}";
                     document.getElementById('detail-modal-intro').innerText = "{{ art.introduction }}";
                     document.getElementById('detail-modal-link').href = "{% url 'ogijima:art_detail' art.id  %}";
@@ -208,7 +208,7 @@
             {% endfor %}
             {% for restaurant in restaurants %}
                 document.getElementById('mark_' + 2 + "_{{ restaurant.id }}").addEventListener('click', () => {
-                    document.getElementById('detail-modal-img').src = "{{ restaurant.sumbnail }}";
+                    document.getElementById('detail-modal-img').src = "{{ restaurant.thumbnail }}";
                     document.getElementById('detail-modal-name').innerText = "{{ restaurant.name }}";
                     document.getElementById('detail-modal-intro').innerText = "{{ restaurant.introduction }}";
                     document.getElementById('detail-modal-link').href = "{% url 'ogijima:restaurant_detail' restaurant.id  %}";
@@ -217,7 +217,7 @@
             {% endfor %}
             {% for hotel in hotels %}
                 document.getElementById('mark_' + 3 + "_{{ hotel.id }}").addEventListener('click', () => {
-                    document.getElementById('detail-modal-img').src = "{{ hotel.sumbnail }}";
+                    document.getElementById('detail-modal-img').src = "{{ hotel.thumbnail }}";
                     document.getElementById('detail-modal-name').innerText = "{{ hotel.name }}";
                     document.getElementById('detail-modal-intro').innerText = "{{ hotel.introduction }}";
                     document.getElementById('detail-modal-link').href = "{% url 'ogijima:hotel_detail' hotel.id  %}";
@@ -226,7 +226,7 @@
             {% endfor %}
             {% for cat in cats %}
                 document.getElementById('mark_' + 4 + "_{{ cat.id }}").addEventListener('click', () => {
-                    document.getElementById('detail-modal-img').src = "{{ cat.sumbnail }}";
+                    document.getElementById('detail-modal-img').src = "{{ cat.thumbnail }}";
                     document.getElementById('detail-modal-name').innerText = "{{ cat.name }}";
                     document.getElementById('detail-modal-intro').innerText = "{{ cat.introduction }}";
                     document.getElementById('detail-modal-link').href = "{% url 'ogijima:cat_detail' cat.id  %}";
@@ -238,7 +238,7 @@
             if(userAgent == "pc"){
                 {% for art in arts %}
                     document.getElementById('mark_' + 1 + "_{{ art.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ art.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ art.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ art.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ art.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:art_detail' art.id  %}";
@@ -247,7 +247,7 @@
                 {% endfor %}
                 {% for restaurant in restaurants %}
                     document.getElementById('mark_' + 2 + "_{{ restaurant.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ restaurant.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ restaurant.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ restaurant.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ restaurant.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:restaurant_detail' restaurant.id  %}";
@@ -256,7 +256,7 @@
                 {% endfor %}
                 {% for hotel in hotels %}
                     document.getElementById('mark_' + 3 + "_{{ hotel.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ hotel.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ hotel.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ hotel.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ hotel.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:hotel_detail' hotel.id  %}";
@@ -265,7 +265,7 @@
                 {% endfor %}
                 {% for cat in cats %}
                     document.getElementById('mark_' + 4 + "_{{ cat.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ cat.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ cat.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ cat.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ cat.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:cat_detail' cat.id  %}";
@@ -276,7 +276,7 @@
             else{
                 {% for art in arts %}
                     document.getElementById('popup_modal_' + 1 + "_{{ art.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ art.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ art.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ art.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ art.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:art_detail' art.id  %}";
@@ -285,7 +285,7 @@
                 {% endfor %}
                 {% for restaurant in restaurants %}
                     document.getElementById('popup_modal_' + 2 + "_{{ restaurant.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ restaurant.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ restaurant.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ restaurant.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ restaurant.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:restaurant_detail' restaurant.id  %}";
@@ -294,7 +294,7 @@
                 {% endfor %}
                 {% for hotel in hotels %}
                     document.getElementById('popup_modal_' + 3 + "_{{ hotel.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ hotel.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ hotel.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ hotel.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ hotel.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:hotel_detail' hotel.id  %}";
@@ -303,7 +303,7 @@
                 {% endfor %}
                 {% for cat in cats %}
                     document.getElementById('popup_modal_' + 4 + "_{{ cat.id }}").addEventListener('click', () => {
-                        document.getElementById('detail-modal-img').src = "{{ cat.sumbnail }}";
+                        document.getElementById('detail-modal-img').src = "{{ cat.thumbnail }}";
                         document.getElementById('detail-modal-name').innerText = "{{ cat.name }}";
                         document.getElementById('detail-modal-intro').innerText = "{{ cat.introduction }}";
                         document.getElementById('detail-modal-link').href = "{% url 'ogijima:cat_detail' cat.id  %}";

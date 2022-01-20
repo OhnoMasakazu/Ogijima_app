@@ -8,7 +8,7 @@
 
 {% block main_panel %}
 <h1 class="pagetitle">島レポート</h1>
-<img  class="sumbnail" src="{{ blog.sumbnail }}" style="width: 100%;">
+<img  class="thumbnail" src="{{ blog.thumbnail }}" style="width: 100%;">
 <h1 class="blog_title">{{ blog.title }}</h1>
 <h3 class="date">{{ blog.date | date:"Y年m月d日" }}</h3>
 <div class="main_sentence">{{ blog.content | safe}}</div>

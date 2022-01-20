@@ -11,7 +11,7 @@
 <div class="list__wrapper">
     {% for cat in pages %}
     <a href="{% url 'ogijima:cat_detail' cat.id %}">
-        <img src="{{ cat.sumbnail }}">
+        <img src="{{ cat.thumbnail }}">
         <h5>{{ cat.name }}</h5>
     </a>
     {% endfor %}

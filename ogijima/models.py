@@ -7,14 +7,14 @@ class Work(models.Model):
     work_start_date = models.DateTimeField()
     work_end_date = models.DateTimeField()
     title = models.CharField(max_length=50)
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     content = models.TextField()
     def __str__(self):
         return self.title
 
 class Blog(models.Model):
     date = models.DateTimeField(default=timezone.now)
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     title = models.CharField(max_length=50)
     content = models.TextField()
     def __str__(self):
@@ -44,7 +44,7 @@ class Profile(models.Model):
         return self.name
 
 class Art(models.Model):
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     image = models.CharField(max_length=3000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
@@ -59,7 +59,7 @@ class Art(models.Model):
         return self.name
 
 class Restaurant(models.Model):
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     image = models.CharField(max_length=3000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
@@ -81,7 +81,7 @@ class Restaurant(models.Model):
         return self.name
 
 class Hotel(models.Model):
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     image = models.CharField(max_length=3000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
@@ -103,7 +103,7 @@ class Hotel(models.Model):
         return self.name
 
 class Cat(models.Model):
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     image = models.CharField(max_length=3000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
@@ -154,7 +154,7 @@ class Contact(models.Model):
 
 # 営業資料用サンプル
 class Restaurant_sample(models.Model):
-    sumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=300)
     image = models.CharField(max_length=3000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
