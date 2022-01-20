@@ -45,7 +45,6 @@ form > p > input, form > p > textarea{
 #privacypolicy-check{
     display: none;
 }
-/* チェックボックスの代わりを成すラベル */
 #privacypolicy-check+label{
     display: none;
     cursor: pointer;
@@ -54,7 +53,6 @@ form > p > input, form > p > textarea{
     padding-left: 25px;
     padding-right: 10px;
 }
-/* ラベルの左に表示させる正方形のボックス□ */
 #privacypolicy-check+label::before{
     content: "";
     position: absolute;

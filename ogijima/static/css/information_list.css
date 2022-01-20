@@ -1,8 +1,6 @@
 .list__wrapper{
     display: -webkit-flex;
     display: flex;
-    /* -webkit-justify-content: space-between;
-    justify-content: space-between; */
     flex-wrap: wrap;
     margin-top: 36px;
 }
@@ -46,7 +44,6 @@
     text-align: center;
     border: solid 1px rgb(90, 77, 79);
     border-radius: 12px;
-    /* padding: 8px 0; */
     cursor: pointer;
     color: rgb(68,58,59);
     text-decoration: none;
@@ -70,8 +67,6 @@
     text-align: center;
 }
 .information-list-button:hover{
-  /* background-color: rgb(90, 77, 79);
-  color: rgb(239, 228, 213); */
   background-color: rgb(245, 234, 231);
 }
 

@@ -21,6 +21,7 @@ urlpatterns = [
     path('restaurant_detail/<int:id>',views.restaurant_detail,name="restaurant_detail"),
     path('hotels',views.hotels,name="hotels"),
     path('hotel_detail/<int:id>',views.hotel_detail,name="hotel_detail"),
+    path('restaurant_and_hotel_detail/<int:id>',views.restaurant_and_hotel_detail,name="restaurant_and_hotel_detail"),
     path('cats',views.cats,name="cats"),
     path('cat_detail/<int:id>',views.cat_detail,name="cat_detail"),
     path('gallery',views.gallery,name="gallery"),

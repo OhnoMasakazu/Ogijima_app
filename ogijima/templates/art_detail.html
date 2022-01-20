@@ -57,6 +57,24 @@
         <p><a href="{{ art.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
     </div>
 </div>
+<div id="information-list" class="information-list">
+    <a class="information-list-button" href="{% url 'ogijima:arts' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_art_2.svg' %}">
+        <span>アート紹介</span>
+    </a>
+    <a class="information-list-button" href="{% url 'ogijima:restaurants' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_restaurant_2.svg' %}">
+        <span>飲食店紹介</span>
+    </a>
+    <a class="information-list-button" href="{% url 'ogijima:hotels' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_hotel_2.svg' %}">
+        <span>宿泊施設紹介</span>
+    </a>
+    <a class="information-list-button" href="{% url 'ogijima:cats' %}">
+        <img src="{% static 'image/icon/ogi_hp_icon_cat_2.svg' %}">
+        <span>島猫紹介</span>
+    </a>
+</div>
 {% endblock %}
 
 {% block extra_js %}

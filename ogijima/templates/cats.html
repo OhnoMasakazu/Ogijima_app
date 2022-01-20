@@ -9,7 +9,7 @@
 {% block main_panel %}
 <h1 class="pagetitle">島猫紹介</h1>
 <div class="list__wrapper">
-    {% for cat in pages %}
+    {% for cat in cat %}
     <a href="{% url 'ogijima:cat_detail' cat.id %}">
         <img src="{{ cat.thumbnail }}">
         <h5>{{ cat.name }}</h5>

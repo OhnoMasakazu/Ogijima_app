@@ -3,9 +3,7 @@
 }
 
 .main{
-    /* top: 8vh; */
     display: flex;
-    /* bottom: 0; */
 }
 
 .map{
@@ -19,7 +17,6 @@
 }
 
 .map__frame{
-  /* 横幅いじったらJSのmapAreaの中身修正しないといけない */
   width: calc(70vw - 48px);
   height: calc(92vh - 48px);
   overflow: auto;
@@ -39,8 +36,6 @@
   right: 0;
 }
 .map__wrapper{
-  /* width: max-content;
-  height: max-content; */
   position: relative;
   margin: auto;
 }
@@ -57,22 +52,7 @@
   position: absolute;
   top: 0;
 }
-/* .mark-art i{color: rgb(230,95,96);}
-.mark-restaurant i{color: #2e8b57;}
-.mark-hotel i{color: #daa520;}
-.mark-cat i{color: #245678;} */
 #mark_1_7{opacity: 0;}
-
-/* .mark a{
-    display: block;
-    width: 100%;
-    height: 100%;
-} */
-
-/* .mark_1{background-color: #cff;}
-.mark_2{background-color: #fcf;}
-.mark_3{background-color: #ffc;}
-.mark_4{background-color: #fcc;} */
 
 .place{
   position: absolute;
@@ -129,13 +109,11 @@
     border-radius: 16px;
     width: max-content;
     padding: 4px 6px;
-    font-weight: bold;
     margin-right: 4px;
     line-height: 1;
     height: max-content;
     background-color: rgb(90, 77, 79);
     color: rgb(239, 228, 213);
-    font-weight: bold;
 }
 .aikienPopup{
   width: 160px;
@@ -144,10 +122,6 @@
   background-color: rgb(239, 228, 213);
   border-radius: 12px;
 }
-/* .popup__icon-1{background-color: #cff;}
-.popup__icon-2{background-color: #fcf;}
-.popup__icon-3{background-color: #ffc;} */
-
 
 .information-list{
   display: -webkit-flex;
@@ -160,7 +134,6 @@
     text-align: center;
     border: solid 1px rgb(90, 77, 79);
     border-radius: 12px;
-    /* padding: 8px 0; */
     cursor: pointer;
     color: rgb(68,58,59);
     text-decoration: none;
@@ -184,8 +157,6 @@
     text-align: center;
 }
 .information-list-button:hover{
-  /* background-color: rgb(90, 77, 79);
-  color: rgb(239, 228, 213); */
   background-color: rgb(245, 234, 231);
 }
 

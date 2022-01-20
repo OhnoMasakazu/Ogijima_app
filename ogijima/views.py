@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import HttpResponse
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
-from ogijima.forms import ContactForm, ApplyForm, ApplicationForm
+from ogijima.forms import ContactForm, ApplicationForm
 from .models import *
 from markdown import markdown
 import re
@@ -30,6 +30,7 @@ def top(request):
     restaurants = Restaurant.objects.all()
     hotels = Hotel.objects.all()
     cats = Cat.objects.all()
+    restaurant_and_hotel = Restaurant_and_hotel.objects.all()
 
     slideshow_pc = Slideshow_pc.objects.all().order_by("order")
     slideshow_mobile = Slideshow_mobile.objects.all().order_by("order")
@@ -43,6 +44,7 @@ def top(request):
         'restaurants': restaurants,
         'hotels': hotels,
         'cats': cats,
+        'restaurant_and_hotel': restaurant_and_hotel,
         'slideshow_pc': slideshow_pc,
         'slideshow_mobile': slideshow_mobile,
         'notifications': notifications,
@@ -193,26 +195,20 @@ def information(request):
     restaurants = Restaurant.objects.all()
     hotels = Hotel.objects.all()
     cats = Cat.objects.all()
+    restaurant_and_hotel = Restaurant_and_hotel.objects.all()
     params = {
         'arts': arts,
         'restaurants': restaurants,
         'hotels': hotels,
         'cats': cats,
+        'restaurant_and_hotel': restaurant_and_hotel,
     }
     return render(request,'information.html', params)
 
 def arts(request):
     art = Art.objects.all().order_by('id')
-    paginator = Paginator(art, 12)
-    page = request.GET.get('page', 1)
-    try:
-        pages = paginator.page(page)
-    except PageNotAnInteger:
-        pages = paginator.page(1)
-    except EmptyPage:
-        pages = paginator.page(1)
     params = {
-        'pages': pages,
+        'art': art,
     }
     return render(request,'arts.html', params)
 
@@ -279,16 +275,10 @@ def aikien_detail(request):
 
 def restaurants(request):
     restaurant = Restaurant.objects.all().order_by('id')
-    paginator = Paginator(restaurant, 12)
-    page = request.GET.get('page', 1)
-    try:
-        pages = paginator.page(page)
-    except PageNotAnInteger:
-        pages = paginator.page(1)
-    except EmptyPage:
-        pages = paginator.page(1)
+    restaurant_and_hotel = Restaurant_and_hotel.objects.all().order_by('id')
     params = {
-        'pages': pages,
+        'restaurant': restaurant,
+        'restaurant_and_hotel': restaurant_and_hotel,
     }
     return render(request,'restaurants.html', params)
 
@@ -300,16 +290,10 @@ def restaurant_detail(request, id):
 
 def hotels(request):
     hotel = Hotel.objects.all().order_by('id')
-    paginator = Paginator(hotel, 12)
-    page = request.GET.get('page', 1)
-    try:
-        pages = paginator.page(page)
-    except PageNotAnInteger:
-        pages = paginator.page(1)
-    except EmptyPage:
-        pages = paginator.page(1)
+    restaurant_and_hotel = Restaurant_and_hotel.objects.all().order_by('id')
     params = {
-        'pages': pages,
+        'hotel': hotel,
+        'restaurant_and_hotel': restaurant_and_hotel,
     }
     return render(request,'hotels.html', params)
 
@@ -319,18 +303,16 @@ def hotel_detail(request, id):
     hotel.businessHour = markdown(hotel.businessHour)
     return render(request,'hotel_detail.html',{'hotel':hotel})
 
+def restaurant_and_hotel_detail(request, id):
+    restaurant_and_hotel = Restaurant_and_hotel.objects.get(pk=id)
+    restaurant_and_hotel.document = markdown(restaurant_and_hotel.document)
+    restaurant_and_hotel.businessHour = markdown(restaurant_and_hotel.businessHour)
+    return render(request,'restaurant_and_hotel_detail.html',{'restaurant_and_hotel':restaurant_and_hotel})
+
 def cats(request):
     cat = Cat.objects.all().order_by('id')
-    paginator = Paginator(cat, 12)
-    page = request.GET.get('page', 1)
-    try:
-        pages = paginator.page(page)
-    except PageNotAnInteger:
-        pages = paginator.page(1)
-    except EmptyPage:
-        pages = paginator.page(1)
     params = {
-        'pages': pages,
+        'cat': cat,
     }
     return render(request,'cats.html', params)
 
