@@ -355,7 +355,7 @@ def gallery(request):
     return render(request,'gallery.html', params)
 
 def notifications(request):
-    notification = Notification.objects.all()
+    notification = Notification.objects.all().order_by('-date')
     paginator = Paginator(notification, 10)
     page = request.GET.get('page', 1)
     try:

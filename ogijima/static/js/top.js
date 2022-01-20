@@ -6,7 +6,11 @@ var work1Offset = document.getElementById('work-1').offsetTop;
 var work2Offset = document.getElementById('work-2').offsetTop;
 var desireOffset = document.getElementById('desire').offsetTop;
 // スクロールバーで横スクロール発生する問題のため、少し小さくしている
-var desireWidth = document.querySelector('header').clientWidth *0.68;
+if(document.querySelector('header').clientWidth > 1020){
+    var desireWidth = document.querySelector('header').clientWidth *0.68;
+}else{
+    var desireWidth = document.querySelector('header').clientWidth *0.88;
+}
 var flag = 0;
 
 let mySwiper = new Swiper('.swiper', {
@@ -75,12 +79,12 @@ window.addEventListener('scroll', () => {
             document.getElementById('desire__list-1').style.transform = "translateY(0%)";
         }, 800);
         window.setTimeout(() => {
-            document.querySelector('.desire__wrapper').style.width = "auto";
+            // document.querySelector('.desire__wrapper').style.width = "auto";
             document.getElementById('desire__list-2').style.opacity = 1;
             document.getElementById('desire__list-2').style.transform = "translateY(0%)";
         }, 1400);
         window.setTimeout(() => {
-            document.querySelector('.desire__wrapper').style.width = "auto";
+            // document.querySelector('.desire__wrapper').style.width = "auto";
             document.getElementById('desire__list-3').style.opacity = 1;
             document.getElementById('desire__list-3').style.transform = "translateY(0%)";
         }, 2000);

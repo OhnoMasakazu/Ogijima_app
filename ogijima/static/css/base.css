@@ -15,7 +15,7 @@ h5{font-size: 18px;}
 h6{font-size: 14px;}
 p{font-size: 14px;}
 h1,h2,h3,h4,h5,h6,p,li,span{color:rgb(68,58,59);}
-h1,h2,h3,h4,h5,h6{font-weight: 300;}
+/* h1,h2,h3,h4,h5,h6{font-weight: 300;} */
 p{line-height: 1.8;}
 .header_image_link{
     height: 10vh;
@@ -76,7 +76,7 @@ header{
     /* width: 9vw; */
     /* width: 10vw; */
     position: relative;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 
 
@@ -155,7 +155,7 @@ header img{
     text-align: left;
 }
 .sub > li > .space-tight{
-    letter-spacing: -0.1em;
+    letter-spacing: -0.15em;
 }
 
 .sub > li > div {
