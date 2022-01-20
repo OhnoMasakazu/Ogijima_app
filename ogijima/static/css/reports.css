@@ -102,7 +102,7 @@ hr{
 
 
 
-.sumbnail{
+.thumbnail{
     width: 70vw;
     height: 16vw;
     object-fit: cover;
@@ -147,7 +147,7 @@ hr{
     .section h3{
         font-weight: 100;
     }
-    .sumbnail{
+    .thumbnail{
         width: 90vw;
         height: 20vw;
     }

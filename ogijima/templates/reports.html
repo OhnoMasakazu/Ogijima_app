@@ -19,7 +19,7 @@
     <h3>島レポート</h3>
     {% for blog in pages %}
         <a class="blog__wrapper" href="{% url 'ogijima:blog_detail' blog.id %}">
-            <img class="blog-sumbnail" src="{{ blog.sumbnail }}">
+            <img class="blog-thumbnail" src="{{ blog.thumbnail }}">
             <div class="blog__text">
                 <h4>{{ blog.title }}</h4>
                 <p>{{ blog.date | date:"Y年m月d日" }}</p>
@@ -99,7 +99,7 @@
 
 <div class="section" id="section-crowdfunding">
     <h3>クラウドファンディング</h3>
-    <img src="https://lh3.googleusercontent.com/pw/AM-JKLXI3h2wBhyG2d0c_0HmtUo_mTARAyxeLb03znlGDZ5MduSo7ydC9B8Hiv_XCB8mRzsZ28formcR4_8_8vaY39ER-U14gTD01lxDvtvrQRQZy6t96_Q4H9NQjAk7S7WF8T87VuEVvpTLaEk4M0FbKwrx=s0" class="sumbnail">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLXI3h2wBhyG2d0c_0HmtUo_mTARAyxeLb03znlGDZ5MduSo7ydC9B8Hiv_XCB8mRzsZ28formcR4_8_8vaY39ER-U14gTD01lxDvtvrQRQZy6t96_Q4H9NQjAk7S7WF8T87VuEVvpTLaEk4M0FbKwrx=s0" class="thumbnail">
     <p>
         CAMPFIREにてクラウドファンディングでの資金調達に挑戦しました。たくさんの方々よりご支援いただき、感謝の気持ちでいっぱいです。なお、2021年12月にて終了しております。
         <br><br>現在、オンラインショップでのグッズ販売の利益の一部を、当プロジェクトの運営資金にさせていただいております。
@@ -111,7 +111,7 @@
 <!-- {% comment %}
 <div class="section" id="section-donation">
     <h3>寄付サイト</h3>
-    <img src="https://lh3.googleusercontent.com/pw/AM-JKLU6VhiiV7eexDz0aXEkpKdOrPa4AZGoZfc_u0LCqDnLV8ypzIKh_b8jlquPO9Cd_bhoCgCV_nD5pd0l_GI-X6Uz0YomMx1IfyJemWrzi06Nv-FgfmgcKSn5mJkhnkJnaXzDyTlyGWo8LJeZCdMUUXA=w1119-h839-no?authuser=3" class="sumbnail">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLU6VhiiV7eexDz0aXEkpKdOrPa4AZGoZfc_u0LCqDnLV8ypzIKh_b8jlquPO9Cd_bhoCgCV_nD5pd0l_GI-X6Uz0YomMx1IfyJemWrzi06Nv-FgfmgcKSn5mJkhnkJnaXzDyTlyGWo8LJeZCdMUUXA=w1119-h839-no?authuser=3" class="thumbnail">
     <p>現在準備中です。しばらくお待ちください。</p>
     <a href="" class="section__button button__deactivate" target="_blank">寄付サイトへ</a>
 </div>
@@ -119,7 +119,7 @@
 
 <div class="section" id="section-shop">
     <h3>オンラインショップ</h3>
-    <img src="https://lh3.googleusercontent.com/pw/AM-JKLWAxQV4uDWLMcEU2blwuwsiEEXRIRpcM8t7F5Rj6xVJdza6b0vv6lcBtbh7Zs74KA1AwgkE9Dj7_vQMlpf5ndYTpaD0MatRwGjfLWAZea6rF7rxDpi98Ma7bdTQ4Pt4o7DGOrq2Ay2vRp78RkBnvTZ_=s0" class="sumbnail">
+    <img src="https://lh3.googleusercontent.com/pw/AM-JKLWAxQV4uDWLMcEU2blwuwsiEEXRIRpcM8t7F5Rj6xVJdza6b0vv6lcBtbh7Zs74KA1AwgkE9Dj7_vQMlpf5ndYTpaD0MatRwGjfLWAZea6rF7rxDpi98Ma7bdTQ4Pt4o7DGOrq2Ay2vRp78RkBnvTZ_=s0" class="thumbnail">
     <p>現在準備中です。2022年春にオープンを予定しております。しばらくお待ちください。</p>
     <a href="" class="section__button button__deactivate" target="_blank">ショップへ</a>
 </div>
