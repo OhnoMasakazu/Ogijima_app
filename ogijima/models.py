@@ -102,6 +102,28 @@ class Hotel(models.Model):
     def __str__(self):
         return self.name
 
+class Restaurant_and_hotel(models.Model):
+    thumbnail = models.CharField(max_length=300)
+    image = models.CharField(max_length=3000)
+    name = models.CharField(max_length=50)
+    introduction = models.CharField(max_length=300,blank=True)
+    businessHour = models.TextField(max_length=200,blank=True)
+    document = models.TextField(max_length=4000,blank=True)
+    homepage = models.CharField(max_length=100,blank=True)
+    telephone = models.CharField(max_length=100,blank=True)
+    instagram = models.CharField(max_length=100,blank=True)
+    twitter = models.CharField(max_length=100,blank=True)
+    facebook = models.CharField(max_length=100,blank=True)
+    address = models.CharField(max_length=100,blank=True)
+    apple_maplink = models.CharField(max_length=100,blank=True)
+    google_maplink = models.CharField(max_length=100,blank=True)
+    coordinate_pc_top = models.FloatField()
+    coordinate_pc_left = models.FloatField()
+    coordinate_mobile_top = models.FloatField()
+    coordinate_mobile_left = models.FloatField()
+    def __str__(self):
+        return self.name
+
 class Cat(models.Model):
     thumbnail = models.CharField(max_length=300)
     image = models.CharField(max_length=3000)

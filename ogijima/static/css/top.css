@@ -380,13 +380,11 @@ hr{
     border-radius: 16px;
     width: max-content;
     padding: 4px 6px;
-    font-weight: bold;
     margin-right: 4px;
     line-height: 1;
     height: max-content;
     background-color: rgb(90, 77, 79);
     color: rgb(239, 228, 213);
-    font-weight: bold;
 }
 .aikienPopup{
     width: 160px;
@@ -395,9 +393,6 @@ hr{
     background-color: rgb(239, 228, 213);
     border-radius: 12px;
 }
-/* .popup__icon-1{background-color: #cff;}
-.popup__icon-2{background-color: #fcf;}
-.popup__icon-3{background-color: #ffc;} */
 
 .detail-modal{
     display: none;

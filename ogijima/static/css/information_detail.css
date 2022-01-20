@@ -91,7 +91,6 @@
 }
 
 .map__frame{
-  /* 横幅いじったらJSのmapAreaの中身修正しないといけない */
   width: 50vw;
   height: 60vh;
   overflow: auto;
@@ -128,11 +127,6 @@
     top: 0;
 }
 
-
-/* .mark-art i{color: rgb(230,95,96);}
-.mark-restaurant i{color: #2e8b57;}
-.mark-hotel i{color: #daa520;}
-.mark-cat i{color: #245678;} */
 #mark_1_7{opacity: 0;}
 
 .place{
@@ -254,7 +248,6 @@ form > p > input, form > p > textarea{
 #privacypolicy-check{
     display: none;
 }
-/* チェックボックスの代わりを成すラベル */
 #privacypolicy-check+label{
     display: none;
     cursor: pointer;
@@ -263,7 +256,6 @@ form > p > input, form > p > textarea{
     padding-left: 25px;
     padding-right: 10px;
 }
-/* ラベルの左に表示させる正方形のボックス□ */
 #privacypolicy-check+label::before{
     content: "";
     position: absolute;
@@ -381,8 +373,58 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     flex-direction: row;
 }
 
+.information-list{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin: 64px 0;
+}
+.information-list-button{
+    width: 17vw;
+    text-align: center;
+    border: solid 1px rgb(90, 77, 79);
+    border-radius: 12px;
+    cursor: pointer;
+    color: rgb(68,58,59);
+    text-decoration: none;
+    transition: .5s;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.information-list-button img{
+    width: 64px;
+    margin-right: 8px;
+    height: 64px;
+    object-fit: contain;
+}
+.information-list-button span{
+    display: block;
+    height: max-content;
+    text-align: center;
+}
+.information-list-button:hover{
+  background-color: rgb(245, 234, 231);
+}
+
 @media screen and (max-width:1020px) {
     form{
         width: 90vw;
+    }
+    .information-list{
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        margin-top: 100px;
+     }
+    .information-list-button{
+        margin: 8px auto;
+        width: 70vw;
+    }
+    .information-list-button span{
+        width: 30vw;
     }
 }

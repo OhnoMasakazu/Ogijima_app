@@ -9,13 +9,6 @@
 .section-title h2{
     font-family: 'ロンド B';
 }
-/* h1:after{
-    content: "";
-    display: block;
-    background-color: rgb(230,95,96);
-    border-radius: 3px;
-    height: 6px;
-} */
 .mobile-br{display: none;}
 
 .works-list{
