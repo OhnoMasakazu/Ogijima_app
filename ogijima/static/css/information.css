@@ -40,7 +40,7 @@
   margin: auto;
 }
 
-.mark{
+.mark, .mark_5{
   position: absolute;
   cursor: pointer;
   border-radius: 50%;
@@ -51,6 +51,11 @@
   color:rgb(104, 94, 96);
   position: absolute;
   top: 0;
+}
+.mark_5 img{
+  width: 130%;
+  height: 130%;
+  object-fit: contain;
 }
 #mark_1_7{opacity: 0;}
 

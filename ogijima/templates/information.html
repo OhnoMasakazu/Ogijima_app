@@ -87,11 +87,12 @@
                 </div>
                 {% endfor %}
                 {% for restaurant_and_hotel in restaurant_and_hotel %}
-                <div id="mark_5_{{ restaurant_and_hotel.id }}" class="mark mark-restaurant_and_hotel mark_5"
-                    onmouseenter="popupActivate('_5_{{ restaurant_and_hotel.id }}')"
-                    onmouseleave="popupDeactivate('_5_{{ restaurant_and_hotel.id }}')"
+                <div id="mark_5_{{ restaurant_and_hotel.id }}" class="mark-restaurant_and_hotel mark_5"
+                    onmouseenter="popupActivate_r_and_h('_5_{{ restaurant_and_hotel.id }}')"
+                    onmouseleave="popupDeactivate_r_and_h('_5_{{ restaurant_and_hotel.id }}')"
                 >
-                    <i class="fas fa-snowman"></i>
+                    <!-- <i class="fas fa-snowman"></i> -->
+                    <img src="{% static 'image/icon/ogi_hp_icon_restaurantandhotel.png' %}">
                 </div>
                 {% endfor %}
                 <div id="mark_0_0" class="mark mark_0" onmouseenter="popupActivate('_0_0')" onmouseleave="popupDeactivate('_0_0')">
@@ -302,6 +303,30 @@
             aikienPopup.classList.add('aikienPopup');
             document.getElementById('popup_1_7').insertAdjacentElement('afterbegin',aikienPopup);
         })
+
+        function popupActivate_r_and_h(id) {
+            var markList = document.querySelectorAll('.mark');
+            for(let i = 0; i < markList.length; i++){
+                try{markList[i].querySelector('i').style.color = "rgb(104, 94, 96)";}catch{}
+            }
+            var mark5List = document.querySelectorAll('.mark_5');
+            for(let i = 0; i < mark5List.length; i++){
+                try{markList[i].querySelector('img').src = "{% static 'image/icon/ogi_hp_icon_restaurantandhotel.png' %}";}catch{}
+            }
+            document.querySelector('#mark' + id + " img").src = "{% static 'image/icon/ogi_hp_icon_restaurantandhotel_hover.png' %}";
+            if(userAgent != "pc"){
+                var mapPopupList = document.querySelectorAll('.upblock');
+                for(let i = 0; i < mapPopupList.length; i++){
+                    mapPopupList[i].style.display = "none";
+                }
+            }
+            document.getElementById('popup' + id).style.display = "flex";
+        }
+
+        function popupDeactivate_r_and_h(id) {
+            document.querySelector('#mark' + id + " img").src = "{% static 'image/icon/ogi_hp_icon_restaurantandhotel.png' %}";
+            if(userAgent == "pc"){document.getElementById('popup' + id).style.display = "none";}
+        }
     </script>
     <!-- <script src="https://aikien.s3.ap-northeast-3.amazonaws.com/js/information.js"></script> -->
     <script src="{% static 'js/information.js' %}"></script>
