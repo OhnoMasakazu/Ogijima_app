@@ -82,12 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (userAgent == "pc") {
         $(function () {
             $(".mark").css({
-                "height": imageSize[1] / 50 + "px",
-                "width": imageSize[1] / 50 + "px",
+                "height": imageSize[1] / 38 + "px",
+                "width": imageSize[1] / 38 + "px",
             });
             $(".mark_5").css({
-                "height": imageSize[1] / 50 + "px",
-                "width": imageSize[1] / 50 + "px",
+                "height": imageSize[1] / 38 + "px",
+                "width": imageSize[1] / 38 + "px",
             });
         });
         $(function () {
@@ -116,12 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         $(function () {
             $(".mark").css({
-                "height": imageSize[1] / 31 + "px",
-                "width": imageSize[1] / 31 + "px",
+                "height": imageSize[1] / 24 + "px",
+                "width": imageSize[1] / 24 + "px",
             });
             $(".mark_5").css({
-                "height": imageSize[1] / 31 + "px",
-                "width": imageSize[1] / 31 + "px",
+                "height": imageSize[1] / 24 + "px",
+                "width": imageSize[1] / 24 + "px",
             });
         });
         // window.addEventListener("DOMContentLoaded", () => {
