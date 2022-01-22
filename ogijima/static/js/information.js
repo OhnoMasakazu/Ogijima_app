@@ -85,6 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "height": imageSize[1] / 50 + "px",
                 "width": imageSize[1] / 50 + "px",
             });
+            $(".mark_5").css({
+                "height": imageSize[1] / 50 + "px",
+                "width": imageSize[1] / 50 + "px",
+            });
         });
         $(function () {
             $('#map__image').hover(function () {	//色領域にマウスカーソルがホバーしているとき開始
@@ -112,6 +116,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         $(function () {
             $(".mark").css({
+                "height": imageSize[1] / 31 + "px",
+                "width": imageSize[1] / 31 + "px",
+            });
+            $(".mark_5").css({
                 "height": imageSize[1] / 31 + "px",
                 "width": imageSize[1] / 31 + "px",
             });
