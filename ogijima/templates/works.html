@@ -30,45 +30,9 @@
         <p class="now-work__link-button">もっと見る ＞</p>
     </a>
     <hr class="separator separator-1">
+{% empty %}
+    <p>現在開催中のイベントはありません。</p>
 {% endfor %}
-
-<!-- {% comment %}
-<div id="work-1" class="section-title">
-    <h1>これから開催するイベント</h1>
-    <a href="{% url 'ogijima:planed_works' %}">これから開催するイベントの一覧を見る</a>
-</div>
-{% for work in future_works %}
-    <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
-        <img  class="thumbnail" src="{{ work.thumbnail }}">
-        <div class="work__text">
-            <h4>{{ work.title }}</h4>
-            <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
-            <p class="work__content">{{ work.content | safe }}</p>
-            <p class="work__link-button">もっと見る ＞</p>
-        </div>
-    </a>
-    <hr class="separator separator-2">
-{% endfor %}
-
-<div id="work-1" class="section-title">
-    <h1>これまでに開催したイベント</h1>
-    <a href="{% url 'ogijima:held_works' %}">これまでに開催したイベントの一覧を見る</a>
-</div>
-{% for work in past_works %}
-    <a class="work__wrapper" href="{% url 'ogijima:work_detail' work.id %}">
-        <img  class="thumbnail" src="{{ work.thumbnail }}">
-        <div class="work__text">
-            <h4>{{ work.title }}</h4>
-            <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
-            <p class="work__content">{{ work.content | safe }}</p>
-            <p class="work__link-button">もっと見る ＞</p>
-        </div>
-    </a>
-    <hr class="separator separator-3">
-{% endfor %}
-
-{% endcomment %} -->
-
 {% endblock %}
 
 {% block extra_js %}

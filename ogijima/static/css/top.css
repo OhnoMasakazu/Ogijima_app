@@ -547,10 +547,13 @@ hr{
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
     .top-text{
-        top: 60vh;
-        width: 100vw;
-        left: 7vw;
-        height: 25vw;
+        top: 40vh;
+        width: 240vw;
+        left: -100vw;
+        height: 64vw;
+    }
+    .scrollicon{
+        margin-bottom: 48px;
     }
     .now-work__box, .future-work__box{
         width: 90vw;
