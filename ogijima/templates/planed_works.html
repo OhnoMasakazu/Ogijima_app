@@ -28,6 +28,8 @@
     </div>
 </a>
 <hr class="separator">
+{% empty %}
+    <p>現在開催予定のイベントはありません。</p>
 {% endfor %}
 
 {% if pages.has_other_pages %}
