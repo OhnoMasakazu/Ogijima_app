@@ -30,7 +30,7 @@ if(userAgent == "pc"){
             document.getElementById('bgimage-1').style.opacity = 0;
             document.getElementById('bgimage-2').style.opacity = 0;
             document.getElementById('bgimage-3').style.opacity = 1;
-        }else if(scrollY > sec2Offset - screenHeight * 0.5){
+        }else if(scrollY > sec2Offset - screenHeight * 0.7){
             document.getElementById('bgimage-1').style.opacity = 0;
             document.getElementById('bgimage-2').style.opacity = 1;
             document.getElementById('bgimage-3').style.opacity = 0;
