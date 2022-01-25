@@ -272,6 +272,12 @@ section{
     font-size: 20px;
     margin-bottom: 64px;
 }
+.event-empty-image{
+    width: 50vw;
+    height: 16vw;
+    margin: 24px 10vw;
+    object-fit: cover;
+}
 hr{
     width: 40vw;
     margin: auto auto 36px;
