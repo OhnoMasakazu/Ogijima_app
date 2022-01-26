@@ -151,6 +151,7 @@ class Slideshow_mobile(models.Model):
 
 class Sponsor_name(models.Model):
     name = models.CharField(max_length=50)
+    link = models.CharField(max_length=300,blank=True)
     order = models.FloatField()
     def __str__(self):
         return self.name
@@ -158,6 +159,7 @@ class Sponsor_name(models.Model):
 class Sponsor_banner(models.Model):
     name = models.CharField(max_length=50)
     image = models.CharField(max_length=300)
+    link = models.CharField(max_length=300,blank=True)
     order = models.FloatField()
     def __str__(self):
         return self.name

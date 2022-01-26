@@ -4,22 +4,37 @@
 .banner{
     display: flex;
     margin: 24px 10vw;
+    width: max-content;
+    text-decoration: none;
+}
+a.banner:hover .banner__name{
+    text-decoration: underline;
+    text-decoration-color: rgb(230,95,96);
 }
 .banner__name{
-    width: 24vw;
-    margin-left: 2vw;
+    max-width: 24vw;
+    margin: auto 0 auto 2vw;
     font-size: 20px;
+    width: max-content;
+    text-decoration: none;
 }
 .banner img{
-    height: 7.5vw;
+    height: 13.5vw;
     width: 24vw;
     /* object-fit: contain; */
     object-fit: cover;
 }
 .name{
-    width: 50vw;
+    max-width: 50vw;
+    width: max-content;
     margin: 12px 10vw;
     font-size: 20px;
+    text-decoration: none;
+}
+.name__link{text-decoration: none;}
+.name__link:hover .name{
+    text-decoration: underline;
+    text-decoration-color: rgb(230,95,96);
 }
 
 @media screen and (max-width:1020px) {
@@ -30,7 +45,7 @@
     }   
     .banner img{
         width: 80vw;
-        height: 25vw;
+        height: 45vw;
     }
     .banner__name{
         width: 80vw;
