@@ -34,10 +34,14 @@ h3{
     margin-bottom: 10vh;
 }
 #belief{
-    background-color: rgb(239, 228, 213);
+    background-color: rgba(239, 228, 213, 0);
     margin: 10vh 0;
     padding: 15vh 10vw;
     min-height: 80vh;
+    transition: .8s;
+}
+.belief-bgcolor{
+    background-color: rgba(239, 228, 213, 1) !important;
 }
 .belief-list{
     display: -webkit-flex;
@@ -66,11 +70,34 @@ h3{
     object-fit: cover;
 }
 .belief-content div h3{
+    font-family: 'ロンド B';
     margin: 0;
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: rgba(239, 228, 213, 0.7);
+    height: calc(100% - 12px);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    padding-bottom: 12px;
+}
+.belief-content-1 div h3{
+    color: rgb(239, 228, 213);
+    background-color: rgba(90, 77, 79, 0.4);
+    text-shadow: 0 0 12px #fff;
+}
+.belief-content-2 div h3{
+    color: #fff;
+    /* background-color: rgba(90, 77, 79, 0.4); */
+    text-shadow: 0 0 12px #fff;
+}
+.belief-content-3 div h3{
+    color: #fff;
+    background-color: rgba(90, 77, 79, 0.4);
+    text-shadow: 0 0 12px #fff;
 }
 #business{
     margin-top: 25vh;
@@ -96,6 +123,9 @@ h3{
     display: flex;
     -webkit-justify-content: space-evenly;
     justify-content: space-evenly;
+    width: max-content;
+    margin: 0 auto;
+    gap: 48px;
 }
 #source h3{
     margin-bottom: 24px;
