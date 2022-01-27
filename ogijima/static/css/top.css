@@ -511,7 +511,7 @@ hr{
     transition: .8s;
 }
 .desire__list{
-    width: 22vw;
+    width: 17vw;
     opacity: 0;
     transition: .8s;
     transform: translateY(20%);
@@ -520,8 +520,6 @@ hr{
     margin-top: 24px;
 }
 .caption{
-    /* color: rgb(239, 228, 213); */
-
     margin: 0 auto 24px;
     background-color: rgb(239, 228, 213);
     border-radius: 50%;
@@ -543,7 +541,7 @@ hr{
     font-family: 'ロンド B';
 }
 .desire__text{
-    font-size: 20px;
+    font-size: 15px;
     margin: 12px 0;
     color: rgb(239, 228, 213);
 }

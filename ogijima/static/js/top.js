@@ -88,6 +88,11 @@ window.addEventListener('scroll', () => {
             document.getElementById('desire__list-3').style.opacity = 1;
             document.getElementById('desire__list-3').style.transform = "translateY(0%)";
         }, 2000);
+        window.setTimeout(() => {
+            // document.querySelector('.desire__wrapper').style.width = "auto";
+            document.getElementById('desire__list-4').style.opacity = 1;
+            document.getElementById('desire__list-4').style.transform = "translateY(0%)";
+        }, 2600);
     }
 })
 
