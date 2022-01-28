@@ -11,7 +11,7 @@
 
 {% for banner in banners %}
     {% if banner.link %}
-        <a href="{{ banner.link }}" class="banner">
+        <a href="{{ banner.link }}" class="banner" target="_brank">
             <img src="{{ banner.image }}" title="banner">
             <h3 class="banner__name">{{ banner.name }}</h3>
         </a>
@@ -25,12 +25,12 @@
 
 {% for name in names %}
     {% if name.link %}
-        <a href="{{ name.link }}" class="name__link"><h3 class="name">{{ name.name }}</h3></a>
+        <a href="{{ name.link }}" class="name__link" target="_brank"><h3 class="name">{{ name.name }}</h3></a>
     {% else %}
         <h3 class="name">{{ name.name }}</h3>
     {% endif %}
 {% endfor %}
- 
+<p style="margin-top:48px;margin-left:10vw;">（敬称略、順不同）</p>
 {% endblock %}
 
 {% block extra_js %}
