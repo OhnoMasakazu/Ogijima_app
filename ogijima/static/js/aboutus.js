@@ -10,10 +10,14 @@ var beliefFlag = 0;
 if(userAgent == "pc"){
     window.addEventListener('scroll', () => {
         var scrollY = window.pageYOffset;
-        if(scrollY > sec3Offset - screenHeight * 0.1){
+        if(scrollY > sec4Offset - screenHeight * 0.6){
             document.getElementById('bgimage-1').style.opacity = 0;
             document.getElementById('bgimage-2').style.opacity = 0;
             document.getElementById('bgimage-3').style.opacity = 1;
+        }else if(scrollY > sec3Offset - screenHeight * 0.3){
+            document.getElementById('bgimage-1').style.opacity = 0;
+            document.getElementById('bgimage-2').style.opacity = 0;
+            document.getElementById('bgimage-3').style.opacity = 0;
         }else if(scrollY > sec2Offset - screenHeight * 0.4){
             document.getElementById('bgimage-1').style.opacity = 0;
             document.getElementById('bgimage-2').style.opacity = 1;
@@ -23,10 +27,25 @@ if(userAgent == "pc"){
             document.getElementById('bgimage-2').style.opacity = 0;
             document.getElementById('bgimage-3').style.opacity = 0;
         }
-        if(scrollY > sec3Offset - screenHeight * 0.3 && beliefFlag == 0){
-            document.getElementById('belief').classList.add('belief-bgcolor');
-            beliefFlag = 1;
-        }
+
+        // if(scrollY > sec3Offset - screenHeight * 0.1){
+        //     document.getElementById('bgimage-1').style.opacity = 0;
+        //     document.getElementById('bgimage-2').style.opacity = 0;
+        //     document.getElementById('bgimage-3').style.opacity = 1;
+        // }else if(scrollY > sec2Offset - screenHeight * 0.4){
+        //     document.getElementById('bgimage-1').style.opacity = 0;
+        //     document.getElementById('bgimage-2').style.opacity = 1;
+        //     document.getElementById('bgimage-3').style.opacity = 0;
+        // }else{
+        //     document.getElementById('bgimage-1').style.opacity = 1;
+        //     document.getElementById('bgimage-2').style.opacity = 0;
+        //     document.getElementById('bgimage-3').style.opacity = 0;
+        // }
+
+        // if(scrollY > sec3Offset - screenHeight * 0.3 && beliefFlag == 0){
+        //     document.getElementById('belief').classList.add('belief-bgcolor');
+        //     beliefFlag = 1;
+        // }
     })
 }else{
     window.addEventListener('scroll', () => {
