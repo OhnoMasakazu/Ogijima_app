@@ -21,8 +21,8 @@ a.banner:hover .banner__name{
 .banner img{
     height: 13.5vw;
     width: 24vw;
-    /* object-fit: contain; */
-    object-fit: cover;
+    object-fit: contain;
+    /* object-fit: cover; */
 }
 .name{
     max-width: 50vw;
