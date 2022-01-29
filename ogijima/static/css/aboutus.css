@@ -86,22 +86,8 @@ h3{
     -webkit-align-items: flex-end;
     align-items: flex-end;
     padding-bottom: 12px;
-}
-.belief-content-1 div h3{
-    /* color: rgb(239, 228, 213); */
     color: #fff;
-    /* background-color: rgba(90, 77, 79, 0.4); */
-    text-shadow: 0 0 12px #fff;
-}
-.belief-content-2 div h3{
-    color: #fff;
-    /* background-color: rgba(90, 77, 79, 0.4); */
-    text-shadow: 0 0 12px #fff;
-}
-.belief-content-3 div h3{
-    color: #fff;
-    /* background-color: rgba(90, 77, 79, 0.4); */
-    text-shadow: 0 0 12px #000;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 #business{
     margin-top: 25vh;
