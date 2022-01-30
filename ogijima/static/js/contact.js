@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('id_text').rows = 6;
     document.getElementById("privacypolicy-check").addEventListener('change', () => {
         if(document.getElementById("privacypolicy-check").checked){
             document.getElementById("submit-button").style.opacity = 1;
