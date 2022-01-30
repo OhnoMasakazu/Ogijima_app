@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/aikien_service.css' %}">
+<style>
+    #mark{
+        top:{{ art.coordinate_pc_top }}%;
+        left:{{ art.coordinate_pc_left }}%;
+    }
+    /* @media screen and (max-width:1020px) {
+        #mark{
+            top:{{ art.coordinate_mobile_top }}%;
+            left:{{ art.coordinate_mobile_left }}%;
+        }
+    } */
+</style>
+{% endblock %}
+
+{% block main_panel %}
+<!-- <div class="top">
+    <div class="top__imagebox">
+        <img id="top__image" class="top__image" src="">
+        <div id="image-list" class="image-list"></div>
+    </div>
+    <div class="top__textbox">
+        <h3>{{ art.name }}</h3>
+        <p class="top__introduction">{{ art.introduction | safe }}</p>
+        <p>位置情報は<a href="#locationinfo">こちら</a></p>
+    </div>
+</div> -->
+<section id="top">
+    <img class="top__bg" src="https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=s0">
+    <div class="top-title">
+        <h1>
+            <img src="{% static 'image/logo/logo_HP_yoko_brown.svg' %}" alt="あいきえん">
+            <br>アートギャラリー・イベントスペース
+        </h1>
+    </div>
+</section>
+
+<section id="description">
+    <p>あいきえん内は「キッチン部」「アートギャラリー部」の2部分に分かれており、それぞれ適する使用用途、広さが異なります。使用する設備、料金等をご検討いただき、利用する場所「キッチン部」「アートギャラリー部」「全体」を選択の上、利用する日程を申請してください。お待ちしております。</p>
+    <div class="reference-image">
+        <div class="reference-image__wrapper">
+            <img src="" id="reference-image-window">
+            <p></p>
+        </div>
+        <div id="reference-image__list" class="reference-image__list"></div>
+    </div>
+</section>
+
+<section id="place">
+    <h2 class="section-title">利用場所</h2>
+    <ul>
+        <li>
+            <h3>キッチン部</h3>
+            倉庫入口のコンクリート部分。キッチンには以下の機能を有する。原則として「露店営業」の許可範囲内での飲食物の提供が可能である。作業台は展示台として利用することも可能。
+            <ul>
+                <li>水道</li>
+                <li>シンク</li>
+                <li>調理器具</li>
+                <li>冷蔵庫</li>
+                <li>作業台（L字台）</li>
+            </ul>
+        </li>
+        <li>
+            <h3>アートギャラリー部</h3>
+            倉庫奥のフローリングのある部分。細かな照明の調整が可能であるため、アートギャラリーとしての利用を主とする。原則として入口部の設備は利用できないが、利用がない場合に限り私物の保管や手洗い等に使用してもよい。
+        </li>
+    </ul>
+</section>
+
+<section id="price">
+    <h2 class="section-title">利用料金</h2>
+    <div class="plan-select-list">
+        <p id="plan-select-list__content-1" class="plan-select-list__content plan-select-list__content-active">入口部（キッチンのみ）</p>
+        <p id="plan-select-list__content-2" class="plan-select-list__content">アートギャラリー部</p>
+        <p id="plan-select-list__content-3" class="plan-select-list__content">全体</p>
+    </div>
+    <div class="plan-list">
+        <div id="plan-list__content-1" class="plan-list__content plan-list__content-1">
+            <!-- <h3>入口部（キッチンのみ）利用</h3> -->
+            <table>
+                <tr>
+                    <th style="width:12vw;"></th>
+                    <th style="width:18vw;">倉庫使用料（デポジット）</th>
+                    <th style="width:18vw;">販売手数料</th>
+                </tr>
+                <tr>
+                    <td>一般の方</td>
+                    <td>1,500円/日</td>
+                    <td>売り上げの20％</td>
+                </tr>
+                <tr>
+                    <td>学生の方</td>
+                    <td>1,000円/日</td>
+                    <td>売り上げの20％</td>
+                </tr>
+            </table>
+            <ul>
+                <li>利用申請の際に利用する日時を選択してください。利用日数分の倉庫使用料を事前にいただきます。</li>
+                <li>たとえ前後に倉庫を利用する場合であっても利用申請を行わない日は、食材や持ち込み備品を全て撤収してください。</li>
+                <li>倉庫使用量に水道、電気料金を含みます。</li>
+            </ul>
+        </div>
+        <div id="plan-list__content-2" class="plan-list__content plan-list__content-2">
+            <!-- <h3>アートギャラリー部のみ利用</h3> -->
+            <table>
+                <tr class="two-lines-top">
+                    <th rowspan="2" style="width:12vw;"></th>
+                    <th colspan="2" style="border:unset;">倉庫使用料（固定）</th>
+                    <th rowspan="2" style="width:18vw;">販売手数料</th>
+                </tr>
+                <tr class="two-lines-bottom">
+                    <th style="width:10vw;">1か月</th>
+                    <th style="width:10vw;">2週間</th>
+                </tr>
+                <tr>
+                    <td>一般の方</td>
+                    <td>90,000円</td>
+                    <td>30,000円</td>
+                    <td>売り上げの20％</td>
+                </tr>
+                <tr>
+                    <td>学生の方</td>
+                    <td>30,000円</td>
+                    <td>10,000円</td>
+                    <td>売り上げの20％</td>
+                </tr>
+            </table>
+            <ul>
+                <li>ここに示す倉庫使用料はあくまで代表例です。使用日数に応じて柔軟に対応させていただきますので、お気軽にご相談ください。</li>
+                <li>作品搬入、片づけに必要な期間も含みます。</li>
+            </ul>
+        </div>
+        <div id="plan-list__content-3" class="plan-list__content plan-list__content-3">
+            <!-- <h3>全体利用</h3> -->
+            <table>
+                <tr class="two-lines-top">
+                    <th rowspan="2" style="width:12vw;"></th>
+                    <th colspan="2" style="border:unset;">倉庫使用料（固定）</th>
+                    <th rowspan="2" style="width:18vw;">販売手数料</th>
+                </tr>
+                <tr class="two-lines-bottom">
+                    <th style="width:10vw;">1か月</th>
+                    <th style="width:10vw;">2週間</th>
+                </tr>
+                <tr>
+                    <td>一般の方</td>
+                    <td>120,000円</td>
+                    <td>40,000円</td>
+                    <td>売り上げの20％</td>
+                </tr>
+                <tr>
+                    <td>学生の方</td>
+                    <td>40,000円</td>
+                    <td>13,000円</td>
+                    <td>売り上げの20％</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section id="precautions">
+    <h2 class="section-title">注意事項</h2>
+    <ul>
+        <li>倉庫内には複数台の監視カメラを設置し防犯に注意していますが、当ギャラリースタッフは基本不在です。会期中の作品の監視・保全はご使用者の責任といたします。開催中の受付要員が必要な場合は使用者様自身で確保お願いいたします。</li>
+        <li>什器はご自由にお使いください。白い展示用パネルが◯枚使用できます。</li>
+        <li>会場壁面、備品器物等を破損、紛失された場合は実費をご負担いただきます。</li>
+        <li>天災など不慮の事故の場合、当ギャラリーではその責任を負いかねますのでご了承ください。</li>
+        <li>お申し込みの際と異なった目的に使用する事、及び使用権の転売または譲渡することは固くお断り致します。</li>
+        <li>その他ギャラリー使用に関しましては、ご利用規約をお読みの上ご相談下さい。</li>
+    </ul>
+</section>
+
+<section id="terms-of-service">
+    <h2 class="section-title">利用規約</h2>
+    <p>
+        利用規約は、<span id="open-terms-of-service">こちら</span>からご確認ください。<br>
+        また、利用規約の同意の確認のため、フォームにて利用規約へご署名頂いたデータをお送りいただくのですが、実際にご利用頂く場合は以下の方法で利用規約の原本をお渡しいただきます。
+    </p>
+    <ol>
+        <li>利用開始日に現地にて原本をお渡しいただく。</li>
+        <li>利用開始日に現地にて、ご成約時点での利用規約にご署名いただき、それを正規の誓約書として頂く。（それ以前にお送りいただいたデータは無効となる。）</li>
+        <li>利用開始日までに、郵送にて頂く。（送料は利用者様のご負担となります。）</li>
+    </ol>
+    <div id="terms-of-service-modal" class="terms-of-service__bg">
+        <div class="terms-of-service__card">
+            <h2 class="terms-of-service__title">利用規約</h2>
+            <p id="terms-of-service__close-btn" class="terms-of-service__close-btn">×  閉じる</p>
+            <div class="terms-of-service__text">
+                <p>
+                    あいきえん（以下，「弊団体」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
+                </p>
+
+                <h3>第１条（個人情報）</h3>
+                <p>
+                    「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。
+                </p>
+
+                <h3>第２条（個人情報の収集方法）</h3>
+                <p>
+                    弊団体は，ユーザーからお問い合わせを頂く際に氏名，メールアドレスなどの個人情報をお尋ねすることがあります。また，ユーザーと提携先などとの間でなされたユーザーの個人情報を含む取引記録や決済に関する情報を,弊団体の提携先（情報提供元，広告主，広告配信先などを含みます。以下，｢提携先｣といいます。）などから収集することがあります。
+                </p>
+
+                <h3>第３条（個人情報を収集・利用する目的）</h3>
+                <p>
+                    弊団体が個人情報を収集・利用する目的は，以下の通りです。
+                </p>
+                <ul>
+                    <li>本サービスの提供・運営のため</li>
+                    <li>ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）</li>
+                    <li>ユーザーとの取引、契約の際のご連絡のため</li>
+                    <li>メンテナンス，重要なお知らせなど必要に応じたご連絡のため</li>
+                    <li>不正・不当な目的でサービスを利用しようとするユーザーの特定をし，ご利用をお断りするため</li>
+                    <li>ユーザーにご自身の登録情報の閲覧や変更，削除，ご利用状況の閲覧を行っていただくため</li>
+                    <li>上記の利用目的に付随する目的。</li>
+                </ul>
+
+                <h3>第４条（利用目的の変更)</h3>
+                <ul>
+                    <li>弊団体は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。</li>
+                    <li>利用目的の変更を行った場合には，変更後の目的について，弊団体所定の方法により，ユーザーに通知し，または本ウェブサイト上に公表するものとします。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="apply-form">
+    <h2 class="section-title">利用申込フォーム</h2>
+    <p>
+        アートギャラリー・イベントスペースのご利用に関するご質問等は、こちらより受け付けております。件名にて、アートギャラリー・イベントスペースに関してであることをご明記の上、お問い合わせください。
+    </p>
+    <p>
+        お申し込みの際は、
+        <a href="https://drive.google.com/file/d/11-cCfUR5d2couktFxIIZKV3mRNVyEXJw/view?usp=sharing" target="application">利用規約</a>
+        と
+        <a href="https://drive.google.com/file/d/11-cCfUR5d2couktFxIIZKV3mRNVyEXJw/view?usp=sharing" target="terms">申込書</a>
+        をダウンロードして、利用規約に同意、申込内容をご記入の上、以下のフォームよりお申込みください。
+    </p>
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <div class="privacypolicy-check__wrapper">
+            <p><a href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>に同意する</p>
+            <input id="privacypolicy-check" type="checkbox"><label for="privacypolicy-check"></label>
+        </div>
+        <button id="submit-button" type="submit" disabled="true">送信</button>
+        <div id="button-cover">送信</div>
+    </form>
+</section>
+
+{% comment %}
+<h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
+<div class="locationinfo">
+    <div class="map__frame mousedragscrollable">
+        <div id="map" class="map">
+            <div class="map__wrapper">
+                <!-- <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg"> -->
+                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
+                <p class="place place-port">男木港</p>
+                <p class="place place-school">男木島小・中学校</p>
+                <!-- <p class="place place-aikien">あいきえん</p> -->
+                <div id="mark" class="mark mark-art">
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map__text">
+        <p><a href="{{ art.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
+        <p><a href="{{ art.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
+        <p><a href="{{ art.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
+    </div>
+</div>
+{% endcomment %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/map.js' %}"></script>
+<script src="{% static 'js/information_detail.js' %}"></script>
+<script>
+    document.getElementById('id_content').rows = 6;
+    var screenHeight = window.screen.height;
+    window.addEventListener('scroll', () => {
+        var scrollY = window.pageYOffset;
+        var submenuUl = document.querySelectorAll('.sub');
+        // ヘッダーお試し
+        if(scrollY*1.3 < screenHeight){
+            // document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, " + (scrollY*1.3 / screenHeight) + ")";
+            // for(let i = 0; i < submenuUl.length; i++){
+            //     submenuUl[i].style.backgroundColor = "rgba(239, 228, 213, " + (scrollY / screenHeight)*0.85 + ")";
+            // }
+            document.querySelector('header').style.transform = "translateY(-100%)";
+        }else{
+            // document.querySelector('header').style.backgroundColor = "rgba(239, 228, 213, 1)";
+            // for(let i = 0; i < submenuUl.length; i++){
+            //     submenuUl[i].style.backgroundColor = "rgba(239, 228, 213, 0.85)";
+            // }
+            document.querySelector('header').style.transform = "translateY(0%)";
+        }
+    })
+
+    var imageList = [
+        ["https://lh3.googleusercontent.com/pw/AM-JKLUlTx30paR2CQTzEbwLqY2zlnZ_xPXB-CxzkL0ojd1LzVy8za2zoEgH_e2MoVQFsl0g6kvhWH2zNqA7y5Wwu-bnsjize9VTrB3tsnBnVIv91-xU7CCwVkwElE-VUsUu7CLGpoiwA_LnNrcY_6xWHzQ=w640-h480-no?authuser=5","イベント開催の様子"],
+        ["https://lh3.googleusercontent.com/pw/AM-JKLWfV5Giom20MiYtNt6efozFBhI4wdkK_w9uHjg6_xSazqtE7OuUCw6Emble2xtmdyciROV5hELNcYAUFGW1UV2funk_m15TknY0jmgiOUZ5cyPiYpXm1RJn4e8TpJiPkNt1Z1vLFiZEtng2tjApnTI=w640-h480-no?authuser=5","外観"],
+        ["https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=w960-h720-no?authuser=5","内装"],
+    ]
+    document.getElementById("reference-image-window").src = imageList[0][0];
+    document.querySelector('.reference-image__wrapper p').innerText = imageList[0][1]
+    for(let i = 0; i < imageList.length; i++){
+        let smallImage = document.createElement('img');
+        smallImage.src = imageList[i][0];
+        smallImage.id = "image-" + i;
+        document.getElementById('reference-image__list').appendChild(smallImage);
+        document.getElementById('image-' + i).addEventListener('click', () => {
+            document.getElementById("reference-image-window").src = imageList[i][0];
+            document.querySelector('.reference-image__wrapper p').innerText = imageList[i][1]
+
+        })
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("privacypolicy-check").addEventListener('change', () => {
+            if(document.getElementById("privacypolicy-check").checked){
+                document.getElementById("submit-button").style.opacity = 1;
+                document.getElementById("submit-button").disabled = false;
+                document.getElementById("button-cover").style.display = "none";
+            }else{
+                document.getElementById("submit-button").style.opacity = 0.3;
+                document.getElementById("submit-button").disabled = true;
+                document.getElementById("button-cover").style.display = "block";
+        }
+        })
+        document.getElementById("button-cover").addEventListener('click', () => {
+            swal('プライバシーポリシーに同意して、チェックボックスをチェックしてください。');
+        })
+
+        
+        document.querySelector('label[for="id_name"]').innerText = "名前";
+        document.querySelector('label[for="id_mail"]').innerText = "メールアドレス";
+        document.querySelector('label[for="id_content"]').innerText = "申込内容";
+        document.querySelector('label[for="id_application_file"]').innerText = "利用規約";
+        document.querySelector('label[for="id_terms_file"]').innerText = "申込書";
+
+        document.getElementById('id_application_file').parentElement.classList.add('filenamebox__wrapper','filenamebox__wrapper-1');
+        document.getElementById('id_terms_file').parentElement.classList.add('filenamebox__wrapper','filenamebox__wrapper-2');
+        
+        var filenamebox1 = document.createElement('div');
+        filenamebox1.classList.add('filenamebox','filenamebox-1');
+        var filenameboxInput1 = document.createElement('input');
+        filenameboxInput1.type = "text";
+        filenameboxInput1.id = "filenameboxInput1";
+        filenameboxInput1.placeholder = "select file...";
+        filenamebox1.appendChild(filenameboxInput1);
+        document.getElementById('id_application_file').insertAdjacentElement('afterend',filenamebox1);
+
+        var filenamebox2 = document.createElement('div');
+        filenamebox2.classList.add('filenamebox','filenamebox-2');
+        var filenameboxInput2 = document.createElement('input');
+        filenameboxInput2.type = "text";
+        filenameboxInput2.id = "filenameboxInput2";
+        filenameboxInput2.placeholder = "select file...";
+        filenamebox2.appendChild(filenameboxInput2);
+        document.getElementById('id_terms_file').insertAdjacentElement('afterend',filenamebox2);
+
+        document.getElementById('mark').innerHTML = "";
+        // document.getElementById('mark').innerHTML = "<img src='{% static 'image/logo/aikien_favicon_32.png' %}'>";
+    })
+
+    $('input[id=id_application_file]').change(function() {
+        $('#filenameboxInput1').val($(this).val().replace("C:\\fakepath\\", ""));
+    });
+    $('input[id=id_terms_file]').change(function() {
+        $('#filenameboxInput2').val($(this).val().replace("C:\\fakepath\\", ""));
+    });
+
+    var planListHeight = document.getElementById('plan-list__content-1').clientHeight;
+    document.querySelector('.plan-list').style.height = planListHeight * 1.2 + "px";
+    document.getElementById('plan-select-list__content-1').addEventListener('click', () => {
+        document.getElementById('plan-list__content-1').style.left = "0";
+        document.getElementById('plan-list__content-2').style.left = "100%";
+        document.getElementById('plan-list__content-3').style.left = "200%";
+        document.getElementById('plan-select-list__content-1').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-2').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-3').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-1').classList.add('plan-select-list__content-active');
+    })
+    document.getElementById('plan-select-list__content-2').addEventListener('click', () => {
+        document.getElementById('plan-list__content-1').style.left = "-100%";
+        document.getElementById('plan-list__content-2').style.left = "0";
+        document.getElementById('plan-list__content-3').style.left = "100%";
+        document.getElementById('plan-select-list__content-1').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-2').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-3').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-2').classList.add('plan-select-list__content-active');
+    })
+    document.getElementById('plan-select-list__content-3').addEventListener('click', () => {
+        document.getElementById('plan-list__content-1').style.left = "-200%";
+        document.getElementById('plan-list__content-2').style.left = "-100%";
+        document.getElementById('plan-list__content-3').style.left = "0";
+        document.getElementById('plan-select-list__content-1').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-2').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-3').classList.remove('plan-select-list__content-active');
+        document.getElementById('plan-select-list__content-3').classList.add('plan-select-list__content-active');
+    })
+
+    document.getElementById('open-terms-of-service').addEventListener('click', () => {
+        document.getElementById('terms-of-service-modal').style.display = "block";
+        window.setTimeout(() => {
+            document.getElementById('terms-of-service-modal').style.opacity = 1;
+        }, 1);
+    })
+    document.getElementById('terms-of-service__close-btn').addEventListener('click', () => {
+        document.getElementById('terms-of-service-modal').style.opacity = 0;
+        window.setTimeout(() => {
+            document.getElementById('terms-of-service-modal').style.display = "none";
+        }, 800);
+    })
+</script>
+{% endblock %}

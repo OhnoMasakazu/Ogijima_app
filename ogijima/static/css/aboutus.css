@@ -35,8 +35,8 @@ h3{
 }
 #belief{
     background-color: rgba(239, 228, 213, 0);
-    margin: 10vh 0;
-    padding: 15vh 10vw;
+    margin: 20vh 0;
+    padding: 0 10vw;
     /* min-height: 80vh; */
     transition: .8s;
 }
@@ -90,7 +90,7 @@ h3{
     text-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 #business{
-    margin-top: 25vh;
+    margin-top: 20vh;
     margin-bottom: 25vh;
 }
 #source{

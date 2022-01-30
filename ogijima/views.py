@@ -212,7 +212,7 @@ def art_detail(request, id):
     art.document = markdown(art.document)
     return render(request,'art_detail.html',{'art':art})
 
-def aikien_detail(request):
+def aikien_service(request):
     model = Contact
     art = Art.objects.get(pk=7)
     art.document = markdown(art.document)
@@ -266,7 +266,7 @@ def aikien_detail(request):
             return redirect('ogijima:contact_completed',request.POST['mail'])
     else:
         form = ApplicationForm()  
-    return render(request,'aikien_detail.html', {'art': art,'form': form})
+    return render(request,'aikien_service.html', {'art': art,'form': form})
 
 def restaurants(request):
     restaurant = Restaurant.objects.all().order_by('id')

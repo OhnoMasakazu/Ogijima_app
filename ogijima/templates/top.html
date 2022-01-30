@@ -235,7 +235,7 @@
         <h4 class="no-works">開催予定のイベントはありません</h4>
     {% endif %}
     <p>一覧では、これから開催するイベントだけでなく、これまでに開催したイベントの情報も見ることができます。イベントの一覧は<a href="{% url 'ogijima:works' %}">こちら</a>。</p>
-    <p style="margin-top: 24px;">あいきえんは、アートギャラリー・イベントスペースとして貸し出しをしています。利用されたい方は<a href="{% url 'ogijima:aikien_detail' %}">こちら</a>。</p>
+    <p style="margin-top: 24px;">あいきえんは、アートギャラリー・イベントスペースとして貸し出しをしています。利用されたい方は<a href="{% url 'ogijima:aikien_service' %}">こちら</a>。</p>
 </section>
 
 <section id="desire">
@@ -260,7 +260,6 @@
         </div>
     </div>
     <p class="desire__linktext"><a href="{% url 'ogijima:aboutus' %}">わたしたち</a>では、プロジェクトに対する想いを詳しく書いています。ぜひご覧ください。</p>
-    <!-- <p style="margin-top: 24px;">アートギャラリーを利用されたい方は<a href="{% url 'ogijima:aikien_detail' %}">こちら</a>へ</p> -->
 </section>
 {% endblock %}
 
