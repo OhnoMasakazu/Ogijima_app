@@ -204,6 +204,9 @@
 /* header,.sub{
     background-color: unset;
 } */
+.mobile-br{
+    display: none;
+}
 header{
     transition: .3s;
     transform: translateY(-100%);
@@ -268,12 +271,14 @@ section#description{
 }
 .reference-image__list{
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     width: 22vw;
+    height: max-content;
 }
 .reference-image__list img{
-    width: 64px;
-    height: 64px;
+    width: calc(5.5vw - 9px);
+    height: calc(5.5vw - 9px);
     object-fit: cover;
     border: solid 1.5px #000;
     border-radius: 4px;
@@ -601,6 +606,7 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
 }
 
 @media screen and (max-width:1020px) {
+    .mobile-br{display: inline;}
     form{
         width: 90vw;
     }
@@ -615,5 +621,31 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     }
     .information-list-button span{
         width: 30vw;
+    }
+
+    .reference-image{
+        flex-flow: column;
+    }
+    .reference-image__wrapper{
+        margin-bottom: 24px;
+    }
+    #reference-image-window{
+        height: 45vw;
+        width: 80vw;
+        margin: 0 5vw;
+    }
+    .reference-image__list{
+        width: 90vw;
+        flex-wrap: wrap;
+    }
+    .reference-image__list img{
+        width: calc(18vw - 9.4px);
+        height: calc(18vw - 9.4px);
+    }
+    .plan-list{
+        width: 90vw;
+    }
+    .plan-list__content{
+        width: 90vw;
     }
 }
