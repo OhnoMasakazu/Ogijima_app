@@ -52,23 +52,17 @@
 
 <section id="place">
     <h2 class="section-title">利用場所</h2>
+    <h4>キッチン部</h4>
+    <p>倉庫入口のコンクリート部分。キッチンには以下の機能を有する。原則として「露店営業」の許可範囲内での飲食物の提供が可能である。作業台は展示台として利用することも可能。</p>
     <ul>
-        <li>
-            <h3>キッチン部</h3>
-            倉庫入口のコンクリート部分。キッチンには以下の機能を有する。原則として「露店営業」の許可範囲内での飲食物の提供が可能である。作業台は展示台として利用することも可能。
-            <ul>
-                <li>水道</li>
-                <li>シンク</li>
-                <li>調理器具</li>
-                <li>冷蔵庫</li>
-                <li>作業台（L字台）</li>
-            </ul>
-        </li>
-        <li>
-            <h3>アートギャラリー部</h3>
-            倉庫奥のフローリングのある部分。細かな照明の調整が可能であるため、アートギャラリーとしての利用を主とする。原則として入口部の設備は利用できないが、利用がない場合に限り私物の保管や手洗い等に使用してもよい。
-        </li>
+        <li>水道</li>
+        <li>シンク</li>
+        <li>調理器具</li>
+        <li>冷蔵庫</li>
+        <li>作業台（L字台）</li>
     </ul>
+    <h4>アートギャラリー部</h4>
+    <p>倉庫奥のフローリングのある部分。細かな照明の調整が可能であるため、アートギャラリーとしての利用を主とする。原則として入口部の設備は利用できないが、利用がない場合に限り私物の保管や手洗い等に使用してもよい。</p>
 </section>
 
 <section id="price">
@@ -83,9 +77,9 @@
             <!-- <h3>入口部（キッチンのみ）利用</h3> -->
             <table>
                 <tr>
-                    <th style="width:12vw;"></th>
-                    <th style="width:18vw;">倉庫使用料<br class="mobile-br">（デポジット）</th>
-                    <th style="width:18vw;">販売手数料</th>
+                    <th class="table-1-1"></th>
+                    <th class="table-1-2">倉庫使用料<br class="mobile-br">（デポジット）</th>
+                    <th class="table-1-2">販売手数料</th>
                 </tr>
                 <tr>
                     <td>一般の方</td>
@@ -108,13 +102,13 @@
             <!-- <h3>アートギャラリー部のみ利用</h3> -->
             <table>
                 <tr class="two-lines-top">
-                    <th rowspan="2" style="width:12vw;"></th>
+                    <th rowspan="2" class="table-2-1"></th>
                     <th colspan="2" style="border:unset;">倉庫使用料（固定）</th>
-                    <th rowspan="2" style="width:18vw;">販売手数料</th>
+                    <th rowspan="2" class="table-2-2">販売手数料</th>
                 </tr>
                 <tr class="two-lines-bottom">
-                    <th style="width:10vw;">1か月</th>
-                    <th style="width:10vw;">2週間</th>
+                    <th class="table-2-3">1か月</th>
+                    <th class="table-2-3">2週間</th>
                 </tr>
                 <tr>
                     <td>一般の方</td>
@@ -138,13 +132,13 @@
             <!-- <h3>全体利用</h3> -->
             <table>
                 <tr class="two-lines-top">
-                    <th rowspan="2" style="width:12vw;"></th>
+                    <th rowspan="2" class="table-2-1"></th>
                     <th colspan="2" style="border:unset;">倉庫使用料（固定）</th>
-                    <th rowspan="2" style="width:18vw;">販売手数料</th>
+                    <th rowspan="2" class="table-2-2">販売手数料</th>
                 </tr>
                 <tr class="two-lines-bottom">
-                    <th style="width:10vw;">1か月</th>
-                    <th style="width:10vw;">2週間</th>
+                    <th class="table-2-3">1か月</th>
+                    <th class="table-2-3">2週間</th>
                 </tr>
                 <tr>
                     <td>一般の方</td>
@@ -386,7 +380,7 @@
     });
 
     var planListHeight = document.getElementById('plan-list__content-1').clientHeight;
-    document.querySelector('.plan-list').style.height = planListHeight * 1.2 + "px";
+    document.querySelector('.plan-list').style.height = planListHeight * 1.1 + "px";
     document.getElementById('plan-select-list__content-1').addEventListener('click', () => {
         document.getElementById('plan-list__content-1').style.left = "0";
         document.getElementById('plan-list__content-2').style.left = "100%";

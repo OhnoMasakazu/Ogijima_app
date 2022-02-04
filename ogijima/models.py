@@ -30,6 +30,7 @@ class Notification(models.Model):
     date = models.DateTimeField(default=timezone.now)
     content = models.CharField(max_length=50)
     link = models.CharField(max_length=100)
+    external_link = models.BooleanField(default=False,help_text='クリックした際別タブで開くならTrue')
     def __str__(self):
         return self.content
 
