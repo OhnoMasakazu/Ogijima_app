@@ -4,9 +4,7 @@
     -webkit-justify-content: space-between;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 160px 0 80px;
-}
-.section-title h2{
+    margin: 0 0 80px;
     font-family: 'ロンド B';
 }
 .mobile-br{display: none;}

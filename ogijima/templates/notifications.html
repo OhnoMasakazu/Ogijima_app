@@ -10,10 +10,17 @@
 <h1 class="pagetitle">おしらせ</h1>
 
 {% for notification in pages %}
-<a class="notification__wrap" href="{{ notification.link }}">
-    <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
-    <p class="notification__content">{{ notification.content }}</p>
-</a>
+{% if notification.external_link %}
+        <a class="notification__wrap" href="{{ notification.link }}" target="{{ notification.id }}">
+            <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
+            <p class="notification__content">{{ notification.content }}</p>
+        </a>
+    {% else %}
+        <a class="notification__wrap" href="{{ notification.link }}">
+            <p class="notification__date">{{ notification.date | date:"Y年m月d日" }}</p>
+            <p class="notification__content">{{ notification.content }}</p>
+        </a>
+    {% endif %}
 {% empty %}
 <p>現在おしらせはありません。</p>
 {% endfor %}
