@@ -5,6 +5,7 @@ class profileAdmin(admin.ModelAdmin):
     list_display = ('order', 'name', 'roll')
 
 admin.site.register(Work)
+admin.site.register(Work_for_calender)
 admin.site.register(Blog)
 admin.site.register(Gallery)
 admin.site.register(Notification)

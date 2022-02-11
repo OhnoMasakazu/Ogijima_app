@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from ogijima.forms import ContactForm, ApplicationForm
 from .models import *
 from markdown import markdown
 import re
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import datetime
+import datetime, calendar
+from dateutil.relativedelta import relativedelta
+
+def get_first_date(dt):
+    return dt.replace(day=1)
+def get_last_date(dt):
+    return dt.replace(day=calendar.monthrange(dt.year, dt.month)[1])
 
 def top(request):
     all_works = Work.objects.all().order_by("-work_start_date")
@@ -213,9 +219,30 @@ def art_detail(request, id):
     return render(request,'art_detail.html',{'art':art})
 
 def aikien_service(request):
-    model = Contact
-    art = Art.objects.get(pk=7)
-    art.document = markdown(art.document)
+    today = datetime.datetime.today().date()
+    thisMonthFirstDate = get_first_date(today)
+    thisMonthLastDate = get_last_date(today)
+    eventlist = Work_for_calender.objects.filter(work_start_date__lte=thisMonthLastDate,work_end_date__gte=thisMonthFirstDate).all()
+    dayList = []
+    day = 1
+    while True:
+        place_count = 0
+        thisDay = thisMonthFirstDate + datetime.timedelta(days=day - 1)
+        if thisDay > thisMonthLastDate:
+            break
+        for event in eventlist:
+            if thisDay >= event.work_start_date and thisDay <= event.work_end_date:
+                if event.place == 0:
+                    place_count += 10
+                else:
+                    place_count += event.place
+        dayList.append([day, place_count])
+        day += 1
+
+
+    # model = Contact
+    # art = Art.objects.get(pk=7)
+    # art.document = markdown(art.document)
     if request.method == 'POST':
         form = ApplicationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -266,7 +293,32 @@ def aikien_service(request):
             return redirect('ogijima:contact_completed',request.POST['mail'])
     else:
         form = ApplicationForm()  
-    return render(request,'aikien_service.html', {'art': art,'form': form})
+    return render(request,'aikien_service.html', {'form': form, 'event_day_list': dayList})
+
+def aikien_service_calender_reload(request):
+    count = int(request.GET.get('count', ''))
+    calenderday = datetime.datetime.today().date() + relativedelta(months=count)
+    thisMonthFirstDate = get_first_date(calenderday)
+    thisMonthLastDate = get_last_date(calenderday)
+    eventlist = Work_for_calender.objects.filter(work_start_date__lte=thisMonthLastDate,work_end_date__gte=thisMonthFirstDate).all()
+    dayList = []
+    day = 1
+    while True:
+        place_count = 0
+        thisDay = thisMonthFirstDate + datetime.timedelta(days=day - 1)
+        if thisDay > thisMonthLastDate:
+            break
+        for event in eventlist:
+            if thisDay >= event.work_start_date and thisDay <= event.work_end_date:
+                if event.place == 0:
+                    place_count += 10
+                else:
+                    place_count += event.place
+        dayList.append([day, place_count])
+        day += 1
+    return JsonResponse({'event_day_list': dayList})
+
+
 
 def restaurants(request):
     restaurant = Restaurant.objects.all().order_by('id')

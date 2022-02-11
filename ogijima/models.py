@@ -12,6 +12,14 @@ class Work(models.Model):
     def __str__(self):
         return self.title
 
+class Work_for_calender(models.Model):
+    title = models.CharField(max_length=50)
+    work_start_date = models.DateField()
+    work_end_date = models.DateField()
+    place = models.FloatField(default=0,help_text='0:全体を利用、1:キッチンのみ利用、2:ギャラリーのみ利用')
+    def __str__(self):
+        return self.title
+
 class Blog(models.Model):
     date = models.DateTimeField(default=timezone.now)
     thumbnail = models.CharField(max_length=300)

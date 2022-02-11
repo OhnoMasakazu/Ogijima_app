@@ -43,115 +43,7 @@
     margin-right: 8px;
     color:rgb(68,58,59);
 }
-.sns-list{
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: flex-start;
-    -webkit-align-items: center;
-    align-items: center;
-}
 
-.sns-list a{
-    margin: 12px 8px;
-    padding: 7.5px;
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-}
-.sns-list__instagram{background-color: rgb(255, 0, 118);}
-.sns-list__twitter{background-color: rgb(29, 161, 242);}
-.sns-list__facebook{background-color: rgb(24, 119, 242)}
-.sns-list img{
-    height: 30px;
-    width: 30px;
-    object-fit: contain;
-}
-.document h1, .document h2, .document h3, .document h4, .document h5, .document h6{
-    margin-top: 12px;
-}
-
-.locationinfo{
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-}
-.locationinfo__title{
-    padding-top: 10vh;
-}
-.map{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.map__frame{
-  width: 50vw;
-  height: 60vh;
-  overflow: auto;
-  position: relative;
-  margin: 24px 0;
-}
-
-.map__image{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.map__wrapper{
-  position: relative;
-  /* margin: auto; */
-}
-
-.mark{
-  position: absolute;
-  cursor: pointer;
-  border-radius: 50%;
-  transform: translate3d(-50%, -50%, 0);
-}
-.mark i{
-    font-size: 16px;
-    color: rgb(230,95,96);
-    position: absolute;
-    top: 0;
-}
-
-#mark_1_7{opacity: 0;}
-
-.place{
-    position: absolute;
-    transform: translate3d(-50%, -50%, 0);
-}
-.place-port{
-    top: 29%;
-    left: 17.5%;
-}
-.place-school{
-    top: 66%;
-    left: 46%;
-}
-.place-aikien{
-    top: 88%;
-    left: 44%;
-}
-.map__text{
-    margin-top: 24px;
-    width: 30vw;
-}
-.map__text p{
-    line-height: 1.2;
-} 
 
 @media screen and (max-width:1020px) {
     .top{
@@ -171,39 +63,8 @@
     .top__textbox{
         width: 90vw;
     }
-
-
-    .locationinfo{
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-    }
-    .map{
-        display: flex;
-        align-items: center;
-    }
-    .map__frame{
-        width: calc(100vw - 48px);
-        /* ここを65にしているのは、Safariのヘッダー対策。
-        地図はほぼ正方形なので、これくらいの大きさにしておけばいい感じに収まってくれるだろうという数字 */
-        height: calc(65vh - 48px);
-        margin: 24px;
-    }
-
-    .map__image{
-        height: max-content;
-        pointer-events: none;
-    }
-    .mark i{font-size: 10px;}
-    .map__text{width: 90vw;}
-    .place{font-size: 14px;}
 }
-
-/* aikienのページのみ */
-/* header,.sub{
-    background-color: unset;
-} */
+    
 .mobile-br{
     display: none;
 }
@@ -361,6 +222,95 @@ tr.two-lines-bottom th{
     width: 50vw;
     padding-left: 1em;
 }
+
+.calender_wrapper{
+    width: 30vw;
+    margin: 0;
+}
+#calender_header {
+    width: max-content;
+}
+#calendar {
+    text-align: center;
+    width: 100%;
+}
+#calendar table {
+    outline: 1.5px solid rgb(90, 77, 79);
+    border-collapse: collapse;
+    width: 100%;
+}
+#calendar th {
+    color: rgb(239, 228, 213);
+    background-color: rgb(90, 77, 79);
+}
+#calendar th, #calendar td {
+    outline: 1px solid rgb(90, 77, 79);
+    padding: 2px 4px;
+    text-align: center;
+}
+#calendar td.disabled {
+    color: rgb(90, 77, 79);
+}
+#next-prev-button {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+#next-prev-button button{
+    cursor: pointer;
+    border: solid 1px rgb(90, 77, 79);
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 2px 24px;
+    transition: .3s;
+    background: none;
+    height: max-content;
+}
+#next-prev-button button:hover{
+    background: rgb(90, 77, 79);
+    color: rgb(239, 228, 213);
+}
+#calender_prev {
+    float: left;
+}
+#calender_next {
+    float: right;
+}
+.schedule-0:after, .schedule-1:after, .schedule-2:after, .schedule-3:after, .schedule-10:after{
+    font-weight: bold;
+}
+.schedule-0:after{
+    content: "〇";
+    color: rgb(68,58,59);
+    font-weight: 400;
+}
+.schedule-1:after{
+    content: "□";
+    color: rgb(123, 148, 167);
+}
+.schedule-2:after{
+    content: "△";
+    color: rgb(108, 126, 63);
+}
+.schedule-3:after, .schedule-10:after{
+    content: "×";
+    color:rgb(230,95,96);
+}
+.reservation-status__wrapper{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.calendar-green{color:rgb(108, 126, 63);}
+.calendar-blue{color: rgb(123, 148, 167);}
+.calendar-red{color:rgb(230,95,96);}
+.calendar-green, .calendar-blue, .calendar-red{font-weight: bold;}
+
 #precautions ul{padding-left: 1em;}
 #precautions li{
     margin: 8px 0;
@@ -673,4 +623,10 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     .table-2-2{width: 20vw;}
     .table-2-3{width: 30vw;}
     .plan-list__content-1 ul, .plan-list__content-2 ul, .plan-list__content-3 ul{width: calc(90vw - 1em);}
+
+    .calender_wrapper{
+        width: 85vw;
+        margin-bottom: 12px;
+    }
+    .reservation-status__wrapper{flex-flow: column;}
 }
