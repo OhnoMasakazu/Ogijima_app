@@ -108,7 +108,7 @@
                 </tr>
                 <tr class="two-lines-bottom">
                     <th class="table-2-3">1か月</th>
-                    <th class="table-2-3">2週間</th>
+                    <th class="table-2-3">1週間</th>
                 </tr>
                 <tr>
                     <td>一般の方</td>
@@ -138,7 +138,7 @@
                 </tr>
                 <tr class="two-lines-bottom">
                     <th class="table-2-3">1か月</th>
-                    <th class="table-2-3">2週間</th>
+                    <th class="table-2-3">1週間</th>
                 </tr>
                 <tr>
                     <td>一般の方</td>
@@ -154,6 +154,26 @@
                 </tr>
             </table>
         </div>
+    </div>
+</section>
+
+<section id="reservation-status">
+    <h2 class="section-title">予約状況</h2>
+    <div class="reservation-status__wrapper">
+        <div class="calender_wrapper">
+            <div id="next-prev-button">
+                <button id="calender_prev" onclick="prev()">＜</button>
+                <p id="calender_header"></p>
+                <button id="calender_next" onclick="next()">＞</button>
+            </div>
+            <div id="calendar"></div>
+        </div>
+        <p>
+            〇：キッチン部、アートギャラリー部共に空き<br>
+            <span class="calendar-green">△</span>：キッチン部のみ空き<br>
+            <span class="calendar-blue">□</span>：アートギャラリー部のみ空き<br>
+            <span class="calendar-red">×</span>：空き無し
+        </p>
     </div>
 </section>
 
@@ -368,7 +388,7 @@
         filenamebox2.appendChild(filenameboxInput2);
         document.getElementById('id_terms_file').insertAdjacentElement('afterend',filenamebox2);
 
-        document.getElementById('mark').innerHTML = "";
+        // document.getElementById('mark').innerHTML = "";
         // document.getElementById('mark').innerHTML = "<img src='{% static 'image/logo/aikien_favicon_32.png' %}'>";
     })
 
@@ -421,5 +441,80 @@
             document.getElementById('terms-of-service-modal').style.display = "none";
         }, 800);
     })
+
+    var defaultEventDayList = "{{ event_day_list }}";
+    defaultEventDayList = JSON.parse(defaultEventDayList);
+    const week = ["日", "月", "火", "水", "木", "金", "土"];
+    const today = new Date();
+    var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
+    var calendarReloadCount = 0;
+
+    window.onload = function () {
+        showProcess(today, calendar);
+    };
+    function prev(){
+        showDate.setMonth(showDate.getMonth() - 1);
+        calendarReloadCount -= 1;
+        calendarReload(calendarReloadCount);
+    }
+
+    function next(){
+        showDate.setMonth(showDate.getMonth() + 1);
+        calendarReloadCount += 1;
+        calendarReload(calendarReloadCount);
+    }
+
+    function calendarReload(count){
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "{% url 'ogijima:aikien_service_calender_reload' %}?count=" + count);
+        xhr.addEventListener("load", function () {
+            const asyncresponse = JSON.parse(xhr.response).event_day_list;
+            const reloadDate = new Date();
+            reloadDate.setMonth(reloadDate.getMonth() + count);
+            document.querySelector('#calender_header').innerHTML = reloadDate.getFullYear() + "年 " + (reloadDate.getMonth() + 1) + "月";
+            document.querySelector('#calendar').innerHTML = createProcess(reloadDate.getFullYear(), reloadDate.getMonth() + count, asyncresponse);
+        });
+        xhr.send();
+    }
+
+    function showProcess(date) {
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        document.querySelector('#calender_header').innerHTML = year + "年 " + (month + 1) + "月";
+
+        var calendar = createProcess(year, month, defaultEventDayList);
+        document.querySelector('#calendar').innerHTML = calendar;
+    }
+
+    function createProcess(year, month, eventList) {
+        var calendar = "<table><tr class='dayOfWeek'>";
+        for (var i = 0; i < week.length; i++) {
+            calendar += "<th>" + week[i] + "</th>";
+        }
+        calendar += "</tr>";
+
+        var count = 0;
+        var startDayOfWeek = new Date(year, month, 1).getDay();
+        var endDate = new Date(year, month + 1, 0).getDate();
+        var lastMonthEndDate = new Date(year, month, 0).getDate();
+        var row = Math.ceil((startDayOfWeek + endDate) / week.length);
+
+        for (var i = 0; i < row; i++) {
+            calendar += "<tr>";
+            for (var j = 0; j < week.length; j++) {
+                if (i == 0 && j < startDayOfWeek) {
+                    calendar += "<td class='disabled'>" + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
+                } else if (count >= endDate) {
+                    count++;
+                    calendar += "<td class='disabled'>" + (count - endDate) + "</td>";
+                } else {
+                    count++;
+                    calendar += "<td class='schedule-" + eventList[count - 1][1] + "'>" + count + "<br></td>"
+                }
+            }
+            calendar += "</tr>";
+        }
+        return calendar;
+    }
 </script>
 {% endblock %}

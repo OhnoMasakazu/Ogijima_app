@@ -24,6 +24,7 @@ urlpatterns = [
     path('cats',views.cats,name="cats"),
     path('cat_detail/<int:id>',views.cat_detail,name="cat_detail"),
     path('aikien_service',views.aikien_service,name="aikien_service"),
+    path('aikien_service_calender_reload',views.aikien_service_calender_reload,name="aikien_service_calender_reload"),
     path('gallery',views.gallery,name="gallery"),
     path('notifications',views.notifications,name="notifications"),
     path('contact',views.contact,name="contact"),
