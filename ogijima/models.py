@@ -178,9 +178,7 @@ class Contact(models.Model):
     mail = models.EmailField(max_length=254)
     content = models.TextField(max_length=4000,blank=True)
     application_file = models.FileField(upload_to='media/%Y-%m-%d-%H-%M-%S', blank=True)
-    terms_file = models.FileField(upload_to='media/%Y-%m-%d-%H-%M-%S', blank=True)
-    # application_file = models.FileField(upload_to='usr/share/nginx/html/media/%Y-%m-%d-%H-%M-%S')
-    # terms_file = models.FileField(upload_to='usr/share/nginx/html/media/%Y-%m-%d-%H-%M-%S')
+    # terms_file = models.FileField(upload_to='media/%Y-%m-%d-%H-%M-%S', blank=True)
 
     def __str__(self):
         return self.name
