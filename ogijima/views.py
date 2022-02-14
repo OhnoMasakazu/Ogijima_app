@@ -251,7 +251,7 @@ def aikien_service(request):
                 mail = request.POST['mail'],
                 content = request.POST['content'],
                 application_file = request.FILES['application_file'],
-                terms_file = request.FILES['terms_file'],
+                # terms_file = request.FILES['terms_file'],
             )
             postdata.save()
             name = request.POST['name']
@@ -286,7 +286,7 @@ def aikien_service(request):
             try:
                 send_mail = EmailMessage(subject, message, from_email, recipient_list, bcc)
                 send_mail.attach_file(Contact.objects.get(pk=postdata.id).application_file.path)
-                send_mail.attach_file(Contact.objects.get(pk=postdata.id).terms_file.path)
+                # send_mail.attach_file(Contact.objects.get(pk=postdata.id).terms_file.path)
                 send_mail.send()
             except BadHeaderError:
                 return HttpResponse("無効なヘッダが検出されました。")
