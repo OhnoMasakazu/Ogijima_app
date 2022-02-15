@@ -19,14 +19,10 @@
         </div>
     </div>
     <div class="top-mobile">
-        <div class="top-mobile__text">
-            <!-- <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}" alt="あいきえん"> -->
-            <img src="{% static 'image/logo/logo_HP_yoko_brown.svg' %}" alt="あいきえん">
-            <h1>アートギャラリー・イベントスペース</h1>
-        </div>
+        <h1>
+            <img class="top-mobile-logo" src="{% static 'image/logo/aikien_service_logo.png' %}" alt="あいきえん">
+        </h1>
         <img class="top-mobile__bg top-mobile__bg-1" src="https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=s0">
-        <!-- <img class="top-mobile__bg top-mobile__bg-2" src="https://lh3.googleusercontent.com/pw/AM-JKLX7_NTseiK3kvsKHROa2tRvM1kxfHesYzWbdnxeP58WF2uSXBqoVg0JtJnM8uNuWVtLQ4sa7ibqHV8yu31Jct61qgJAzIi3azp68otQwUMG03TVTrpYo64W10S9ZoVnXgfLQFi1nVGaLEsqKHkJh_mi=s0"> -->
-        <!-- <img class="top-mobile__bg top-mobile__bg-2" src="https://lh3.googleusercontent.com/pw/AM-JKLX50AORMVprK90icuaff48h55PW0dxnwJQg9qX2jtxG6W1mUpbXb-kndFNbltGzry3sL_vCHMMZKw8tn1Vb9pvWAJbcD1nbTDCWcHL4ZMQOvU1mohFPfrZSW7X74jSZGkWtPzodf_RqP7GLQzddqT2m=s0"> -->
     </div>
 </section>
 
@@ -526,7 +522,6 @@
     document.getElementById('id_content').rows = 6;
     var screenHeight = document.querySelector('header').clientHeight * 10;
     var screenWidth = window.screen.width;
-    console.log(screenWidth);
     if(screenWidth <= 1020){
         var scrollFlag = 0
         window.addEventListener('scroll', () => {
@@ -763,16 +758,29 @@
     var separationOffset = document.querySelector('.separation-mask').offsetTop;
     var screenHeight = window.screen.height;
     var separationFlag = 0;
-    window.addEventListener('scroll', () => {
-        var scrollY = window.pageYOffset;
-        if(scrollY > separationOffset - screenHeight * 0.4 && separationFlag == 0){
-            document.querySelector('.separation-mask').style.left = "99vw";
-            separationFlag = 1;
-            window.setTimeout(() => {
-                document.querySelector('.separation-mask').style.display = "none";
-            }, 800);
-        }
-    })
+    if(screenWidth <= 1020){
+        window.addEventListener('scroll', () => {
+            var scrollY = window.pageYOffset;
+            if(scrollY > separationOffset - screenHeight * 0.7 && separationFlag == 0){
+                document.querySelector('.separation-mask').style.left = "99vw";
+                separationFlag = 1;
+                window.setTimeout(() => {
+                    document.querySelector('.separation-mask').style.display = "none";
+                }, 800);
+            }
+        })
+    }else{
+        window.addEventListener('scroll', () => {
+            var scrollY = window.pageYOffset;
+            if(scrollY > separationOffset - screenHeight * 0.4 && separationFlag == 0){
+                document.querySelector('.separation-mask').style.left = "99vw";
+                separationFlag = 1;
+                window.setTimeout(() => {
+                    document.querySelector('.separation-mask').style.display = "none";
+                }, 800);
+            }
+        })
+    }
 
     $(function(){
         $('a[href^="#"]').click(function(){
