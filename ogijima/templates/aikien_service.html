@@ -7,42 +7,26 @@
 {% endblock %}
 
 {% block main_panel %}
-
-<!-- アイデア１　サイドメニューを追加 -->
-<!-- <nav id="sidemenu">
-    <img src="{% static 'image/logo/logo_HP_yoko_brown.svg' %}">
-    <ul>
-        <li><a href="#ogijima">男木島</a></li>
-        <li><a href="#aikien">アートギャラリー・<br>イベントスペース</a></li>
-        <li><a href="#place">利用場所</a></li>
-        <li><a href="#price">利用料金</a></li>
-        <li><a href="#reservation-status">予約状況</a></li>
-        <li><a href="#precautions">注意事項</a></li>
-        <li><a href="#terms-of-service">利用規約</a></li>
-        <li><a href="#apply-form">利用申込フォーム</a></li>
-    </ul>
-</nav> -->
-
-<!-- デザイン１ -->
-<!-- <section id="top">
-    <img class="top__bg" src="https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=s0">
-    <div class="top-title">
-        <h1>
-            <img src="{% static 'image/logo/logo_HP_yoko_brown.svg' %}" alt="あいきえん">
-            <br>アートギャラリー・イベントスペース
-        </h1>
-    </div>
-</section> -->
-
-<!-- デザイン２ -->
 <section id="top">
-    <img class="top__bg" src="https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=s0">
-    <div class="top-title">
-        <h1>
-            <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}" alt="あいきえん">
-            <br>アートギャラリー
-            <br>イベントスペース
-        </h1>
+    <div class="top-pc">
+        <img class="top__bg" src="https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=s0">
+        <div class="top-title">
+            <h1>
+                <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}" alt="あいきえん">
+                <br>アートギャラリー
+                <br>イベントスペース
+            </h1>
+        </div>
+    </div>
+    <div class="top-mobile">
+        <div class="top-mobile__text">
+            <!-- <img src="{% static 'image/logo/logo_HP_yoko_white.svg' %}" alt="あいきえん"> -->
+            <img src="{% static 'image/logo/logo_HP_yoko_brown.svg' %}" alt="あいきえん">
+            <h1>アートギャラリー・イベントスペース</h1>
+        </div>
+        <img class="top-mobile__bg top-mobile__bg-1" src="https://lh3.googleusercontent.com/pw/AM-JKLWsYfZPddo8uz2xd8Bq68-s6p7zu154R-rjSQltI5UsXQKIvS1C-yo3THp-PRRrWVvNsq50qP8NFi18QQYZqPJb6_m5udFXiL1FS9AWWX8Pqczt4YsnXjbnw60cA8pjS3ABLLPhFFqxatlzXIFUiNY=s0">
+        <!-- <img class="top-mobile__bg top-mobile__bg-2" src="https://lh3.googleusercontent.com/pw/AM-JKLX7_NTseiK3kvsKHROa2tRvM1kxfHesYzWbdnxeP58WF2uSXBqoVg0JtJnM8uNuWVtLQ4sa7ibqHV8yu31Jct61qgJAzIi3azp68otQwUMG03TVTrpYo64W10S9ZoVnXgfLQFi1nVGaLEsqKHkJh_mi=s0"> -->
+        <!-- <img class="top-mobile__bg top-mobile__bg-2" src="https://lh3.googleusercontent.com/pw/AM-JKLX50AORMVprK90icuaff48h55PW0dxnwJQg9qX2jtxG6W1mUpbXb-kndFNbltGzry3sL_vCHMMZKw8tn1Vb9pvWAJbcD1nbTDCWcHL4ZMQOvU1mohFPfrZSW7X74jSZGkWtPzodf_RqP7GLQzddqT2m=s0"> -->
     </div>
 </section>
 
@@ -98,7 +82,7 @@
 
 <section id="place">
     <h2 class="section-title">利用場所</h2>
-    <!-- <div class="place-flex__wrapper">
+    <div class="place-flex__wrapper place-pc">
         <img src="https://lh3.googleusercontent.com/pw/AM-JKLVefe_MeqGCKCUBkfr93RDsCEH-1MBXkJLhm7Bng9YIrpe1Gvvcve5W2jbRNln3hTLNOZQpQb6XrfEpL_a_GMVPX3PvQo_osHoFu95uK7lz7ep9LER74bdUYP7kvrWN7Gxl_1gRcl3vkn367eA0jIFt=w1119-h839-no?authuser=5">
         <div>
             <h4>アートギャラリー部</h4>
@@ -116,29 +100,31 @@
             </ul>
         </div>
         <img src="https://lh3.googleusercontent.com/pw/AM-JKLWXMy7cZb6UwQnzgPi-ndnJxRWYwhDIWPBM8y-ddRcUK9k5wrioV8hIgJwiAnUYMKrLhToHfeFankH5p4fCUzVoAVHBlgFyppIWc-UawkxJYViRw-DejVcOfWa57z_hrOrowtedV0Gn-W75KEfyUDlD=w1001-h751-no?authuser=5">
-    </div> -->
-    <h4>アートギャラリー部</h4>
-    <div class="place__card">
-        <img class="place__card-front" src="https://lh3.googleusercontent.com/pw/AM-JKLVefe_MeqGCKCUBkfr93RDsCEH-1MBXkJLhm7Bng9YIrpe1Gvvcve5W2jbRNln3hTLNOZQpQb6XrfEpL_a_GMVPX3PvQo_osHoFu95uK7lz7ep9LER74bdUYP7kvrWN7Gxl_1gRcl3vkn367eA0jIFt=w1119-h839-no?authuser=5">
-        <div class="place__card-back">
-            <p>
-                倉庫奥のフローリングのある部分。細かな照明の調整が可能です。<br>
-                白い展示用パネルや什器はご自由にお使いください。
-            </p>
-        </div>
     </div>
-    <h4 style="margin-top:36px">キッチン部</h4>
-    <div class="place__card">
-        <img class="place__card-front" src="https://lh3.googleusercontent.com/pw/AM-JKLWXMy7cZb6UwQnzgPi-ndnJxRWYwhDIWPBM8y-ddRcUK9k5wrioV8hIgJwiAnUYMKrLhToHfeFankH5p4fCUzVoAVHBlgFyppIWc-UawkxJYViRw-DejVcOfWa57z_hrOrowtedV0Gn-W75KEfyUDlD=w1001-h751-no?authuser=5">
-        <div class="place__card-back">
-            <p>
-                倉庫入口のコンクリート部分。「露店営業」の許可範囲内での飲食物の提供が可能です。<br>
-                水道、シンク、調理器具、冷蔵庫、作業台（L字台）が利用可能です。
-            </p>
-            </ul>
+    <div class="place-mobile">
+        <h4>アートギャラリー部</h4>
+        <div class="place__card">
+            <img class="place__card-front" src="https://lh3.googleusercontent.com/pw/AM-JKLVefe_MeqGCKCUBkfr93RDsCEH-1MBXkJLhm7Bng9YIrpe1Gvvcve5W2jbRNln3hTLNOZQpQb6XrfEpL_a_GMVPX3PvQo_osHoFu95uK7lz7ep9LER74bdUYP7kvrWN7Gxl_1gRcl3vkn367eA0jIFt=w1119-h839-no?authuser=5">
+            <div class="place__card-back">
+                <p>
+                    倉庫奥のフローリングのある部分。細かな照明の調整が可能です。<br>
+                    白い展示用パネルや什器はご自由にお使いください。
+                </p>
+            </div>
         </div>
+        <h4 style="margin-top:36px">キッチン部</h4>
+        <div class="place__card">
+            <img class="place__card-front" src="https://lh3.googleusercontent.com/pw/AM-JKLWXMy7cZb6UwQnzgPi-ndnJxRWYwhDIWPBM8y-ddRcUK9k5wrioV8hIgJwiAnUYMKrLhToHfeFankH5p4fCUzVoAVHBlgFyppIWc-UawkxJYViRw-DejVcOfWa57z_hrOrowtedV0Gn-W75KEfyUDlD=w1001-h751-no?authuser=5">
+            <div class="place__card-back">
+                <p>
+                    倉庫入口のコンクリート部分。「露店営業」の許可範囲内での飲食物の提供が可能です。<br>
+                    水道、シンク、調理器具、冷蔵庫、作業台（L字台）が利用可能です。
+                </p>
+                </ul>
+            </div>
+        </div>
+        <img class="tap-icon" src="{% static 'image/icon/8252.png' %}">
     </div>
-    <img class="tap-icon" src="{% static 'image/icon/8252.png' %}">
 </section>
 
 <section id="price">
@@ -169,8 +155,8 @@
                 </tr>
                 <tr>
                     <td>学生の方</td>
-                    <td>30,000円</td>
-                    <td>10,000円</td>
+                    <td>60,000円</td>
+                    <td>20,000円</td>
                     <td>売り上げの20％</td>
                 </tr>
             </table>
@@ -234,8 +220,8 @@
                 </tr>
                 <tr>
                     <td>学生の方</td>
-                    <td>40,000円</td>
-                    <td>13,000円</td>
+                    <td>85,000円</td>
+                    <td>30,000円</td>
                     <td>売り上げの20％</td>
                 </tr>
             </table>
@@ -271,7 +257,7 @@
 
 <section id="flow">
     <h2 class="section-title">ご利用までの流れ</h2>
-    <div class="flow__list">
+    <div class="flow__list flow__list-1">
         <img src="{% static 'image/illust/1170.png' %}">
         <div class="flow__text">
             <h4>申請</h4>
@@ -281,7 +267,7 @@
             </p>
         </div>
     </div>
-    <div class="flow__list">
+    <div class="flow__list flow__list-2">
         <img src="{% static 'image/illust/0311.png' %}">
         <div class="flow__text">
             <h4>打ち合わせ</h4>
@@ -290,26 +276,38 @@
             </p>
         </div>
     </div>
-    <div class="flow__list">
+    <div class="flow__list flow__list-3">
         <img src="{% static 'image/illust/0891.png' %}">
         <div class="flow__text">
             <h4>成約</h4>
             <p>郵送にて契約書を交わし、ご成約となります。</p>
         </div>
     </div>
+    <div class="flow__list-mobile flow__list-mobile-1">
+        <div>
+            <img src="{% static 'image/illust/1170.png' %}">
+            <h4>申請</h4>
+        </div>
+        <p>
+            このページの<a href="#apply-form">利用申込フォーム</a>よりお申込み頂きます。<br>
+            原則として、2か月前までにお申し込みください。
+        </p>
+    </div>
+    <div class="flow__list-mobile flow__list-mobile-2">
+        <div>
+        <img src="{% static 'image/illust/0311.png' %}">
+            <h4>打ち合わせ</h4>
+        </div>
+        <p>メールやオンラインミーティングで、具体的な内容を打ち合わせさせていただきます。この際、具体的な契約までの流れなどもご説明させていただきます。</p>
+    </div>
+    <div class="flow__list-mobile flow__list-mobile-3">
+        <div>
+            <img src="{% static 'image/illust/0891.png' %}">
+            <h4>成約</h4>
+        </div>
+        <p>郵送にて契約書を交わし、ご成約となります。</p>
+    </div>
 </section>
-
-<!-- <section id="precautions">
-    <h2 class="section-title">注意事項</h2>
-    <ul>
-        <li>倉庫内には複数台の監視カメラを設置し防犯に注意していますが、当ギャラリースタッフは基本不在です。会期中の作品の監視・保全はご使用者の責任といたします。開催中の受付要員が必要な場合は使用者様自身で確保お願いいたします。</li>
-        <li>什器はご自由にお使いください。白い展示用パネルが◯枚使用できます。</li>
-        <li>会場壁面、備品器物等を破損、紛失された場合は実費をご負担いただきます。</li>
-        <li>天災など不慮の事故の場合、当ギャラリーではその責任を負いかねますのでご了承ください。</li>
-        <li>お申し込みの際と異なった目的に使用する事、及び使用権の転売または譲渡することは固くお断り致します。</li>
-        <li>その他ギャラリー使用に関しましては、ご利用規約をお読みの上ご相談下さい。</li>
-    </ul>
-</section> -->
 
 <section id="terms-of-service">
     <h2 class="section-title">利用規約</h2>
@@ -323,6 +321,14 @@
         <li>倉庫内には複数台の監視カメラを設置し防犯に注意していますが、当ギャラリースタッフは基本不在です。利用期間中の作品の監視・保全はご利用者の責任といたします。開催中のスタッフが必要な場合は利用者様自身で確保お願いいたします。</li>
         <li>白い展示用パネルは使用可能です。白い展示用パネルに展示する際は虫ピンを使用することができます。</li>
         <li>天井に設置してある照明は使用可能です。</li>
+        <li>
+            当施設は『露店営業許可』を取得しています。
+            <ol>
+                <li>最終工程に加熱が必要</li>
+                <li>行うことのできる調理工程は注ぎ分けや盛り付けのみ</li>
+            </ol>
+            などの制限があります。詳しくは事前に運営側もしくは高松市保健所にご相談ください。
+        </li>
         <li>ご不明点等ございましたら、メール等でお気軽にご相談ください。</li>
     </ul>
     <div id="terms-of-service-modal" class="terms-of-service__bg">
@@ -425,6 +431,27 @@
                     <li>電気、水の使用に関しましては、申請がない限り使用禁止です。事前のやり取りの中で、使用の有無を確認させていただきます。</li>
                     <li>火気に関しましては、作品、表現で使用する場合であっても厳禁です。</li>
                 </ol>
+                <h3>キッチンに関して</h3>
+                <ol>
+                    <li>水道、電気、シンク、冷蔵庫、ゴミ箱があり、使用することができます。</li>
+                    <li>調理器具の持ち込みは、事前に申請されたものに限り可能です。事前にお知らせください。</li>
+                    <li>奥のアートギャラリー部が火気厳禁となっているので、火気を使用する場合はご注意ください。</li>
+                    <li>揚げ物など、油を使用した調理や、大量に煙や匂いを発する調理はできません。詳しくは、打ち合わせの際にご相談ください。</li>
+                    <li>箸、コップ、お皿などの備品はありませんので、ご自身でご用意ください。</li>
+                    <li>利用するうえで発生した排水の処理は運営側が行いますので、利用後に会場に残していただいて結構です。</li>
+                    <li>
+                        当施設は『露店営業許可』を取得しています。
+                        <ol>
+                            <li>最終工程に加熱が必要</li>
+                            <li>行うことのできる調理工程は注ぎ分けや盛り付けのみ</li>
+                        </ol>
+                        などの制限があります。詳しくは事前に運営側もしくは高松市保健所にご相談ください。
+                    </li>
+                    <li>販売する飲食物のメニューや調理工程を事前に申請する必要があります。申請は運営側が担当いたしますので、遅くとも利用開始2週間前までにお伝えいただきます。</li>
+                    <li>冷蔵庫などに物を残された場合は、ご連絡をいただかない限り、こちらで処分します。なお、処分の際にかかった費用はすべてご利用者様の負担となります。</li>
+                    <li>男木島では、水道工事等の対応が迅速にできない環境となっています。水道や電気等が止まった場合でも、即時の復旧が困難であることをご了承ください。</li>
+                    <li>島という環境上、水道等は非常に貴重な資源となっているため、節約して使用するようお願いします。</li>
+                </ol>
                 <h3>その他</h3>
                 <ol>
                     <li>利用期間中に発生したトラブル等に関しましては、運営側は一切の責任を負いません。</li>
@@ -490,30 +517,6 @@
     </form>
 </section>
 
-{% comment %}
-<h4 id="locationinfo" class="locationinfo__title">位置情報</h4>
-<div class="locationinfo">
-    <div class="map__frame mousedragscrollable">
-        <div id="map" class="map">
-            <div class="map__wrapper">
-                <!-- <img id="map__image" class="map__image" src="https://aikien.s3.ap-northeast-3.amazonaws.com/image/map/map_4.svg"> -->
-                <img id="map__image" class="map__image" src="{% static 'image/map/map_4.svg' %}">
-                <p class="place place-port">男木港</p>
-                <p class="place place-school">男木島小・中学校</p>
-                <!-- <p class="place place-aikien">あいきえん</p> -->
-                <div id="mark" class="mark mark-art">
-                    <i class="fas fa-palette"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="map__text">
-        <p><a href="{{ art.apple_maplink }}" class="map-link-apple" target="map">地図アプリで開く</a></p>
-        <p><a href="{{ art.google_maplink }}" class="map-link-google" target="map">GoogleMapで開く</a></p>
-        <p><a href="{{ art.google_maplink }}" class="map-link-pc" target="map">地図を開く</a></p>
-    </div>
-</div>
-{% endcomment %}
 {% endblock %}
 
 {% block extra_js %}
@@ -522,17 +525,33 @@
 <script>
     document.getElementById('id_content').rows = 6;
     var screenHeight = document.querySelector('header').clientHeight * 10;
-    window.addEventListener('scroll', () => {
-        var scrollY = window.pageYOffset;
-        var submenuUl = document.querySelectorAll('.sub');
-        if(scrollY < 10){
-            document.querySelector('header').style.transform = "translateY(0%)";
-        }else if(scrollY < screenHeight * 0.8){
-            document.querySelector('header').style.transform = "translateY(-100%)";
-        }else{
-            document.querySelector('header').style.transform = "translateY(0%)";
-        }
-    })
+    var screenWidth = window.screen.width;
+    console.log(screenWidth);
+    if(screenWidth <= 1020){
+        var scrollFlag = 0
+        window.addEventListener('scroll', () => {
+            if(scrollFlag == 0){
+                var scrollY = window.pageYOffset;
+                if(scrollY > 80){
+                    document.querySelector('header').style.transform = "translateY(0%)";
+                    scrollFlag = 1;
+                }
+            }
+        })
+    }
+    else{
+        window.addEventListener('scroll', () => {
+            var scrollY = window.pageYOffset;
+            var submenuUl = document.querySelectorAll('.sub');
+            if(scrollY < 10){
+                document.querySelector('header').style.transform = "translateY(0%)";
+            }else if(scrollY < screenHeight * 0.8){
+                document.querySelector('header').style.transform = "translateY(-100%)";
+            }else{
+                document.querySelector('header').style.transform = "translateY(0%)";
+            }
+        })
+    }
 
     var imageList = [
         ["https://lh3.googleusercontent.com/pw/AM-JKLX8Ywa7fOiWypBUgOkPKWTKiBpr1mxbDgxl1VV2Tat8u4V0Nf_9nZWn3norY869h9Qj7dsZtuOiIeuPstuE1i_EA4-Eh169y2IlmdefOV-Z0paN89AjBo9wJ8s43_hCB9TvC6y3EjvK0c091T6KMmd6=w1119-h839-no?authuser=5","外観"],
@@ -586,10 +605,8 @@
         document.querySelector('label[for="id_mail"]').innerText = "メールアドレス";
         document.querySelector('label[for="id_content"]').innerText = "申込内容";
         document.querySelector('label[for="id_application_file"]').innerText = "申込書";
-        // document.querySelector('label[for="id_terms_file"]').innerText = "申込書";
 
         document.getElementById('id_application_file').parentElement.classList.add('filenamebox__wrapper','filenamebox__wrapper-1');
-        // document.getElementById('id_terms_file').parentElement.classList.add('filenamebox__wrapper','filenamebox__wrapper-2');
         
         var filenamebox1 = document.createElement('div');
         filenamebox1.classList.add('filenamebox','filenamebox-1');
@@ -600,25 +617,30 @@
         filenamebox1.appendChild(filenameboxInput1);
         document.getElementById('id_application_file').insertAdjacentElement('afterend',filenamebox1);
 
-        // var filenamebox2 = document.createElement('div');
-        // filenamebox2.classList.add('filenamebox','filenamebox-2');
-        // var filenameboxInput2 = document.createElement('input');
-        // filenameboxInput2.type = "text";
-        // filenameboxInput2.id = "filenameboxInput2";
-        // filenameboxInput2.placeholder = "select file...";
-        // filenamebox2.appendChild(filenameboxInput2);
-        // document.getElementById('id_terms_file').insertAdjacentElement('afterend',filenamebox2);
+        // window.setTimeout(() => {
+        //     document.querySelector('.top-mobile__bg-1').style.transform = "translateX(0%)";
+        //     document.querySelector('.top-mobile__bg-2').style.transform = "translateX(0%)";
+        // }, 500);
+        // window.setTimeout(() => {
+        //     document.querySelector('.top-mobile__bg-1').style.opacity = 1;
+        //     document.querySelector('.top-mobile__bg-2').style.opacity = 1;
+        // }, 700);
+        // window.setTimeout(() => {
+        //     document.querySelector('.top-mobile__text').style.opacity = 1;
+        // }, 1300);
 
-        // document.getElementById('mark').innerHTML = "";
-        // document.getElementById('mark').innerHTML = "<img src='{% static 'image/logo/aikien_favicon_32.png' %}'>";
+        // あとでレスポンシブ
+        window.setTimeout(() => {
+            document.querySelector('.top-mobile__bg-1').style.opacity = 1;
+        }, 1600);
+        // window.setTimeout(() => {
+        //     document.querySelector('header').style.transform = "translateY(0%)";
+        // }, 3000);
     })
 
     $('input[id=id_application_file]').change(function() {
         $('#filenameboxInput1').val($(this).val().replace("C:\\fakepath\\", ""));
     });
-    // $('input[id=id_terms_file]').change(function() {
-    //     $('#filenameboxInput2').val($(this).val().replace("C:\\fakepath\\", ""));
-    // });
 
     var planListHeight = document.getElementById('plan-list__content-2').clientHeight;
     document.querySelector('.plan-list').style.height = planListHeight + "px";
@@ -738,19 +760,6 @@
         return calendar;
     }
 
-    // アイデア１
-    // var sidemenuOffset = document.getElementById('sidemenu').offsetTop;
-    // window.addEventListener('scroll', () => {
-    //     var scrollY = window.pageYOffset;
-    //     if(scrollY > sidemenuOffset){
-    //         document.getElementById('sidemenu').style.position = "fixed";
-    //         document.getElementById('sidemenu').style.marginTop = 0;
-    //     }else{
-    //         document.getElementById('sidemenu').style.position = "absolute";
-    //         document.getElementById('sidemenu').style.marginTop = "120vh";
-    //     }
-    // })
-
     var separationOffset = document.querySelector('.separation-mask').offsetTop;
     var screenHeight = window.screen.height;
     var separationFlag = 0;
@@ -802,5 +811,7 @@
         // viewFactor: 0.2,
         reset: false,
     });
+
+
 </script>
 {% endblock %}
