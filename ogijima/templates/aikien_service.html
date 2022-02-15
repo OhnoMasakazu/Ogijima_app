@@ -99,7 +99,7 @@
     </div>
     <div class="place-mobile">
         <h4>アートギャラリー部</h4>
-        <div class="place__card">
+        <div class="place__card place__card-1">
             <img class="place__card-front" src="https://lh3.googleusercontent.com/pw/AM-JKLVefe_MeqGCKCUBkfr93RDsCEH-1MBXkJLhm7Bng9YIrpe1Gvvcve5W2jbRNln3hTLNOZQpQb6XrfEpL_a_GMVPX3PvQo_osHoFu95uK7lz7ep9LER74bdUYP7kvrWN7Gxl_1gRcl3vkn367eA0jIFt=w1119-h839-no?authuser=5">
             <div class="place__card-back">
                 <p>
@@ -109,7 +109,7 @@
             </div>
         </div>
         <h4 style="margin-top:36px">キッチン部</h4>
-        <div class="place__card">
+        <div class="place__card place__card-2">
             <img class="place__card-front" src="https://lh3.googleusercontent.com/pw/AM-JKLWXMy7cZb6UwQnzgPi-ndnJxRWYwhDIWPBM8y-ddRcUK9k5wrioV8hIgJwiAnUYMKrLhToHfeFankH5p4fCUzVoAVHBlgFyppIWc-UawkxJYViRw-DejVcOfWa57z_hrOrowtedV0Gn-W75KEfyUDlD=w1001-h751-no?authuser=5">
             <div class="place__card-back">
                 <p>
@@ -119,15 +119,17 @@
                 </ul>
             </div>
         </div>
-        <img class="tap-icon" src="{% static 'image/icon/8252.png' %}">
+        <img class="tap-icon tap-icon-1" src="{% static 'image/icon/8252.png' %}">
+        <img class="tap-icon tap-icon-2" src="{% static 'image/icon/8252.png' %}">
+
     </div>
 </section>
 
 <section id="price">
     <h2 class="section-title">利用料金</h2>
     <div class="plan-select-list">
-        <p id="plan-select-list__content-1" class="plan-select-list__content plan-select-list__content-active">アートギャラリー部</p>
-        <p id="plan-select-list__content-2" class="plan-select-list__content">キッチン部</p>
+        <p id="plan-select-list__content-1" class="plan-select-list__content plan-select-list__content-active">アート<br class="mobile-br">ギャラリー</p>
+        <p id="plan-select-list__content-2" class="plan-select-list__content">キッチン</p>
         <p id="plan-select-list__content-3" class="plan-select-list__content">全体</p>
     </div>
     <div class="plan-list">
@@ -183,7 +185,7 @@
             <ul>
                 <li>前後に倉庫を利用する場合でも、利用しない日は持ち込み備品を全て撤収してください。</li>
                 <li>倉庫利用料に水道、電気料金を含みます。</li>
-                <li>
+                <li class="mobile-hidden">
                     デポジットについて
                     <ul>
                         <li>倉庫利用料は事前に頂戴します。</li>
@@ -315,9 +317,9 @@
         <li>2022年2月15日現在、2022年4月14日〜2022年11月6日の間でご利用いただけます。</li>
         <li>利用開始日に倉庫の鍵をお渡しし、最終日に鍵を回収させていただきます。鍵をお渡しする際に、倉庫内の説明をさせていただきます。</li>
         <li>倉庫内には複数台の監視カメラを設置し防犯に注意していますが、当ギャラリースタッフは基本不在です。利用期間中の作品の監視・保全はご利用者の責任といたします。開催中のスタッフが必要な場合は利用者様自身で確保お願いいたします。</li>
-        <li>白い展示用パネルは使用可能です。白い展示用パネルに展示する際は虫ピンを使用することができます。</li>
-        <li>天井に設置してある照明は使用可能です。</li>
-        <li>
+        <li class="mobile-hidden">白い展示用パネルは使用可能です。白い展示用パネルに展示する際は虫ピンを使用することができます。</li>
+        <li class="mobile-hidden">天井に設置してある照明は使用可能です。</li>
+        <li class="mobile-hidden">
             当施設は『露店営業許可』を取得しています。
             <ol>
                 <li>最終工程に加熱が必要</li>
@@ -522,6 +524,8 @@
     document.getElementById('id_content').rows = 6;
     var screenHeight = document.querySelector('header').clientHeight * 10;
     var screenWidth = window.screen.width;
+    var placeCardFlag1 = 0;
+    var placeCardFlag2 = 0;
     if(screenWidth <= 1020){
         var scrollFlag = 0
         window.addEventListener('scroll', () => {
@@ -532,7 +536,35 @@
                     scrollFlag = 1;
                 }
             }
-        })
+        });
+        document.querySelector('.place__card-1').addEventListener('click', () => {
+            if(placeCardFlag1 == 0){
+                document.querySelector('.place__card-1 .place__card-front').style.transform = "rotateY(-180deg)";
+                document.querySelector('.place__card-1 .place__card-back').style.transform = "rotateY(0deg)";
+                placeCardFlag1 = 1;
+            }
+            else{
+                document.querySelector('.place__card-1 .place__card-front').style.transform = "rotateY(0deg)";
+                document.querySelector('.place__card-1 .place__card-back').style.transform = "rotateY(180deg)";
+                placeCardFlag1 = 0;
+            }
+            document.querySelector('.tap-icon-1').style.opacity = 0;
+            document.querySelector('.tap-icon-2').style.opacity = 0;
+        });
+        document.querySelector('.place__card-2').addEventListener('click', () => {
+            if(placeCardFlag2 == 0){
+                document.querySelector('.place__card-2 .place__card-front').style.transform = "rotateY(-180deg)";
+                document.querySelector('.place__card-2 .place__card-back').style.transform = "rotateY(0deg)";
+                placeCardFlag2 = 1;
+            }
+            else{
+                document.querySelector('.place__card-2 .place__card-front').style.transform = "rotateY(0deg)";
+                document.querySelector('.place__card-2 .place__card-back').style.transform = "rotateY(180deg)";
+                placeCardFlag2 = 0;
+            }
+            document.querySelector('.tap-icon-1').style.opacity = 0;
+            document.querySelector('.tap-icon-2').style.opacity = 0;
+        });
     }
     else{
         window.addEventListener('scroll', () => {
@@ -589,13 +621,12 @@
                 document.getElementById("submit-button").style.opacity = 0.3;
                 document.getElementById("submit-button").disabled = true;
                 document.getElementById("button-cover").style.display = "block";
-        }
+            }
         })
         document.getElementById("button-cover").addEventListener('click', () => {
             swal('プライバシーポリシーに同意して、チェックボックスをチェックしてください。');
         })
 
-        
         document.querySelector('label[for="id_name"]').innerText = "名前";
         document.querySelector('label[for="id_mail"]').innerText = "メールアドレス";
         document.querySelector('label[for="id_content"]').innerText = "申込内容";
@@ -612,32 +643,19 @@
         filenamebox1.appendChild(filenameboxInput1);
         document.getElementById('id_application_file').insertAdjacentElement('afterend',filenamebox1);
 
-        // window.setTimeout(() => {
-        //     document.querySelector('.top-mobile__bg-1').style.transform = "translateX(0%)";
-        //     document.querySelector('.top-mobile__bg-2').style.transform = "translateX(0%)";
-        // }, 500);
-        // window.setTimeout(() => {
-        //     document.querySelector('.top-mobile__bg-1').style.opacity = 1;
-        //     document.querySelector('.top-mobile__bg-2').style.opacity = 1;
-        // }, 700);
-        // window.setTimeout(() => {
-        //     document.querySelector('.top-mobile__text').style.opacity = 1;
-        // }, 1300);
-
-        // あとでレスポンシブ
-        window.setTimeout(() => {
-            document.querySelector('.top-mobile__bg-1').style.opacity = 1;
-        }, 1600);
-        // window.setTimeout(() => {
-        //     document.querySelector('header').style.transform = "translateY(0%)";
-        // }, 3000);
+        if(screenWidth <= 1020){
+            window.setTimeout(() => {
+                document.querySelector('.top-mobile__bg-1').style.opacity = 1;
+            }, 1600);
+        };
     })
 
     $('input[id=id_application_file]').change(function() {
         $('#filenameboxInput1').val($(this).val().replace("C:\\fakepath\\", ""));
     });
 
-    var planListHeight = document.getElementById('plan-list__content-2').clientHeight;
+    if(screenWidth <= 1020){var planListHeight = document.getElementById('plan-list__content-3').clientHeight;}
+    else{var planListHeight = document.getElementById('plan-list__content-2').clientHeight;}
     document.querySelector('.plan-list').style.height = planListHeight + "px";
     document.getElementById('plan-select-list__content-1').addEventListener('click', () => {
         document.getElementById('plan-list__content-1').style.left = "0";
@@ -819,7 +837,5 @@
         // viewFactor: 0.2,
         reset: false,
     });
-
-
 </script>
 {% endblock %}
