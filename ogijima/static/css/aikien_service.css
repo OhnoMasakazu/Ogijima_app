@@ -143,10 +143,10 @@ section{
     height: max-content;
 }
 .reference-image__list img{
-    width: calc(5.5vw - 9px);
-    height: calc(5.5vw - 9px);
+    width: calc(5.5vw - 6px);
+    height: calc(5.5vw - 6px);
     object-fit: cover;
-    border: solid 1.5px #000;
+    /* border: solid 1.5px #000; */
     border-radius: 4px;
     cursor: pointer;
 }
@@ -422,7 +422,7 @@ tr.two-lines-bottom th{
 }
 form{
     width: 50vw;
-    margin: 0 auto;
+    margin: 24px auto 0;
     position: relative;
 }
 form > p{
@@ -739,28 +739,24 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
         backface-visibility: hidden;
         transition: .5s;
         border-radius: 12px;
+        box-shadow: 4px 4px 16px #999;
     }
-    .place__card-front{
-        transform: rotateY(0deg);    
-    }
-    .place__card-back{
-        transform: rotateY(180deg);
-        background-color: rgb(223, 201, 171);
-    }
-    .place__card:hover .place__card-front{transform: rotateY(-180deg);}
-    .place__card:hover .place__card-back{transform: rotateY(0deg);}
-    .place__card-back p{
-        padding: 8px 12px;
-    }
+    .place__card-front{transform: rotateY(0deg);}
+    .place__card-back{transform: rotateY(180deg);}
+    /* .place__card:hover .place__card-front{transform: rotateY(-180deg);}
+    .place__card:hover .place__card-back{transform: rotateY(0deg);} */
+    .place__card-back p{padding: 8px 12px;}
     .tap-icon{
-        height: 36px;
-        width: 36px;
+        height: 28px;
+        width: 28px;
         object-fit: contain;
         position: absolute;
-        top: calc(50vw + 107px);
-        right: 12px;
+        right: 7px;
         animation: yurayura 2s linear infinite;
+        transition: .8s;
     }
+    .tap-icon-1{top: calc(50vw + 100px);}
+    .tap-icon-2{top: calc(100vw + 172px);}
     .place-pc{display: none;}
     .place-mobile{display: block;}
     
@@ -771,6 +767,11 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
         50%{
             transform: scale(1.2);
         }
+    }
+
+    .plan-select-list__content{
+        width: 28vw;
+        line-height: 1;
     }
 
     .flow__list{
@@ -794,8 +795,8 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
         object-fit: cover;
         margin-right: 16px;
     }
-    .flow__list-mobile-1{transform: translateX(5px);}
-    .flow__list-mobile-3{transform: translateX(-3px);}
+    .flow__list-mobile-1 img{transform: translateX(5px);}
+    .flow__list-mobile-3 img{transform: translateX(-3px);}
 
     .terms-of-service__card{
         width: 95vw;
@@ -835,8 +836,8 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
         flex-wrap: wrap;
     }
     .reference-image__list img{
-        width: calc(18vw - 9.4px);
-        height: calc(18vw - 9.4px);
+        width: calc(18vw - 6.4px);
+        height: calc(18vw - 6.4px);
     }
     .plan-list{
         width: 90vw;
@@ -847,8 +848,8 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     .table-1-1{width: 20vw;}
     .table-1-2{width: 35vw;}
     .table-2-1{width: 20vw;}
-    .table-2-2{width: 20vw;}
-    .table-2-3{width: 30vw;}
+    .table-2-2{width: 24vw;}
+    .table-2-3{width: 28vw;}
     .plan-list__content-1 ul, .plan-list__content-2 ul, .plan-list__content-3 ul{width: calc(90vw - 1em);}
 
     .calender_wrapper{
@@ -864,4 +865,5 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     }
     .terms-of-service__text h3{font-size: 18px;}
     .terms-of-service__text h5{font-size: 16px;}
+    .mobile-hidden{display: none;}
 }
