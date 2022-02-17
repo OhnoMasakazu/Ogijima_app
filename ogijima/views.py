@@ -236,8 +236,8 @@ def aikien_service(request):
                     place_count += 10
                 else:
                     place_count += event.place
-            if place_count > 2:
-                place_count = 10
+        if place_count > 2:
+            place_count = 10
         dayList.append([day, place_count])
         day += 1
 
