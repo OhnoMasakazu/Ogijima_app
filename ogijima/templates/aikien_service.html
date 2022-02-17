@@ -134,7 +134,6 @@
     </div>
     <div class="plan-list">
         <div id="plan-list__content-1" class="plan-list__content plan-list__content-1">
-            <!-- <h3>アートギャラリー部のみ利用</h3> -->
             <table>
                 <tr class="two-lines-top">
                     <th rowspan="2" class="table-2-1"></th>
@@ -164,7 +163,6 @@
             </ul>
         </div>
         <div id="plan-list__content-2" class="plan-list__content plan-list__content-2">
-            <!-- <h3>入口部（キッチンのみ）利用</h3> -->
             <table>
                 <tr>
                     <th class="table-1-1"></th>
@@ -493,14 +491,12 @@
 <section id="apply-form">
     <h2 class="section-title">利用申込フォーム</h2>
     <p>
-        アートギャラリー・イベントスペースのご利用に関するご質問等は、<a href="{% url 'ogijima:contact' %}">こちら</a>より受け付けております。件名にて、アートギャラリー・イベントスペースに関してであることをご明記の上、お問い合わせください。
+        お申し込みの際は、
+        <a href="https://drive.google.com/file/d/1fi6FAx6rN88LTt5EXV9TBOK-qxE1jWMO/view?usp=sharing" target="terms">申込書</a>
+        をダウンロードして、申込内容をご記入の上、以下のフォームよりお申込みください。
     </p>
     <p>
-        お申し込みの際は、
-        <!-- <a href="https://drive.google.com/file/d/11-cCfUR5d2couktFxIIZKV3mRNVyEXJw/view?usp=sharing" target="application">利用規約</a>
-        と -->
-        <a href="https://drive.google.com/file/d/1fi6FAx6rN88LTt5EXV9TBOK-qxE1jWMO/view?usp=sharing" target="terms">申込書</a>
-        をダウンロードして、<!-- 利用規約に同意、 -->申込内容をご記入の上、以下のフォームよりお申込みください。
+        アートギャラリー・イベントスペースのご利用に関するご質問等は、<a href="{% url 'ogijima:contact' %}">こちら</a>より受け付けております。件名にて、アートギャラリー・イベントスペースに関してであることをご明記の上、お問い合わせください。
     </p>
     
     <form action="" method="POST" enctype="multipart/form-data">
@@ -720,15 +716,15 @@
         calendarReload(calendarReloadCount);
     }
 
-    function calendarReload(count){
+    function calendarReload(monthcount){
         const xhr = new XMLHttpRequest();
-        xhr.open("GET", "{% url 'ogijima:aikien_service_calender_reload' %}?count=" + count);
+        xhr.open("GET", "{% url 'ogijima:aikien_service_calender_reload' %}?count=" + monthcount);
         xhr.addEventListener("load", function () {
             const asyncresponse = JSON.parse(xhr.response).event_day_list;
             const reloadDate = new Date();
-            reloadDate.setMonth(reloadDate.getMonth() + count);
+            reloadDate.setMonth(reloadDate.getMonth() + monthcount);
             document.querySelector('#calender_header').innerHTML = reloadDate.getFullYear() + "年 " + (reloadDate.getMonth() + 1) + "月";
-            document.querySelector('#calendar').innerHTML = createProcess(reloadDate.getFullYear(), reloadDate.getMonth() + count, asyncresponse);
+            document.querySelector('#calendar').innerHTML = createProcess(reloadDate.getFullYear(), reloadDate.getMonth(), asyncresponse);
         });
         xhr.send();
     }
