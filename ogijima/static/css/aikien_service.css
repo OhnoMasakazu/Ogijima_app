@@ -216,6 +216,7 @@ section{
     border-spacing: 0;
     text-align: center;
     margin: auto;
+    padding: 0 12px;
 }
 .plan-list__content th{
     border-bottom: solid 1px #000;
@@ -231,9 +232,9 @@ tr.two-lines-top th{
 tr.two-lines-bottom th{
     padding: 4px 0 20px;
 }
-.table-1-1{width: 12vw;}
+.table-1-1{width: calc(12vw - 24px);}
 .table-1-2{width: 18vw;}
-.table-2-1{width: 12vw;}
+.table-2-1{width: calc(12vw - 24px);}
 .table-2-2{width: 18vw;}
 .table-2-3{width: 10vw;}
 .plan-list__content > ul{
@@ -243,11 +244,12 @@ tr.two-lines-bottom th{
     margin: 8px 0;
 }
 .plan-list__content-1 > ul{
-    width: 48vw;
-    padding-left: 1em;
+    width: calc(48vw - 24px);
+    padding: 0 12px 0 calc(12px + 1em);
+    /* padding-left: 1em; */
 }
 .plan-list__content-2 > ul, .plan-list__content-3 > ul{
-    width: 50vw;
+    width: calc(50vw - 24px);
     padding-left: 1em;
 }
 
@@ -830,12 +832,12 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     .plan-list__content{
         width: 90vw;
     }
-    .table-1-1{width: 20vw;}
+    .table-1-1{width: calc(20vw - 24px);}
     .table-1-2{width: 35vw;}
-    .table-2-1{width: 20vw;}
+    .table-2-1{width: calc(20vw - 24px);}
     .table-2-2{width: 24vw;}
     .table-2-3{width: 28vw;}
-    .plan-list__content-1 ul, .plan-list__content-2 ul, .plan-list__content-3 ul{width: calc(90vw - 1em);}
+    .plan-list__content-1 ul, .plan-list__content-2 ul, .plan-list__content-3 ul{width: calc(90vw - 1em - 24px);}
 
     .calender_wrapper{
         width: 90vw;
