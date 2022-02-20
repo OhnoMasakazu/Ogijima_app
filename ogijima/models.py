@@ -7,7 +7,7 @@ class Work(models.Model):
     work_start_date = models.DateTimeField()
     work_end_date = models.DateTimeField()
     title = models.CharField(max_length=50)
-    thumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=1000)
     content = models.TextField()
     def __str__(self):
         return self.title
@@ -22,7 +22,7 @@ class Work_for_calender(models.Model):
 
 class Blog(models.Model):
     date = models.DateTimeField(default=timezone.now)
-    thumbnail = models.CharField(max_length=300)
+    thumbnail = models.CharField(max_length=1000)
     title = models.CharField(max_length=50)
     content = models.TextField()
     def __str__(self):
@@ -30,7 +30,7 @@ class Blog(models.Model):
 
 class Gallery(models.Model):
     date = models.DateTimeField(default=timezone.now)
-    photo = models.CharField(max_length=300)
+    photo = models.CharField(max_length=1000)
     def __str__(self):
         return str(self.id)
 
@@ -44,7 +44,7 @@ class Notification(models.Model):
 
 class Profile(models.Model):
     order = models.FloatField(default=0)
-    image = models.CharField(max_length=300)
+    image = models.CharField(max_length=1000)
     name = models.CharField(max_length=20)
     roll = models.CharField(max_length=50,blank=True)
     introduction = models.CharField(max_length=300)
@@ -53,8 +53,8 @@ class Profile(models.Model):
         return self.name
 
 class Art(models.Model):
-    thumbnail = models.CharField(max_length=300)
-    image = models.CharField(max_length=3000)
+    thumbnail = models.CharField(max_length=1000)
+    image = models.CharField(max_length=10000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
     document = models.TextField(max_length=4000,blank=True)
@@ -68,8 +68,8 @@ class Art(models.Model):
         return self.name
 
 class Restaurant(models.Model):
-    thumbnail = models.CharField(max_length=300)
-    image = models.CharField(max_length=3000)
+    thumbnail = models.CharField(max_length=1000)
+    image = models.CharField(max_length=10000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
     businessHour = models.TextField(max_length=200,blank=True)
@@ -90,8 +90,8 @@ class Restaurant(models.Model):
         return self.name
 
 class Hotel(models.Model):
-    thumbnail = models.CharField(max_length=300)
-    image = models.CharField(max_length=3000)
+    thumbnail = models.CharField(max_length=1000)
+    image = models.CharField(max_length=10000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
     businessHour = models.TextField(max_length=200,blank=True)
@@ -112,8 +112,8 @@ class Hotel(models.Model):
         return self.name
 
 class Restaurant_and_hotel(models.Model):
-    thumbnail = models.CharField(max_length=300)
-    image = models.CharField(max_length=3000)
+    thumbnail = models.CharField(max_length=1000)
+    image = models.CharField(max_length=10000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
     businessHour = models.TextField(max_length=200,blank=True)
@@ -134,8 +134,8 @@ class Restaurant_and_hotel(models.Model):
         return self.name
 
 class Cat(models.Model):
-    thumbnail = models.CharField(max_length=300)
-    image = models.CharField(max_length=3000)
+    thumbnail = models.CharField(max_length=1000)
+    image = models.CharField(max_length=10000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
     document = models.TextField(max_length=4000,blank=True)
@@ -147,13 +147,13 @@ class Cat(models.Model):
         return self.name
 
 class Slideshow_pc(models.Model):
-    image = models.CharField(max_length=300)
+    image = models.CharField(max_length=1000)
     order = models.FloatField()
     def __str__(self):
         return str(self.order)
 
 class Slideshow_mobile(models.Model):
-    image = models.CharField(max_length=300)
+    image = models.CharField(max_length=1000)
     order = models.FloatField()
     def __str__(self):
         return str(self.order)
@@ -167,7 +167,7 @@ class Sponsor_name(models.Model):
 
 class Sponsor_banner(models.Model):
     name = models.CharField(max_length=50)
-    image = models.CharField(max_length=300)
+    image = models.CharField(max_length=1000)
     link = models.CharField(max_length=300,blank=True)
     order = models.FloatField()
     def __str__(self):
@@ -185,8 +185,8 @@ class Contact(models.Model):
 
 # 営業資料用サンプル
 class Restaurant_sample(models.Model):
-    thumbnail = models.CharField(max_length=300)
-    image = models.CharField(max_length=3000)
+    thumbnail = models.CharField(max_length=1000)
+    image = models.CharField(max_length=10000)
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=300,blank=True)
     businessHour = models.TextField(max_length=200,blank=True)
