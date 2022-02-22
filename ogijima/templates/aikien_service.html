@@ -74,22 +74,22 @@
 <div class="separation-title">
     <h2>利用について</h2>
     <div><img src="https://lh3.googleusercontent.com/pw/AM-JKLXo6_3a1NdTAGUTvDluqCI3f8dFFXC-EiskC0aPgN08Liw59sMjUAyVjpqdFt0kKrmBLEJY_Ljsen6V3MdSmE7wQrq3wWPiVl85bemN8epYMWWJC4ihWt2xIwVmbE8Hyocl2NquaYNeKY0tc_F7GTDu=s0"></div>
-    <div class="separation-mask"></div>
+    <!-- <div class="separation-mask"></div> -->
 </div>
 
 <section id="place">
     <h2 class="section-title">利用場所</h2>
     <div class="place-flex__wrapper place-pc">
-        <img src="https://lh3.googleusercontent.com/pw/AM-JKLVefe_MeqGCKCUBkfr93RDsCEH-1MBXkJLhm7Bng9YIrpe1Gvvcve5W2jbRNln3hTLNOZQpQb6XrfEpL_a_GMVPX3PvQo_osHoFu95uK7lz7ep9LER74bdUYP7kvrWN7Gxl_1gRcl3vkn367eA0jIFt=w1119-h839-no?authuser=5">
         <div>
             <h4>アートギャラリー部</h4>
+            <img src="https://lh3.googleusercontent.com/pw/AM-JKLVefe_MeqGCKCUBkfr93RDsCEH-1MBXkJLhm7Bng9YIrpe1Gvvcve5W2jbRNln3hTLNOZQpQb6XrfEpL_a_GMVPX3PvQo_osHoFu95uK7lz7ep9LER74bdUYP7kvrWN7Gxl_1gRcl3vkn367eA0jIFt=w1119-h839-no?authuser=5">
             <p>倉庫奥のフローリングのある部分です。細かな照明の調整が可能です。白い展示用パネルや什器はご自由にお使いください。</p>        
         </div>
         <div>
             <h4>キッチン部</h4>
+            <img src="https://lh3.googleusercontent.com/pw/AM-JKLWXMy7cZb6UwQnzgPi-ndnJxRWYwhDIWPBM8y-ddRcUK9k5wrioV8hIgJwiAnUYMKrLhToHfeFankH5p4fCUzVoAVHBlgFyppIWc-UawkxJYViRw-DejVcOfWa57z_hrOrowtedV0Gn-W75KEfyUDlD=w1001-h751-no?authuser=5">
             <p>倉庫入口のコンクリート部分です。キッチンには水道、電気があり、シンク、冷蔵庫、作業台（L字台）はご自由に使用していただけます。原則として「露店営業」の許可範囲内での飲食物の提供が可能です。作業台は展示台として利用することができます。</p>
         </div>
-        <img src="https://lh3.googleusercontent.com/pw/AM-JKLWXMy7cZb6UwQnzgPi-ndnJxRWYwhDIWPBM8y-ddRcUK9k5wrioV8hIgJwiAnUYMKrLhToHfeFankH5p4fCUzVoAVHBlgFyppIWc-UawkxJYViRw-DejVcOfWa57z_hrOrowtedV0Gn-W75KEfyUDlD=w1001-h751-no?authuser=5">
     </div>
     <div class="place-mobile">
         <h4>アートギャラリー部</h4>
@@ -763,32 +763,32 @@
         return calendar;
     }
 
-    var separationOffset = document.querySelector('.separation-mask').offsetTop;
+    // var separationOffset = document.querySelector('.separation-mask').offsetTop;
     var screenHeight = window.screen.height;
-    var separationFlag = 0;
-    if(screenWidth <= 1020){
-        window.addEventListener('scroll', () => {
-            var scrollY = window.pageYOffset;
-            if(scrollY > separationOffset - screenHeight * 0.7 && separationFlag == 0){
-                document.querySelector('.separation-mask').style.left = "99vw";
-                separationFlag = 1;
-                window.setTimeout(() => {
-                    document.querySelector('.separation-mask').style.display = "none";
-                }, 800);
-            }
-        })
-    }else{
-        window.addEventListener('scroll', () => {
-            var scrollY = window.pageYOffset;
-            if(scrollY > separationOffset - screenHeight * 0.4 && separationFlag == 0){
-                document.querySelector('.separation-mask').style.left = "99vw";
-                separationFlag = 1;
-                window.setTimeout(() => {
-                    document.querySelector('.separation-mask').style.display = "none";
-                }, 800);
-            }
-        })
-    }
+    // var separationFlag = 0;
+    // if(screenWidth <= 1020){
+    //     window.addEventListener('scroll', () => {
+    //         var scrollY = window.pageYOffset;
+    //         if(scrollY > separationOffset - screenHeight * 0.7 && separationFlag == 0){
+    //             document.querySelector('.separation-mask').style.left = "99vw";
+    //             separationFlag = 1;
+    //             window.setTimeout(() => {
+    //                 document.querySelector('.separation-mask').style.display = "none";
+    //             }, 800);
+    //         }
+    //     })
+    // }else{
+    //     window.addEventListener('scroll', () => {
+    //         var scrollY = window.pageYOffset;
+    //         if(scrollY > separationOffset - screenHeight * 0.4 && separationFlag == 0){
+    //             document.querySelector('.separation-mask').style.left = "99vw";
+    //             separationFlag = 1;
+    //             window.setTimeout(() => {
+    //                 document.querySelector('.separation-mask').style.display = "none";
+    //             }, 800);
+    //         }
+    //     })
+    // }
 
     $(function(){
         $('a[href^="#"]').click(function(){

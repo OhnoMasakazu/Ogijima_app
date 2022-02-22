@@ -27,10 +27,12 @@
     <div class="top__textbox">
         <h3>{{ restaurant.name }}</h3>
         <p class="top__introduction">{{ restaurant.introduction | safe }}</p>
+        {% if restaurant.businessHour %}
         <h5 class="top__textbox-subtitle">営業時間</h5>
         <div class="businessHour">
             {{ restaurant.businessHour | safe }}
         </div>
+        {% endif %}
         <h5 class="top__textbox-subtitle">関連情報</h5>
         {% if restaurant.homepage %}
         <p>
@@ -44,10 +46,12 @@
             <a href="tel:{{ restaurant.telephone }}">{{ restaurant.telephone }}</a>
         </p>
         {% endif %}
+        {% if restaurant.address %}
         <p>
             住所：
             <a href="#locationinfo">{{ restaurant.address }}</a>
         </p>
+        {% endif %}
         <div class="sns-list">
             {% if restaurant.instagram %}
             <a href="{{ restaurant.instagram }}" class="sns-list__instagram" target="instagram">

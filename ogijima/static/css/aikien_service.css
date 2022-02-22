@@ -1,12 +1,13 @@
 .ogijima-description p{
     text-align: center;
 }
-.swiper{
+#swiper{
     width: 70vw;
     height: 80vh;
     margin: 48px 0;
+    overflow: visible;
 }
-.swiper img{
+#swiper img{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -16,6 +17,29 @@
 }
 .swiper-pagination-bullet-active{
     background-color: rgb(230,95,96);
+}
+.swiper-button-next::after, .swiper-button-prev::after{
+    font-size: 12px;
+    font-weight: bold;
+}
+#swiper .swiper-pagination{
+    bottom: -32px !important;
+}
+.swiper-button-next{
+    top: auto;
+    bottom: -24px;
+    left: auto;
+    right: 25vw;
+    transform: translateY(50%);
+    height: max-content;
+}
+.swiper-button-prev{
+    top: auto;
+    bottom: -24px;
+    left: 25vw;
+    right: auto;
+    transform: translateY(50%);
+    height: max-content;
 }
 
 .mobile-br{
@@ -116,7 +140,7 @@ section{
 }
 
 #ogijima{
-    margin-top: 130vh;
+    margin-top: 120vh;
 }
 #ogijima h2{
     text-align: center;
@@ -125,10 +149,12 @@ section{
 .reference-image{
     display: flex;
     margin: 48px 0;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
 }
 #reference-image-window{
-    height: 70vh;
-    width: 53.5vw;
+    height: 36vw;
+    width: 48vw;
     object-fit: contain;
 }
 .reference-image__wrapper p{
@@ -156,19 +182,21 @@ section{
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
 }
 .place-flex__wrapper div{
-    width: calc(35vw - 48px);
-    padding: 24px;
+    width: 32vw;
 }
 .place-flex__wrapper img{
-    width: 35vw;
-    height: 27vw;
+    width: 32vw;
+    height: 24vw;
     object-fit: cover;
+    margin-bottom: 24px;
 }
 .place-flex__wrapper h4{
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 36px;
 }
 .place-mobile{display: none;}
 
@@ -359,6 +387,10 @@ tr.two-lines-bottom th{
 .flow__list-3 img{transform: translateX(-3px);}
 .flow__list-mobile{
     display: none;
+}
+.flow__text{
+    height: max-content;
+    margin: auto 0;
 }
 
 #precautions ul{padding-left: 1em;}
@@ -692,9 +724,15 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
         margin-top: 50vh;
     }
 
-    .swiper{
+    #swiper{
         width: 90vw;
         height: 75vw;
+    }
+    .swiper-button-next{
+        right: 20vw;
+    }
+    .swiper-button-prev{
+        left: 20vw;
     }
     .separation-title h2{
         letter-spacing: -0.2em;
