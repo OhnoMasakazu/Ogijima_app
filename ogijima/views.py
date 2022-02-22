@@ -241,19 +241,15 @@ def aikien_service(request):
         dayList.append([day, place_count])
         day += 1
 
-
-    # model = Contact
-    # art = Art.objects.get(pk=7)
-    # art.document = markdown(art.document)
     if request.method == 'POST':
         form = ApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            postdata = Contact(
+            postdata = Application_contact(
                 name = request.POST['name'],
                 mail = request.POST['mail'],
                 content = request.POST['content'],
                 application_file = request.FILES['application_file'],
-                # terms_file = request.FILES['terms_file'],
+               
             )
             postdata.save()
             name = request.POST['name']
@@ -287,8 +283,7 @@ def aikien_service(request):
             bcc = ['{email}'.format(email=settings.EMAIL_HOST_USER),'ogijima.pj.hp@gmail.com']
             try:
                 send_mail = EmailMessage(subject, message, from_email, recipient_list, bcc)
-                send_mail.attach_file(Contact.objects.get(pk=postdata.id).application_file.path)
-                # send_mail.attach_file(Contact.objects.get(pk=postdata.id).terms_file.path)
+                send_mail.attach_file(Application_contact.objects.get(pk=postdata.id).application_file.path)
                 send_mail.send()
             except BadHeaderError:
                 return HttpResponse("無効なヘッダが検出されました。")
@@ -374,7 +369,7 @@ def cat_detail(request, id):
 
 def gallery(request):
     photos = Gallery.objects.all().order_by("-date")
-    paginator = Paginator(photos, 12)
+    paginator = Paginator(photos, 24)
     page = request.GET.get('page', 1)
     try:
         pages = paginator.page(page)

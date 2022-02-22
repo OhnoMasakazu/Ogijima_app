@@ -4,7 +4,7 @@ from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.http import HttpResponse
 from django.core.validators import FileExtensionValidator
 from django.core.files.storage import default_storage
-from .models import Contact
+from .models import *
 
 class ContactForm(forms.Form):
     name = forms.CharField(
@@ -79,5 +79,5 @@ class ContactForm(forms.Form):
 class ApplicationForm(forms.ModelForm):
 
     class Meta:
-        model = Contact
+        model = Application_contact
         fields = '__all__'
