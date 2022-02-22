@@ -23,8 +23,9 @@ SECRET_KEY = 'django-insecure-xn!rrs3t3v=le6m*)$4&+rm(6a)b#l^024a_kqcqpy4gler*g^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = ['13.208.106.166']
+ALLOWED_HOSTS = ['aikien.com']
 
 # Application definition
 
@@ -74,23 +75,23 @@ WSGI_APPLICATION = 'ogijima_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'aikien_database',
+        'USER': 'aikien',
+        'PASSWORD': 'aikien12345',
+        'HOST': '',
+        'PORT': '',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'aikien_database',
-#         'USER': 'aikien',
-#         'PASSWORD': 'aikien12345',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
 
 
 # Password validation
@@ -131,10 +132,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'ogijima/static'),
 )
-STATIC_ROOT = os.path.join(BASE_DIR, 'ogijima/static')
-# STATIC_ROOT = '/usr/share/nginx/html/static'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'ogijima/static')
+STATIC_ROOT = '/usr/share/nginx/html/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -142,8 +143,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'ogijima/static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_ROOT = '/usr/share/nginx/html/media'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/usr/share/nginx/html/media'
 
 # Gmail で送信する場合
 EMAIL_HOST = 'smtp.gmail.com'
