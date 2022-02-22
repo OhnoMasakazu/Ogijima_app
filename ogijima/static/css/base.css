@@ -19,13 +19,13 @@ h1,h2,h3,h4,h5,h6,p,li,span,th,td{color:rgb(68,58,59);}
 p{line-height: 1.8;}
 .header_image_link{
     height: 10vh;
+    margin-left: 16px;
 }
 a{
     font-size: 14px;
     color:rgb(230,95,96);
     text-decoration: underline;
     cursor: pointer;
-    margin-left: 16px;
 }
 .pagetitle{
     font-family: 'ロンド B';
