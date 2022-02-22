@@ -283,6 +283,7 @@ footer{
     .header_image_link{
         height: max-content;
         display: inline-block;
+        margin: 0;
     }
 
     .header_menu{
