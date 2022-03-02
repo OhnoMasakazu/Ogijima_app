@@ -12,7 +12,7 @@
 <h1 class="work_title">{{ work.title }}</h1>
 <h3 class="date">
     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
-    {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}
+    <span class="dayofweek-trans">{{ work.work_start_date | date:"Y年m月d日（w）" }}</span> ～ <span class="dayofweek-trans">{{ work.work_end_date | date:"Y年m月d日（w）" }}</span>
 </h3>
 <div class="main_sentence">{{ work.content | safe}}</div>
 <div class="link_wrapper">

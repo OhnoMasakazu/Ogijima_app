@@ -213,7 +213,7 @@
                 <h4>{{ now_work.title }}</h4>
                 <p class="work__date">
                     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
-                    {{ now_work.work_start_date | date:"Y年m月d日" }} ～ {{ now_work.work_end_date | date:"Y年m月d日" }}
+                    <span class="dayofweek-trans">{{ now_work.work_start_date | date:"Y年m月d日（w）" }}</span> ～ <span class="dayofweek-trans">{{ now_work.work_end_date | date:"Y年m月d日（w）" }}</span>
                 </p>
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
@@ -233,7 +233,7 @@
                 <h4>{{ future_work.title }}</h4>
                 <p class="work__date">
                     開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
-                    {{ future_work.work_start_date | date:"Y年m月d日" }} ～ {{ future_work.work_end_date | date:"Y年m月d日" }}
+                    <span class="dayofweek-trans">{{ future_work.work_start_date | date:"Y年m月d日（w）" }}</span> ～ <span class="dayofweek-trans">{{ future_work.work_end_date | date:"Y年m月d日（w）" }}</span>
                 </p>
                 <p class="work__link-button">もっと見る ＞</p>
             </a>
