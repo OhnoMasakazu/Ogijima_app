@@ -21,7 +21,7 @@
     <img class="thumbnail" src="{{ work.thumbnail }}">
     <div class="work__text">
         <h4>{{ work.title }}</h4>
-        <p>開催期間 ： {{ work.work_start_date | date:"Y年m月d日" }} ～ {{ work.work_end_date | date:"Y年m月d日" }}</p>
+        <p>開催期間 ： <span class="dayofweek-trans">{{ work.work_start_date | date:"Y年m月d日（w）" }}</span> ～ <span class="dayofweek-trans">{{ work.work_end_date | date:"Y年m月d日（w）" }}</span></p>
         <!-- <p class="work__content">{{ work.content | safe }}</p> -->
         <p class="work__link-button">もっと見る ＞</p>
     </div>

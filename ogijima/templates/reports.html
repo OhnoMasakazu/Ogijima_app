@@ -22,7 +22,7 @@
             <img class="blog-thumbnail" src="{{ blog.thumbnail }}">
             <div class="blog__text">
                 <h4>{{ blog.title }}</h4>
-                <p>{{ blog.date | date:"Y年m月d日" }}</p>
+                <p class="dayofweek-trans">{{ blog.date | date:"Y年m月d日（w）" }}</p>
                 <!-- <p class="blog__content">{{ blog.content | safe}}</p> -->
                 <p class="blog__link-button">もっと見る ＞</p>
             </div>
