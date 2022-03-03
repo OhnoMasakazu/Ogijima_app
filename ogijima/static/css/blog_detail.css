@@ -36,7 +36,15 @@
     margin: 0px auto;
 }
 .mobile-br{display: none;}
-
+blockquote {
+    position: relative;
+    margin: 1em 0;
+    padding: 0 1em 0 1em;
+    font-size: .9em;
+    border-left: 5px solid rgb(90, 77, 79);
+    border-radius: 2px;
+    line-height: 0.3;
+}
 @media screen and (max-width:1020px) {
     .mobile-br{display: block;}
     .mobile-delete{display: none;}
