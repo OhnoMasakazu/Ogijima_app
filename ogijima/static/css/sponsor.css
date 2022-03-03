@@ -49,9 +49,11 @@ a.banner:hover .banner__name{
     }
     .banner__name{
         width: 80vw;
+        max-width: none;
     }
     .name{
         width: 80vw;
         margin: 12px 5vw;
+        max-width: none;
     }
 }
