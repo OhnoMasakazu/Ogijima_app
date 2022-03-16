@@ -369,7 +369,7 @@ def cat_detail(request, id):
 
 def gallery(request):
     photos = Gallery.objects.all().order_by("-date")
-    paginator = Paginator(photos, 24)
+    paginator = Paginator(photos, 12)
     page = request.GET.get('page', 1)
     try:
         pages = paginator.page(page)
