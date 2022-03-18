@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{% static 'css/aikien_service.css' %}">
 {% endblock %}
 
+{% block recaptha %}
+<script src="https://www.google.com/recaptcha/api.js?render={{ sitekey }}"></script>
+{% endblock %}
+
 {% block main_panel %}
 <section id="top">
     <div class="top-pc">

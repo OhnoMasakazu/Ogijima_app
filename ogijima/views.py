@@ -9,6 +9,7 @@ import re
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime, calendar
 from dateutil.relativedelta import relativedelta
+# from ogijima_app.settings import DEBUG
 
 def get_first_date(dt):
     return dt.replace(day=1)
@@ -219,6 +220,11 @@ def art_detail(request, id):
     return render(request,'art_detail.html',{'art':art})
 
 def aikien_service(request):
+    # local
+    # sitekey = "6Lel5O8eAAAAABb3eQMJxnbu74pjLadiS3VFQvBj"
+    # 本番
+    sitekey = "6LcD4-8eAAAAAKZdJDZEZ_ecNu_CI3SyxkKqr_Ln"
+
     today = datetime.datetime.today().date()
     thisMonthFirstDate = get_first_date(today)
     thisMonthLastDate = get_last_date(today)
@@ -290,7 +296,7 @@ def aikien_service(request):
             return redirect('ogijima:contact_completed',request.POST['mail'])
     else:
         form = ApplicationForm()  
-    return render(request,'aikien_service.html', {'form': form, 'event_day_list': dayList})
+    return render(request,'aikien_service.html', {'form': form, 'event_day_list': dayList,'sitekey': sitekey})
 
 def aikien_service_calender_reload(request):
     count = int(request.GET.get('count', ''))
@@ -398,6 +404,10 @@ def notifications(request):
     return render(request,'notifications.html', params)
 
 def contact(request):
+    # local
+    # sitekey = "6Lel5O8eAAAAABb3eQMJxnbu74pjLadiS3VFQvBj"
+    # 本番
+    sitekey = "6LcD4-8eAAAAAKZdJDZEZ_ecNu_CI3SyxkKqr_Ln"
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -406,7 +416,7 @@ def contact(request):
             return redirect('ogijima:contact_completed', email)
     else:
         form = ContactForm()
-    return render(request,'contact.html',{'form': form})
+    return render(request,'contact.html',{'form': form, 'sitekey': sitekey})
 
 def contact_completed(request,email):
     return render(request,'contact_completed.html',{'email': email})
@@ -444,3 +454,21 @@ def restaurant_detail_sample(request, id):
     restaurant.document = markdown(restaurant.document)
     restaurant.businessHour = markdown(restaurant.businessHour)
     return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})
+
+# recaptha
+def recaptha(req):
+    import urllib, urllib.request, urllib.parse, json
+    recaptcha_response = req.POST.get('g-recaptcha-response')
+    url = 'https://www.google.com/recaptcha/api/siteverify'
+    values = { 
+        # local
+        # 'secret': '6Lel5O8eAAAAAPKkJAYsgFr5kbH4-5yuCO9lD8dA',
+        # 本番
+        'secret': '6LcD4-8eAAAAANgGNmLi1wk-WjK9kmrmkSP07MdB',
+        'response': recaptcha_response
+    }   
+    data = urllib.parse.urlencode(values).encode('utf-8')
+    req = urllib.request.Request(url, data)
+    response = urllib.request.urlopen(req)
+    result = json.loads(response.read().decode('utf-8'))
+    return result
