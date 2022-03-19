@@ -126,6 +126,7 @@ form > p > input, form > p > textarea{
     opacity: 0.7;
     background-color: rgb(90, 77, 79) !important;
 }
+
 @media screen and (max-width:1020px) {
     form{
         width: 90vw;
