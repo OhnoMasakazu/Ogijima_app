@@ -5,10 +5,6 @@
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}
 
-{% block recaptha %}
-<script src="https://www.google.com/recaptcha/api.js?render={{ sitekey }}"></script>
-{% endblock %}
-
 {% block main_panel %}
 <h1 class="pagetitle">お問い合わせ</h1>
 <form action="" method="POST">
@@ -18,6 +14,8 @@
         <p><a href="{% url 'ogijima:privacypolicy' %}" target="privacypolicy">プライバシーポリシー</a>に同意する</p>
         <input id="privacypolicy-check" type="checkbox"><label for="privacypolicy-check"></label>
     </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
     <button id="submit-button" type="submit" disabled="true">送信</button>
     <div id="button-cover">送信</div>
 </form>
@@ -25,4 +23,13 @@
 
 {% block extra_js %}
 <script src="{% static 'js/contact.js' %}"></script>
+{% if messages %}
+<script>
+    let mes = "";
+    {% for message in messages %}
+    mes += "{{ message }}\n";
+    {% endfor %}
+    swal(mes);
+</script>
+{% endif %}
 {% endblock %}

@@ -4,12 +4,17 @@ from django.http import HttpResponse, JsonResponse
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from ogijima.forms import ContactForm, ApplicationForm
 from .models import *
+from .ignore import *
 from markdown import markdown
 import re
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime, calendar
 from dateutil.relativedelta import relativedelta
-# from ogijima_app.settings import DEBUG
+
+import urllib
+import json
+
+from django.contrib import messages
 
 def get_first_date(dt):
     return dt.replace(day=1)
@@ -220,10 +225,7 @@ def art_detail(request, id):
     return render(request,'art_detail.html',{'art':art})
 
 def aikien_service(request):
-    # local
-    # sitekey = "6Lel5O8eAAAAABb3eQMJxnbu74pjLadiS3VFQvBj"
-    # 本番
-    sitekey = "6LcD4-8eAAAAAKZdJDZEZ_ecNu_CI3SyxkKqr_Ln"
+    sitekey = GOOGLE_RECAPTCHA_SITE_KEY
 
     today = datetime.datetime.today().date()
     thisMonthFirstDate = get_first_date(today)
@@ -250,19 +252,37 @@ def aikien_service(request):
     if request.method == 'POST':
         form = ApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            postdata = Application_contact(
-                name = request.POST['name'],
-                mail = request.POST['mail'],
-                content = request.POST['content'],
-                application_file = request.FILES['application_file'],
-               
-            )
-            postdata.save()
-            name = request.POST['name']
-            email = request.POST['mail']
-            text = request.POST['content']
-            subject = "【男木島名物倉庫『あいきえん』】アートギャラリーお申込内容の確認"
-            message = """※このメールはシステムからの自動返信です。
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req =  urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            ''' End reCAPTCHA validation '''
+
+            if result['success']:
+                # form.send_email()
+                # email = form.return_email()
+                # return redirect('ogijima:contact_completed', email)
+
+                postdata = Application_contact(
+                    name = request.POST['name'],
+                    mail = request.POST['mail'],
+                    content = request.POST['content'],
+                    application_file = request.FILES['application_file'],
+                
+                )
+                postdata.save()
+                name = request.POST['name']
+                email = request.POST['mail']
+                text = request.POST['content']
+                subject = "【男木島名物倉庫『あいきえん』】アートギャラリーお申込内容の確認"
+                message = """※このメールはシステムからの自動返信です。
 
 {name} 様
 アートギャラリーのご利用申込いただきありがとうございます。
@@ -283,17 +303,21 @@ def aikien_service(request):
 
 
 ※このメールは送信専用です。このメールにご返信いただいても、お返しすることができませんので、ご了承ください。
-""".format(name=name, email=email, text=text)
-            from_email = '男木島名物倉庫『あいきえん』お問い合わせ <{email}>'.format(email=settings.EMAIL_HOST_USER)
-            recipient_list = ['{email}'.format(email=email)]
-            bcc = ['{email}'.format(email=settings.EMAIL_HOST_USER),'ogijima.pj.hp@gmail.com']
-            try:
-                send_mail = EmailMessage(subject, message, from_email, recipient_list, bcc)
-                send_mail.attach_file(Application_contact.objects.get(pk=postdata.id).application_file.path)
-                send_mail.send()
-            except BadHeaderError:
-                return HttpResponse("無効なヘッダが検出されました。")
-            return redirect('ogijima:contact_completed',request.POST['mail'])
+    """.format(name=name, email=email, text=text)
+                from_email = '男木島名物倉庫『あいきえん』お問い合わせ <{email}>'.format(email=settings.EMAIL_HOST_USER)
+                recipient_list = ['{email}'.format(email=email)]
+                bcc = ['{email}'.format(email=settings.EMAIL_HOST_USER),'ogijima.pj.hp@gmail.com']
+                try:
+                    send_mail = EmailMessage(subject, message, from_email, recipient_list, bcc)
+                    send_mail.attach_file(Application_contact.objects.get(pk=postdata.id).application_file.path)
+                    send_mail.send()
+                except BadHeaderError:
+                    return HttpResponse("無効なヘッダが検出されました。")
+                return redirect('ogijima:contact_completed',request.POST['mail'])
+
+            else:
+                messages.error(request, 'reCapthaが無効です。チェックボックスにチェックを入れて、もう一度送信してください。')
+
     else:
         form = ApplicationForm()  
     return render(request,'aikien_service.html', {'form': form, 'event_day_list': dayList,'sitekey': sitekey})
@@ -404,18 +428,37 @@ def notifications(request):
     return render(request,'notifications.html', params)
 
 def contact(request):
-    # local
-    # sitekey = "6Lel5O8eAAAAABb3eQMJxnbu74pjLadiS3VFQvBj"
-    # 本番
-    sitekey = "6LcD4-8eAAAAAKZdJDZEZ_ecNu_CI3SyxkKqr_Ln"
+    sitekey = GOOGLE_RECAPTCHA_SITE_KEY
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.send_email()
-            email = form.return_email()
-            return redirect('ogijima:contact_completed', email)
+            # form.send_email()
+            # email = form.return_email()
+            # return redirect('ogijima:contact_completed', email)
+
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req =  urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            ''' End reCAPTCHA validation '''
+
+            if result['success']:
+                form.send_email()
+                email = form.return_email()
+                return redirect('ogijima:contact_completed', email)
+            else:
+                messages.error(request, 'reCapthaが無効です。チェックボックスにチェックを入れて、もう一度送信してください。')
+
     else:
         form = ContactForm()
+    # return render(request,'contact.html',{'form': form})
     return render(request,'contact.html',{'form': form, 'sitekey': sitekey})
 
 def contact_completed(request,email):
@@ -454,21 +497,3 @@ def restaurant_detail_sample(request, id):
     restaurant.document = markdown(restaurant.document)
     restaurant.businessHour = markdown(restaurant.businessHour)
     return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})
-
-# recaptha
-def recaptha(req):
-    import urllib, urllib.request, urllib.parse, json
-    recaptcha_response = req.POST.get('g-recaptcha-response')
-    url = 'https://www.google.com/recaptcha/api/siteverify'
-    values = { 
-        # local
-        # 'secret': '6Lel5O8eAAAAAPKkJAYsgFr5kbH4-5yuCO9lD8dA',
-        # 本番
-        'secret': '6LcD4-8eAAAAANgGNmLi1wk-WjK9kmrmkSP07MdB',
-        'response': recaptcha_response
-    }   
-    data = urllib.parse.urlencode(values).encode('utf-8')
-    req = urllib.request.Request(url, data)
-    response = urllib.request.urlopen(req)
-    result = json.loads(response.read().decode('utf-8'))
-    return result
