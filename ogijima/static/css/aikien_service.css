@@ -885,9 +885,7 @@ label[for="id_application_file"]:hover, label[for="id_terms_file"]:hover{
     .reservation-status__wrapper > p{
         margin: 0;
     }
-    .terms-of-service__text{
-        padding: 24px 12px 48px;
-    }
+    .terms-of-service__text{padding: 24px 12px 48px;}
     .terms-of-service__text h3{font-size: 18px;}
     .terms-of-service__text h5{font-size: 16px;}
     .mobile-hidden{display: none;}
