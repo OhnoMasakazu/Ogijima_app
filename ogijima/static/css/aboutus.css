@@ -61,7 +61,7 @@ h3{
     height: 20vw;
     margin: 0 auto 36px;
 }
-.belief-content div img{
+.belief-picture{
     position: absolute;
     top: 0;
     left: 0;
@@ -71,6 +71,12 @@ h3{
     height: 20vw;
     margin: 0;
     object-fit: cover;
+}
+.belief-postit{
+    position: absolute;
+    width: 20vw;
+    bottom: -61px;
+    right: -92px;
 }
 .belief-content div h3{
     font-family: 'せのびゴシック';
@@ -87,7 +93,7 @@ h3{
     align-items: flex-end;
     padding-bottom: 12px;
     color: #fff;
-    text-shadow: 0 0 8px rgba(0,0,0,0.3);
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
 }
 #business{
     margin-top: 20vh;
@@ -189,9 +195,14 @@ p{
         height: 70vw;
         margin-top: 48px;
     }
-    .belief-content div img{
+    .belief-picture{
         width: 70vw;
         height: 70vw;
+    }
+    .belief-postit{
+        width: 65vw;
+        bottom: -60px;
+        right: -15vw;
     }
     #source{
         flex-flow: column;
