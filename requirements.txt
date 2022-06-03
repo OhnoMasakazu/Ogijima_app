@@ -5,3 +5,4 @@ django-stdimage
 gunicorn
 psycopg2-binary
 user-agents
+python-dateutil

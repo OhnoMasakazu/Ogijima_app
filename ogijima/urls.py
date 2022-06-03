@@ -4,6 +4,9 @@ from .import views
 
 app_name = 'ogijima'
 urlpatterns = [
+    # 延期になりましたっていう記事にすればいいのに消しちゃったから、リダイレクトように強引に作成
+    path('work_detail/17',views.work_detail_redirect,name="work_detail_redirect"),
+
     path('',views.top,name="top"),
     path('aboutus',views.aboutus,name="aboutus"),
     path('works',views.works,name="works"),

@@ -497,3 +497,7 @@ def restaurant_detail_sample(request, id):
     restaurant.document = markdown(restaurant.document)
     restaurant.businessHour = markdown(restaurant.businessHour)
     return render(request,'restaurant_detail_sample.html',{'restaurant':restaurant})
+
+
+def work_detail_redirect(request):
+    return render(request,'work_detail_17.html')
