@@ -500,4 +500,21 @@ def restaurant_detail_sample(request, id):
 
 
 def work_detail_redirect(request):
-    return render(request,'work_detail_17.html')
+    work = Work.objects.get(pk=21)
+    work.content = markdown(work.content)
+    worklist = Work.objects.order_by('work_start_date')
+    idx = list(map(lambda x:x.pk, worklist)).index(21)
+    if idx==0:
+        prev_id = -1
+    else:
+        prev_id = worklist[idx-1].pk
+    if idx==len(worklist)-1:
+        next_id  = -1
+    else:
+        next_id = worklist[idx+1].pk
+    params = {
+        'work':work,
+        'prev_id':prev_id,
+        'next_id':next_id
+    }
+    return render(request,'work_detail.html',params)

@@ -8,6 +8,216 @@
 
 {% block main_panel %}
 <h1 class="pagetitle">イベント情報</h1>
-<h3 style="margin: 24px 0;">「第1回男木島作品公募展」延期のお知らせ</h3>
-<p>「第1回男木島作品公募展」は延期となりました。延期の詳細情報は、決まり次第ご連絡させていただきます。出展をご検討の方や、ご質問は<a href="{% url 'ogijima:contact' %}">こちらのフォーム</a>よりお問い合わせください。</p>
+<img class="thumbnail" src="https://lh3.googleusercontent.com/pw/AM-JKLVXUmmch2Rf3tQBvcYk2x93dDUsqxgtY9bqkOOl_-1f4lnP-DQcUtciWwpQJcra5QysoA0yYIuAUKJhna8j5zMXKSw9ZHfrSA6gI_x-nZICsgYNpH0Mcql4TkyypzwZWYlkzuvO9IMFJiK2dvDqErT8=w2256-h753-no?authuser=0" style="width: 100%;">
+<h1 class="work_title">第1回男木島作品公募展</h1>
+<h3 class="date">
+    開催期間<span class="mobile-delete"> ： </span><br class="mobile-br">
+    <span class="dayofweek-trans">2021年12月08日（水）</span> ～ <span class="dayofweek-trans">2022年01月21日（金）</span>
+</h3>
+<h3>☆☆　作品募集期間が「5月31日」から「6月15日」まで延長になりました！　☆☆</h3>
+<p>7月9日（土）12時より、岡野収さんと受賞者のみなさまをお招きして、レセプションパーティを実施する予定です。（岡野収さん作品パフォーマンス、作品講評会、交流会など2時間程度を予定）</p>
+<h3>作品募集期間：2022年3月1日（火）〜<s>2022年5月31日（火）</s>2022年6月15日（水）</h3>
+<h3>テーマ</h3>
+<p>男木島　【彫刻部門】【自由部門】</p>
+<h5>サイズに関して</h5>
+<p>
+    平面作品：タテ80cm × ヨコ80cm以内<br>
+    立体作品：3辺の合計が90cm以内
+</p>
+<h3>審査員</h3>
+<p>岡野 収 氏(彫刻家)</p>
+<blockquote style="line-height: 1.4 !important;">
+    宮城県出身。<br>
+    阿倍野近鉄百貨店や梅田阪急百貨店など、数多くの百貨店で出店を経験。1989年に作品集『木を彫る―めるへんレリーフ・アクセサリー』を出版。木彫り教室『収夢会』を開き、大阪、東京を中心に37の教室を開講。現在は岡山県奈義町にて、自らで設計建造したアトリエを構える。<br>
+    2020年3月8日放送のポツンと一軒家(朝日放送系列)に出演。
+</blockquote>
+<h3>展示場所</h3>
+<p>
+    男木島名物倉庫『あいきえん』　ギャラリー部<br>
+    展示空間の詳細は<a href="https://aikien.com/aikien_service#aikien" target="_blank">こちら</a>のアートギャラリー利用ページをご参照ください。
+</p>
+<h3>出展料</h3>
+<p>
+    1点につき5000円<br>
+    こちらの出展料は、作品管理、運送代に使用させていただくほか、当プロジェクトの支援金として活動費に充てさせていただきます。
+</p>
+<h3>選考スケジュール</h3>
+<p>
+    以下に記載の応募フォームよりご提出いただきました作品要項を元に、審査員による審査を行います。審査通過者には、2022年6月下旬に主催者よりご連絡いたします。<br>
+    入選作15点程度をアートギャラリーに展示いたしまして、各部門につき大賞（仮）1点、金賞（仮）1点、奨励賞（仮）1点を予定しております。
+</p>
+<h3>副賞</h3>
+<p>
+    大賞：男木島満喫ペア旅行（１泊２日・民泊・夕食付き・交通費は自己負担でお願いします）にご招待<br>
+    金賞：あいきえんオリジナルステッカー、トートバッグ<br>
+    奨励賞：あいきえんオリジナルステッカー<br>
+    を予定しております。
+</p>
+<h3>応募書類ダウンロード</h3>
+<p>
+    <a href="/static/pdf/public_exhibition_application_form.pdf" download="public_exhibition_application_form.pdf">公募展申込書</a><br>
+    男木島をテーマにした作品であれば、プロアマ問わずどなたでもエントリー可能です。<br>
+    ぜひ、ご応募ください！<br>
+    ご応募の際は、必ずこちらの<span id="open-terms-of-service">応募規約</span>をよくお読みいただいたうえでご応募いただくようお願いいたします。<br>
+    <div id="terms-of-service-modal" class="terms-of-service__bg"><div class="terms-of-service__card"><h2 class="terms-of-service__title">応募規約</h2><p id="terms-of-service__close-btn" class="terms-of-service__close-btn">× 閉じる</p><div class="terms-of-service__text"><ol><li>倉庫内には複数台の監視カメラを設置し防犯には注意しておりますが、当ギャラリースタッフは基本不在です。期間中に発生したトラブル等に関しましては、運営側は一切の責任を負いません。</li><li>期間中の倉庫、倉庫備品、ご利用者様の作品等、全ての物損等の責任の所在は、ご利用者様にあるとします。不慮の事故や火災、盗難等の場合であっても、一切の責任を負いません。</li><li>会場及び、備品等が破損または紛失した場合は、いかなる場合であっても補修費を負担していただきます。</li><li>利用に際して知りえた全ての個人情報は、いかなる理由があっても、本来の目的以外に使用することはできません。</li><li>あいきえんは禁煙です。</li><li>アートギャラリー部は火気厳禁です。</li><li>申込書に記載した内容と大きく異なると運営側が判断した場合、あるいは内容が不適切だと運営側が判断した場合には、展示期間中でも退去いただきます。なお、お支払いいただいた出展料はお返ししかねます。</li><li>利用規約の改定があった場合には、ホームページにてお知らせいたします。</li><li>ご不明点等ございましたら、メール等でお気軽にご相談ください。</li><li>また、上記以外の項目に関しては、基本的には開催場所である「あいきえん」の利用規約に準じておりますので、そちらもご確認願います。なお、「あいきえん」利用規約は、本ホームページの「アートギャラリー利用」よりご確認いただけます。</li></ol></div></div></div>
+</p>
+<h3>お申し込み先</h3>
+<p>
+    以下のボタンより申し込みフォームを開き、そこからお申し込みください。
+    <a href="https://forms.gle/fGpN57rxrFmkLUwr7" target="_blank" id="apply-btn">申し込みフォームはこちら</a>応募書類を確認出来次第、折り返しご連絡をいたします。
+    その際に出展料の振込先をお伝えいたします。
+    ご質問等ございましたら、<a href="https://aikien.com/contact" target="_blank">こちら</a>のお問い合わせフォームまでお願いします。
+</p>
+<h3 style="margin-top:60px;">よくあるご質問</h3>
+<div class="qa-list qa-list-first"><div class="question"><span class="question__icon">Q</span><span class="question__text">審査員もお一人いらっしゃるとの事ですが、入選作はそれぞれ何点選出されますか？また、副賞などはございますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">入選作15点程度を倉庫に展示し、そこから、各部門につき大賞（仮）1点、金賞（仮）1点、奨励賞（仮）1点を予定しております。また、倉庫展示作品に関しましては7月9日（土）に開催いたしますレセプションパーティにて、直接審査員の講評を受けられます。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">公募に出展する作品は、他の公募への出展経験があるものでも構いませんか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">こちらで特に指定はございませんので、出展経験のある作品でも構いません。ただし、評価基準の中に、男木島や瀬戸内海をテーマにした作品と設定しております。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">展覧会の作品出店にかかる設営はどなたが実施されますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">主に実行委員会が実施いたしますが、希望される場合は、出展者の方にも設営を行っていただくことは可能です。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">男木島までの作品の搬入出にかかる経費はすべて出展者負担でしょうか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">搬出に関しての送料は全てこちらで負担いたしますが、搬入の際の送料や、もし男木島までご来島いただき、搬入作業にあたっていただく際の交通費はご負担いただくこととなります。7月9日（土）に開催されるレセプションパーティご参加者の受賞者のみなさまに関しましては、高松港から男木港までのフェリー代のみ（往復1020円）をこちらで負担させていただきます。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">作品展搬入出のスケジュールはいつを予定していますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">搬入日　7/1（金）~3（日）<br>搬出日　7/25（月）~27（水）</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">応募作品の耐荷重は何Kgまででしょうか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">展示台の強度等ございますので20kg以下でお願いいたします。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">メディアアート、キネティックアート用の電源は有りますか？ご用意のある場合、1区画〇V、〇Aまでご用意いただけますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">今回は不特定多数の方にご応募いただいているため、電源のご使用は基本的にはご遠慮いただいておりますが、アートギャラリーとして個人でレンタルしてご使用される際には電源等ご用意できますので対応いたします。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">照明設備はありますか？ない場合は、出展者の持ち込みを許可いただけますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">ダクトレールが8本ございますので、合計110Vまでご使用いただけます。倉庫内は比較的暗めの設定となっておりますので、明るさを希望される場合やカラー照明をご使用されたい方は照明のお持ち込みをお願いいたします。こちらは事前にご相談ください。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">事前に展示場の図面のデータをサイト上で拝見できますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">あいきえんのアートギャラリー利用ページにて、倉庫内の様子を紹介しておりますので、<a href="https://aikien.com/aikien_service#aikien" target="_blank">こちら</a>をご参照ください。</span></div></div><hr><div class="qa-list"><div class="question"><span class="question__icon">Q</span><span class="question__text">作品は1人につき何作品まで出展できますか？</span></div><div class="answer"><span class="answer__icon">A</span><span class="answer__text">応募点数に制限はございませんが、複数点ご応募される場合は作品１点につき１書類のご提出をお願いいたします。</span></div></div>
+<div class="move_allarticles">
+    <a href="/works">一覧を見る</a>
+</div>
+<style>
+    .qa-list {
+        padding: 24px 0;
+    }
+    .qa-list-first {
+        padding-top: 0;
+    }
+    .question {
+        margin: 12px 0;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .question__icon {
+        padding: 12px 18px;
+        color: rgb(230, 95, 96);
+        font-weight: bold;
+    }
+    .question__text {
+        padding: 12px 0;
+        font-weight: 400;
+    }
+    .answer {
+        margin: 12px 0;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .answer__icon {
+        padding: 12px 18px;
+        color: rgb(230, 95, 96);
+        font-weight: bold;
+    }
+    .answer__text {
+        padding: 12px 0;
+    }
+    hr {
+        width: 80%;
+        margin: 0 auto;
+        color: rgba(90, 77, 79, 0.4);
+    }
+    .main_sentence h1,.main_sentence h2,.main_sentence h3,.main_sentence h4,.main_sentence h5,.main_sentence h6 {
+        margin-top: 36px;
+        margin-bottom: 12px;
+    }
+    #open-terms-of-service {
+        color: rgb(230, 95, 96);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    #terms-of-service>ul>li {
+        margin: 8px 0;
+    }
+    #terms-of-service ol,#terms-of-service ul {
+        padding-left: 2em;
+    }
+    #terms-of-service ol li {
+        margin: 8px 0;
+    }
+    .terms-of-service__bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: .8s;
+        display: none;
+        opacity: 0;
+    }
+    .terms-of-service__card {
+        background-color: rgb(239, 228, 213);
+        width: 80vw;
+        margin: 10vh auto;
+        height: 80vh;
+        border-radius: 4px;
+    }
+    .terms-of-service__title {
+        padding: 8px 24px;
+        color: rgb(239, 228, 213);
+        background-color: rgb(90, 77, 79);
+        font-family: 'ロンド B';
+        border-radius: 4px 4px 0 0;
+    }
+    .terms-of-service__close-btn {
+        position: absolute;
+        top: calc(10vh + 25px);
+        right: calc(10vw + 24px);
+        transform: translateY(-50%);
+        color: rgb(239, 228, 213);
+        cursor: pointer;
+    }
+    .terms-of-service__text {
+        height: calc(80vh - 125px);
+        overflow: auto;
+        padding: 24px 64px 48px;
+    }
+    .terms-of-service__text h3 {
+        margin-top: 24px;
+    }
+    .terms-of-service__text>ol>li>ol {
+        list-style-type: lower-alpha;
+    }
+    .terms-of-service__text li{
+        margin: 12px 0;
+    }
+    #apply-btn{
+        color: rgb(239, 228, 213);
+        background-color: rgb(230, 95, 96);
+        text-decoration: none;
+        padding: 8px 24px;
+        font-size: 1.2em;
+        border-radius: 8px;
+        display: block;
+        width: max-content;
+        margin: 8px auto 16px 0;
+    }
+    @media screen and (max-width:1020px) {
+        .terms-of-service__card{width: 95vw;}
+        .terms-of-service__close-btn{right: calc(2.5vw + 24px);}
+        .terms-of-service__text{padding: 24px 12px 48px;}
+        .terms-of-service__text h3{font-size: 18px;}
+        .terms-of-service__text h5{font-size: 16px;}
+        #apply-btn{margin: 8px auto 16px;}
+    }
+</style>
+<script>
+    document.getElementById('open-terms-of-service').addEventListener('click', () => {
+        document.getElementById('terms-of-service-modal').style.display = "block";
+        window.setTimeout(() => {
+            document.getElementById('terms-of-service-modal').style.opacity = 1;
+        }, 1);
+    })
+    document.getElementById('terms-of-service__close-btn').addEventListener('click', () => {
+        document.getElementById('terms-of-service-modal').style.opacity = 0;
+        window.setTimeout(() => {
+            document.getElementById('terms-of-service-modal').style.display = "none";
+        }, 800);
+    })
+</script>
 {% endblock %}
